@@ -14,7 +14,232 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      article_content: {
+        Row: {
+          article_id: string
+          content: string
+          id: string
+          language: Database["public"]["Enums"]["language_code"]
+          meta_description: string | null
+          subtitle: string | null
+          tags: string[] | null
+          title: string
+        }
+        Insert: {
+          article_id: string
+          content: string
+          id?: string
+          language: Database["public"]["Enums"]["language_code"]
+          meta_description?: string | null
+          subtitle?: string | null
+          tags?: string[] | null
+          title: string
+        }
+        Update: {
+          article_id?: string
+          content?: string
+          id?: string
+          language?: Database["public"]["Enums"]["language_code"]
+          meta_description?: string | null
+          subtitle?: string | null
+          tags?: string[] | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_content_article_id_fkey"
+            columns: ["article_id"]
+            isOneToOne: false
+            referencedRelation: "articles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      articles: {
+        Row: {
+          author_id: string | null
+          category_id: string | null
+          content_type: Database["public"]["Enums"]["content_type"]
+          created_at: string
+          featured_image_url: string | null
+          id: string
+          is_premium: boolean
+          published_at: string | null
+          slug: string
+          status: Database["public"]["Enums"]["content_status"]
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          category_id?: string | null
+          content_type: Database["public"]["Enums"]["content_type"]
+          created_at?: string
+          featured_image_url?: string | null
+          id?: string
+          is_premium?: boolean
+          published_at?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["content_status"]
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          category_id?: string | null
+          content_type?: Database["public"]["Enums"]["content_type"]
+          created_at?: string
+          featured_image_url?: string | null
+          id?: string
+          is_premium?: boolean
+          published_at?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["content_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "articles_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      categories: {
+        Row: {
+          content_type: Database["public"]["Enums"]["content_type"]
+          created_at: string
+          description_en: string | null
+          description_ja: string | null
+          description_th: string | null
+          id: string
+          name_en: string
+          name_ja: string | null
+          name_th: string | null
+          slug: string
+        }
+        Insert: {
+          content_type: Database["public"]["Enums"]["content_type"]
+          created_at?: string
+          description_en?: string | null
+          description_ja?: string | null
+          description_th?: string | null
+          id?: string
+          name_en: string
+          name_ja?: string | null
+          name_th?: string | null
+          slug: string
+        }
+        Update: {
+          content_type?: Database["public"]["Enums"]["content_type"]
+          created_at?: string
+          description_en?: string | null
+          description_ja?: string | null
+          description_th?: string | null
+          id?: string
+          name_en?: string
+          name_ja?: string | null
+          name_th?: string | null
+          slug?: string
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          email: string
+          id: string
+          is_active: boolean
+          preferred_language: Database["public"]["Enums"]["language_code"]
+          subscribed_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          is_active?: boolean
+          preferred_language?: Database["public"]["Enums"]["language_code"]
+          subscribed_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          is_active?: boolean
+          preferred_language?: Database["public"]["Enums"]["language_code"]
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+          preferred_language: Database["public"]["Enums"]["language_code"]
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id?: string
+          preferred_language?: Database["public"]["Enums"]["language_code"]
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+          preferred_language?: Database["public"]["Enums"]["language_code"]
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      subscriptions: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          subscription_end_date: string | null
+          tier: Database["public"]["Enums"]["subscription_tier"]
+          trial_end_date: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          subscription_end_date?: string | null
+          tier?: Database["public"]["Enums"]["subscription_tier"]
+          trial_end_date?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          subscription_end_date?: string | null
+          tier?: Database["public"]["Enums"]["subscription_tier"]
+          trial_end_date?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +248,11 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      content_status: "draft" | "published" | "archived"
+      content_type: "news" | "analysis" | "thailand_101"
+      language_code: "en" | "ja" | "th"
+      subscription_tier: "free_trial" | "starter" | "business" | "enterprise"
+      user_role: "reader" | "editor" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +379,12 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      content_status: ["draft", "published", "archived"],
+      content_type: ["news", "analysis", "thailand_101"],
+      language_code: ["en", "ja", "th"],
+      subscription_tier: ["free_trial", "starter", "business", "enterprise"],
+      user_role: ["reader", "editor", "admin"],
+    },
   },
 } as const
