@@ -1,6 +1,14 @@
-import { Search, Menu, User, Globe } from 'lucide-react';
+import { Search, Menu, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from '@/components/ui/navigation-menu';
 
 const Header = () => {
   return (
@@ -9,33 +17,86 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Globe className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <img
+              src="/lovable-uploads/7b8ba96a-3acf-4389-a970-9c41ac7fa4d6.png"
+              alt="HARMONY logo - Harmonize the global business"
+              className="h-8 w-8"
+              loading="eager"
+              width={32}
+              height={32}
+            />
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               HARMONY
-            </h1>
+            </span>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              News
-            </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Reports
-            </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Thailand 101
-            </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Subscribe
-            </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              About Us
-            </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Languages
-            </a>
-          </nav>
+          <NavigationMenu>
+            <NavigationMenuList className="hidden md:flex items-center space-x-2">
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>News</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 bg-background">
+                  <ul className="grid gap-2 p-4 md:w-[300px]">
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Latest</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Thai Policy Watch</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Global Execs in TH</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Industry Trends</a></li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Reports</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 bg-background">
+                  <ul className="grid gap-2 p-4 md:w-[300px]">
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Strategic Analysis</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Infographics</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Archives</a></li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Thailand 101</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 bg-background">
+                  <ul className="grid gap-2 p-4 md:w-[300px]">
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Living & Lifestyle</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Business Culture</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Must-Know Laws</a></li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Subscribe</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 bg-background">
+                  <ul className="grid gap-2 p-4 md:w-[240px]">
+                    <li><a href="#pricing" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Pricing</a></li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 bg-background">
+                  <ul className="grid gap-2 p-4 md:w-[260px]">
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Our Team</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">Contact us</a></li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Languages</NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 bg-background">
+                  <ul className="grid gap-2 p-4 md:w-[240px]">
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">日本語</a></li>
+                    <li><a href="#" className="block rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground">English</a></li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           {/* Search and User */}
           <div className="flex items-center space-x-4">
