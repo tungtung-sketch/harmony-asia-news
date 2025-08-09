@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Clock, MapPin } from 'lucide-react';
+import { useI18n } from '@/i18n/I18nProvider';
 
 interface NewsCardProps {
   title: string;
@@ -13,6 +14,7 @@ interface NewsCardProps {
 }
 
 const NewsCard = ({ title, excerpt, category, time, author, location, featured = false }: NewsCardProps) => {
+  const { t } = useI18n();
   return (
     <Card className={`group cursor-pointer hover:shadow-lg transition-all duration-300 ${featured ? 'border-primary/20' : ''}`}>
       <CardContent className="p-0">
@@ -22,7 +24,7 @@ const NewsCard = ({ title, excerpt, category, time, author, location, featured =
               <div className="w-12 h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
                 <span className="text-lg">📰</span>
               </div>
-              <p className="text-xs text-muted-foreground">News Image</p>
+              <p className="text-xs text-muted-foreground">{t('newsCard.newsImageLabel')}</p>
             </div>
           </div>
         </div>
@@ -34,7 +36,7 @@ const NewsCard = ({ title, excerpt, category, time, author, location, featured =
             </Badge>
             {featured && (
               <Badge variant="secondary" className="text-xs">
-                Featured
+                {t('newsCard.featured')}
               </Badge>
             )}
           </div>

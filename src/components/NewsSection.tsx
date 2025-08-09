@@ -1,6 +1,9 @@
 import NewsCard from './NewsCard';
+import { useI18n } from '@/i18n/I18nProvider';
 
 const NewsSection = () => {
+  const { t } = useI18n();
+
   const featuredNews = [
     {
       title: "Japan's Central Bank Announces New Digital Currency Initiative",
@@ -61,7 +64,7 @@ const NewsSection = () => {
     <div className="container mx-auto px-4 py-12">
       {/* Featured Stories */}
       <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-8">Featured Stories</h2>
+        <h2 className="text-3xl font-bold mb-8">{t('newsSection.featuredStories')}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {featuredNews.map((news, index) => (
             <NewsCard key={index} {...news} />
@@ -71,7 +74,7 @@ const NewsSection = () => {
 
       {/* Latest News */}
       <section>
-        <h2 className="text-3xl font-bold mb-8">Latest News</h2>
+        <h2 className="text-3xl font-bold mb-8">{t('newsSection.latestNews')}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {latestNews.map((news, index) => (
             <NewsCard key={index} {...news} />

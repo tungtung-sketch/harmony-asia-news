@@ -1,7 +1,9 @@
 import { Badge } from '@/components/ui/badge';
 import { Clock } from 'lucide-react';
+import { useI18n } from '@/i18n/I18nProvider';
 
 const HeroSection = () => {
+  const { t } = useI18n();
   return (
     <section className="py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
@@ -9,23 +11,23 @@ const HeroSection = () => {
           {/* Main Feature Story */}
           <div className="space-y-6">
             <Badge variant="secondary" className="w-fit">
-              Breaking News
+              {t('hero.badge')}
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-              Asia-Pacific Economic Summit Addresses Regional Trade Cooperation
+              {t('hero.title')}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Leaders from 12 Asian nations convene in Singapore to discuss strengthening economic ties and sustainable development initiatives across the region.
+              {t('hero.description')}
             </p>
             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
               <div className="flex items-center space-x-1">
                 <Clock className="h-4 w-4" />
-                <span>2 hours ago</span>
+                <span>{t('hero.time')}</span>
               </div>
               <span>•</span>
-              <span>By Sarah Chen</span>
+              <span>{t('hero.by')}</span>
               <span>•</span>
-              <span>Singapore</span>
+              <span>{t('hero.location')}</span>
             </div>
           </div>
 
@@ -37,7 +39,7 @@ const HeroSection = () => {
                   <div className="w-20 h-20 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
                     <span className="text-2xl">🏛️</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Featured Image</p>
+                  <p className="text-sm text-muted-foreground">{t('hero.featuredImageLabel')}</p>
                 </div>
               </div>
             </div>

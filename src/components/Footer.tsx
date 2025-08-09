@@ -1,7 +1,9 @@
 import { Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/i18n/I18nProvider';
 
 const Footer = () => {
+  const { t } = useI18n();
   return (
     <footer className="bg-muted/30 border-t">
       <div className="container mx-auto px-4 py-12">
@@ -17,22 +19,22 @@ const Footer = () => {
                 height={24}
                 loading="lazy"
               />
-              <span className="text-xl font-bold">HARMONY</span>
+              <span className="text-xl font-bold">{t('brand.name')}</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Your trusted source for Asia-Pacific news and insights, connecting communities across the region.
+              {t('footer.tagline')}
             </p>
             <div className="flex space-x-2">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Twitter">
                 <Twitter className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Facebook">
                 <Facebook className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="YouTube">
                 <Youtube className="h-4 w-4" />
               </Button>
             </div>
@@ -40,43 +42,43 @@ const Footer = () => {
 
           {/* Categories */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Categories</h3>
+            <h3 className="font-semibold">{t('footer.categories')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Politics</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Business</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Technology</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Culture</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Sports</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.politics')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.business')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.technology')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.culture')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.sports')}</a></li>
             </ul>
           </div>
 
           {/* Regions */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Regions</h3>
+            <h3 className="font-semibold">{t('footer.regions')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">East Asia</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Southeast Asia</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">South Asia</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Pacific</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Central Asia</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.eastAsia')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.southeastAsia')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.southAsia')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.pacific')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.centralAsia')}</a></li>
             </ul>
           </div>
 
           {/* About */}
           <div className="space-y-4">
-            <h3 className="font-semibold">About</h3>
+            <h3 className="font-semibold">{t('footer.about')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Careers</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.aboutUs')}</a></li>
+              <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.contact')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.privacy')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.terms')}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.careers')}</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 HARMONY. All rights reserved. | Connecting Asia through trusted journalism.</p>
+          <p>&copy; 2024 {t('brand.name')}. {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>
