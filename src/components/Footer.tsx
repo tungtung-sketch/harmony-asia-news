@@ -1,4 +1,4 @@
-import { Globe, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {
@@ -9,7 +9,14 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Globe className="h-6 w-6 text-primary" />
+              <img
+                src="/lovable-uploads/7b8ba96a-3acf-4389-a970-9c41ac7fa4d6.png"
+                alt="HARMONY logo"
+                className="h-6 w-6"
+                width={24}
+                height={24}
+                loading="lazy"
+              />
               <span className="text-xl font-bold">HARMONY</span>
             </div>
             <p className="text-sm text-muted-foreground">
