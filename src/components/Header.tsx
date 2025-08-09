@@ -18,22 +18,22 @@ const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Latest
+              News
             </a>
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Politics
+              Reports
             </a>
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Business
+              Thailand 101
             </a>
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Technology
+              Subscribe
             </a>
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Culture
+              About Us
             </a>
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Regional
+              Languages
             </a>
           </nav>
 
@@ -46,6 +46,9 @@ const Header = () => {
                 className="w-64 pl-9"
               />
             </div>
+            <Button className="hidden md:inline-flex" aria-label="Join Membership">
+              Membership
+            </Button>
             <Button variant="ghost" size="icon">
               <User className="h-5 w-5" />
             </Button>
