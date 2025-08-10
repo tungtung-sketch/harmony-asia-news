@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-type Lang = "en" | "ja";
+type Lang = "en" | "ja" | "th";
 
 type Translations = Record<string, string>;
 
@@ -16,11 +16,19 @@ const translations: Record<Lang, Translations> = {
   en: {
     // Common
     "brand.name": "HARMONY",
+    "brand.tagline": "Harmonize the global business",
     "cta.membership": "Membership",
     "search.placeholder": "Search news...",
 
     // Header nav
+    "nav.home": "Home",
     "nav.news": "News",
+    "nav.insights": "Insights",
+    "nav.tips": "Business Tips",
+    "nav.subscribe": "Subscribe",
+    "nav.contact": "Contact",
+
+    // Legacy nav (kept for compatibility in components)
     "nav.news.latest": "Latest",
     "nav.news.thaiPolicyWatch": "Thai Policy Watch",
     "nav.news.globalExecsInTH": "Global Execs in TH",
@@ -31,29 +39,36 @@ const translations: Record<Lang, Translations> = {
     "nav.reports.industryReport": "Thai industry report",
     "nav.reports.archives": "Archives",
 
-    "nav.subscribe": "Subscribe",
-    "nav.subscribe.pricing": "Pricing",
-
-    "nav.about": "About Us",
-    "nav.about.ourTeam": "Our Team",
-    "nav.about.contactUs": "Contact us",
-
     "nav.languages": "Languages",
     "nav.languages.ja": "日本語",
     "nav.languages.en": "English",
 
-    // Banner
-    "banner.text": "Welcome to HARMONY — Insightful news, reports, and Thailand 101.",
-    "banner.subscribeLink": "Subscribe for full access",
+    // Home hero
+    "home.hero.title": "Business Insights & News for Japanese Executives in Thailand",
+    "home.hero.subtext": "Connecting Japan and Thailand for business success",
+    "home.hero.cta": "Start Free 1-Month Trial",
 
-    // Hero
-    "hero.badge": "Breaking News",
-    "hero.title": "Asia-Pacific Economic Summit Addresses Regional Trade Cooperation",
-    "hero.description":
-      "Leaders from 12 Asian nations convene in Singapore to discuss strengthening economic ties and sustainable development initiatives across the region.",
-    "hero.time": "2 hours ago",
-    "hero.by": "By Sarah Chen",
-    "hero.location": "Singapore",
+    // Tags
+    "tags.breaking": "Breaking",
+    "tags.analysis": "Analysis",
+    "tags.opinion": "Opinion",
+
+    // Home sections
+    "home.featured": "Featured News",
+    "home.latest": "Latest Articles",
+    "home.insightHighlight.title": "Insight Highlight",
+    "home.insightHighlight.exampleTitle": "5 Trends Japanese Businesses Should Know in Thailand (2025)",
+
+    // Newsletter
+    "home.newsletter.title": "Get weekly insights in your inbox — free for your first month",
+    "home.newsletter.cta": "Subscribe",
+    "home.newsletter.placeholder": "Your email",
+
+    // About stealth
+    "home.about.title": "About Us (Stealth Mode)",
+    "home.about.text": "Harmony Asia News is operated by Harmony Editorial Team — bridging Japanese & Thai business culture through trusted, clear, and actionable information.",
+
+    // Hero fallback keys used elsewhere
     "hero.featuredImageLabel": "Featured Image",
 
     // News Section
@@ -104,6 +119,13 @@ const translations: Record<Lang, Translations> = {
     "contact.messagePlaceholder": "How can we help?",
     "contact.submit": "Send",
     "contact.success": "Thanks! We'll be in touch soon.",
+
+    // Pages
+    "news.title": "News - HARMONY",
+    "insights.title": "Insights - HARMONY",
+    "tips.title": "Business Tips - HARMONY",
+    "subscribe.title": "Subscribe - HARMONY",
+    "subscribe.metaDescription": "Free 1-month trial then monthly/annual plans.",
   },
   ja: {
     // Common
@@ -112,41 +134,59 @@ const translations: Record<Lang, Translations> = {
     "search.placeholder": "ニュースを検索...",
 
     // Header nav
+    "nav.home": "ホーム",
     "nav.news": "ニュース",
+    "nav.insights": "インサイト",
+    "nav.tips": "ビジネスTips",
+    "nav.subscribe": "購読",
+    "nav.contact": "お問い合わせ",
+
+    // Legacy nav keys (kept for compatibility)
     "nav.news.latest": "最新",
     "nav.news.thaiPolicyWatch": "タイ政策ウォッチ",
     "nav.news.globalExecsInTH": "グローバル幹部 in TH",
     "nav.news.industryTrends": "業界動向",
-
     "nav.reports": "レポート",
     "nav.reports.strategicAnalysis": "戦略分析",
     "nav.reports.industryReport": "タイ産業レポート",
     "nav.reports.archives": "アーカイブ",
 
-    "nav.subscribe": "購読",
-    "nav.subscribe.pricing": "料金",
-
-    "nav.about": "私たちについて",
-    "nav.about.ourTeam": "チーム",
-    "nav.about.contactUs": "お問い合わせ",
-
     "nav.languages": "言語",
     "nav.languages.ja": "日本語",
     "nav.languages.en": "English",
+
+    // Brand
+    "brand.tagline": "Harmonize the global business",
 
     // Banner
     "banner.text": "HARMONY へようこそ — 洞察に満ちたニュース、レポート、Thailand 101 をお届けします。",
     "banner.subscribeLink": "全ての機能を利用するには購読",
 
-    // Hero
-    "hero.badge": "速報",
-    "hero.title": "アジア太平洋経済サミット、地域の貿易協力を協議",
-    "hero.description":
-      "アジア12か国の首脳がシンガポールに集まり、経済連携の強化と持続可能な発展について協議しました。",
-    "hero.time": "2時間前",
-    "hero.by": "記者: Sarah Chen",
-    "hero.location": "シンガポール",
+    // Hero (home)
+    "home.hero.title": "タイで活躍する日本人経営者のためのビジネスインサイト",
+    "home.hero.subtext": "日本とタイをつなぎ、ビジネス成功へ",
+    "home.hero.cta": "無料トライアルを開始 (1か月)",
     "hero.featuredImageLabel": "特集画像",
+
+    // Tags
+    "tags.breaking": "速報",
+    "tags.analysis": "分析",
+    "tags.opinion": "オピニオン",
+
+    // Home sections
+    "home.featured": "注目ニュース",
+    "home.latest": "最新記事",
+    "home.insightHighlight.title": "インサイト・ハイライト",
+    "home.insightHighlight.exampleTitle": "2025年、日本企業がタイで知っておくべき5つのトレンド",
+
+    // Newsletter
+    "home.newsletter.title": "毎週のインサイトをメールで — 初月無料",
+    "home.newsletter.cta": "購読する",
+    "home.newsletter.placeholder": "あなたのメールアドレス",
+
+    // About stealth
+    "home.about.title": "運営について（ステルスモード）",
+    "home.about.text": "Harmony Asia News は Harmony 編集チームによって運営され、日本とタイのビジネス文化をつなぐ、信頼できる明快で実践的な情報を提供します。プロフィールの公開は行っていません。",
 
     // News Section
     "newsSection.featuredStories": "注目のストーリー",
@@ -196,6 +236,108 @@ const translations: Record<Lang, Translations> = {
     "contact.messagePlaceholder": "どのようなお手伝いが必要ですか？",
     "contact.submit": "送信",
     "contact.success": "ありがとうございます。追ってご連絡いたします。",
+
+    // Pages
+    "news.title": "ニュース - HARMONY",
+    "insights.title": "インサイト - HARMONY",
+    "tips.title": "ビジネスTips - HARMONY",
+    "subscribe.title": "購読 - HARMONY",
+    "subscribe.metaDescription": "初月無料の購読プラン。月額/年額プランをご用意。",
+  },
+  th: {
+    // Common
+    "brand.name": "HARMONY",
+    "brand.tagline": "ผสานธุรกิจระดับโลก",
+    "cta.membership": "สมาชิก",
+    "search.placeholder": "ค้นหาข่าว...",
+
+    // Header nav
+    "nav.home": "หน้าแรก",
+    "nav.news": "ข่าว",
+    "nav.insights": "อินไซต์",
+    "nav.tips": "เคล็ดลับธุรกิจ",
+    "nav.subscribe": "สมัครสมาชิก",
+    "nav.contact": "ติดต่อเรา",
+
+    // Tags
+    "tags.breaking": "ด่วน",
+    "tags.analysis": "วิเคราะห์",
+    "tags.opinion": "ความเห็น",
+
+    // Hero (home)
+    "home.hero.title": "อินไซต์และข่าวธุรกิจสำหรับผู้บริหารญี่ปุ่นในประเทศไทย",
+    "home.hero.subtext": "เชื่อมญี่ปุ่นและไทยเพื่อความสำเร็จทางธุรกิจ",
+    "home.hero.cta": "เริ่มทดลองใช้ฟรี 1 เดือน",
+
+    // Home sections
+    "home.featured": "ข่าวเด่น",
+    "home.latest": "บทความล่าสุด",
+    "home.insightHighlight.title": "สรุปอินไซต์แบบอินโฟกราฟิก",
+    "home.insightHighlight.exampleTitle": "5 เทรนด์ที่ธุรกิจญี่ปุ่นควรรู้ในไทย (2025)",
+
+    // Newsletter
+    "home.newsletter.title": "รับอินไซต์รายสัปดาห์ในอีเมล — เดือนแรกฟรี",
+    "home.newsletter.cta": "สมัครรับข่าว",
+    "home.newsletter.placeholder": "อีเมลของคุณ",
+
+    // About stealth
+    "home.about.title": "เกี่ยวกับเรา (Stealth Mode)",
+    "home.about.text": "Harmony Asia News ดำเนินการโดยทีมบรรณาธิการ Harmony — เชื่อมวัฒนธรรมธุรกิจญี่ปุ่นและไทยด้วยข้อมูลที่เชื่อถือได้ ชัดเจน และนำไปใช้ได้จริง ไม่มีการแสดงโปรไฟล์ส่วนบุคคล",
+
+    // News Section
+    "newsSection.featuredStories": "เรื่องเด่น",
+    "newsSection.latestNews": "ข่าวล่าสุด",
+
+    // NewsCard
+    "newsCard.featured": "เด่น",
+    "newsCard.newsImageLabel": "ภาพข่าว",
+
+    // Footer
+    "footer.tagline": "แหล่งข่าวและอินไซต์เอเชียแปซิฟิกที่เชื่อถือได้ เชื่อมต่อชุมชนทั่วภูมิภาค",
+    "footer.categories": "หมวดหมู่",
+    "footer.categories.politics": "การเมือง",
+    "footer.categories.business": "ธุรกิจ",
+    "footer.categories.technology": "เทคโนโลยี",
+    "footer.categories.culture": "วัฒนธรรม",
+    "footer.categories.sports": "กีฬา",
+
+    "footer.regions": "ภูมิภาค",
+    "footer.regions.eastAsia": "เอเชียตะวันออก",
+    "footer.regions.southeastAsia": "เอเชียตะวันออกเฉียงใต้",
+    "footer.regions.southAsia": "เอเชียใต้",
+    "footer.regions.pacific": "แปซิฟิก",
+    "footer.regions.centralAsia": "เอเชียกลาง",
+
+    "footer.about": "เกี่ยวกับ",
+    "footer.about.aboutUs": "เกี่ยวกับเรา",
+    "footer.about.contact": "ติดต่อ",
+    "footer.about.privacy": "นโยบายความเป็นส่วนตัว",
+    "footer.about.terms": "ข้อกำหนดการใช้บริการ",
+    "footer.about.careers": "ร่วมงานกับเรา",
+
+    "footer.copyright": "สงวนลิขสิทธิ์ทั้งหมด | เชื่อมเอเชียด้วยสื่อที่เชื่อถือได้",
+
+    // Advertisement
+    "ad.label": "โฆษณา",
+    "ad.placeholder": "พื้นที่โฆษณา (Responsive 728x90 / 970x90)",
+
+    // Contact
+    "contact.title": "ติดต่อเรา - HARMONY",
+    "contact.metaDescription": "ติดต่อ HARMONY ส่งอีเมลและข้อความถึงเรา",
+    "contact.h1": "ติดต่อเรา",
+    "contact.emailLabel": "อีเมล",
+    "contact.emailPlaceholder": "you@example.com",
+    "contact.messageLabel": "ข้อความ (ไม่บังคับ)",
+    "contact.messagePlaceholder": "เราช่วยอะไรคุณได้บ้าง?",
+    "contact.submit": "ส่ง",
+    "contact.success": "ขอบคุณ! เราจะติดต่อกลับโดยเร็ว",
+
+    // Pages
+    "news.title": "ข่าว - HARMONY",
+    "insights.title": "อินไซต์ - HARMONY",
+    "tips.title": "เคล็ดลับธุรกิจ - HARMONY",
+    "subscribe.title": "สมัครสมาชิก - HARMONY",
+    "subscribe.metaDescription": "ทดลองใช้ฟรี 1 เดือน จากนั้นรายเดือน/รายปี",
   },
 };
 
