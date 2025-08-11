@@ -342,7 +342,11 @@ const translations: Record<Lang, Translations> = {
 };
 
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Lang>(() => (localStorage.getItem("lang") as Lang) || "en");
+  const [lang, setLangState] = useState<Lang>(() => {
+    const stored = localStorage.getItem("lang") as Lang | null;
+    if (stored === "th") return "en";
+    return (stored as Lang) || "en";
+  });
 
   useEffect(() => {
     document.documentElement.lang = lang;
