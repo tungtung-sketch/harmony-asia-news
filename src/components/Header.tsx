@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Link, NavLink } from 'react-router-dom';
 import { useI18n } from '@/i18n/I18nProvider';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
 
 
 const Header = () => {
@@ -32,9 +34,32 @@ const Header = () => {
             <NavLink to="/news" className={({ isActive }) => isActive ? 'text-primary font-medium' : 'hover:text-primary'}>
               {t('nav.news')}
             </NavLink>
-            <NavLink to="/insights" className={({ isActive }) => isActive ? 'text-primary font-medium' : 'hover:text-primary'}>
-              {t('nav.insights')}
-            </NavLink>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center hover:text-primary focus:outline-none">
+                <span>{t('nav.insights')}</span>
+                <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="z-50 bg-popover">
+                <DropdownMenuItem asChild>
+                  <Link to="/insights">Overview</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/insights/services">Services</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/insights/manufacturing">Manufacturing</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/insights/wellness-healthcare">Wellness / Healthcare</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/insights/agriculture">Agriculture</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/insights/real-estate">Real Estate</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <NavLink to="/tips" className={({ isActive }) => isActive ? 'text-primary font-medium' : 'hover:text-primary'}>
               {t('nav.tips')}
             </NavLink>
