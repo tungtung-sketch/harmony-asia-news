@@ -19,6 +19,9 @@ const Header = () => {
               width={32}
               height={32}
             />
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              {t('brand.name')}
+            </span>
           </div>
 
           {/* Navigation */}
