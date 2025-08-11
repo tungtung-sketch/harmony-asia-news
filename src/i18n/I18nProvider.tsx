@@ -65,7 +65,7 @@ const translations: Record<Lang, Translations> = {
     "home.newsletter.placeholder": "Your email",
 
     // About stealth
-    "home.about.title": "About Us (Stealth Mode)",
+    "home.about.title": "About Us",
     "home.about.text": "Harmony Asia News is operated by Harmony Editorial Team — bridging Japanese & Thai business culture through trusted, clear, and actionable information.",
 
     // Hero fallback keys used elsewhere
@@ -185,7 +185,7 @@ const translations: Record<Lang, Translations> = {
     "home.newsletter.placeholder": "あなたのメールアドレス",
 
     // About stealth
-    "home.about.title": "運営について（ステルスモード）",
+    "home.about.title": "運営について",
     "home.about.text": "Harmony Asia News は Harmony 編集チームによって運営され、日本とタイのビジネス文化をつなぐ、信頼できる明快で実践的な情報を提供します。プロフィールの公開は行っていません。",
 
     // News Section
