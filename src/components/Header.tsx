@@ -50,7 +50,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <span className="hidden sm:block text-sm text-muted-foreground pr-2">{t('brand.tagline')}</span>
             <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
-            <Button variant="ghost" size="sm" onClick={() => setLang('th')} aria-label="Switch to Thai">TH</Button>
+            <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
           </div>
         </div>
       </div>
