@@ -65,7 +65,7 @@ const translations: Record<Lang, Translations> = {
     "home.newsletter.placeholder": "Your email",
 
     // About stealth
-    "home.about.title": "About Us",
+    "home.about.title": "About Us (love baby krub)",
     "home.about.text": "Harmony Asia News is operated by Harmony Editorial Team — bridging Japanese & Thai business culture through trusted, clear, and actionable information.",
 
     // Hero fallback keys used elsewhere
