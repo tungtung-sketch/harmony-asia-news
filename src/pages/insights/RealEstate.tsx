@@ -1,11 +1,69 @@
 import { Link } from "react-router-dom";
-import { Card, CardContent } from "@/components/ui/card";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import InsightHero from '@/components/InsightHero';
+import InsightArticleCard from '@/components/InsightArticleCard';
+import InsightSidebar from '@/components/InsightSidebar';
+import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const RealEstate = () => {
   const title = "Real Estate Insights | Harmony";
   const description =
     "Real estate insights: investment flows, REIT structures, and urban development across Thailand and Japan.";
+
+  const articles = [
+    {
+      title: "Japanese REITs Eye Thai Commercial Property Market Expansion",
+      description: "Major Japanese real estate investment trusts explore opportunities in Bangkok's office towers and retail complexes amid recovery signals.",
+      category: "REITs",
+      readTime: "6 min read",
+      author: "Real Estate Analyst"
+    },
+    {
+      title: "Logistics Real Estate Boom: E-commerce Drives Warehouse Demand",
+      description: "Japanese logistics companies invest heavily in Thai distribution centers to support growing cross-border e-commerce operations.",
+      category: "Industrial",
+      readTime: "7 min read",
+      author: "Industrial Property"
+    },
+    {
+      title: "Transit-Oriented Development: Bangkok's Infrastructure-Led Growth",
+      description: "New BTS and MRT extensions create property investment opportunities along mass transit corridors, attracting Japanese developers.",
+      category: "Transit Development",
+      readTime: "8 min read",
+      author: "Urban Planning"
+    },
+    {
+      title: "Green Building Certification Drives Premium Property Values",
+      description: "LEED and TREES certified buildings command 15-20% rent premiums as Japanese firms prioritize sustainable office spaces.",
+      category: "Sustainability",
+      readTime: "5 min read",
+      author: "Green Building Expert"
+    },
+    {
+      title: "Hospitality Recovery: Japanese Hotel Chains Resume Thai Expansion",
+      description: "Tourism rebound encourages Japanese hospitality brands to accelerate hotel development plans across major Thai destinations.",
+      category: "Hospitality",
+      readTime: "6 min read",
+      author: "Hospitality Correspondent"
+    },
+    {
+      title: "Cross-Border Property Investment: Regulatory Updates and Opportunities",
+      description: "Recent policy changes facilitate foreign investment in Thai real estate while maintaining ownership structure requirements.",
+      category: "Investment Policy",
+      readTime: "7 min read",
+      author: "Legal & Regulatory"
+    }
+  ];
+
+  const highlights = [
+    { title: "New Foreign Ownership Regulations Clarified", category: "Regulation", time: "1h ago" },
+    { title: "Bangkok Office Occupancy Rates Reach 87%", category: "Commercial", time: "3h ago" },
+    { title: "Industrial Land Prices Rise 12% in Eastern Region", category: "Industrial", time: "5h ago" },
+    { title: "Luxury Condo Pre-Sales Show Strong Recovery", category: "Residential", time: "7h ago" },
+  ];
 
   return (
     <>
@@ -14,44 +72,79 @@ const RealEstate = () => {
         description={description}
         canonicalPath="/insights/real-estate"
       />
-      <main className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold tracking-tight">Real Estate Insights</h1>
-        <p className="mt-2 text-muted-foreground max-w-2xl">
-          Navigate cross-border investment, asset management, and mixed-use
-          development trends.
-        </p>
+      <div className="min-h-screen bg-background">
+        <Header />
+        
+        <InsightHero 
+          title="Real Estate Market Intelligence"
+          description="Navigate cross-border investment, asset management, and mixed-use development trends across Thailand and Japan."
+          category="Real Estate Sector"
+          backgroundImage={heroImage}
+        />
 
-        <section className="mt-8 grid gap-4 sm:grid-cols-2">
-          <Card>
-            <CardContent className="p-6">
-              <h2 className="text-xl font-semibold">Key Themes</h2>
-              <ul className="mt-3 list-disc pl-5 text-muted-foreground space-y-1">
-                <li>REITs and cross-listing potentials</li>
-                <li>Industrial and logistics assets</li>
-                <li>Transit-oriented development (TOD)</li>
-              </ul>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6">
-              <h2 className="text-xl font-semibold">What to Watch</h2>
-              <ul className="mt-3 list-disc pl-5 text-muted-foreground space-y-1">
-                <li>Foreign ownership regulations</li>
-                <li>Green building certifications</li>
-                <li>Hospitality recovery and new formats</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </section>
+        <main className="container mx-auto px-4 py-12">
+          <Breadcrumb items={[
+            { label: 'Insights', href: '/insights' },
+            { label: 'Real Estate' }
+          ]} />
 
-        <nav className="mt-8 text-sm text-muted-foreground">
-          <span className="mr-2">More industries:</span>
-          <Link to="/insights/services" className="text-primary mr-3">Services</Link>
-          <Link to="/insights/manufacturing" className="text-primary mr-3">Manufacturing</Link>
-          <Link to="/insights/wellness-healthcare" className="text-primary mr-3">Wellness/Healthcare</Link>
-          <Link to="/insights/agriculture" className="text-primary">Agriculture</Link>
-        </nav>
-      </main>
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <section>
+                <h2 className="text-2xl font-bold mb-6">Latest Real Estate Intelligence</h2>
+                <div className="grid gap-6 sm:grid-cols-2 mb-12">
+                  {articles.map((article, index) => (
+                    <InsightArticleCard key={index} {...article} />
+                  ))}
+                </div>
+
+                {/* Key Focus Areas */}
+                <div className="grid gap-6 sm:grid-cols-2 mb-8">
+                  <div className="p-6 rounded-lg border bg-card">
+                    <h3 className="text-xl font-semibold mb-4">Investment Themes</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• REITs and cross-listing potentials</li>
+                      <li>• Industrial and logistics assets</li>
+                      <li>• Transit-oriented development (TOD)</li>
+                      <li>• Mixed-use commercial complexes</li>
+                      <li>• Sustainable and smart building technology</li>
+                    </ul>
+                  </div>
+                  <div className="p-6 rounded-lg border bg-card">
+                    <h3 className="text-xl font-semibold mb-4">Market Dynamics</h3>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Foreign ownership regulations</li>
+                      <li>• Green building certifications</li>
+                      <li>• Hospitality recovery and new formats</li>
+                      <li>• Cross-border capital flows</li>
+                      <li>• Urban planning and zoning changes</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <InsightSidebar highlights={highlights} />
+            </div>
+          </div>
+
+          {/* Related Industries Navigation */}
+          <nav className="mt-12 p-6 rounded-lg bg-muted/30">
+            <h3 className="font-semibold mb-3">Explore Other Industries</h3>
+            <div className="flex flex-wrap gap-2">
+              <Link to="/insights/services" className="px-3 py-1 text-sm bg-background hover:bg-primary/10 rounded-full transition-colors">Services</Link>
+              <Link to="/insights/manufacturing" className="px-3 py-1 text-sm bg-background hover:bg-primary/10 rounded-full transition-colors">Manufacturing</Link>
+              <Link to="/insights/wellness-healthcare" className="px-3 py-1 text-sm bg-background hover:bg-primary/10 rounded-full transition-colors">Wellness/Healthcare</Link>
+              <Link to="/insights/agriculture" className="px-3 py-1 text-sm bg-background hover:bg-primary/10 rounded-full transition-colors">Agriculture</Link>
+            </div>
+          </nav>
+        </main>
+
+        <Footer />
+      </div>
     </>
   );
 };

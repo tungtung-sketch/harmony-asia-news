@@ -1,56 +1,136 @@
 import { Link } from "react-router-dom";
-import { Card, CardContent } from "@/components/ui/card";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import InsightHero from '@/components/InsightHero';
+import InsightArticleCard from '@/components/InsightArticleCard';
+import InsightSidebar from '@/components/InsightSidebar';
+import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const InsightsLanding = () => {
   const title = "Insights | Harmony";
   const description =
     "Explore industry insights for Thailand–Japan business: services, manufacturing, wellness/healthcare, agriculture, and real estate.";
 
-  const items = [
-    { to: "/insights/services", label: "Services" },
-    { to: "/insights/manufacturing", label: "Manufacturing" },
-    { to: "/insights/wellness-healthcare", label: "Wellness / Healthcare" },
-    { to: "/insights/agriculture", label: "Agriculture" },
-    { to: "/insights/real-estate", label: "Real Estate" },
+  const articles = [
+    {
+      title: "Thailand 4.0 Policy Drives Digital Transformation Across Industries",
+      description: "Government initiatives accelerate digital adoption in manufacturing and services, creating new opportunities for Japanese tech companies.",
+      category: "Policy Update",
+      readTime: "5 min read",
+      author: "Harmony Research"
+    },
+    {
+      title: "Cross-Border E-commerce Surge: New Market Entry Strategies",
+      description: "Japanese SMEs find success in Thai digital marketplaces through localized approaches and strategic partnerships.",
+      category: "Market Analysis",
+      readTime: "7 min read",
+      author: "Market Intelligence"
+    },
+    {
+      title: "BOI Investment Incentives Expanded for Clean Energy Projects",
+      description: "Updated Board of Investment packages offer enhanced benefits for renewable energy and sustainability initiatives.",
+      category: "Investment",
+      readTime: "4 min read",
+      author: "Policy Team"
+    },
+    {
+      title: "Supply Chain Resilience: The Thailand+1 Strategy",
+      description: "Diversification beyond China accelerates as companies seek stable manufacturing bases in Southeast Asia.",
+      category: "Supply Chain",
+      readTime: "6 min read",
+      author: "Strategic Analysis"
+    },
+    {
+      title: "Fintech Innovation Corridor: Japan-Thailand Collaboration",
+      description: "Joint regulatory sandboxes enable faster deployment of financial technology solutions across both markets.",
+      category: "Fintech",
+      readTime: "5 min read",
+      author: "Financial Services"
+    },
+    {
+      title: "Healthcare Reform Creates Opportunities for Medical Device Exports",
+      description: "Thailand's universal healthcare expansion drives demand for advanced Japanese medical technologies.",
+      category: "Healthcare",
+      readTime: "8 min read",
+      author: "Healthcare Desk"
+    }
+  ];
+
+  const highlights = [
+    { title: "Japan-Thailand EPA Updates Drive Trade Growth", category: "Trade", time: "2h ago" },
+    { title: "EV Battery Manufacturing Incentives Announced", category: "Automotive", time: "4h ago" },
+    { title: "Digital Payments Interoperability Expands", category: "Fintech", time: "6h ago" },
+    { title: "Tourism Recovery Reaches 85% of Pre-Pandemic Levels", category: "Tourism", time: "1d ago" },
+  ];
+
+  const industryCards = [
+    { to: "/insights/services", label: "Services", description: "Digital transformation, financial services, and professional business solutions" },
+    { to: "/insights/manufacturing", label: "Manufacturing", description: "Supply chain innovation, automation, and Industry 4.0 implementation" },
+    { to: "/insights/wellness-healthcare", label: "Wellness / Healthcare", description: "Medical technology, telemedicine, and wellness tourism opportunities" },
+    { to: "/insights/agriculture", label: "Agriculture", description: "Agri-tech, sustainable farming, and food processing advancements" },
+    { to: "/insights/real-estate", label: "Real Estate", description: "Commercial property, REITs, and urban development trends" },
   ];
 
   return (
     <>
       <SEO title={title} description={description} canonicalPath="/insights" />
-      <main className="container mx-auto px-4 py-12">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Insights</h1>
-          <p className="mt-2 text-muted-foreground max-w-2xl">
-            Curated industry intelligence connecting Thailand and Japan—trends,
-            regulations, opportunities, and playbooks for expansion.
-          </p>
-        </header>
+      <div className="min-h-screen bg-background">
+        <Header />
+        
+        <InsightHero 
+          title="Thailand-Japan Business Intelligence"
+          description="Curated industry insights, market analysis, and strategic intelligence for executives navigating Thailand-Japan business opportunities."
+          category="Business Intelligence Hub"
+          backgroundImage={heroImage}
+        />
 
-        <section aria-labelledby="industries-heading">
-          <h2 id="industries-heading" className="sr-only">
-            Industries
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((item) => (
-              <Link key={item.to} to={item.to} className="group">
-                <Card className="h-full transition-shadow group-hover:shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold">{item.label}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      View market trends, policy updates, and strategic guidance
-                      for the {item.label.toLowerCase()} sector.
+        <main className="container mx-auto px-4 py-12">
+          <Breadcrumb items={[{ label: 'Insights' }]} />
+
+          {/* Industry Overview Cards */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-6">Industry Focus Areas</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {industryCards.map((item) => (
+                <Link key={item.to} to={item.to} className="group">
+                  <div className="h-full p-6 rounded-lg border bg-card hover:shadow-lg transition-all duration-300 group-hover:border-primary/20">
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{item.label}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {item.description}
                     </p>
-                    <span className="mt-4 inline-block text-primary font-medium">
-                      Explore →
+                    <span className="text-primary font-medium text-sm">
+                      Explore Insights →
                     </span>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <section>
+                <h2 className="text-2xl font-bold mb-6">Latest Market Intelligence</h2>
+                <div className="grid gap-6 sm:grid-cols-2">
+                  {articles.map((article, index) => (
+                    <InsightArticleCard key={index} {...article} />
+                  ))}
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <InsightSidebar highlights={highlights} />
+            </div>
           </div>
-        </section>
-      </main>
+        </main>
+
+        <Footer />
+      </div>
     </>
   );
 };
