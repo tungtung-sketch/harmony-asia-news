@@ -14,7 +14,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img
-              src="/lovable-uploads/7b8ba96a-3acf-4389-a970-9c41ac7fa4d6.png"
+              src="/lovable-uploads/Harmony_Logo_only.png"
               alt="HARMONY logo - Harmonize the global business"
               className="h-8 w-8"
               loading="eager"
