@@ -44,7 +44,7 @@ const translations: Record<Lang, Translations> = {
     "nav.languages.en": "English",
 
     // Home hero
-    "home.hero.title": "Business Insights & News for Japanese Executives in Thailand",
+    "home.hero.title": "Future Thailand: Executive Business & Market Insights",
     "home.hero.subtext": "Connecting Japan and Thailand for business success",
     "home.hero.cta": "Start Free 1-Month Trial",
 
@@ -212,7 +212,7 @@ const translations: Record<Lang, Translations> = {
     "banner.subscribeLink": "全ての機能を利用するには購読",
 
     // Hero (home)
-    "home.hero.title": "タイで活躍する日本人経営者のためのビジネスインサイト",
+    "home.hero.title": "タイの未来：ビジネスと市場の深層分析",
     "home.hero.subtext": "日本とタイをつなぎ、ビジネス成功へ",
     "home.hero.cta": "無料トライアルを開始 (1か月)",
     "hero.featuredImageLabel": "特集画像",
