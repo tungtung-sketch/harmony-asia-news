@@ -2,27 +2,18 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
 import { useI18n } from "@/i18n/I18nProvider";
-import { Search } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const NotFound = () => {
+const Subscribe = () => {
   const { t } = useI18n();
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
 
   return (
     <>
       <SEO
-        title="Page Not Found - HARMONY"
-        description="The page you are looking for does not exist."
-        canonicalPath="/404"
+        title={t("subscribe.title")}
+        description={t("subscribe.metaDescription")}
+        canonicalPath="/subscribe"
       />
       <div className="min-h-screen bg-background">
         <Header />
@@ -31,7 +22,7 @@ const NotFound = () => {
           <div className="text-center max-w-md mx-auto">
             <div className="mb-8 flex justify-center">
               <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                <Search className="w-12 h-12 text-primary" />
+                <Mail className="w-12 h-12 text-primary" />
               </div>
             </div>
             
@@ -58,4 +49,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Subscribe;

@@ -60,7 +60,7 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <NavLink to="/tips" className={({ isActive }) => isActive ? 'text-primary font-medium' : 'hover:text-primary'}>
+            <NavLink to="/business-tips" className={({ isActive }) => isActive ? 'text-primary font-medium' : 'hover:text-primary'}>
               {t('nav.tips')}
             </NavLink>
             <NavLink to="/subscribe" className={({ isActive }) => isActive ? 'text-primary font-medium' : 'hover:text-primary'}>

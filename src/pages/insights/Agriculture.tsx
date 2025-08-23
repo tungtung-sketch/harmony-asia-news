@@ -6,12 +6,13 @@ import InsightArticleCard from '@/components/InsightArticleCard';
 import InsightSidebar from '@/components/InsightSidebar';
 import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import { useI18n } from "@/i18n/I18nProvider";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const Agriculture = () => {
-  const title = "Agriculture Insights | Harmony";
-  const description =
-    "Agriculture insights: sustainable farming, agri-tech adoption, and export market access between Thailand and Japan.";
+  const { t } = useI18n();
+  const title = t("insights.title");
+  const description = t("insights.agriculture.description");
 
   const articles = [
     {
@@ -76,15 +77,15 @@ const Agriculture = () => {
         <Header />
         
         <InsightHero 
-          title="Agriculture & Food Intelligence"
-          description="Strategies for high-value crops, cold-chain logistics, and traceability to reach discerning Japanese consumers."
-          category="Agriculture Sector"
+          title={t("insights.agriculture.title")}
+          description={t("insights.agriculture.description")}
+          category={t("insights.agriculture.category")}
           backgroundImage={heroImage}
         />
 
         <main className="container mx-auto px-4 py-12">
           <Breadcrumb items={[
-            { label: 'Insights', href: '/insights' },
+            { label: t('insights.breadcrumb'), href: '/insights' },
             { label: 'Agriculture' }
           ]} />
 

@@ -6,6 +6,7 @@ import InsightArticleCard from '@/components/InsightArticleCard';
 import InsightSidebar from '@/components/InsightSidebar';
 import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import { useI18n } from "@/i18n/I18nProvider";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const WellnessHealthcare = () => {

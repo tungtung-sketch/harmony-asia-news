@@ -6,12 +6,13 @@ import InsightArticleCard from '@/components/InsightArticleCard';
 import InsightSidebar from '@/components/InsightSidebar';
 import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import { useI18n } from "@/i18n/I18nProvider";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const Services = () => {
-  const title = "Services Industry Insights | Harmony";
-  const description =
-    "Services industry insights for Thailand–Japan business: market demand, regulations, and opportunities.";
+  const { t } = useI18n();
+  const title = t("insights.title");
+  const description = t("insights.services.description");
 
   const articles = [
     {
@@ -76,15 +77,15 @@ const Services = () => {
         <Header />
         
         <InsightHero 
-          title="Services Industry Intelligence"
-          description="Navigate digital transformation, fintech innovation, and professional services expansion across Thailand and Japan markets."
-          category="Services Sector"
+          title={t("insights.services.title")}
+          description={t("insights.services.description")}
+          category={t("insights.services.category")}
           backgroundImage={heroImage}
         />
 
         <main className="container mx-auto px-4 py-12">
           <Breadcrumb items={[
-            { label: 'Insights', href: '/insights' },
+            { label: t('insights.breadcrumb'), href: '/insights' },
             { label: 'Services' }
           ]} />
 
@@ -92,7 +93,7 @@ const Services = () => {
             {/* Main Content */}
             <div className="lg:col-span-3">
               <section>
-                <h2 className="text-2xl font-bold mb-6">Latest Services Intelligence</h2>
+                <h2 className="text-2xl font-bold mb-6">{t("insights.services.latestIntelligence")}</h2>
                 <div className="grid gap-6 sm:grid-cols-2 mb-12">
                   {articles.map((article, index) => (
                     <InsightArticleCard key={index} {...article} />
@@ -102,7 +103,7 @@ const Services = () => {
                 {/* Key Focus Areas */}
                 <div className="grid gap-6 sm:grid-cols-2 mb-8">
                   <div className="p-6 rounded-lg border bg-card">
-                    <h3 className="text-xl font-semibold mb-4">Key Growth Areas</h3>
+                    <h3 className="text-xl font-semibold mb-4">{t("insights.services.keyGrowthAreas")}</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li>• Cross-border fintech and digital payments</li>
                       <li>• Professional services localization</li>
@@ -112,7 +113,7 @@ const Services = () => {
                     </ul>
                   </div>
                   <div className="p-6 rounded-lg border bg-card">
-                    <h3 className="text-xl font-semibold mb-4">Market Opportunities</h3>
+                    <h3 className="text-xl font-semibold mb-4">{t("insights.services.marketOpportunities")}</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li>• Regulatory sandboxes for fintech innovation</li>
                       <li>• Data protection and cross-border transfers</li>
@@ -133,7 +134,7 @@ const Services = () => {
 
           {/* Related Industries Navigation */}
           <nav className="mt-12 p-6 rounded-lg bg-muted/30">
-            <h3 className="font-semibold mb-3">Explore Other Industries</h3>
+            <h3 className="font-semibold mb-3">{t("insights.services.exploreOther")}</h3>
             <div className="flex flex-wrap gap-2">
               <Link to="/insights/manufacturing" className="px-3 py-1 text-sm bg-background hover:bg-primary/10 rounded-full transition-colors">Manufacturing</Link>
               <Link to="/insights/wellness-healthcare" className="px-3 py-1 text-sm bg-background hover:bg-primary/10 rounded-full transition-colors">Wellness/Healthcare</Link>

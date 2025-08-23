@@ -6,12 +6,13 @@ import InsightArticleCard from '@/components/InsightArticleCard';
 import InsightSidebar from '@/components/InsightSidebar';
 import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import { useI18n } from "@/i18n/I18nProvider";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const InsightsLanding = () => {
-  const title = "Insights | Harmony";
-  const description =
-    "Explore industry insights for Thailand–Japan business: services, manufacturing, wellness/healthcare, agriculture, and real estate.";
+  const { t } = useI18n();
+  const title = t("insights.title");
+  const description = t("insights.landing.description");
 
   const articles = [
     {
@@ -80,18 +81,18 @@ const InsightsLanding = () => {
         <Header />
         
         <InsightHero 
-          title="Thailand-Japan Business Intelligence"
-          description="Curated industry insights, market analysis, and strategic intelligence for executives navigating Thailand-Japan business opportunities."
-          category="Business Intelligence Hub"
+          title={t("insights.landing.title")}
+          description={t("insights.landing.description")}
+          category={t("insights.landing.category")}
           backgroundImage={heroImage}
         />
 
         <main className="container mx-auto px-4 py-12">
-          <Breadcrumb items={[{ label: 'Insights' }]} />
+          <Breadcrumb items={[{ label: t('insights.breadcrumb') }]} />
 
           {/* Industry Overview Cards */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">Industry Focus Areas</h2>
+            <h2 className="text-2xl font-bold mb-6">{t("insights.landing.industryFocus")}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {industryCards.map((item) => (
                 <Link key={item.to} to={item.to} className="group">
@@ -101,7 +102,7 @@ const InsightsLanding = () => {
                       {item.description}
                     </p>
                     <span className="text-primary font-medium text-sm">
-                      Explore Insights →
+                      {t("insights.landing.exploreInsights")}
                     </span>
                   </div>
                 </Link>
@@ -113,7 +114,7 @@ const InsightsLanding = () => {
             {/* Main Content */}
             <div className="lg:col-span-3">
               <section>
-                <h2 className="text-2xl font-bold mb-6">Latest Market Intelligence</h2>
+                <h2 className="text-2xl font-bold mb-6">{t("insights.landing.latestIntelligence")}</h2>
                 <div className="grid gap-6 sm:grid-cols-2">
                   {articles.map((article, index) => (
                     <InsightArticleCard key={index} {...article} />

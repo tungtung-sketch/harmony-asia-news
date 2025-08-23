@@ -126,6 +126,49 @@ const translations: Record<Lang, Translations> = {
     "tips.title": "Business Tips - HARMONY",
     "subscribe.title": "Subscribe - HARMONY",
     "subscribe.metaDescription": "Free 1-month trial then monthly/annual plans.",
+
+    // Not Found
+    "notfound.title": "Page Not Found",
+    "notfound.subtitle": "The page you are looking for does not exist. Try returning to the homepage or explore our Insights.",
+    "notfound.backHome": "Back to Home",
+
+    // Insights
+    "insights.breadcrumb": "Insights",
+    "insights.landing.title": "Thailand-Japan Business Intelligence",
+    "insights.landing.description": "Curated industry insights, market analysis, and strategic intelligence for executives navigating Thailand-Japan business opportunities.",
+    "insights.landing.category": "Business Intelligence Hub",
+    "insights.landing.industryFocus": "Industry Focus Areas",
+    "insights.landing.exploreInsights": "Explore Insights →",
+    "insights.landing.latestIntelligence": "Latest Market Intelligence",
+
+    // Insights Services
+    "insights.services.title": "Services Industry Intelligence",
+    "insights.services.description": "Navigate digital transformation, fintech innovation, and professional services expansion across Thailand and Japan markets.",
+    "insights.services.category": "Services Sector",
+    "insights.services.latestIntelligence": "Latest Services Intelligence",
+    "insights.services.keyGrowthAreas": "Key Growth Areas",
+    "insights.services.marketOpportunities": "Market Opportunities",
+    "insights.services.exploreOther": "Explore Other Industries",
+
+    // Insights Manufacturing
+    "insights.manufacturing.title": "Manufacturing Industry Intelligence",
+    "insights.manufacturing.description": "Navigate Industry 4.0, supply chain innovation, and automation opportunities across Thailand and Japan markets.",
+    "insights.manufacturing.category": "Manufacturing Sector",
+
+    // Insights Wellness Healthcare
+    "insights.wellness.title": "Wellness & Healthcare Intelligence",
+    "insights.wellness.description": "Explore medical technology, telemedicine, and wellness tourism opportunities in the Thailand-Japan corridor.",
+    "insights.wellness.category": "Healthcare Sector",
+
+    // Insights Agriculture
+    "insights.agriculture.title": "Agriculture Industry Intelligence", 
+    "insights.agriculture.description": "Navigate agri-tech innovation, sustainable farming, and food processing opportunities across Thailand and Japan.",
+    "insights.agriculture.category": "Agriculture Sector",
+
+    // Insights Real Estate
+    "insights.realestate.title": "Real Estate Market Intelligence",
+    "insights.realestate.description": "Explore commercial property, REITs, and urban development trends in Thailand's dynamic real estate market.",
+    "insights.realestate.category": "Real Estate Sector",
   },
   ja: {
     // Common
@@ -243,6 +286,49 @@ const translations: Record<Lang, Translations> = {
     "tips.title": "ビジネスTips - HARMONY",
     "subscribe.title": "購読 - HARMONY",
     "subscribe.metaDescription": "初月無料の購読プラン。月額/年額プランをご用意。",
+
+    // Not Found
+    "notfound.title": "ページが見つかりません",
+    "notfound.subtitle": "お探しのページは存在しません。ホームページに戻るか、インサイトをご覧ください。",
+    "notfound.backHome": "ホームに戻る",
+
+    // Insights
+    "insights.breadcrumb": "インサイト",
+    "insights.landing.title": "タイ・日本ビジネスインテリジェンス",
+    "insights.landing.description": "タイ・日本のビジネス機会をナビゲートする経営者向けの業界洞察、市場分析、戦略情報をお届けします。",
+    "insights.landing.category": "ビジネスインテリジェンスハブ",
+    "insights.landing.industryFocus": "業界重点領域",
+    "insights.landing.exploreInsights": "インサイトを探索 →",
+    "insights.landing.latestIntelligence": "最新マーケットインテリジェンス",
+
+    // Insights Services
+    "insights.services.title": "サービス業界インテリジェンス",
+    "insights.services.description": "タイと日本市場におけるデジタル変革、フィンテックイノベーション、プロフェッショナルサービス展開をナビゲートします。",
+    "insights.services.category": "サービス部門",
+    "insights.services.latestIntelligence": "最新サービスインテリジェンス",
+    "insights.services.keyGrowthAreas": "主要成長分野",
+    "insights.services.marketOpportunities": "市場機会",
+    "insights.services.exploreOther": "他の業界を探索",
+
+    // Insights Manufacturing
+    "insights.manufacturing.title": "製造業界インテリジェンス",
+    "insights.manufacturing.description": "タイと日本市場におけるインダストリー4.0、サプライチェーン革新、自動化機会をナビゲートします。",
+    "insights.manufacturing.category": "製造業部門",
+
+    // Insights Wellness Healthcare
+    "insights.wellness.title": "ウェルネス・ヘルスケアインテリジェンス",
+    "insights.wellness.description": "タイ・日本回廊における医療技術、遠隔医療、ウェルネス観光の機会を探索します。",
+    "insights.wellness.category": "ヘルスケア部門",
+
+    // Insights Agriculture
+    "insights.agriculture.title": "農業界インテリジェンス",
+    "insights.agriculture.description": "タイと日本におけるアグリテックイノベーション、持続可能農業、食品加工機会をナビゲートします。",
+    "insights.agriculture.category": "農業部門",
+
+    // Insights Real Estate
+    "insights.realestate.title": "不動産市場インテリジェンス",
+    "insights.realestate.description": "タイのダイナミックな不動産市場における商業用不動産、REIT、都市開発トレンドを探索します。",
+    "insights.realestate.category": "不動産部門",
   },
   th: {
     // Common

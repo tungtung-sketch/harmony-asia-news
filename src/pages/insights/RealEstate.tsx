@@ -6,12 +6,13 @@ import InsightArticleCard from '@/components/InsightArticleCard';
 import InsightSidebar from '@/components/InsightSidebar';
 import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
+import { useI18n } from "@/i18n/I18nProvider";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const RealEstate = () => {
-  const title = "Real Estate Insights | Harmony";
-  const description =
-    "Real estate insights: investment flows, REIT structures, and urban development across Thailand and Japan.";
+  const { t } = useI18n();
+  const title = t("insights.title");
+  const description = t("insights.realestate.description");
 
   const articles = [
     {
@@ -76,15 +77,15 @@ const RealEstate = () => {
         <Header />
         
         <InsightHero 
-          title="Real Estate Market Intelligence"
-          description="Navigate cross-border investment, asset management, and mixed-use development trends across Thailand and Japan."
-          category="Real Estate Sector"
+          title={t("insights.realestate.title")}
+          description={t("insights.realestate.description")}
+          category={t("insights.realestate.category")}
           backgroundImage={heroImage}
         />
 
         <main className="container mx-auto px-4 py-12">
           <Breadcrumb items={[
-            { label: 'Insights', href: '/insights' },
+            { label: t('insights.breadcrumb'), href: '/insights' },
             { label: 'Real Estate' }
           ]} />
 
