@@ -134,6 +134,12 @@ const translations: Record<Lang, Translations> = {
 
     // Insights
     "insights.breadcrumb": "Insights",
+    "insights.dropdown.overview": "Overview",
+    "insights.dropdown.services": "Services", 
+    "insights.dropdown.manufacturing": "Manufacturing",
+    "insights.dropdown.wellness": "Wellness / Healthcare",
+    "insights.dropdown.agriculture": "Agriculture",
+    "insights.dropdown.realestate": "Real Estate",
     "insights.landing.title": "Thailand-Japan Business Intelligence",
     "insights.landing.description": "Curated industry insights, market analysis, and strategic intelligence for executives navigating Thailand-Japan business opportunities.",
     "insights.landing.category": "Business Intelligence Hub",
@@ -294,6 +300,12 @@ const translations: Record<Lang, Translations> = {
 
     // Insights
     "insights.breadcrumb": "インサイト",
+    "insights.dropdown.overview": "概要",
+    "insights.dropdown.services": "サービス",
+    "insights.dropdown.manufacturing": "製造業",
+    "insights.dropdown.wellness": "ウェルネス・ヘルスケア",
+    "insights.dropdown.agriculture": "農業",
+    "insights.dropdown.realestate": "不動産",
     "insights.landing.title": "タイ・日本ビジネスインテリジェンス",
     "insights.landing.description": "タイ・日本のビジネス機会をナビゲートする経営者向けの業界洞察、市場分析、戦略情報をお届けします。",
     "insights.landing.category": "ビジネスインテリジェンスハブ",

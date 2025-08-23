@@ -39,24 +39,24 @@ const Header = () => {
                 <span>{t('nav.insights')}</span>
                 <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="z-50 bg-popover">
+              <DropdownMenuContent align="start" className="z-50 bg-background border shadow-lg">
                 <DropdownMenuItem asChild>
-                  <Link to="/insights">Overview</Link>
+                  <Link to="/insights">{t('insights.dropdown.overview')}</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/insights/services">Services</Link>
+                  <Link to="/insights/services">{t('insights.dropdown.services')}</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/insights/manufacturing">Manufacturing</Link>
+                  <Link to="/insights/manufacturing">{t('insights.dropdown.manufacturing')}</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/insights/wellness-healthcare">Wellness / Healthcare</Link>
+                  <Link to="/insights/wellness-healthcare">{t('insights.dropdown.wellness')}</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/insights/agriculture">Agriculture</Link>
+                  <Link to="/insights/agriculture">{t('insights.dropdown.agriculture')}</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/insights/real-estate">Real Estate</Link>
+                  <Link to="/insights/real-estate">{t('insights.dropdown.realestate')}</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
