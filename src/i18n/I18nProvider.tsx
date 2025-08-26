@@ -124,8 +124,49 @@ const translations: Record<Lang, Translations> = {
     "news.title": "News - HARMONY",
     "insights.title": "Insights - HARMONY",
     "tips.title": "Business Tips - HARMONY",
-    "subscribe.title": "Subscribe - HARMONY",
-    "subscribe.metaDescription": "Free 1-month trial then monthly/annual plans.",
+    "subscribe.title": "Subscribe - Harmony Asia News",
+    "subscribe.metaDescription": "Choose the right plan for your business insights in Thailand",
+    "subscribe.hero.title": "Stay Ahead with Harmony Asia News",
+    "subscribe.hero.subtitle": "Choose the right plan for your business insights in Thailand",
+    "subscribe.hero.cta": "Subscribe Now",
+    
+    // Pricing plans
+    "subscribe.plans.freeTrial.title": "Free Trial",
+    "subscribe.plans.freeTrial.duration": "30 Days",
+    "subscribe.plans.freeTrial.price": "Free",
+    "subscribe.plans.freeTrial.description": "Access to selected daily news and some analysis",
+    "subscribe.plans.freeTrial.cta": "Start Free Trial",
+    
+    "subscribe.plans.basic.title": "Basic Plan",
+    "subscribe.plans.basic.price": "฿599/month",
+    "subscribe.plans.basic.description": "Full access to all daily news and website + newsletter",
+    "subscribe.plans.basic.cta": "Choose Basic",
+    
+    "subscribe.plans.premium.title": "Premium Plan",
+    "subscribe.plans.premium.price": "฿1,299/month",
+    "subscribe.plans.premium.description": "Includes all Basic features plus in-depth analysis and reports",
+    "subscribe.plans.premium.cta": "Choose Premium",
+    "subscribe.plans.premium.popular": "Most Popular",
+    
+    "subscribe.plans.corporate.title": "Corporate Plan",
+    "subscribe.plans.corporate.price": "Custom Pricing",
+    "subscribe.plans.corporate.description": "Multi-seat license with customized services",
+    "subscribe.plans.corporate.cta": "Contact Sales",
+    
+    // Features
+    "subscribe.features.title": "Compare Plans",
+    "subscribe.features.dailyNews": "Daily News Access",
+    "subscribe.features.premiumInsights": "Premium Insights",
+    "subscribe.features.executiveReports": "Executive Reports",
+    "subscribe.features.pdfDownloads": "PDF Downloads",
+    "subscribe.features.multiSeat": "Multi-seat License",
+    "subscribe.features.customServices": "Customized Services",
+    "subscribe.features.included": "Included",
+    "subscribe.features.notIncluded": "Not Included",
+    
+    // Final CTA
+    "subscribe.finalCta.title": "Join hundreds of executives already staying ahead with Harmony Asia News",
+    "subscribe.finalCta.button": "Subscribe Now",
 
     // Not Found
     "notfound.title": "Page Not Found",
@@ -290,8 +331,49 @@ const translations: Record<Lang, Translations> = {
     "news.title": "ニュース - HARMONY",
     "insights.title": "インサイト - HARMONY",
     "tips.title": "ビジネスTips - HARMONY",
-    "subscribe.title": "購読 - HARMONY",
-    "subscribe.metaDescription": "初月無料の購読プラン。月額/年額プランをご用意。",
+    "subscribe.title": "購読 - Harmony Asia News",
+    "subscribe.metaDescription": "タイでのビジネスインサイトに適したプランを選択してください",
+    "subscribe.hero.title": "Harmony Asia Newsで先を行く",
+    "subscribe.hero.subtitle": "タイでのビジネスインサイトに適したプランを選択してください",
+    "subscribe.hero.cta": "今すぐ購読",
+    
+    // Pricing plans
+    "subscribe.plans.freeTrial.title": "無料トライアル",
+    "subscribe.plans.freeTrial.duration": "30日間",
+    "subscribe.plans.freeTrial.price": "無料",
+    "subscribe.plans.freeTrial.description": "厳選された日次ニュースと一部の分析へのアクセス",
+    "subscribe.plans.freeTrial.cta": "無料トライアルを開始",
+    
+    "subscribe.plans.basic.title": "ベーシックプラン",
+    "subscribe.plans.basic.price": "฿599/月",
+    "subscribe.plans.basic.description": "すべての日次ニュースとウェブサイト+ニュースレターへのフルアクセス",
+    "subscribe.plans.basic.cta": "ベーシックを選択",
+    
+    "subscribe.plans.premium.title": "プレミアムプラン",
+    "subscribe.plans.premium.price": "฿1,299/月",
+    "subscribe.plans.premium.description": "ベーシック機能に加え、詳細分析とレポート",
+    "subscribe.plans.premium.cta": "プレミアムを選択",
+    "subscribe.plans.premium.popular": "最も人気",
+    
+    "subscribe.plans.corporate.title": "法人プラン",
+    "subscribe.plans.corporate.price": "カスタム価格",
+    "subscribe.plans.corporate.description": "カスタマイズサービス付きマルチシートライセンス",
+    "subscribe.plans.corporate.cta": "営業に連絡",
+    
+    // Features
+    "subscribe.features.title": "プラン比較",
+    "subscribe.features.dailyNews": "日次ニュースアクセス",
+    "subscribe.features.premiumInsights": "プレミアムインサイト",
+    "subscribe.features.executiveReports": "エグゼクティブレポート",
+    "subscribe.features.pdfDownloads": "PDFダウンロード",
+    "subscribe.features.multiSeat": "マルチシートライセンス",
+    "subscribe.features.customServices": "カスタマイズサービス",
+    "subscribe.features.included": "含む",
+    "subscribe.features.notIncluded": "含まない",
+    
+    // Final CTA
+    "subscribe.finalCta.title": "Harmony Asia Newsで既に先を行く数百人のエグゼクティブに参加しましょう",
+    "subscribe.finalCta.button": "今すぐ購読",
 
     // Not Found
     "notfound.title": "ページが見つかりません",
