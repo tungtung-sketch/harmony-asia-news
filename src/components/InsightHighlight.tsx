@@ -4,12 +4,12 @@ import { useI18n } from '@/i18n/I18nProvider';
 const InsightHighlight = () => {
   const { t } = useI18n();
   return (
-    <section className="container mx-auto px-4 py-12">
-      <h2 className="text-2xl font-bold mb-6">{t('home.insightHighlight.title')}</h2>
+    <section className="container mx-auto py-8 md:py-12">
+      <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">{t('home.insightHighlight.title')}</h2>
       <Card>
-        <CardContent className="p-6">
-          <h3 className="text-lg font-semibold mb-3">{t('home.insightHighlight.exampleTitle')}</h3>
-          <ul className="grid sm:grid-cols-2 gap-3 list-disc pl-5 text-muted-foreground">
+        <CardContent className="p-4 md:p-6">
+          <h3 className="text-base md:text-lg font-semibold mb-3">{t('home.insightHighlight.exampleTitle')}</h3>
+          <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-3 list-disc pl-4 md:pl-5 text-sm md:text-base text-muted-foreground">
             <li>Labor market shifts toward high-skill bilingual roles</li>
             <li>Supply chain Thailand+1 strategies accelerating</li>
             <li>EV ecosystem incentives expand to Tier-2 suppliers</li>

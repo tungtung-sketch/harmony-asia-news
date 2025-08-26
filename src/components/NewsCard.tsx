@@ -21,17 +21,17 @@ const NewsCard = ({ title, excerpt, category, time, author, location, featured =
         <div className={`aspect-[16/10] bg-gradient-to-br from-muted to-muted/50 ${featured ? 'border-b-2 border-primary/10' : ''}`}>
           <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
             <div className="text-center space-y-2">
-              <div className="w-12 h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
-                <span className="text-lg">📰</span>
+              <div className="w-8 h-8 sm:w-12 sm:h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                <span className="text-sm sm:text-lg">📰</span>
               </div>
               <p className="text-xs text-muted-foreground">{t('newsCard.newsImageLabel')}</p>
             </div>
           </div>
         </div>
         
-        <div className="p-4 space-y-3">
-          <div className="flex items-center justify-between">
-            <Badge variant="outline" className="text-xs">
+        <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+          <div className="flex items-center justify-between gap-2">
+            <Badge variant="outline" className="text-xs flex-shrink-0">
               {category}
             </Badge>
             {featured && (
@@ -41,26 +41,26 @@ const NewsCard = ({ title, excerpt, category, time, author, location, featured =
             )}
           </div>
           
-          <h3 className={`font-semibold leading-tight group-hover:text-primary transition-colors ${featured ? 'text-lg' : 'text-base'}`}>
+          <h3 className={`font-semibold leading-tight group-hover:text-primary transition-colors ${featured ? 'text-base sm:text-lg' : 'text-sm sm:text-base'}`}>
             {title}
           </h3>
           
-          <p className="text-sm text-muted-foreground line-clamp-3">
+          <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3">
             {excerpt}
           </p>
           
-          <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <div className="flex items-center space-x-3">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="flex items-center space-x-1">
-                <Clock className="h-3 w-3" />
+                <Clock className="h-3 w-3 flex-shrink-0" />
                 <span>{time}</span>
               </div>
-              <span>•</span>
-              <span>{author}</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="truncate">{author}</span>
             </div>
             <div className="flex items-center space-x-1">
-              <MapPin className="h-3 w-3" />
-              <span>{location}</span>
+              <MapPin className="h-3 w-3 flex-shrink-0" />
+              <span className="truncate">{location}</span>
             </div>
           </div>
         </div>

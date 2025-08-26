@@ -19,18 +19,24 @@ const LatestArticles = () => {
   const filtered = allArticles.filter(a => a.category === active);
 
   return (
-    <section className="container mx-auto px-4 py-12">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">{t('home.latest')}</h2>
-        <div className="flex gap-2">
+    <section className="container mx-auto py-8 md:py-12">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <h2 className="text-xl md:text-2xl font-bold">{t('home.latest')}</h2>
+        <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0">
           {categories.map((c) => (
-            <Button key={c} variant={active === c ? 'default' : 'secondary'} size="sm" onClick={() => setActive(c)}>
+            <Button 
+              key={c} 
+              variant={active === c ? 'default' : 'secondary'} 
+              size="sm" 
+              onClick={() => setActive(c)}
+              className="whitespace-nowrap"
+            >
               {c}
             </Button>
           ))}
         </div>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {filtered.map((a, i) => (
           <NewsCard key={i} featured={false} {...a} />
         ))}

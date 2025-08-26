@@ -6,10 +6,10 @@ const Footer = () => {
   const { t } = useI18n();
   return (
     <footer className="bg-muted/30 border-t">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+      <div className="container mx-auto py-8 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
@@ -19,7 +19,7 @@ const Footer = () => {
                 height={24}
                 loading="lazy"
               />
-              <span className="text-xl font-bold">{t('brand.name')}</span>
+              <span className="text-lg md:text-xl font-bold">{t('brand.name')}</span>
             </div>
             <p className="text-sm text-muted-foreground">
               {t('footer.tagline')}
@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* Categories */}
           <div className="space-y-4">
-            <h3 className="font-semibold">{t('footer.categories')}</h3>
+            <h3 className="font-semibold text-base">{t('footer.categories')}</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.politics')}</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.business')}</a></li>
@@ -54,7 +54,7 @@ const Footer = () => {
 
           {/* Regions */}
           <div className="space-y-4">
-            <h3 className="font-semibold">{t('footer.regions')}</h3>
+            <h3 className="font-semibold text-base">{t('footer.regions')}</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.eastAsia')}</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.southeastAsia')}</a></li>
@@ -66,7 +66,7 @@ const Footer = () => {
 
           {/* About */}
           <div className="space-y-4">
-            <h3 className="font-semibold">{t('footer.about')}</h3>
+            <h3 className="font-semibold text-base">{t('footer.about')}</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.aboutUs')}</a></li>
               <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.contact')}</a></li>
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
+        <div className="border-t mt-6 md:mt-8 pt-6 md:pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; 2024 {t('brand.name')}. {t('footer.copyright')}</p>
         </div>
       </div>

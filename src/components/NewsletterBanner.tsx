@@ -14,12 +14,22 @@ const NewsletterBanner = () => {
 
   return (
     <section className="bg-muted/40 border-y">
-      <div className="container mx-auto px-4 py-10">
-        <h2 className="text-xl font-semibold mb-4">{t('home.newsletter.title')}</h2>
-        <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 max-w-xl">
-          <Input type="email" required placeholder={t('home.newsletter.placeholder')} aria-label={t('home.newsletter.placeholder')} />
-          <Button type="submit">{t('home.newsletter.cta')}</Button>
-        </form>
+      <div className="container mx-auto py-8 md:py-10">
+        <div className="text-center md:text-left">
+          <h2 className="text-lg md:text-xl font-semibold mb-4">{t('home.newsletter.title')}</h2>
+          <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto md:mx-0">
+            <Input 
+              type="email" 
+              required 
+              placeholder={t('home.newsletter.placeholder')} 
+              aria-label={t('home.newsletter.placeholder')}
+              className="flex-1" 
+            />
+            <Button type="submit" className="sm:w-auto w-full">
+              {t('home.newsletter.cta')}
+            </Button>
+          </form>
+        </div>
       </div>
     </section>
   );
