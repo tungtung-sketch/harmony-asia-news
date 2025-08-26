@@ -26,6 +26,15 @@ const Header = () => {
         {t('nav.home')}
       </NavLink>
       <NavLink 
+        to="/about" 
+        className={({ isActive }) => 
+          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
+        }
+        onClick={closeMenu}
+      >
+        About
+      </NavLink>
+      <NavLink 
         to="/news" 
         className={({ isActive }) => 
           `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
