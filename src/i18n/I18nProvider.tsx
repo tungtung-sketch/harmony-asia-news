@@ -22,6 +22,7 @@ const translations: Record<Lang, Translations> = {
 
     // Header nav
     "nav.home": "Home",
+    "nav.aboutus" : "About us"
     "nav.news": "News",
     "nav.insights": "Insights",
     "nav.tips": "Business Tips",
@@ -225,6 +226,7 @@ const translations: Record<Lang, Translations> = {
 
     // Header nav
     "nav.home": "ホーム",
+    "nav.aboutus" : "Harmonyについて"
     "nav.news": "ニュース",
     "nav.insights": "インサイト",
     "nav.tips": "ビジネスTips",
