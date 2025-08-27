@@ -44,6 +44,17 @@ const translations: Record<Lang, Translations> = {
     "nav.languages.ja": "日本語",
     "nav.languages.en": "English",
 
+    // Business Tips
+    "tips.subtitle": "Practical insights and strategies for international business leaders operating in Thailand and the Asia-Pacific region.",
+    "tips.description": "Business tips and insights for Thailand-Japan business professionals",
+    "tips.backToTips": "Back to Business Tips",
+
+    // Pages
+    "news.title": "News - HARMONY",
+    "insights.title": "Insights - HARMONY",
+    "tips.title": "Business Tips - HARMONY", 
+    "subscribe.title": "Subscribe - Harmony Asia News",
+
     // Home hero
     "home.hero.title": "Future Thailand: Executive Business & Market Insights",
     "home.hero.subtext": "Connecting Japan and Thailand for business success",
@@ -121,11 +132,6 @@ const translations: Record<Lang, Translations> = {
     "contact.submit": "Send",
     "contact.success": "Thanks! We'll be in touch soon.",
 
-    // Pages
-    "news.title": "News - HARMONY",
-    "insights.title": "Insights - HARMONY",
-    "tips.title": "Business Tips - HARMONY",
-    "subscribe.title": "Subscribe - Harmony Asia News",
     "subscribe.metaDescription": "Choose the right plan for your business insights in Thailand",
     "subscribe.hero.title": "Stay Ahead with Harmony Asia News",
     "subscribe.hero.subtitle": "Choose the right plan for your business insights in Thailand",
@@ -351,7 +357,7 @@ const translations: Record<Lang, Translations> = {
     // Pages
     "news.title": "ニュース - HARMONY",
     "insights.title": "インサイト - HARMONY",
-    "tips.title": "ビジネスTips - HARMONY",
+    "tips.title": "ビジネスチップス - HARMONY",
     "subscribe.title": "購読 - Harmony Asia News",
     "subscribe.metaDescription": "タイでのビジネスインサイトに適したプランを選択してください",
     "subscribe.hero.title": "Harmony Asia Newsで先を行く",
@@ -463,6 +469,11 @@ const translations: Record<Lang, Translations> = {
     "about.cta.title": "つながりませんか？",
     "about.cta.content": "タイのビジネスコミュニティとの対話に参加しましょう。私たちのインサイトと報道について詳しく知るために、お気軽にお問い合わせください。",
     "about.cta.button": "お問い合わせ",
+
+    // Business Tips
+    "tips.subtitle": "タイおよびアジア太平洋地域で事業を展開する国際的なビジネスリーダーのための実践的な洞察と戦略。",
+    "tips.description": "タイ・日本のビジネス専門家のためのビジネスチップスとインサイト",
+    "tips.backToTips": "ビジネスチップスに戻る",
   },
   th: {
     // Common
