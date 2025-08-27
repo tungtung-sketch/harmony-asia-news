@@ -18,7 +18,17 @@ const translations: Record<Lang, Translations> = {
     "brand.name": "HARMONY",
     "brand.tagline": "Harmonize the global business",
     "cta.membership": "Membership",
-    "search.placeholder": "Search news...",
+    "search.placeholder": "Search news, tips, insights...",
+    "search.submit": "Search",
+    "search.results": "Search Results",
+    "search.queryLabel": "Showing results for",
+    "search.loading": "Searching...",
+    "search.resultsCountSingle": "Found 1 result",
+    "search.resultsCountPlural": "Found {count} results",
+    "search.readMore": "Read More",
+    "search.noResults": "No Results Found",
+    "search.noResultsDescription": "Try adjusting your search terms or browse our latest content.",
+    "search.backToHome": "Back to Home",
 
     // Header nav
     "nav.home": "Home",
@@ -247,7 +257,17 @@ const translations: Record<Lang, Translations> = {
     // Common
     "brand.name": "HARMONY",
     "cta.membership": "メンバーシップ",
-    "search.placeholder": "ニュースを検索...",
+    "search.placeholder": "ニュース、チップス、インサイトを検索...",
+    "search.submit": "検索",
+    "search.results": "検索結果",
+    "search.queryLabel": "検索結果",
+    "search.loading": "検索中...",
+    "search.resultsCountSingle": "1件の結果が見つかりました",
+    "search.resultsCountPlural": "{count}件の結果が見つかりました",
+    "search.readMore": "続きを読む",
+    "search.noResults": "検索結果が見つかりません",
+    "search.noResultsDescription": "検索キーワードを調整するか、最新のコンテンツをご覧ください。",
+    "search.backToHome": "ホームに戻る",
 
     // Header nav
     "nav.home": "ホーム",

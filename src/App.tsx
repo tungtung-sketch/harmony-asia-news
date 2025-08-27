@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import News from "./pages/News";
 import BusinessTips from "./pages/BusinessTips";
 import BusinessTipDetail from "./pages/BusinessTipDetail";
+import SearchResults from "./pages/SearchResults";
 import Subscribe from "./pages/Subscribe";
 import { I18nProvider } from "@/i18n/I18nProvider";
 import InsightsLanding from "./pages/insights/InsightsLanding";
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/news" element={<News />} />
             <Route path="/business-tips" element={<BusinessTips />} />
             <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
+            <Route path="/search" element={<SearchResults />} />
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/insights" element={<InsightsLanding />} />
             <Route path="/insights/services" element={<InsightServices />} />

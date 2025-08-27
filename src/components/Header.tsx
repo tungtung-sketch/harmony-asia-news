@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import SearchBox from '@/components/SearchBox';
 
 
 const Header = () => {
@@ -131,19 +132,24 @@ const Header = () => {
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container mx-auto">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <img
-              src="/lovable-uploads/Harmony_Logo_only.png"
-              alt="HARMONY logo - Harmonize the global business"
-              className="h-6 w-6 sm:h-8 sm:w-8"
-              loading="eager"
-              width={32}
-              height={32}
-            />
-            <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              {t('brand.name')}
-            </span>
+          {/* Logo with Tagline */}
+          <div className="flex flex-col">
+            <div className="flex items-center space-x-2">
+              <img
+                src="/lovable-uploads/Harmony_Logo_only.png"
+                alt="HARMONY logo - Harmonize the global business"
+                className="h-6 w-6 sm:h-8 sm:w-8"
+                loading="eager"
+                width={32}
+                height={32}
+              />
+              <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                {t('brand.name')}
+              </span>
+            </div>
+            <div className="hidden sm:block text-xs text-muted-foreground ml-8 sm:ml-10 -mt-1">
+              {t('brand.tagline')}
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -151,9 +157,13 @@ const Header = () => {
             <NavLinks />
           </nav>
 
-          {/* Right side: Language toggle and Mobile menu */}
-          <div className="flex items-center space-x-2">
-            <span className="hidden lg:block text-sm text-muted-foreground pr-2">{t('brand.tagline')}</span>
+          {/* Right side: Search, Language toggle and Mobile menu */}
+          <div className="flex items-center space-x-4">
+            {/* Search Box - Desktop */}
+            <div className="hidden md:block">
+              <SearchBox />
+            </div>
+            
             <div className="hidden sm:flex space-x-1">
               <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
               <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
@@ -179,6 +189,11 @@ const Header = () => {
                       />
                       <span className="text-lg font-bold">{t('brand.name')}</span>
                     </div>
+                  </div>
+                  
+                  {/* Mobile Search */}
+                  <div className="px-4 py-4 border-b">
+                    <SearchBox />
                   </div>
                   
                   <nav className="flex-1 py-4" aria-label="Mobile navigation">
