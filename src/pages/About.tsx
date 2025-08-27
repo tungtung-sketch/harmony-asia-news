@@ -13,8 +13,8 @@ const About = () => {
   return (
     <>
       <SEO
-        title="About Harmony - Business Intelligence for Thailand"
-        description="We deliver trusted business intelligence for leaders shaping Thailand's future. Learn about Harmony Asia News mission and vision."
+        title={t('about.title') + " - Business Intelligence for Thailand"}
+        description={t('about.description') + " Learn about Harmony Asia News mission and vision."}
         canonicalPath="/about"
       />
       <div className="min-h-screen bg-background">
@@ -25,10 +25,10 @@ const About = () => {
           <section className="relative py-12 md:py-20 bg-gradient-to-b from-background to-muted/20">
             <div className="container mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                About Harmony
+                {t('about.title')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                We deliver trusted business intelligence for leaders shaping Thailand's future.
+                {t('about.description')}
               </p>
             </div>
           </section>
@@ -37,10 +37,10 @@ const About = () => {
           <section className="container mx-auto py-12 md:py-16">
             <div className="text-center max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">
-                Our Mission
+                {t('about.mission.title')}
               </h2>
               <p className="text-2xl md:text-3xl lg:text-4xl font-light text-primary leading-relaxed">
-                Harmonize the global business.
+                {t('about.mission.content')}
               </p>
             </div>
           </section>
@@ -49,12 +49,12 @@ const About = () => {
           <section className="container mx-auto py-12 md:py-16">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
-                Our Vision
+                {t('about.vision.title')}
               </h2>
               <Card className="bg-muted/30 border-primary/10">
                 <CardContent className="p-6 md:p-8 text-center">
                   <p className="text-lg md:text-xl text-foreground leading-relaxed">
-                    Becoming the top trusted business news platform for international business leaders in Thailand.
+                    {t('about.vision.content')}
                   </p>
                 </CardContent>
               </Card>
@@ -65,12 +65,12 @@ const About = () => {
           <section className="container mx-auto py-12 md:py-16">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
-                Who We Serve
+                {t('about.target.title')}
               </h2>
               
               <div className="text-center mb-8 md:mb-12">
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  Harmony Asia News is designed for international business leaders in Thailand who need trusted, practical, and timely business insights.
+                  {t('about.target.content')}
                 </p>
               </div>
 
@@ -80,9 +80,9 @@ const About = () => {
                   <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
                     <Globe className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold">Global Leadership</h3>
+                  <h3 className="text-lg font-semibold">{t('about.target.global.title')}</h3>
                   <p className="text-sm text-muted-foreground">
-                    Serving international executives and business leaders operating across borders.
+                    {t('about.target.global.content')}
                   </p>
                 </div>
 
@@ -90,9 +90,9 @@ const About = () => {
                   <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
                     <Users className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold">Thailand Focus</h3>
+                  <h3 className="text-lg font-semibold">{t('about.target.thailand.title')}</h3>
                   <p className="text-sm text-muted-foreground">
-                    Deep expertise in Thailand's business landscape and market dynamics.
+                    {t('about.target.thailand.content')}
                   </p>
                 </div>
 
@@ -100,9 +100,9 @@ const About = () => {
                   <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold">Practical Insights</h3>
+                  <h3 className="text-lg font-semibold">{t('about.target.insights.title')}</h3>
                   <p className="text-sm text-muted-foreground">
-                    Actionable intelligence that drives informed business decisions.
+                    {t('about.target.insights.content')}
                   </p>
                 </div>
               </div>
@@ -113,14 +113,14 @@ const About = () => {
           <section className="bg-muted/30 border-y">
             <div className="container mx-auto py-12 md:py-16 text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Ready to Connect?
+                {t('about.cta.title')}
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Join the conversation with Thailand's business community. Reach out to learn more about our insights and coverage.
+                {t('about.cta.content')}
               </p>
               <Button asChild size="lg" className="px-8 py-3">
                 <Link to="/contact">
-                  Get in Touch
+                  {t('about.cta.button')}
                 </Link>
               </Button>
             </div>

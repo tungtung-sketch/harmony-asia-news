@@ -22,6 +22,7 @@ const translations: Record<Lang, Translations> = {
 
     // Header nav
     "nav.home": "Home",
+    "nav.about": "About us",
     "nav.news": "News",
     "nav.insights": "Insights",
     "nav.tips": "Business Tips",
@@ -216,6 +217,25 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.title": "Real Estate Market Intelligence",
     "insights.realestate.description": "Explore commercial property, REITs, and urban development trends in Thailand's dynamic real estate market.",
     "insights.realestate.category": "Real Estate Sector",
+
+    // About page
+    "about.title": "About Harmony",
+    "about.description": "We deliver trusted business intelligence for leaders shaping Thailand's future.",
+    "about.mission.title": "Our Mission",
+    "about.mission.content": "Harmonize the global business.",
+    "about.vision.title": "Our Vision",
+    "about.vision.content": "Becoming the top trusted business news platform for international business leaders in Thailand.",
+    "about.target.title": "Who We Serve",
+    "about.target.content": "Harmony Asia News is designed for international business leaders in Thailand who need trusted, practical, and timely business insights.",
+    "about.target.global.title": "Global Leadership",
+    "about.target.global.content": "Serving international executives and business leaders operating across borders.",
+    "about.target.thailand.title": "Thailand Focus",
+    "about.target.thailand.content": "Deep expertise in Thailand's business landscape and market dynamics.",
+    "about.target.insights.title": "Practical Insights",
+    "about.target.insights.content": "Actionable intelligence that drives informed business decisions.",
+    "about.cta.title": "Ready to Connect?",
+    "about.cta.content": "Join the conversation with Thailand's business community. Reach out to learn more about our insights and coverage.",
+    "about.cta.button": "Get in Touch",
   },
   ja: {
     // Common
@@ -225,6 +245,7 @@ const translations: Record<Lang, Translations> = {
 
     // Header nav
     "nav.home": "ホーム",
+    "nav.about": "Harmonyについて",
     "nav.news": "ニュース",
     "nav.insights": "インサイト",
     "nav.tips": "ビジネスTips",
@@ -423,6 +444,25 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.title": "不動産市場インテリジェンス",
     "insights.realestate.description": "タイのダイナミックな不動産市場における商業用不動産、REIT、都市開発トレンドを探索します。",
     "insights.realestate.category": "不動産部門",
+
+    // About page
+    "about.title": "Harmonyについて",
+    "about.description": "タイの未来を形作るリーダーのために、信頼できるビジネスインテリジェンスをお届けします。",
+    "about.mission.title": "私たちの使命",
+    "about.mission.content": "グローバルビジネスを調和させる。",
+    "about.vision.title": "私たちのビジョン",
+    "about.vision.content": "タイの国際的ビジネスリーダーにとって最も信頼されるビジネスニュースプラットフォームになること。",
+    "about.target.title": "私たちが支援する対象",
+    "about.target.content": "Harmony Asia Newsは、信頼できる実践的でタイムリーなビジネスインサイトを必要とするタイの国際的ビジネスリーダーのために設計されています。",
+    "about.target.global.title": "グローバルリーダーシップ",
+    "about.target.global.content": "国境を越えて活動する国際的な幹部やビジネスリーダーにサービスを提供。",
+    "about.target.thailand.title": "タイに特化",
+    "about.target.thailand.content": "タイのビジネス環境と市場力学に関する深い専門知識。",
+    "about.target.insights.title": "実践的インサイト",
+    "about.target.insights.content": "情報に基づいたビジネス決定を推進する実用的な情報。",
+    "about.cta.title": "つながりませんか？",
+    "about.cta.content": "タイのビジネスコミュニティとの対話に参加しましょう。私たちのインサイトと報道について詳しく知るために、お気軽にお問い合わせください。",
+    "about.cta.button": "お問い合わせ",
   },
   th: {
     // Common

@@ -32,7 +32,7 @@ const Header = () => {
         }
         onClick={closeMenu}
       >
-        About us
+        {t('nav.about')}
       </NavLink>
       <NavLink 
         to="/news" 
