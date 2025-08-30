@@ -59,8 +59,14 @@ const translations: Record<Lang, Translations> = {
     "tips.description": "Business tips and insights for Thailand-Japan business professionals",
     "tips.backToTips": "Back to Business Tips",
 
+    // News
+    "news.title": "Latest News - Harmony Asia",
+    "news.description": "Stay updated with the latest business news and insights from across Asia",
+    "news.heroTitle": "Latest News & Updates",
+    "news.heroSubtitle": "Stay informed with breaking news, market analysis, and expert insights from across Asia's dynamic business landscape.",
+    "news.backToNews": "Back to News",
+
     // Pages
-    "news.title": "News - HARMONY",
     "insights.title": "Insights - HARMONY",
     "tips.title": "Business Tips - HARMONY", 
     "subscribe.title": "Subscribe - Harmony Asia News",
@@ -374,8 +380,14 @@ const translations: Record<Lang, Translations> = {
     "contact.submit": "送信",
     "contact.success": "ありがとうございます。追ってご連絡いたします。",
 
+    // News
+    "news.title": "最新ニュース - Harmony Asia",
+    "news.description": "アジア全域の最新ビジネスニュースと洞察で最新情報をキャッチアップ",
+    "news.heroTitle": "最新ニュース & アップデート",
+    "news.heroSubtitle": "アジアのダイナミックなビジネス環境からの速報、市場分析、専門家の洞察で情報を入手しましょう。",
+    "news.backToNews": "ニュース一覧に戻る",
+
     // Pages
-    "news.title": "ニュース - HARMONY",
     "insights.title": "インサイト - HARMONY",
     "tips.title": "ビジネスチップス - HARMONY",
     "subscribe.title": "購読 - Harmony Asia News",

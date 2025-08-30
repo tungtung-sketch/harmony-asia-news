@@ -11,22 +11,31 @@ interface NewsCardProps {
   author: string;
   location: string;
   featured?: boolean;
+  image?: string;
 }
 
-const NewsCard = ({ title, excerpt, category, time, author, location, featured = false }: NewsCardProps) => {
+const NewsCard = ({ title, excerpt, category, time, author, location, featured = false, image }: NewsCardProps) => {
   const { t } = useI18n();
   return (
     <Card className={`group cursor-pointer hover:shadow-lg transition-all duration-300 ${featured ? 'border-primary/20' : ''}`}>
       <CardContent className="p-0">
         <div className={`aspect-[16/10] bg-gradient-to-br from-muted to-muted/50 ${featured ? 'border-b-2 border-primary/10' : ''}`}>
-          <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
-            <div className="text-center space-y-2">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
-                <span className="text-sm sm:text-lg">📰</span>
+          {image ? (
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
+              <div className="text-center space-y-2">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                  <span className="text-sm sm:text-lg">📰</span>
+                </div>
+                <p className="text-xs text-muted-foreground">{t('newsCard.newsImageLabel')}</p>
               </div>
-              <p className="text-xs text-muted-foreground">{t('newsCard.newsImageLabel')}</p>
             </div>
-          </div>
+          )}
         </div>
         
         <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
