@@ -102,6 +102,20 @@ const translations: Record<Lang, Translations> = {
     // News Section
     "newsSection.featuredStories": "Featured Stories",
     "newsSection.latestNews": "Latest News",
+    
+    // News Filter
+    "newsFilter.category": "Category",
+    "newsFilter.year": "Year",
+    "newsFilter.selectCategory": "Select Category",
+    "newsFilter.selectYear": "Select Year",
+    "newsFilter.allCategories": "All Categories",
+    "newsFilter.allYears": "All Years",
+    "newsFilter.activeFilters": "Active Filters",
+    "newsFilter.clearAll": "Clear All",
+    "newsFilter.showingResults": "Showing {{count}} of {{total}} articles",
+    "newsFilter.noResults": "No Articles Found",
+    "newsFilter.noResultsDesc": "Try adjusting your filters to see more results.",
+    "newsFilter.clearFilters": "Clear Filters",
 
     // NewsCard
     "newsCard.featured": "Featured",
@@ -331,9 +345,23 @@ const translations: Record<Lang, Translations> = {
     "home.about.title": "運営について",
     "home.about.text": "Harmony Asia News は Harmony 編集チームによって運営され、日本とタイのビジネス文化をつなぐ、信頼できる明快で実践的な情報を提供します。プロフィールの公開は行っていません。",
 
-    // News Section
-    "newsSection.featuredStories": "注目のストーリー",
-    "newsSection.latestNews": "最新ニュース",
+    // News Section (Japanese)
+    'newsSection.featuredStories': '注目のストーリー',
+    'newsSection.latestNews': '最新ニュース',
+    
+    // News Filter (Japanese)
+    'newsFilter.category': 'カテゴリー',
+    'newsFilter.year': '年',
+    'newsFilter.selectCategory': 'カテゴリーを選択',
+    'newsFilter.selectYear': '年を選択',
+    'newsFilter.allCategories': 'すべてのカテゴリー',
+    'newsFilter.allYears': 'すべての年',
+    'newsFilter.activeFilters': 'アクティブフィルター',
+    'newsFilter.clearAll': 'すべてクリア',
+    'newsFilter.showingResults': '{{total}}件中{{count}}件を表示',
+    'newsFilter.noResults': '記事が見つかりません',
+    'newsFilter.noResultsDesc': 'フィルターを調整してより多くの結果を表示してください。',
+    'newsFilter.clearFilters': 'フィルターをクリア',
 
     // NewsCard
     "newsCard.featured": "注目",
