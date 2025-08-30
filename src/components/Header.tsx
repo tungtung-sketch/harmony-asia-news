@@ -47,6 +47,59 @@ const Header = () => {
       
       {mobile ? (
         <div className="py-3 px-4">
+          <div className="text-lg font-medium mb-2">{t('nav.businessIntelligence')}</div>
+          <div className="ml-4 space-y-2">
+            <Link to="/business-intelligence" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.nav.overview')}
+            </Link>
+            <Link to="/business-intelligence/economy" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.nav.economy')}
+            </Link>
+            <Link to="/business-intelligence/trade" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.nav.trade')}
+            </Link>
+            <Link to="/business-intelligence/regulation" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.nav.regulation')}
+            </Link>
+            <Link to="/business-intelligence/workforce" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.nav.workforce')}
+            </Link>
+            <Link to="/business-intelligence/infrastructure" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.nav.infrastructure')}
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <DropdownMenu>
+          <DropdownMenuTrigger className="inline-flex items-center hover:text-primary focus:outline-none">
+            <span>{t('nav.businessIntelligence')}</span>
+            <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="z-50 bg-background border shadow-lg">
+            <DropdownMenuItem asChild>
+              <Link to="/business-intelligence">{t('bi.nav.overview')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/business-intelligence/economy">{t('bi.nav.economy')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/business-intelligence/trade">{t('bi.nav.trade')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/business-intelligence/regulation">{t('bi.nav.regulation')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/business-intelligence/workforce">{t('bi.nav.workforce')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/business-intelligence/infrastructure">{t('bi.nav.infrastructure')}</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
+      
+      {mobile ? (
+        <div className="py-3 px-4">
           <div className="text-lg font-medium mb-2">{t('nav.insights')}</div>
           <div className="ml-4 space-y-2">
             <Link to="/insights" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>

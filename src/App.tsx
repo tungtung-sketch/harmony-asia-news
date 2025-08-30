@@ -20,6 +20,12 @@ import InsightManufacturing from "./pages/insights/Manufacturing";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
+import BusinessIntelligence from "./pages/BusinessIntelligence";
+import EconomyInvestment from "./pages/bi/EconomyInvestment";
+import TradeIndustry from "./pages/bi/TradeIndustry";
+import RegulationTax from "./pages/bi/RegulationTax";
+import WorkforceSociety from "./pages/bi/WorkforceSociety";
+import InfrastructureInnovation from "./pages/bi/InfrastructureInnovation";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +46,12 @@ const App = () => (
             <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/subscribe" element={<Subscribe />} />
+            <Route path="/business-intelligence" element={<BusinessIntelligence />} />
+            <Route path="/business-intelligence/economy" element={<EconomyInvestment />} />
+            <Route path="/business-intelligence/trade" element={<TradeIndustry />} />
+            <Route path="/business-intelligence/regulation" element={<RegulationTax />} />
+            <Route path="/business-intelligence/workforce" element={<WorkforceSociety />} />
+            <Route path="/business-intelligence/infrastructure" element={<InfrastructureInnovation />} />
             <Route path="/insights" element={<InsightsLanding />} />
             <Route path="/insights/services" element={<InsightServices />} />
             <Route path="/insights/manufacturing" element={<InsightManufacturing />} />

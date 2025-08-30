@@ -99,6 +99,76 @@ const translations: Record<Lang, Translations> = {
     // Hero fallback keys used elsewhere
     "hero.featuredImageLabel": "Featured Image",
 
+    // Business Intelligence translations
+    "nav.businessIntelligence": "Business Intelligence",
+    "bi.title": "Business Intelligence - HARMONY",
+    "bi.metaDescription": "Access real-time Thai business data, economic indicators, and market insights from official government sources.",
+    "bi.hero.title": "Business Intelligence",
+    "bi.hero.subtitle": "Real-time insights from official Thai government data sources, presented in professional business intelligence format.",
+    "bi.stats.dataPoints": "Data Points",
+    "bi.stats.categories": "Categories",
+    "bi.stats.realTime": "Updates",
+    
+    // BI Navigation
+    "bi.nav.overview": "Overview",
+    "bi.nav.economy": "Economy & Investment",
+    "bi.nav.trade": "Trade & Industry",
+    "bi.nav.regulation": "Regulation & Tax",
+    "bi.nav.workforce": "Workforce & Society",
+    "bi.nav.infrastructure": "Infrastructure & Innovation",
+    
+    // BI Filter
+    "bi.filter.searchPlaceholder": "Search data insights...",
+    "bi.filter.selectCategory": "Select Category",
+    "bi.filter.selectYear": "Select Year",
+    "bi.filter.allCategories": "All Categories",
+    "bi.filter.allYears": "All Years",
+    "bi.filter.activeFilters": "Active Filters",
+    "bi.filter.clearAll": "Clear All",
+    "bi.filter.showing": "Showing",
+    "bi.filter.of": "of",
+    "bi.filter.results": "results",
+    "bi.filter.noResults": "No Data Found",
+    "bi.filter.noResultsDesc": "Try adjusting your filters to see more results.",
+    "bi.filter.clearFilters": "Clear Filters",
+    
+    // BI Categories
+    "bi.economy.title": "Economy & Investment",
+    "bi.economy.metaDescription": "Thailand economic indicators, GDP growth, exchange rates, and investment data from BOT, NESDC, and BOI.",
+    "bi.economy.description": "Track Thailand's economic performance with real-time data from the Bank of Thailand, NESDC, and Board of Investment.",
+    
+    "bi.trade.title": "Trade & Industry",
+    "bi.trade.metaDescription": "Thailand trade statistics, export/import data, and industrial indicators from Customs and Ministry of Commerce.",
+    "bi.trade.description": "Monitor Thailand's trade performance and industrial indicators from official government sources.",
+    
+    "bi.regulation.title": "Regulation & Tax",
+    "bi.regulation.metaDescription": "Thailand tax collection, regulatory changes, and compliance data from Revenue Department and government agencies.",
+    "bi.regulation.description": "Stay updated on Thailand's regulatory environment and tax policy changes affecting businesses.",
+    
+    "bi.workforce.title": "Workforce & Society",
+    "bi.workforce.metaDescription": "Thailand employment statistics, labor market data, and social indicators from NSO and Ministry of Labour.",
+    "bi.workforce.description": "Analyze Thailand's workforce trends and social development indicators for strategic planning.",
+    
+    "bi.infrastructure.title": "Infrastructure & Innovation",
+    "bi.infrastructure.metaDescription": "Thailand digital economy, infrastructure development, and innovation metrics from DEPA, IEAT, and AOT.",
+    "bi.infrastructure.description": "Explore Thailand's infrastructure development and digital transformation progress.",
+    
+    // BI Data Sources
+    "bi.dataSources.title": "Official Data Sources",
+    "bi.dataSources.bot": "Central bank monetary policy and exchange rate data",
+    "bi.dataSources.nesdc": "National economic development and GDP statistics",
+    "bi.dataSources.boi": "Investment promotion and foreign investment data",
+    "bi.dataSources.customs": "Import/export statistics and trade data",
+    "bi.dataSources.fti": "Industrial production and manufacturing indicators",
+    "bi.dataSources.moc": "Commercial trade and business registration data",
+    "bi.dataSources.revenue": "Tax collection and fiscal revenue statistics",
+    "bi.dataSources.gazette": "Legal and regulatory announcements",
+    "bi.dataSources.labour": "Employment regulations and labor statistics",
+    "bi.dataSources.nso": "Population, employment, and social statistics",
+    "bi.dataSources.ieat": "Industrial estate and special economic zone data",
+    "bi.dataSources.depa": "Digital economy and technology development metrics",
+    "bi.dataSources.aot": "Airport operations and transportation infrastructure",
+
     // News Section
     "newsSection.featuredStories": "Featured Stories",
     "newsSection.latestNews": "Latest News",
@@ -534,6 +604,76 @@ const translations: Record<Lang, Translations> = {
     "tips.subtitle": "タイおよびアジア太平洋地域で事業を展開する国際的なビジネスリーダーのための実践的な洞察と戦略。",
     "tips.description": "タイ・日本のビジネス専門家のためのビジネスチップスとインサイト",
     "tips.backToTips": "ビジネスチップスに戻る",
+    
+    // Business Intelligence (Japanese)
+    "nav.businessIntelligence": "ビジネスインテリジェンス",
+    "bi.title": "ビジネスインテリジェンス - HARMONY",
+    "bi.metaDescription": "タイ政府公式データソースからのリアルタイムビジネスデータ、経済指標、市場洞察にアクセス。",
+    "bi.hero.title": "ビジネスインテリジェンス",
+    "bi.hero.subtitle": "タイ政府公式データソースからのリアルタイム洞察をプロフェッショナルなビジネスインテリジェンス形式で提供。",
+    "bi.stats.dataPoints": "データポイント",
+    "bi.stats.categories": "カテゴリー", 
+    "bi.stats.realTime": "更新",
+    
+    // BI Navigation (Japanese)
+    "bi.nav.overview": "概要",
+    "bi.nav.economy": "経済・投資",
+    "bi.nav.trade": "貿易・産業",
+    "bi.nav.regulation": "規制・税制",
+    "bi.nav.workforce": "労働力・社会",
+    "bi.nav.infrastructure": "インフラ・イノベーション",
+    
+    // BI Filter (Japanese)
+    "bi.filter.searchPlaceholder": "データ洞察を検索...",
+    "bi.filter.selectCategory": "カテゴリーを選択",
+    "bi.filter.selectYear": "年を選択",
+    "bi.filter.allCategories": "すべてのカテゴリー",
+    "bi.filter.allYears": "すべての年",
+    "bi.filter.activeFilters": "アクティブフィルター",
+    "bi.filter.clearAll": "すべてクリア",
+    "bi.filter.showing": "表示中",
+    "bi.filter.of": "/",
+    "bi.filter.results": "件",
+    "bi.filter.noResults": "データが見つかりません",
+    "bi.filter.noResultsDesc": "フィルターを調整してより多くの結果を表示してください。",
+    "bi.filter.clearFilters": "フィルターをクリア",
+    
+    // BI Categories (Japanese)
+    "bi.economy.title": "経済・投資",
+    "bi.economy.metaDescription": "タイの経済指標、GDP成長率、為替レート、BOT、NESDC、BOIからの投資データ。",
+    "bi.economy.description": "タイ中央銀行、NESDC、投資委員会からのリアルタイムデータでタイの経済パフォーマンスを追跡。",
+    
+    "bi.trade.title": "貿易・産業",
+    "bi.trade.metaDescription": "タイの貿易統計、輸出入データ、税関・商務省からの産業指標。",
+    "bi.trade.description": "政府公式ソースからタイの貿易パフォーマンスと産業指標を監視。",
+    
+    "bi.regulation.title": "規制・税制",
+    "bi.regulation.metaDescription": "歳入庁と政府機関からのタイの税収、規制変更、コンプライアンスデータ。", 
+    "bi.regulation.description": "ビジネスに影響するタイの規制環境と税制政策の変化について最新情報を入手。",
+    
+    "bi.workforce.title": "労働力・社会",
+    "bi.workforce.metaDescription": "国家統計局と労働省からのタイの雇用統計、労働市場データ、社会指標。",
+    "bi.workforce.description": "戦略計画のためのタイの労働力トレンドと社会発展指標を分析。",
+    
+    "bi.infrastructure.title": "インフラ・イノベーション", 
+    "bi.infrastructure.metaDescription": "DEPA、IEAT、AOTからのタイのデジタル経済、インフラ開発、イノベーション指標。",
+    "bi.infrastructure.description": "タイのインフラ開発とデジタル変革の進歩を探索。",
+    
+    // BI Data Sources (Japanese)
+    "bi.dataSources.title": "公式データソース",
+    "bi.dataSources.bot": "中央銀行の金融政策と為替レートデータ",
+    "bi.dataSources.nesdc": "国家経済開発とGDP統計",
+    "bi.dataSources.boi": "投資促進と外国投資データ",
+    "bi.dataSources.customs": "輸出入統計と貿易データ",
+    "bi.dataSources.fti": "工業生産と製造業指標",
+    "bi.dataSources.moc": "商業貿易と事業登録データ",
+    "bi.dataSources.revenue": "税収と財政収入統計",
+    "bi.dataSources.gazette": "法律と規制の発表",
+    "bi.dataSources.labour": "雇用規制と労働統計",
+    "bi.dataSources.nso": "人口、雇用、社会統計",
+    "bi.dataSources.ieat": "工業団地と特別経済区域データ",
+    "bi.dataSources.depa": "デジタル経済と技術開発指標",
+    "bi.dataSources.aot": "空港運営と交通インフラ",
   },
   th: {
     // Common
