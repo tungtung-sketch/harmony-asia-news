@@ -25,11 +25,27 @@ const About = () => {
           <section className="relative py-12 md:py-20 bg-gradient-to-b from-background to-muted/20">
             <div className="container mx-auto text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                {t('about.title')}
+                {t('about.hero.title')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                {t('about.description')}
+                {t('about.hero.subtitle')}
               </p>
+            </div>
+          </section>
+
+          {/* Company Overview Section */}
+          <section className="container mx-auto py-12 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">
+                {t('about.overview.title')}
+              </h2>
+              <Card className="bg-muted/30 border-primary/10">
+                <CardContent className="p-6 md:p-8">
+                  <p className="text-lg md:text-xl text-foreground leading-relaxed text-center">
+                    {t('about.overview.content')}
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </section>
 
@@ -39,7 +55,7 @@ const About = () => {
               <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">
                 {t('about.mission.title')}
               </h2>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-light text-primary leading-relaxed">
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-primary leading-relaxed">
                 {t('about.mission.content')}
               </p>
             </div>
