@@ -37,6 +37,7 @@ const translations: Record<Lang, Translations> = {
     "nav.insights": "Insights",
     "nav.tips": "Business Tips",
     "nav.subscribe": "Subscribe",
+    "nav.signup": "Sign Up",
     "nav.contact": "Contact",
 
     // Legacy nav (kept for compatibility in components)
@@ -463,6 +464,7 @@ const translations: Record<Lang, Translations> = {
     "nav.insights": "インサイト",
     "nav.tips": "ビジネスTips",
     "nav.subscribe": "購読",
+    "nav.signup": "サインアップ",
     "nav.contact": "お問い合わせ",
 
     // Legacy nav keys (kept for compatibility)

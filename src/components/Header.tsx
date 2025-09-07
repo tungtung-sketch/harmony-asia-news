@@ -170,6 +170,15 @@ const Header = () => {
         {t('nav.subscribe')}
       </NavLink>
       <NavLink 
+        to="/signup" 
+        className={({ isActive }) => 
+          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
+        }
+        onClick={closeMenu}
+      >
+        {t('nav.signup')}
+      </NavLink>
+      <NavLink 
         to="/contact" 
         className={({ isActive }) => 
           `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
