@@ -140,14 +140,19 @@ const Subscribe = () => {
                       {t("subscribe.plans.premium.popular")}
                     </Badge>
                   )}
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
-                    {plan.duration && (
-                      <div className="text-sm text-muted-foreground">({plan.duration})</div>
-                    )}
-                    <div className="text-3xl font-bold text-primary">{plan.price}</div>
-                    <CardDescription className="text-sm">{plan.description}</CardDescription>
-                  </CardHeader>
+                   <CardHeader className="text-center">
+                     <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
+                     {plan.duration && (
+                       <div className="text-sm text-muted-foreground">({plan.duration})</div>
+                     )}
+                     <div className="text-3xl font-bold text-primary">{plan.price}</div>
+                     <CardDescription className="text-sm mb-4">{plan.description}</CardDescription>
+                   </CardHeader>
+                   <CardContent className="px-6 pb-4">
+                     <p className="text-sm text-muted-foreground">
+                       {t(`subscribe.plans.${index === 0 ? 'freeTrial' : index === 1 ? 'basic' : index === 2 ? 'premium' : 'corporate'}.detailedDescription`)}
+                     </p>
+                   </CardContent>
                   <CardFooter>
                     <Button 
                       className="w-full" 

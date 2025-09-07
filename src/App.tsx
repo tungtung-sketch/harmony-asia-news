@@ -13,6 +13,9 @@ import BusinessTips from "./pages/BusinessTips";
 import BusinessTipDetail from "./pages/BusinessTipDetail";
 import SearchResults from "./pages/SearchResults";
 import Subscribe from "./pages/Subscribe";
+import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
+import PaymentSuccess from "./pages/PaymentSuccess";
 import { I18nProvider } from "@/i18n/I18nProvider";
 import InsightsLanding from "./pages/insights/InsightsLanding";
 import InsightServices from "./pages/insights/Services";
@@ -46,6 +49,9 @@ const App = () => (
             <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/subscribe" element={<Subscribe />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/business-intelligence" element={<BusinessIntelligence />} />
             <Route path="/business-intelligence/economy" element={<EconomyInvestment />} />
             <Route path="/business-intelligence/trade" element={<TradeIndustry />} />
