@@ -283,9 +283,34 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.premium.detailedDescription": "Everything in Basic plus industry reports, executive insights, downloadable PDF reports, and premium analysis. Most comprehensive coverage.",
     "subscribe.plans.corporate.detailedDescription": "Custom pricing with multi-seat license, exclusive webinars, direct consultation access, and tailored business intelligence.",
 
-    // Sign-up page
-    "signup.title": "Sign Up - Harmony Asia News",
-    "signup.metaDescription": "Join our community for exclusive business insights and analysis",
+      login: {
+        title: "Login - Harmony Asia News",
+        metaDescription: "Login to access your premium business insights and subscription",
+        hero: {
+          title: "Welcome Back",
+          subtitle: "Login to access your premium content"
+        },
+        form: {
+          title: "Login to Your Account",
+          description: "Enter your credentials to access your subscription",
+          signIn: "Sign In",
+          signingIn: "Signing In...",
+          noAccount: "Don't have an account?",
+          signUp: "Sign up here"
+        },
+        success: "Login successful! Welcome back.",
+        error: "Invalid email or password. Please try again.",
+        signupSuccess: "Sign up successful! Please log in to access your account."
+      },
+      signup: {
+        hero: {
+          title: "Join Harmony Asia News",
+          subtitle: "Subscribe to premium business insights for Thailand and Japan"
+        },
+        error: "Sign up failed. Please try again.",
+        paymentError: "Payment setup failed, but your account was created. Please log in.",
+        title: "Sign Up - Harmony Asia News",
+        metaDescription: "Join our community for exclusive business insights and analysis",
     "signup.hero.title": "Join Harmony Asia News",
     "signup.hero.subtitle": "Get access to premium business insights and analysis",
     "signup.form.name": "Name",
@@ -652,10 +677,31 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.corporate.detailedDescription": "マルチシートライセンス、限定ウェビナー、直接コンサルテーションアクセス、カスタマイズされたビジネスインテリジェンス付きカスタム価格。",
 
     // Sign-up page (Japanese)
+    "login": {
+      "title": "ログイン - Harmony Asia News",
+      "metaDescription": "プレミアムビジネスインサイトと購読にアクセスするためにログイン",
+      "hero": {
+        "title": "お帰りなさい",
+        "subtitle": "プレミアムコンテンツにアクセスするためにログイン"
+      },
+      "form": {
+        "title": "アカウントにログイン",
+        "description": "購読にアクセスするための認証情報を入力",
+        "signIn": "ログイン",
+        "signingIn": "ログイン中...",
+        "noAccount": "アカウントをお持ちではありませんか？",
+        "signUp": "こちらでサインアップ"
+      },
+      "success": "ログイン成功！お帰りなさい。",
+      "error": "メールまたはパスワードが無効です。もう一度お試しください。",
+      "signupSuccess": "サインアップが完了しました！アカウントにアクセスするためにログインしてください。"
+    },
     "signup.title": "会員登録 - Harmony Asia News",
     "signup.metaDescription": "独占的なビジネス洞察と分析のためのコミュニティに参加",
     "signup.hero.title": "Harmony Asia Newsに参加",
     "signup.hero.subtitle": "プレミアムビジネス洞察と分析へのアクセスを取得",
+    "signup.error": "サインアップに失敗しました。もう一度お試しください。",
+    "signup.paymentError": "支払い設定に失敗しましたが、アカウントは作成されました。ログインしてください。",
     "signup.form.name": "名前",
     "signup.form.namePlaceholder": "お名前を入力してください",
     "signup.form.email": "メールアドレス",
@@ -728,6 +774,9 @@ const translations: Record<Lang, Translations> = {
     "myPage.actions.editProfile": "プロフィール編集",
     "myPage.actions.downloadInvoice": "請求書をダウンロード",
     "myPage.actions.contactSupport": "サポートに連絡",
+    "myPage.actions.logout": "ログアウト",
+    "myPage.logout.success": "ログアウトしました",
+    "myPage.logout.error": "ログアウトに失敗しました。もう一度お試しください。",
 
     // My Page / Dashboard (Japanese) - Legacy compatibility
     "dashboard.title": "マイページ - Harmony Asia News",
