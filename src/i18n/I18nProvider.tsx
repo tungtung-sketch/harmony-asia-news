@@ -374,6 +374,50 @@ const translations: Record<Lang, Translations> = {
     "notfound.subtitle": "The page you are looking for does not exist. Try returning to the homepage or explore our Insights.",
     "notfound.backHome": "Back to Home",
 
+    // Terms of Service
+    "terms.title": "Terms of Service - Harmony Asia News",
+    "terms.metaDescription": "Terms of Service for Harmony Asia News subscription and website usage",
+    "terms.hero.title": "Terms of Service",
+    "terms.hero.subtitle": "Please read these terms carefully before using our services",
+    
+    "terms.section1.title": "1. Introduction",
+    "terms.section1.content": "Welcome to Harmony Asia News. By accessing or using our website and subscription services, you agree to these Terms of Service. Please read them carefully before subscribing.",
+    
+    "terms.section2.title": "2. Services",
+    "terms.section2.content": "Harmony Asia News provides business news, market insights, analysis reports, and resources to support international executives and companies operating in Thailand and Southeast Asia. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
+    
+    "terms.section3.title": "3. Subscription & Payment",
+    "terms.section3.trial": "Users may start with a 30-day free trial under the Basic Plan. No charges will apply during the trial period.",
+    "terms.section3.autorenewal": "After the trial ends, your subscription will automatically convert to the selected paid plan unless canceled before the renewal date.",
+    "terms.section3.payment": "All payments are processed securely via Stripe. By subscribing, you authorize recurring billing until you cancel.",
+    
+    "terms.section4.title": "4. Account & Usage",
+    "terms.section4.information": "Users must provide accurate information (name, email, position, industry, purpose of subscription).",
+    "terms.section4.sharing": "Accounts are personal and may not be shared unless a Corporate Plan is purchased.",
+    
+    "terms.section5.title": "5. Cancellation & Refunds",
+    "terms.section5.cancellation": "Subscriptions can be canceled at any time via the My Page dashboard (Stripe Customer Portal).",
+    "terms.section5.refunds": "Refunds are not generally provided for partial periods unless required by law.",
+    
+    "terms.section6.title": "6. Content & Intellectual Property",
+    "terms.section6.ownership": "All articles, insights, reports, and visuals are the property of Harmony Asia News.",
+    "terms.section6.purpose": "Content is provided for informational purposes only and should not be considered legal, financial, or investment advice.",
+    
+    "terms.section7.title": "7. Privacy & Data",
+    "terms.section7.policy": "We collect and process personal data in accordance with our Privacy Policy.",
+    "terms.section7.metadata": "Metadata such as Position, Industry, and Purpose of Subscription may be stored securely for personalization and analytics.",
+    
+    "terms.section8.title": "8. Limitation of Liability",
+    "terms.section8.content": "We strive to provide accurate, up-to-date information, but do not guarantee completeness or accuracy. Decisions made based on our content are the responsibility of the subscriber.",
+    
+    "terms.section9.title": "9. Changes to Terms",
+    "terms.section9.content": "We may update these Terms from time to time. Continued use of our services after changes indicates your acceptance.",
+    
+    "terms.section10.title": "10. Contact Us",
+    "terms.section10.content": "If you have any questions, please contact us via the",
+    "terms.section10.link": "Contact Us page",
+    "terms.section10.suffix": ".",
+
     // Insights
     "insights.breadcrumb": "Insights",
     "insights.dropdown.overview": "Overview",
@@ -799,6 +843,50 @@ const translations: Record<Lang, Translations> = {
     "about.cta.title": "タイでの日本ビジネスの未来の一部になりませんか",
     "about.cta.content": "今日から購読して、実用的なインサイト、戦略的インテリジェンス、先見性のある視点にアクセスしてください。",
     "about.cta.button": "今すぐ購読",
+
+    // Terms of Service (Japanese)
+    "terms.title": "利用規約 - Harmony Asia News",
+    "terms.metaDescription": "Harmony Asia News購読およびウェブサイト利用の利用規約",
+    "terms.hero.title": "利用規約",
+    "terms.hero.subtitle": "サービスご利用前に利用規約をよくお読みください",
+    
+    "terms.section1.title": "1. はじめに",
+    "terms.section1.content": "本ウェブサイト Harmony Asia News をご利用いただくにあたり、本利用規約に同意いただく必要があります。ご利用前に必ずご確認ください。",
+    
+    "terms.section2.title": "2. サービス内容",
+    "terms.section2.content": "Harmony Asia News は、タイおよび東南アジアで事業を展開する国際的なビジネスリーダーに向けて、ビジネスニュース、マーケットインサイト、分析レポート、ローカル知見を提供します。内容は契約プランにより異なります。",
+    
+    "terms.section3.title": "3. サブスクリプションと料金",
+    "terms.section3.trial": "ベーシックプランでは最初の30日間を無料でご利用いただけます（無料トライアル）。",
+    "terms.section3.autorenewal": "無料期間終了後は、選択された有料プランに自動的に更新されます。更新日前に解約しない限り、定期的な課金が行われます。",
+    "terms.section3.payment": "決済は Stripe を通じて安全に処理されます。",
+    
+    "terms.section4.title": "4. アカウントと利用",
+    "terms.section4.information": "登録時には正確な情報（氏名、メールアドレス、役職、業種、購読目的）をご提供ください。",
+    "terms.section4.sharing": "アカウントは個人専用であり、法人プランを除き、第三者と共有することはできません。",
+    
+    "terms.section5.title": "5. 解約・返金",
+    "terms.section5.cancellation": "サブスクリプションはいつでもマイページ（Stripe Customer Portal）から解約可能です。",
+    "terms.section5.refunds": "返金は原則として行われません（法律で義務付けられている場合を除きます）。",
+    
+    "terms.section6.title": "6. コンテンツと知的財産権",
+    "terms.section6.ownership": "記事、インサイト、レポート、ビジュアル等のコンテンツはすべて Harmony Asia News に帰属します。",
+    "terms.section6.purpose": "提供する情報は一般的な情報提供を目的としたものであり、法的・財務的・投資上の助言を構成するものではありません。",
+    
+    "terms.section7.title": "7. プライバシーとデータ",
+    "terms.section7.policy": "個人情報の収集・利用は当社のプライバシーポリシーに基づきます。",
+    "terms.section7.metadata": "役職、業種、購読目的などのメタデータは、パーソナライズや分析のために安全に保存されます。",
+    
+    "terms.section8.title": "8. 責任の制限",
+    "terms.section8.content": "当社は正確かつ最新の情報を提供するよう努めますが、その完全性や正確性を保証するものではありません。コンテンツに基づく意思決定の責任は利用者ご自身にあります。",
+    
+    "terms.section9.title": "9. 規約の変更",
+    "terms.section9.content": "当社は必要に応じて本規約を変更することがあります。変更後もサービスを利用することで、改訂後の規約に同意したものとみなされます。",
+    
+    "terms.section10.title": "10. お問い合わせ",
+    "terms.section10.content": "ご質問がある場合は、当サイトの",
+    "terms.section10.link": "Contact Us / お問い合わせページ",
+    "terms.section10.suffix": "よりご連絡ください。",
 
     // Business Tips
     "tips.subtitle": "タイおよびアジア太平洋地域で事業を展開する国際的なビジネスリーダーのための実践的な洞察と戦略。",

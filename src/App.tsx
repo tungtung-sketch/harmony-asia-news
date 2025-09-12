@@ -29,6 +29,7 @@ import TradeIndustry from "./pages/bi/TradeIndustry";
 import RegulationTax from "./pages/bi/RegulationTax";
 import WorkforceSociety from "./pages/bi/WorkforceSociety";
 import InfrastructureInnovation from "./pages/bi/InfrastructureInnovation";
+import TermsOfService from "./pages/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/insights/wellness-healthcare" element={<InsightWellnessHealthcare />} />
             <Route path="/insights/agriculture" element={<InsightAgriculture />} />
             <Route path="/insights/real-estate" element={<InsightRealEstate />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
