@@ -1,29 +1,24 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
-import { useAuth } from '@/contexts/AuthContext';
 import { useI18n } from "@/i18n/I18nProvider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { User, CreditCard, Calendar, History, Settings, Download, Phone, LogOut } from "lucide-react";
+import { User, CreditCard, Calendar, History, Settings, Download, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 
 const MyPage = () => {
   const { t } = useI18n();
-  const { user, signOut } = useAuth();
-  const navigate = useNavigate();
   const [subscriptionData, setSubscriptionData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  // Get user profile data from auth user
+  // Mock user profile data - in real app, this would come from auth/database
   const userProfile = {
-    name: user?.user_metadata?.name || user?.email || "User",
-    email: user?.email || "",
-    position: user?.user_metadata?.position || "manager",
-    industry: user?.user_metadata?.industry || "manufacturing"
+    name: "田中太郎",
+    email: "tanaka@example.com", 
+    position: "manager",
+    industry: "manufacturing"
   };
 
   // Mock subscription data - in real app, this would come from Stripe API
@@ -66,16 +61,6 @@ const MyPage = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await signOut();
-      toast.success(t('myPage.logout.success'));
-      navigate('/');
-    } catch (error) {
-      toast.error(t('myPage.logout.error'));
     }
   };
 
@@ -167,16 +152,10 @@ const MyPage = () => {
                       <div>{t(`signup.industries.${userProfile.industry}`)}</div>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-2 mt-4">
-                      <Button variant="outline">
-                        <Settings className="h-4 w-4 mr-2" />
-                        {t("myPage.actions.editProfile")}
-                      </Button>
-                      <Button variant="outline" onClick={handleLogout}>
-                        <LogOut className="h-4 w-4 mr-2" />
-                        {t("myPage.actions.logout")}
-                      </Button>
-                    </div>
+                    <Button variant="outline" className="w-full mt-4">
+                      <Settings className="h-4 w-4 mr-2" />
+                      {t("myPage.actions.editProfile")}
+                    </Button>
                   </CardContent>
                 </Card>
 

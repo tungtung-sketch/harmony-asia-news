@@ -1,22 +1,18 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { useI18n } from "@/i18n/I18nProvider";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
+import { useI18n } from "@/i18n/I18nProvider";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { toast } from "sonner";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const { t } = useI18n();
-  const { signUp } = useAuth();
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,39 +46,24 @@ const SignUp = () => {
     e.preventDefault();
     
     try {
-      // First sign up the user
-      const { error: signUpError } = await signUp(formData.email, formData.password, {
-        name: formData.name,
-        position: formData.position,
-        industry: formData.industry,
-        purpose: formData.purpose,
-        plan: formData.plan
-      });
-      
-      if (signUpError) {
-        toast.error(t('signup.error'));
-        return;
-      }
-      
-      // Create checkout session for subscription
       const { supabase } = await import("@/integrations/supabase/client");
       
       const { data, error } = await supabase.functions.invoke('create-checkout-session', {
         body: {
-          name: formData.name,
-          email: formData.email,
-          position: formData.position,
-          industry: formData.industry,
-          purpose: formData.purpose,
-          plan: formData.plan
+          plan: formData.plan,
+          metadata: {
+            name: formData.name,
+            email: formData.email,
+            position: formData.position,
+            industry: formData.industry,
+            purpose: formData.purpose,
+            plan: formData.plan
+          }
         }
       });
       
       if (error) {
         console.error('Error creating checkout session:', error);
-        toast.error(t('signup.paymentError'));
-        // Redirect to login even if payment fails
-        navigate('/login?signup=success');
         return;
       }
       
@@ -91,7 +72,6 @@ const SignUp = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-      toast.error(t('signup.error'));
     }
   };
 
