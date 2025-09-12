@@ -245,7 +245,7 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.freeTrial.description": "Access to selected daily news and some analysis",
     "subscribe.plans.freeTrial.cta": "Start Free Trial",
     
-    "subscribe.plans.basic.title": "Basic Plan",
+    "subscribe.plans.basic.title": "Basic Plan (Free Trial 30 Days)",
     "subscribe.plans.basic.price": "฿599/month",
     "subscribe.plans.basic.description": "Full access to all daily news and website + newsletter",
     "subscribe.plans.basic.cta": "Choose Basic",
@@ -600,7 +600,7 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.freeTrial.description": "厳選された日次ニュースと一部の分析へのアクセス",
     "subscribe.plans.freeTrial.cta": "無料トライアルを開始",
     
-    "subscribe.plans.basic.title": "ベーシックプラン",
+    "subscribe.plans.basic.title": "ベーシックプラン (最初の30日間無料) ",
     "subscribe.plans.basic.price": "฿599/月",
     "subscribe.plans.basic.description": "すべての日次ニュースとウェブサイト+ニュースレターへのフルアクセス",
     "subscribe.plans.basic.cta": "ベーシックを選択",
