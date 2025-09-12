@@ -15,7 +15,6 @@ import SearchResults from "./pages/SearchResults";
 import Subscribe from "./pages/Subscribe";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
-import MyPage from "./pages/MyPage";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import { I18nProvider } from "@/i18n/I18nProvider";
 import InsightsLanding from "./pages/insights/InsightsLanding";
@@ -52,7 +51,6 @@ const App = () => (
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/my-page" element={<MyPage />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/business-intelligence" element={<BusinessIntelligence />} />
             <Route path="/business-intelligence/economy" element={<EconomyInvestment />} />
