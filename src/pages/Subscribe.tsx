@@ -13,22 +13,6 @@ const Subscribe = () => {
 
   const plans = [
     {
-      name: t("subscribe.plans.freeTrial.title"),
-      duration: t("subscribe.plans.freeTrial.duration"),
-      price: t("subscribe.plans.freeTrial.price"),
-      description: t("subscribe.plans.freeTrial.description"),
-      cta: t("subscribe.plans.freeTrial.cta"),
-      isPopular: false,
-      features: {
-        dailyNews: "limited",
-        premiumInsights: false,
-        executiveReports: false,
-        pdfDownloads: false,
-        multiSeat: false,
-        customServices: false,
-      }
-    },
-    {
       name: t("subscribe.plans.basic.title"),
       price: t("subscribe.plans.basic.price"),
       description: t("subscribe.plans.basic.description"),
@@ -56,21 +40,6 @@ const Subscribe = () => {
         pdfDownloads: true,
         multiSeat: false,
         customServices: false,
-      }
-    },
-    {
-      name: t("subscribe.plans.corporate.title"),
-      price: t("subscribe.plans.corporate.price"),
-      description: t("subscribe.plans.corporate.description"),
-      cta: t("subscribe.plans.corporate.cta"),
-      isPopular: false,
-      features: {
-        dailyNews: true,
-        premiumInsights: true,
-        executiveReports: true,
-        pdfDownloads: true,
-        multiSeat: true,
-        customServices: true,
       }
     }
   ];
@@ -118,13 +87,6 @@ const Subscribe = () => {
               <p className="text-xl text-muted-foreground mb-8">
                 {t("subscribe.hero.subtitle")}
               </p>
-              <Button 
-                size="lg" 
-                onClick={scrollToPricing}
-                className="text-lg px-8 py-6"
-              >
-                {t("subscribe.hero.cta")}
-              </Button>
             </div>
           </div>
         </section>
@@ -132,7 +94,7 @@ const Subscribe = () => {
         {/* Pricing Section */}
         <section id="pricing" className="py-20">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {plans.map((plan, index) => (
                 <Card key={index} className={`relative ${plan.isPopular ? 'border-primary shadow-lg scale-105' : 'border-border'}`}>
                   {plan.isPopular && (
@@ -142,15 +104,12 @@ const Subscribe = () => {
                   )}
                    <CardHeader className="text-center">
                      <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
-                     {plan.duration && (
-                       <div className="text-sm text-muted-foreground">({plan.duration})</div>
-                     )}
                      <div className="text-3xl font-bold text-primary">{plan.price}</div>
                      <CardDescription className="text-sm mb-4">{plan.description}</CardDescription>
                    </CardHeader>
                    <CardContent className="px-6 pb-4">
                      <p className="text-sm text-muted-foreground">
-                       {t(`subscribe.plans.${index === 0 ? 'freeTrial' : index === 1 ? 'basic' : index === 2 ? 'premium' : 'corporate'}.detailedDescription`)}
+                       {t(`subscribe.plans.${index === 0 ? 'basic' : 'premium'}.detailedDescription`)}
                      </p>
                    </CardContent>
                   <CardFooter>
@@ -173,30 +132,39 @@ const Subscribe = () => {
             <h2 className="text-3xl font-bold text-center mb-12">{t("subscribe.features.title")}</h2>
             <div className="max-w-6xl mx-auto">
               <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-4 px-4 font-semibold">Features</th>
-                      {plans.map((plan, index) => (
-                        <th key={index} className="text-center py-4 px-4 font-semibold min-w-[120px]">
-                          {plan.name}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {features.map((feature, featureIndex) => (
-                      <tr key={featureIndex} className="border-b border-border/50">
-                        <td className="py-4 px-4 font-medium">{feature.label}</td>
-                        {plans.map((plan, planIndex) => (
-                          <td key={planIndex} className="text-center py-4 px-4">
-                            <FeatureIcon included={plan.features[feature.key as keyof typeof plan.features]} />
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                 <table className="w-full">
+                   <thead>
+                     <tr className="border-b">
+                       <th className="text-left py-4 px-4 font-semibold">Features</th>
+                       {plans.map((plan, index) => (
+                         <th key={index} className="text-center py-4 px-4 font-semibold min-w-[120px]">
+                           <div>
+                             {plan.name}
+                             {index === 0 && (
+                               <div className="text-xs font-normal text-muted-foreground mt-1">
+                                 {t("subscribe.plans.basic.freeNote")}
+                               </div>
+                             )}
+                           </div>
+                         </th>
+                       ))}
+                     </tr>
+                   </thead>
+                   <tbody>
+                     {features.map((feature, featureIndex) => (
+                       <tr key={featureIndex} className="border-b border-border/50">
+                         <td className="py-4 px-4 font-medium">{feature.label}</td>
+                         {plans.map((plan, planIndex) => (
+                           <td key={planIndex} className="py-4 px-4">
+                             <div className="flex justify-center">
+                               <FeatureIcon included={plan.features[feature.key as keyof typeof plan.features]} />
+                             </div>
+                           </td>
+                         ))}
+                       </tr>
+                     ))}
+                   </tbody>
+                 </table>
               </div>
             </div>
           </div>

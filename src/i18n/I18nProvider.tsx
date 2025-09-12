@@ -239,16 +239,11 @@ const translations: Record<Lang, Translations> = {
     "subscribe.hero.cta": "Subscribe Now",
     
     // Pricing plans
-    "subscribe.plans.freeTrial.title": "Free Trial",
-    "subscribe.plans.freeTrial.duration": "30 Days",
-    "subscribe.plans.freeTrial.price": "Free",
-    "subscribe.plans.freeTrial.description": "Access to selected daily news and some analysis",
-    "subscribe.plans.freeTrial.cta": "Start Free Trial",
-    
     "subscribe.plans.basic.title": "Basic Plan",
-    "subscribe.plans.basic.price": "฿599/month",
+    "subscribe.plans.basic.price": "฿599/month (First 30 days free trial)",
     "subscribe.plans.basic.description": "Full access to all daily news and website + newsletter",
     "subscribe.plans.basic.cta": "Choose Basic",
+    "subscribe.plans.basic.freeNote": "(First 30 days free)",
     
     "subscribe.plans.premium.title": "Premium Plan",
     "subscribe.plans.premium.price": "฿1,299/month",
@@ -277,10 +272,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.finalCta.button": "Subscribe Now",
 
     // Expanded subscription plan descriptions
-    "subscribe.plans.freeTrial.detailedDescription": "Limited access to selected daily news articles and basic market analysis. 30-day trial period to explore our content.",
-    "subscribe.plans.basic.detailedDescription": "Full access to all daily business & policy news, weekly newsletter, and standard market reports. Perfect for staying informed.",
+    "subscribe.plans.basic.detailedDescription": "Full access to all daily business & policy news, weekly newsletter, and standard market reports. Perfect for staying informed. Start with a 30-day free trial.",
     "subscribe.plans.premium.detailedDescription": "Everything in Basic plus industry reports, executive insights, downloadable PDF reports, and premium analysis. Most comprehensive coverage.",
-    "subscribe.plans.corporate.detailedDescription": "Custom pricing with multi-seat license, exclusive webinars, direct consultation access, and tailored business intelligence.",
 
     // Sign-up page
     "signup.title": "Sign Up - Harmony Asia News",
@@ -594,16 +587,11 @@ const translations: Record<Lang, Translations> = {
     "subscribe.hero.cta": "今すぐ購読",
     
     // Pricing plans
-    "subscribe.plans.freeTrial.title": "無料トライアル",
-    "subscribe.plans.freeTrial.duration": "30日間",
-    "subscribe.plans.freeTrial.price": "無料",
-    "subscribe.plans.freeTrial.description": "厳選された日次ニュースと一部の分析へのアクセス",
-    "subscribe.plans.freeTrial.cta": "無料トライアルを開始",
-    
     "subscribe.plans.basic.title": "ベーシックプラン",
-    "subscribe.plans.basic.price": "฿599/月",
+    "subscribe.plans.basic.price": "月額599バーツ（最初の30日間は無料トライアル）",
     "subscribe.plans.basic.description": "すべての日次ニュースとウェブサイト+ニュースレターへのフルアクセス",
     "subscribe.plans.basic.cta": "ベーシックを選択",
+    "subscribe.plans.basic.freeNote": "（最初の30日間は無料）",
     
     "subscribe.plans.premium.title": "プレミアムプラン",
     "subscribe.plans.premium.price": "฿1,299/月",
@@ -632,10 +620,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.finalCta.button": "今すぐ購読",
 
     // Expanded subscription plan descriptions
-    "subscribe.plans.freeTrial.detailedDescription": "厳選された日次ニュース記事と基本的な市場分析への限定アクセス。30日間のトライアル期間でコンテンツを探索できます。",
-    "subscribe.plans.basic.detailedDescription": "すべての日次ビジネス・政策ニュース、週刊ニュースレター、標準的な市場レポートへのフルアクセス。情報把握に最適。",
+    "subscribe.plans.basic.detailedDescription": "すべての日次ビジネス・政策ニュース、週刊ニュースレター、標準的な市場レポートへのフルアクセス。情報把握に最適。30日間の無料トライアルから開始。",
     "subscribe.plans.premium.detailedDescription": "ベーシックプランのすべて＋業界レポート、エグゼクティブインサイト、ダウンロード可能なPDFレポート、プレミアム分析。最も包括的なカバレッジ。",
-    "subscribe.plans.corporate.detailedDescription": "マルチシートライセンス、限定ウェビナー、直接コンサルテーションアクセス、カスタマイズされたビジネスインテリジェンス付きカスタム価格。",
 
     // Sign-up page (Japanese)
     "signup.title": "サインアップ - Harmony Asia News",
