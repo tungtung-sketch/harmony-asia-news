@@ -7,10 +7,12 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import SearchBox from '@/components/SearchBox';
+import { useAuth } from '@/contexts/AuthContext';
 
 
 const Header = () => {
   const { t, setLang } = useI18n();
+  const { user, signOut } = useAuth();
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -169,15 +171,27 @@ const Header = () => {
       >
         {t('nav.subscribe')}
       </NavLink>
-      <NavLink 
-        to="/signup" 
-        className={({ isActive }) => 
-          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
-        }
-        onClick={closeMenu}
-      >
-        {t('nav.signup')}
-      </NavLink>
+      {!user ? (
+        <NavLink 
+          to="/auth" 
+          className={({ isActive }) => 
+            `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
+          }
+          onClick={closeMenu}
+        >
+          {t('nav.login')}
+        </NavLink>
+      ) : (
+        <button
+          onClick={() => {
+            signOut();
+            closeMenu();
+          }}
+          className={`hover:text-primary ${mobile ? 'block py-3 px-4 text-lg text-left' : ''}`}
+        >
+          {t('nav.logout')}
+        </button>
+      )}
       <NavLink 
         to="/contact" 
         className={({ isActive }) => 
