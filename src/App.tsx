@@ -15,10 +15,9 @@ import SearchResults from "./pages/SearchResults";
 import Subscribe from "./pages/Subscribe";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import MyPage from "./pages/MyPage";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import { I18nProvider } from "@/i18n/I18nProvider";
-import { AuthProvider } from "@/contexts/AuthContext";
-import Auth from "./pages/Auth";
 import InsightsLanding from "./pages/insights/InsightsLanding";
 import InsightServices from "./pages/insights/Services";
 import InsightManufacturing from "./pages/insights/Manufacturing";
@@ -40,8 +39,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <I18nProvider>
-        <AuthProvider>
-          <BrowserRouter>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
@@ -53,8 +51,8 @@ const App = () => (
             <Route path="/search" element={<SearchResults />} />
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/my-page" element={<MyPage />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/business-intelligence" element={<BusinessIntelligence />} />
             <Route path="/business-intelligence/economy" element={<EconomyInvestment />} />
@@ -71,8 +69,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          </BrowserRouter>
-        </AuthProvider>
+        </BrowserRouter>
       </I18nProvider>
     </TooltipProvider>
   </QueryClientProvider>
