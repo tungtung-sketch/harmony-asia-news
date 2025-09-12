@@ -239,8 +239,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.hero.cta": "Subscribe Now",
     
     // Pricing plans
-    "subscribe.plans.basic.title": "Basic Plan (First 30 days free trial)",
-    "subscribe.plans.basic.price": "฿599/month",
+    "subscribe.plans.basic.title": "Basic Plan",
+    "subscribe.plans.basic.price": "฿599/month (First 30 days free trial)",
     "subscribe.plans.basic.description": "Full access to all daily news and website + newsletter",
     "subscribe.plans.basic.cta": "Choose Basic",
     "subscribe.plans.basic.freeNote": "(First 30 days free)",
@@ -262,8 +262,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.premiumInsights": "Premium Insights",
     "subscribe.features.executiveReports": "Executive Reports",
     "subscribe.features.pdfDownloads": "PDF Downloads",
-//  "subscribe.features.multiSeat": "Multi-seat License",
-//  "subscribe.features.customServices": "Customized Services",
+    "subscribe.features.multiSeat": "Multi-seat License",
+    "subscribe.features.customServices": "Customized Services",
     "subscribe.features.included": "Included",
     "subscribe.features.notIncluded": "Not Included",
     
