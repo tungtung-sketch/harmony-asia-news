@@ -23,8 +23,6 @@ const Subscribe = () => {
         premiumInsights: false,
         executiveReports: false,
         pdfDownloads: false,
-        multiSeat: false,
-        customServices: false,
       }
     },
     {
@@ -38,8 +36,6 @@ const Subscribe = () => {
         premiumInsights: true,
         executiveReports: true,
         pdfDownloads: true,
-        multiSeat: false,
-        customServices: false,
       }
     }
   ];
@@ -49,8 +45,6 @@ const Subscribe = () => {
     { key: "premiumInsights", label: t("subscribe.features.premiumInsights") },
     { key: "executiveReports", label: t("subscribe.features.executiveReports") },
     { key: "pdfDownloads", label: t("subscribe.features.pdfDownloads") },
-    { key: "multiSeat", label: t("subscribe.features.multiSeat") },
-    { key: "customServices", label: t("subscribe.features.customServices") },
   ];
 
   const scrollToPricing = () => {
