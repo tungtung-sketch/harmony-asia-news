@@ -6,18 +6,85 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, User, Calendar, CreditCard } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const PaymentSuccess = () => {
   const { t } = useI18n();
+  const [searchParams] = useSearchParams();
+  const [sessionData, setSessionData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  // Mock subscription data - in real app, this would come from URL params or API
-  const subscriptionDetails = {
+  useEffect(() => {
+    const fetchSessionData = async () => {
+      const sessionId = searchParams.get('session_id');
+      if (!sessionId) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const { supabase } = await import("@/integrations/supabase/client");
+        
+        const { data, error } = await supabase.functions.invoke('retrieve-checkout-session', {
+          body: { session_id: sessionId }
+        });
+
+        if (error) {
+          console.error('Error retrieving session:', error);
+        } else {
+          setSessionData(data);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSessionData();
+  }, [searchParams]);
+
+  // Fallback data if session retrieval fails
+  const subscriptionDetails = sessionData ? {
+    plan: sessionData.metadata?.plan === 'basic' ? t("subscribe.plans.basic.title") : t("subscribe.plans.premium.title"),
+    planPrice: sessionData.metadata?.plan === 'basic' ? t("subscribe.plans.basic.price") : t("subscribe.plans.premium.price"),
+    startDate: new Date().toLocaleDateString(),
+    renewalDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString(),
+    customerDetails: {
+      name: sessionData.metadata?.name || "",
+      position: sessionData.metadata?.position || "",
+      industry: sessionData.metadata?.industry || "",
+      purpose: sessionData.metadata?.purpose || ""
+    }
+  } : {
     plan: "Premium Plan",
     planPrice: "฿1,299/month",
     startDate: new Date().toLocaleDateString(),
-    renewalDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()
+    renewalDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString(),
+    customerDetails: null
   };
+
+  if (loading) {
+    return (
+      <>
+        <SEO
+          title={t("paymentSuccess.title")}
+          description={t("paymentSuccess.metaDescription")}
+          canonicalPath="/payment-success"
+        />
+        <div className="min-h-screen bg-background">
+          <Header />
+          <section className="py-16">
+            <div className="container mx-auto px-4 text-center">
+              <div className="text-lg">{t("paymentSuccess.loading") || "Loading..."}</div>
+            </div>
+          </section>
+          <Footer />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -62,7 +129,7 @@ const PaymentSuccess = () => {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
+                     <div className="space-y-4">
                       <div>
                         <div className="text-sm font-medium text-muted-foreground mb-1">
                           {t("paymentSuccess.details.plan")}
@@ -77,6 +144,21 @@ const PaymentSuccess = () => {
                           {subscriptionDetails.planPrice}
                         </div>
                       </div>
+
+                      {/* Customer Details */}
+                      {subscriptionDetails.customerDetails && (
+                        <div className="pt-4 border-t">
+                          <div className="text-sm font-medium text-muted-foreground mb-2">
+                            {t("paymentSuccess.details.customerInfo") || "Customer Information"}
+                          </div>
+                          <div className="space-y-2 text-sm">
+                            <div><strong>{t("signup.form.name")}:</strong> {subscriptionDetails.customerDetails.name}</div>
+                            <div><strong>{t("signup.form.position")}:</strong> {subscriptionDetails.customerDetails.position && t(`signup.positions.${subscriptionDetails.customerDetails.position}`)}</div>
+                            <div><strong>{t("signup.form.industry")}:</strong> {subscriptionDetails.customerDetails.industry && t(`signup.industries.${subscriptionDetails.customerDetails.industry}`)}</div>
+                            <div><strong>{t("signup.form.purpose")}:</strong> {subscriptionDetails.customerDetails.purpose && t(`signup.purposes.${subscriptionDetails.customerDetails.purpose}`)}</div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="space-y-4">

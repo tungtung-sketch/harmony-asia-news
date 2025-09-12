@@ -356,8 +356,10 @@ const translations: Record<Lang, Translations> = {
     "dashboard.history.noHistory": "No reading history yet",
     "dashboard.history.viewAll": "View All Articles",
 
-    // Payment Success
+    // Translations for Payment Success
     "paymentSuccess.title": "Payment Successful - Harmony Asia News",
+    "paymentSuccess.loading": "Loading...",
+    "paymentSuccess.details.customerInfo": "Customer Information",
     "paymentSuccess.metaDescription": "Your payment has been processed successfully",
     "paymentSuccess.hero.title": "Payment Successful – Welcome to Harmony Asia News!",
     "paymentSuccess.details.title": "Subscription Summary",
@@ -713,6 +715,8 @@ const translations: Record<Lang, Translations> = {
 
     // Payment Success (Japanese)
     "paymentSuccess.title": "決済完了 - Harmony Asia News",
+    "paymentSuccess.loading": "読み込み中...",
+    "paymentSuccess.details.customerInfo": "顧客情報",
     "paymentSuccess.metaDescription": "決済が正常に処理されました",
     "paymentSuccess.hero.title": "決済が完了しました。Harmony Asia Newsへようこそ！",
     "paymentSuccess.details.title": "購読サマリー",

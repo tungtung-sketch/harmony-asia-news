@@ -38,17 +38,41 @@ const SignUp = () => {
   ];
 
   const plans = [
-    { id: "free", name: t("subscribe.plans.freeTrial.title"), price: t("subscribe.plans.freeTrial.price") },
     { id: "basic", name: t("subscribe.plans.basic.title"), price: t("subscribe.plans.basic.price") },
-    { id: "premium", name: t("subscribe.plans.premium.title"), price: t("subscribe.plans.premium.price") },
-    { id: "corporate", name: t("subscribe.plans.corporate.title"), price: t("subscribe.plans.corporate.price") }
+    { id: "premium", name: t("subscribe.plans.premium.title"), price: t("subscribe.plans.premium.price") }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission and redirect to Stripe checkout
-    console.log("Form submitted:", formData);
-    // TODO: Integrate with Stripe checkout
+    
+    try {
+      const { supabase } = await import("@/integrations/supabase/client");
+      
+      const { data, error } = await supabase.functions.invoke('create-checkout-session', {
+        body: {
+          plan: formData.plan,
+          metadata: {
+            name: formData.name,
+            email: formData.email,
+            position: formData.position,
+            industry: formData.industry,
+            purpose: formData.purpose,
+            plan: formData.plan
+          }
+        }
+      });
+      
+      if (error) {
+        console.error('Error creating checkout session:', error);
+        return;
+      }
+      
+      if (data?.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
