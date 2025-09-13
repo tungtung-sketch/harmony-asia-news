@@ -63,8 +63,8 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
   ];
 
   const purposes = [
-    "market_intelligence", "investment_research", "business_expansion", 
-    "risk_assessment", "competitive_analysis", "regulatory_compliance", "other"
+    "business_news", "market_research", "strategic_decisions", 
+    "team_insights", "other"
   ];
 
   const plans = [
