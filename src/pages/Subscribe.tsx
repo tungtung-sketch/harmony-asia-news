@@ -14,10 +14,12 @@ const Subscribe = () => {
   const plans = [
     {
       name: t("subscribe.plans.basic.title"),
-      price: t("subscribe.plans.basic.price"),
+      price: "฿599/month",
+      billingInfo: t("subscribe.plans.basic.billingInfo"),
       description: t("subscribe.plans.basic.description"),
       cta: t("subscribe.plans.basic.cta"),
       isPopular: false,
+      stripeLink: "https://buy.stripe.com/28EbJ18Nz7gB7bRa4s8Vi00",
       features: {
         dailyNews: true,
         premiumInsights: false,
@@ -27,10 +29,12 @@ const Subscribe = () => {
     },
     {
       name: t("subscribe.plans.premium.title"),
-      price: t("subscribe.plans.premium.price"),
+      price: "฿1,299/month",
+      billingInfo: t("subscribe.plans.premium.billingInfo"),
       description: t("subscribe.plans.premium.description"),
       cta: t("subscribe.plans.premium.cta"),
       isPopular: true,
+      stripeLink: "https://buy.stripe.com/aFafZhd3P8kFao3ekI8Vi01",
       features: {
         dailyNews: true,
         premiumInsights: true,
@@ -99,7 +103,8 @@ const Subscribe = () => {
                    <CardHeader className="text-center">
                      <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
                      <div className="text-3xl font-bold text-primary">{plan.price}</div>
-                     <CardDescription className="text-sm mb-4">{plan.description}</CardDescription>
+                     <CardDescription className="text-sm mb-2">{plan.billingInfo}</CardDescription>
+                     <CardDescription className="text-sm">{plan.description}</CardDescription>
                    </CardHeader>
                    <CardContent className="px-6 pb-4">
                      <p className="text-sm text-muted-foreground">
@@ -108,10 +113,13 @@ const Subscribe = () => {
                    </CardContent>
                   <CardFooter>
                     <Button 
+                      asChild
                       className="w-full" 
                       variant={plan.isPopular ? "default" : "outline"}
                     >
-                      {plan.cta}
+                      <a href={plan.stripeLink} target="_blank" rel="noopener noreferrer">
+                        {plan.cta}
+                      </a>
                     </Button>
                   </CardFooter>
                 </Card>

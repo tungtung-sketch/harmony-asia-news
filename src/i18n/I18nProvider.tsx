@@ -285,16 +285,20 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.freeTrial.description": "Access to selected daily news and some analysis",
     "subscribe.plans.freeTrial.cta": "Start Free Trial",
     
-    "subscribe.plans.basic.title": "Basic Plan (Free Trial 30 Days)",
+    "subscribe.plans.basic.title": "Basic Plan (First 30 days free)",
     "subscribe.plans.basic.price": "฿599/month",
+    "subscribe.plans.basic.billingInfo": "฿599/month (First 30 days free trial)",
     "subscribe.plans.basic.description": "Full access to all daily news and website + newsletter",
-    "subscribe.plans.basic.cta": "Choose Basic",
+    "subscribe.plans.basic.cta": "Subscribe to Basic Plan",
+    "subscribe.plans.basic.detailedDescription": "Includes daily news delivery, basic market analysis, and newsletter subscription.",
     
     "subscribe.plans.premium.title": "Premium Plan",
     "subscribe.plans.premium.price": "฿1,299/month",
+    "subscribe.plans.premium.billingInfo": "฿1,299/month",
     "subscribe.plans.premium.description": "Includes all Basic features plus in-depth analysis and reports",
-    "subscribe.plans.premium.cta": "Choose Premium",
+    "subscribe.plans.premium.cta": "Subscribe to Premium Plan",
     "subscribe.plans.premium.popular": "Most Popular",
+    "subscribe.plans.premium.detailedDescription": "Includes premium analysis, detailed reports, PDF downloads, and executive insights.",
     
     "subscribe.plans.corporate.title": "Corporate Plan",
     "subscribe.plans.corporate.price": "Custom Pricing",
@@ -316,11 +320,7 @@ const translations: Record<Lang, Translations> = {
     "subscribe.finalCta.title": "Join hundreds of executives already staying ahead with Harmony Asia News",
     "subscribe.finalCta.button": "Subscribe Now",
 
-    // Expanded subscription plan descriptions
-    "subscribe.plans.freeTrial.detailedDescription": "Limited access to selected daily news articles and basic market analysis. 30-day trial period to explore our content.",
-    "subscribe.plans.basic.detailedDescription": "Full access to all daily business & policy news, weekly newsletter, and standard market reports. Perfect for staying informed.",
-    "subscribe.plans.premium.detailedDescription": "Everything in Basic plus industry reports, executive insights, downloadable PDF reports, and premium analysis. Most comprehensive coverage.",
-    "subscribe.plans.corporate.detailedDescription": "Custom pricing with multi-seat license, exclusive webinars, direct consultation access, and tailored business intelligence.",
+    // Expanded subscription plan descriptions - see above in plans section
 
     // Sign-up page
     "signup.title": "Sign Up - Harmony Asia News",
@@ -788,16 +788,20 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.freeTrial.description": "厳選された日次ニュースと一部の分析へのアクセス",
     "subscribe.plans.freeTrial.cta": "無料トライアルを開始",
     
-    "subscribe.plans.basic.title": "ベーシックプラン (最初の30日間無料) ",
+    "subscribe.plans.basic.title": "ベーシックプラン (最初の30日間無料)",
     "subscribe.plans.basic.price": "฿599/月",
+    "subscribe.plans.basic.billingInfo": "月額599バーツ（最初の30日間は無料トライアル）",
     "subscribe.plans.basic.description": "すべての日次ニュースとウェブサイト+ニュースレターへのフルアクセス",
-    "subscribe.plans.basic.cta": "ベーシックを選択",
+    "subscribe.plans.basic.cta": "ベーシックプランに登録",
+    "subscribe.plans.basic.detailedDescription": "毎日のニュース配信、基本的な市場分析、ニュースレター購読が含まれます。",
     
     "subscribe.plans.premium.title": "プレミアムプラン",
     "subscribe.plans.premium.price": "฿1,299/月",
+    "subscribe.plans.premium.billingInfo": "月額1,299バーツ",
     "subscribe.plans.premium.description": "ベーシック機能に加え、詳細分析とレポート",
-    "subscribe.plans.premium.cta": "プレミアムを選択",
+    "subscribe.plans.premium.cta": "プレミアムプランに登録",
     "subscribe.plans.premium.popular": "最も人気",
+    "subscribe.plans.premium.detailedDescription": "プレミアム分析、詳細レポート、PDF ダウンロード、エグゼクティブインサイトが含まれます。",
     
     "subscribe.plans.corporate.title": "法人プラン",
     "subscribe.plans.corporate.price": "カスタム価格",
@@ -819,11 +823,7 @@ const translations: Record<Lang, Translations> = {
     "subscribe.finalCta.title": "Harmony Asia Newsで既に先を行く数百人のエグゼクティブに参加しましょう",
     "subscribe.finalCta.button": "今すぐ購読",
 
-    // Expanded subscription plan descriptions
-    "subscribe.plans.freeTrial.detailedDescription": "厳選された日次ニュース記事と基本的な市場分析への限定アクセス。30日間のトライアル期間でコンテンツを探索できます。",
-    "subscribe.plans.basic.detailedDescription": "すべての日次ビジネス・政策ニュース、週刊ニュースレター、標準的な市場レポートへのフルアクセス。情報把握に最適。",
-    "subscribe.plans.premium.detailedDescription": "ベーシックプランのすべて＋業界レポート、エグゼクティブインサイト、ダウンロード可能なPDFレポート、プレミアム分析。最も包括的なカバレッジ。",
-    "subscribe.plans.corporate.detailedDescription": "マルチシートライセンス、限定ウェビナー、直接コンサルテーションアクセス、カスタマイズされたビジネスインテリジェンス付きカスタム価格。",
+    // Expanded subscription plan descriptions - see above in plans section
 
     // Sign-up page (Japanese)
     "signup.title": "サインアップ - Harmony Asia News",
