@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { I18nProvider } from "@/i18n/I18nProvider";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -14,9 +16,9 @@ import BusinessTipDetail from "./pages/BusinessTipDetail";
 import SearchResults from "./pages/SearchResults";
 import Subscribe from "./pages/Subscribe";
 import SignUp from "./pages/SignUp";
+import MyPage from "./pages/MyPage";
 import Dashboard from "./pages/Dashboard";
 import PaymentSuccess from "./pages/PaymentSuccess";
-import { I18nProvider } from "@/i18n/I18nProvider";
 import InsightsLanding from "./pages/insights/InsightsLanding";
 import InsightServices from "./pages/insights/Services";
 import InsightManufacturing from "./pages/insights/Manufacturing";
@@ -39,37 +41,40 @@ const App = () => (
       <Toaster />
       <Sonner />
       <I18nProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/news/:id" element={<NewsDetail />} />
-            <Route path="/business-tips" element={<BusinessTips />} />
-            <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/payment-success" element={<PaymentSuccess />} />
-            <Route path="/business-intelligence" element={<BusinessIntelligence />} />
-            <Route path="/business-intelligence/economy" element={<EconomyInvestment />} />
-            <Route path="/business-intelligence/trade" element={<TradeIndustry />} />
-            <Route path="/business-intelligence/regulation" element={<RegulationTax />} />
-            <Route path="/business-intelligence/workforce" element={<WorkforceSociety />} />
-            <Route path="/business-intelligence/infrastructure" element={<InfrastructureInnovation />} />
-            <Route path="/insights" element={<InsightsLanding />} />
-            <Route path="/insights/services" element={<InsightServices />} />
-            <Route path="/insights/manufacturing" element={<InsightManufacturing />} />
-            <Route path="/insights/wellness-healthcare" element={<InsightWellnessHealthcare />} />
-            <Route path="/insights/agriculture" element={<InsightAgriculture />} />
-            <Route path="/insights/real-estate" element={<InsightRealEstate />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/news/:id" element={<NewsDetail />} />
+              <Route path="/business-tips" element={<BusinessTips />} />
+              <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
+              <Route path="/search" element={<SearchResults />} />
+              <Route path="/subscribe" element={<Subscribe />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/mypage" element={<MyPage />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/payment-success" element={<PaymentSuccess />} />
+              <Route path="/business-intelligence" element={<BusinessIntelligence />} />
+              <Route path="/business-intelligence/economy" element={<EconomyInvestment />} />
+              <Route path="/business-intelligence/trade" element={<TradeIndustry />} />
+              <Route path="/business-intelligence/regulation" element={<RegulationTax />} />
+              <Route path="/business-intelligence/workforce" element={<WorkforceSociety />} />
+              <Route path="/business-intelligence/infrastructure" element={<InfrastructureInnovation />} />
+              <Route path="/insights" element={<InsightsLanding />} />
+              <Route path="/insights/services" element={<InsightServices />} />
+              <Route path="/insights/manufacturing" element={<InsightManufacturing />} />
+              <Route path="/insights/wellness-healthcare" element={<InsightWellnessHealthcare />} />
+              <Route path="/insights/agriculture" element={<InsightAgriculture />} />
+              <Route path="/insights/real-estate" element={<InsightRealEstate />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
       </I18nProvider>
     </TooltipProvider>
   </QueryClientProvider>

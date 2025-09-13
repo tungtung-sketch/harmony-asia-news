@@ -40,6 +40,11 @@ const translations: Record<Lang, Translations> = {
     "nav.signup": "Sign Up",
     "nav.contact": "Contact",
 
+    // Header
+    "header.login": "Login",
+    "header.signUp": "Sign Up",
+    "header.myPage": "My Page",
+
     // Legacy nav (kept for compatibility in components)
     "nav.news.latest": "Latest",
     "nav.news.thaiPolicyWatch": "Thai Policy Watch",
@@ -336,6 +341,29 @@ const translations: Record<Lang, Translations> = {
     "signup.purposes.policyMonitoring": "Policy Monitoring",
     "signup.purposes.general": "General Business News",
 
+    // Authentication
+    "auth.signUp": "Sign Up",
+    "auth.login": "Login",
+    "auth.email": "Email",
+    "auth.password": "Password",
+    "auth.fullName": "Full Name",
+    "auth.position": "Position",
+    "auth.industry": "Industry",
+    "auth.subscriptionPlan": "Subscription Plan",
+    "auth.selectPosition": "Select your position",
+    "auth.selectIndustry": "Select your industry",
+    "auth.createAccount": "Create Account",
+    "auth.alreadyHaveAccount": "Already have an account? Login",
+    "auth.needAccount": "Need an account? Sign up",
+    "auth.error": "Error",
+    "auth.checkEmail": "Check your email",
+    "auth.verificationSent": "Please check your email for verification",
+    "auth.unexpectedError": "An unexpected error occurred",
+    "auth.welcome": "Welcome!",
+    "auth.loginSuccess": "Successfully logged in",
+    "auth.creating": "Creating account...",
+    "auth.loggingIn": "Logging in...",
+
     // My Page / Dashboard
     "dashboard.title": "My Dashboard - Harmony Asia News",
     "dashboard.metaDescription": "Manage your subscription, profile, and access to Harmony Asia News",
@@ -348,6 +376,32 @@ const translations: Record<Lang, Translations> = {
     "dashboard.subscription.renewalDate": "Next Renewal",
     "dashboard.subscription.billingDate": "Next Billing",
     "dashboard.subscription.active": "Active",
+
+    // My Page
+    "mypage.title": "My Page - Harmony Asia News",
+    "mypage.description": "Manage your account and subscription",
+    "mypage.welcome": "My Page",
+    "mypage.signOut": "Sign Out",
+    "mypage.profileInfo": "Profile Information",
+    "mypage.subscriptionInfo": "Subscription Information",
+    "mypage.currentPlan": "Current Plan",
+    "mypage.freeTrial": "Free Trial",
+    "mypage.trialEnds": "Trial Ends",
+    "mypage.nextBilling": "Next Billing",
+    "mypage.upgradePlan": "Upgrade Plan",
+    "mypage.manageSubscription": "Manage Subscription",
+    "mypage.cancelSubscription": "Cancel Subscription",
+    "mypage.readingHistory": "Reading History",
+    "mypage.viewAll": "View All",
+    "mypage.notProvided": "Not provided",
+    "mypage.noSubscription": "No subscription",
+    "mypage.activeSubscription": "Active",
+    "mypage.inactiveSubscription": "Inactive",
+    "mypage.trialExpired": "Trial Expired",
+    "mypage.basicPlan": "Basic Plan",
+
+    // Common
+    "common.loading": "Loading...",
     "dashboard.subscription.inactive": "Inactive",
     "dashboard.subscription.manage": "Manage Subscription",
     "dashboard.subscription.upgrade": "Upgrade Plan",
@@ -512,6 +566,11 @@ const translations: Record<Lang, Translations> = {
     "nav.subscribe": "購読",
     "nav.signup": "サインアップ",
     "nav.contact": "お問い合わせ",
+
+    // Header
+    "header.login": "ログイン",
+    "header.signUp": "新規登録",
+    "header.myPage": "マイページ",
 
     // Legacy nav keys (kept for compatibility)
     "nav.news.latest": "最新",
@@ -938,6 +997,55 @@ const translations: Record<Lang, Translations> = {
     "bi.regulation.title": "規制・税制",
     "bi.regulation.metaDescription": "歳入庁と政府機関からのタイの税収、規制変更、コンプライアンスデータ。", 
     "bi.regulation.description": "ビジネスに影響するタイの規制環境と税制政策の変化について最新情報を入手。",
+
+    // Authentication (Japanese)
+    "auth.signUp": "新規登録",
+    "auth.login": "ログイン",
+    "auth.email": "メールアドレス",
+    "auth.password": "パスワード",
+    "auth.fullName": "氏名",
+    "auth.position": "役職",
+    "auth.industry": "業種",
+    "auth.subscriptionPlan": "サブスクリプションプラン",
+    "auth.selectPosition": "役職を選択してください",
+    "auth.selectIndustry": "業種を選択してください",
+    "auth.createAccount": "アカウント作成",
+    "auth.alreadyHaveAccount": "既にアカウントをお持ちですか？ログイン",
+    "auth.needAccount": "アカウントが必要ですか？新規登録",
+    "auth.error": "エラー",
+    "auth.checkEmail": "メールをご確認ください",
+    "auth.verificationSent": "確認メールをお送りしました",
+    "auth.unexpectedError": "予期しないエラーが発生しました",
+    "auth.welcome": "ようこそ！",
+    "auth.loginSuccess": "ログインしました",
+    "auth.creating": "アカウント作成中...",
+    "auth.loggingIn": "ログイン中...",
+
+    // My Page (Japanese)
+    "mypage.title": "マイページ - Harmony Asia News",
+    "mypage.description": "アカウントとサブスクリプションの管理",
+    "mypage.welcome": "マイページ",
+    "mypage.signOut": "ログアウト",
+    "mypage.profileInfo": "プロフィール情報",
+    "mypage.subscriptionInfo": "サブスクリプション情報",
+    "mypage.currentPlan": "現在のプラン",
+    "mypage.freeTrial": "無料トライアル",
+    "mypage.trialEnds": "トライアル終了日",
+    "mypage.nextBilling": "次回請求日",
+    "mypage.upgradePlan": "プランをアップグレード",
+    "mypage.manageSubscription": "サブスクリプション管理",
+    "mypage.cancelSubscription": "サブスクリプション解約",
+    "mypage.readingHistory": "閲覧履歴",
+    "mypage.viewAll": "すべて表示",
+    "mypage.notProvided": "未設定",
+    "mypage.noSubscription": "サブスクリプションなし",
+    "mypage.activeSubscription": "有効",
+    "mypage.inactiveSubscription": "無効",
+    "mypage.trialExpired": "トライアル期間終了",
+    "mypage.basicPlan": "ベーシックプラン",
+
+    // Common (Japanese)
+    "common.loading": "読み込み中...",
     
     "bi.workforce.title": "労働力・社会",
     "bi.workforce.metaDescription": "国家統計局と労働省からのタイの雇用統計、労働市場データ、社会指標。",

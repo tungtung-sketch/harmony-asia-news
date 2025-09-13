@@ -3,16 +3,30 @@ import { Link, NavLink } from 'react-router-dom';
 import { useI18n } from '@/i18n/I18nProvider';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, User } from 'lucide-react';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import SearchBox from '@/components/SearchBox';
-
+import { useAuth } from '@/contexts/AuthContext';
+import { AuthModals } from './AuthModals';
 
 const Header = () => {
   const { t, setLang } = useI18n();
+  const { user } = useAuth();
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const handleSwitchToLogin = () => {
+    setIsSignUpOpen(false);
+    setIsLoginOpen(true);
+  };
+
+  const handleSwitchToSignUp = () => {
+    setIsLoginOpen(false);
+    setIsSignUpOpen(true);
+  };
 
   const NavLinks = ({ mobile = false, closeMenu = () => {} }) => (
     <>
@@ -170,15 +184,6 @@ const Header = () => {
         {t('nav.subscribe')}
       </NavLink>
       <NavLink 
-        to="/signup" 
-        className={({ isActive }) => 
-          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
-        }
-        onClick={closeMenu}
-      >
-        {t('nav.signup')}
-      </NavLink>
-      <NavLink 
         to="/contact" 
         className={({ isActive }) => 
           `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
@@ -219,7 +224,7 @@ const Header = () => {
             <NavLinks />
           </nav>
 
-          {/* Right side: Search, Language toggle and Mobile menu */}
+          {/* Right side: Search, Language toggle, Auth buttons and Mobile menu */}
           <div className="flex items-center space-x-4">
             {/* Search Box - Desktop */}
             <div className="hidden md:block">
@@ -229,6 +234,34 @@ const Header = () => {
             <div className="hidden sm:flex space-x-1">
               <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
               <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
+            </div>
+
+            {/* Auth Buttons - Desktop */}
+            <div className="hidden md:flex items-center gap-2">
+              {user ? (
+                <Button asChild size="sm" variant="outline">
+                  <Link to="/mypage" className="flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    {t("header.myPage")}
+                  </Link>
+                </Button>
+              ) : (
+                <>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => setIsLoginOpen(true)}
+                  >
+                    {t("header.login")}
+                  </Button>
+                  <Button 
+                    size="sm"
+                    onClick={() => setIsSignUpOpen(true)}
+                  >
+                    {t("header.signUp")}
+                  </Button>
+                </>
+              )}
             </div>
             
             {/* Mobile Menu Button */}
@@ -262,7 +295,44 @@ const Header = () => {
                     <NavLinks mobile closeMenu={() => setMobileMenuOpen(false)} />
                   </nav>
                   
-                  <div className="border-t p-4">
+                  <div className="border-t p-4 space-y-4">
+                    {/* Mobile Auth Buttons */}
+                    <div className="space-y-2">
+                      {user ? (
+                        <Button asChild size="sm" className="w-full" variant="outline">
+                          <Link to="/mypage" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+                            <User className="h-4 w-4" />
+                            {t("header.myPage")}
+                          </Link>
+                        </Button>
+                      ) : (
+                        <>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="w-full"
+                            onClick={() => {
+                              setIsLoginOpen(true);
+                              setMobileMenuOpen(false);
+                            }}
+                          >
+                            {t("header.login")}
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            className="w-full"
+                            onClick={() => {
+                              setIsSignUpOpen(true);
+                              setMobileMenuOpen(false);
+                            }}
+                          >
+                            {t("header.signUp")}
+                          </Button>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Language Toggle */}
                     <div className="flex space-x-2 justify-center">
                       <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
                       <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
@@ -274,6 +344,16 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* Auth Modals */}
+      <AuthModals
+        isSignUpOpen={isSignUpOpen}
+        isLoginOpen={isLoginOpen}
+        onSignUpClose={() => setIsSignUpOpen(false)}
+        onLoginClose={() => setIsLoginOpen(false)}
+        onSwitchToLogin={handleSwitchToLogin}
+        onSwitchToSignUp={handleSwitchToSignUp}
+      />
     </header>
   );
 };

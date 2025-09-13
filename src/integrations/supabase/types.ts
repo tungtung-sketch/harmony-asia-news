@@ -170,32 +170,47 @@ export type Database = {
       }
       profiles: {
         Row: {
+          avatar_url: string | null
           created_at: string
           email: string
           full_name: string | null
           id: string
+          industry: string | null
+          position: string | null
           preferred_language: Database["public"]["Enums"]["language_code"]
           role: Database["public"]["Enums"]["user_role"]
+          stripe_customer_id: string | null
+          subscription_plan: string | null
           updated_at: string
           user_id: string
         }
         Insert: {
+          avatar_url?: string | null
           created_at?: string
           email: string
           full_name?: string | null
           id?: string
+          industry?: string | null
+          position?: string | null
           preferred_language?: Database["public"]["Enums"]["language_code"]
           role?: Database["public"]["Enums"]["user_role"]
+          stripe_customer_id?: string | null
+          subscription_plan?: string | null
           updated_at?: string
           user_id: string
         }
         Update: {
+          avatar_url?: string | null
           created_at?: string
           email?: string
           full_name?: string | null
           id?: string
+          industry?: string | null
+          position?: string | null
           preferred_language?: Database["public"]["Enums"]["language_code"]
           role?: Database["public"]["Enums"]["user_role"]
+          stripe_customer_id?: string | null
+          subscription_plan?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -207,10 +222,12 @@ export type Database = {
           id: string
           is_active: boolean
           stripe_customer_id: string | null
+          stripe_price_id: string | null
           stripe_subscription_id: string | null
           subscription_end_date: string | null
           tier: Database["public"]["Enums"]["subscription_tier"]
           trial_end_date: string | null
+          trial_start_date: string | null
           updated_at: string
           user_id: string
         }
@@ -219,10 +236,12 @@ export type Database = {
           id?: string
           is_active?: boolean
           stripe_customer_id?: string | null
+          stripe_price_id?: string | null
           stripe_subscription_id?: string | null
           subscription_end_date?: string | null
           tier?: Database["public"]["Enums"]["subscription_tier"]
           trial_end_date?: string | null
+          trial_start_date?: string | null
           updated_at?: string
           user_id: string
         }
@@ -231,10 +250,12 @@ export type Database = {
           id?: string
           is_active?: boolean
           stripe_customer_id?: string | null
+          stripe_price_id?: string | null
           stripe_subscription_id?: string | null
           subscription_end_date?: string | null
           tier?: Database["public"]["Enums"]["subscription_tier"]
           trial_end_date?: string | null
+          trial_start_date?: string | null
           updated_at?: string
           user_id?: string
         }
