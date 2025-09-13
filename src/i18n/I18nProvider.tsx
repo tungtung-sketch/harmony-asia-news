@@ -1188,6 +1188,9 @@ const translations: Record<Lang, Translations> = {
 
     // Common (Japanese)
     "common.loading": "読み込み中...",
+    "common.cancel": "キャンセル",
+    "common.continue": "続行",
+    "common.back": "戻る",
 
     // Paywall (Japanese)
     "paywall.login.title": "続きを読む",
