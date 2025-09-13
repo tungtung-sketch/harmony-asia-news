@@ -337,8 +337,9 @@ const translations: Record<Lang, Translations> = {
     "signup.form.positionPlaceholder": "Select your position",
     "signup.form.industry": "Industry",
     "signup.form.industryPlaceholder": "Select your industry",
-    "signup.form.purpose": "Purpose of Subscription",
+    "signup.form.purpose": "Purpose of Subscription / 購読目的",
     "signup.form.purposePlaceholder": "Select your purpose",
+    "signup.form.otherPurposePlaceholder": "Please specify your purpose",
     "signup.form.plan": "Subscription Plan",
     "signup.form.submitButton": "Proceed to Payment",
     "signup.form.loginLink": "Already have an account? Sign in",
@@ -368,15 +369,11 @@ const translations: Record<Lang, Translations> = {
     "signup.industries.other": "Other",
 
     // Purpose options
-    "signup.purposes.marketIntelligence": "Market Intelligence",
-    "signup.purposes.investmentResearch": "Investment Research",
-    "signup.purposes.businessExpansion": "Business Expansion",
-    "signup.purposes.riskAssessment": "Risk Assessment",
-    "signup.purposes.competitiveAnalysis": "Competitive Analysis",
-    "signup.purposes.policyMonitoring": "Policy Monitoring",
-    "signup.purposes.general": "General Business News",
-    "signup.purposes.regulatoryCompliance": "Regulatory Compliance",
-    "signup.purposes.other": "Other",
+    "signup.purposes.business_news": "To stay updated with Thailand's business news",
+    "signup.purposes.market_research": "For market/industry research",
+    "signup.purposes.strategic_decisions": "For strategic decision-making",
+    "signup.purposes.team_insights": "To share insights with my team",
+    "signup.purposes.other": "Other (please specify)",
 
     // Sign-up form fields
     "signup.purpose": "Purpose / 購読目的",
@@ -869,8 +866,9 @@ const translations: Record<Lang, Translations> = {
     "signup.form.positionPlaceholder": "役職を選択",
     "signup.form.industry": "業種",
     "signup.form.industryPlaceholder": "業種を選択",
-    "signup.form.purpose": "登録目的",
+    "signup.form.purpose": "Purpose of Subscription / 購読目的",
     "signup.form.purposePlaceholder": "目的を選択",
+    "signup.form.otherPurposePlaceholder": "詳細をご記入ください",
     "signup.form.plan": "購読プラン",
     "signup.form.submitButton": "決済に進む",
     "signup.form.loginLink": "アカウントをお持ちですか？サインイン",
@@ -900,15 +898,11 @@ const translations: Record<Lang, Translations> = {
     "signup.industries.other": "その他",
 
     // Purpose options (Japanese)
-    "signup.purposes.marketIntelligence": "市場インテリジェンス",
-    "signup.purposes.investmentResearch": "投資調査",
-    "signup.purposes.businessExpansion": "事業拡大",
-    "signup.purposes.riskAssessment": "リスク評価",
-    "signup.purposes.competitiveAnalysis": "競合分析",
-    "signup.purposes.policyMonitoring": "政策モニタリング",
-    "signup.purposes.general": "一般ビジネスニュース",
-    "signup.purposes.regulatoryCompliance": "規制遵守",
-    "signup.purposes.other": "その他",
+    "signup.purposes.business_news": "タイのビジネスニュースを常に把握するため",
+    "signup.purposes.market_research": "市場・業界調査のため",
+    "signup.purposes.strategic_decisions": "戦略的な意思決定のため",
+    "signup.purposes.team_insights": "チームとインサイトを共有するため",
+    "signup.purposes.other": "その他（自由入力）",
 
     // Sign-up form fields
     "signup.purpose": "購読目的",

@@ -20,6 +20,7 @@ const SignUp = () => {
     position: "",
     industry: "",
     purpose: "",
+    otherPurpose: "",
     plan: "basic"
   });
 
@@ -33,8 +34,7 @@ const SignUp = () => {
   ];
 
   const purposes = [
-    "marketIntelligence", "investmentResearch", "businessExpansion", 
-    "riskAssessment", "competitiveAnalysis", "policyMonitoring", "general"
+    "business_news", "market_research", "strategic_decisions", "team_insights", "other"
   ];
 
   const plans = [
@@ -188,7 +188,7 @@ const SignUp = () => {
                     {/* Purpose */}
                     <div className="space-y-2">
                       <Label htmlFor="purpose">{t("signup.form.purpose")}</Label>
-                      <Select value={formData.purpose} onValueChange={(value) => setFormData(prev => ({ ...prev, purpose: value }))}>
+                      <Select value={formData.purpose} onValueChange={(value) => setFormData(prev => ({ ...prev, purpose: value, otherPurpose: value === "other" ? prev.otherPurpose : "" }))}>
                         <SelectTrigger>
                           <SelectValue placeholder={t("signup.form.purposePlaceholder")} />
                         </SelectTrigger>
@@ -200,6 +200,19 @@ const SignUp = () => {
                           ))}
                         </SelectContent>
                       </Select>
+                      
+                      {/* Other Purpose Text Input */}
+                      {formData.purpose === "other" && (
+                        <div className="mt-2">
+                          <Input
+                            type="text"
+                            placeholder={t("signup.form.otherPurposePlaceholder")}
+                            value={formData.otherPurpose}
+                            onChange={(e) => setFormData(prev => ({ ...prev, otherPurpose: e.target.value }))}
+                            required
+                          />
+                        </div>
+                      )}
                     </div>
 
                     {/* Plan Selection */}
