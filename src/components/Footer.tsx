@@ -70,7 +70,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.aboutUs')}</a></li>
               <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.contact')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.privacy')}</a></li>
+              <li><a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.privacy')}</a></li>
               <li><a href="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.about.terms')}</a></li>
               
             </ul>
