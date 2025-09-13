@@ -13,6 +13,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { CalendarDays, CreditCard, User, Briefcase, Building, Eye } from 'lucide-react';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
+import { CancellationModal } from '@/components/CancellationModal';
 
 interface UserProfile {
   full_name: string;
@@ -38,6 +39,7 @@ const MyPage = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [profileLoading, setProfileLoading] = useState(true);
+  const [isCancellationModalOpen, setIsCancellationModalOpen] = useState(false);
   const { subscriptionStatus: subStatus, refreshSubscription } = useSubscription();
 
   useEffect(() => {
@@ -90,35 +92,10 @@ const MyPage = () => {
     navigate('/');
   };
 
-  const handleManageSubscription = async () => {
-    if (!session) return;
-    
-    try {
-      const { data, error } = await supabase.functions.invoke('customer-portal', {
-        headers: {
-          Authorization: `Bearer ${session.access_token}`
-        }
-      });
-
-      if (error) {
-        toast({
-          title: t("auth.error"),
-          description: error.message,
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (data?.url) {
-        window.open(data.url, '_blank');
-      }
-    } catch (error) {
-      toast({
-        title: t("auth.error"),
-        description: t("auth.unexpectedError"),
-        variant: "destructive"
-      });
-    }
+  const handleCancellationComplete = async () => {
+    // Refresh user data and subscription status
+    await fetchUserData();
+    await refreshSubscription();
   };
 
   const formatDate = (dateString: string) => {
@@ -308,15 +285,14 @@ const MyPage = () => {
                       {t('mypage.upgradePlan')}
                     </Link>
                   </Button>
-                  <Button variant="outline" onClick={handleManageSubscription}>
-                    {t('mypage.manageSubscription')}
-                  </Button>
-                  <Button variant="destructive" onClick={() => toast({
-                    title: t('common.loading'),
-                    description: "Feature coming soon",
-                  })}>
-                    {t('mypage.cancelSubscription')}
-                  </Button>
+                  {subStatus.isActive && (
+                    <Button 
+                      variant="destructive" 
+                      onClick={() => setIsCancellationModalOpen(true)}
+                    >
+                      {t('mypage.cancelSubscription')}
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -351,6 +327,12 @@ const MyPage = () => {
 
         <Footer />
       </div>
+
+      <CancellationModal
+        isOpen={isCancellationModalOpen}
+        onClose={() => setIsCancellationModalOpen(false)}
+        onCancellationComplete={handleCancellationComplete}
+      />
     </>
   );
 };
