@@ -10,7 +10,7 @@ import { Check, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from '@/components/AuthModals';
-import { supabase } from '@/integrations/supabase/client';
+
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,6 +23,12 @@ const Subscribe = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'basic' | 'premium'>('basic');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // Stripe Payment Links (provided by the client)
+  const paymentLinks: Record<'basic' | 'premium', string> = {
+    basic: 'https://buy.stripe.com/28EbJ18Nz7gB7bRa4s8Vi00',
+    premium: 'https://buy.stripe.com/aFafZhd3P8kFao3ekI8Vi01',
+  };
 
   const plans = [
     {
@@ -78,30 +84,17 @@ const Subscribe = () => {
 
     setIsProcessing(true);
     try {
-      const { data, error } = await supabase.functions.invoke('create-checkout-session', {
-        body: { planType },
-        headers: {
-          Authorization: `Bearer ${session.access_token}`
-        }
-      });
-
-      if (error) {
-        toast({
-          title: t("auth.error"),
-          description: error.message,
-          variant: "destructive"
-        });
-        return;
+      const url = paymentLinks[planType];
+      if (!url) {
+        throw new Error('Missing Stripe Payment Link URL');
       }
-
-      if (data?.url) {
-        window.open(data.url, '_blank');
-      }
-    } catch (error) {
+      // Open in same tab for a clean redirect flow
+      window.location.href = url;
+    } catch (error: any) {
       toast({
-        title: t("auth.error"),
-        description: t("auth.unexpectedError"),
-        variant: "destructive"
+        title: t('auth.error'),
+        description: error?.message || t('auth.unexpectedError'),
+        variant: 'destructive'
       });
     } finally {
       setIsProcessing(false);
