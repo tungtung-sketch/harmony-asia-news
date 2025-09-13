@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useI18n } from '@/i18n/I18nProvider';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { ChevronDown, Menu, User } from 'lucide-react';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -296,9 +297,11 @@ const Header = () => {
                     <SearchBox />
                   </div>
                   
-                  <nav className="flex-1 py-4" aria-label="Mobile navigation">
-                    <NavLinks mobile closeMenu={() => setMobileMenuOpen(false)} />
-                  </nav>
+                  <ScrollArea className="flex-1">
+                    <nav className="py-4" aria-label="Mobile navigation">
+                      <NavLinks mobile closeMenu={() => setMobileMenuOpen(false)} />
+                    </nav>
+                  </ScrollArea>
                   
                   <div className="border-t p-4 space-y-4">
                     {/* Mobile Auth Buttons */}
