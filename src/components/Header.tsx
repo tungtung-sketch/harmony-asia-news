@@ -206,6 +206,7 @@ const Header = () => {
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container mx-auto">
+        {/* Top Row: Logo and Right Actions */}
         <div className="flex h-16 items-center justify-between">
           {/* Logo with Tagline */}
           <div className="flex flex-col">
@@ -226,11 +227,6 @@ const Header = () => {
               {t('brand.tagline')}
             </div>
           </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6" aria-label="Main navigation">
-            <NavLinks />
-          </nav>
 
           {/* Right side: Search, Language toggle, Auth buttons and Mobile menu */}
           <div className="flex items-center space-x-4">
@@ -350,6 +346,13 @@ const Header = () => {
               </SheetContent>
             </Sheet>
           </div>
+        </div>
+
+        {/* Bottom Row: Desktop Navigation */}
+        <div className="hidden md:block border-t bg-muted/20">
+          <nav className="flex items-center justify-center py-3 space-x-8" aria-label="Main navigation">
+            <NavLinks />
+          </nav>
         </div>
       </div>
 
