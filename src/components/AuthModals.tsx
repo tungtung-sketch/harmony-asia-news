@@ -5,10 +5,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useAuth } from '@/contexts/AuthContext';
 import { useI18n } from '@/i18n/I18nProvider';
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import { Link } from 'react-router-dom';
 
 interface AuthModalsProps {
   isSignUpOpen: boolean;
@@ -38,6 +41,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
     password: '',
     position: '',
     industry: '',
+    purpose: '',
     plan: 'basic'
   });
 
@@ -46,6 +50,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
     password: ''
   });
 
+  const [acceptTerms, setAcceptTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const positions = [
@@ -57,6 +62,11 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
     "automotive", "realestate", "agriculture", "logistics", "energy", "consulting", "other"
   ];
 
+  const purposes = [
+    "market_intelligence", "investment_research", "business_expansion", 
+    "risk_assessment", "competitive_analysis", "regulatory_compliance", "other"
+  ];
+
   const plans = [
     { id: "basic", name: t("subscribe.plans.basic.title") },
     { id: "premium", name: t("subscribe.plans.premium.title") }
@@ -64,6 +74,16 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!acceptTerms) {
+      toast({
+        title: t("auth.error"),
+        description: t("signup.errors.acceptTerms"),
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -71,6 +91,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
         full_name: signUpData.fullName,
         position: signUpData.position,
         industry: signUpData.industry,
+        purpose: signUpData.purpose,
         subscription_plan: signUpData.plan
       });
 
@@ -92,8 +113,10 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
           password: '',
           position: '',
           industry: '',
+          purpose: '',
           plan: 'basic'
         });
+        setAcceptTerms(false);
       }
     } catch (error) {
       toast({
@@ -127,6 +150,35 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
         onLoginClose();
         navigate('/mypage');
         setLoginData({ email: '', password: '' });
+      }
+    } catch (error) {
+      toast({
+        title: t("auth.error"),
+        description: t("auth.unexpectedError"),
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleProceedToPayment = async () => {
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('create-checkout-session', {
+        body: { 
+          planType: signUpData.plan 
+        }
+      });
+
+      if (error) {
+        toast({
+          title: t("auth.error"),
+          description: error.message,
+          variant: "destructive"
+        });
+      } else if (data?.url) {
+        window.open(data.url, '_blank');
       }
     } catch (error) {
       toast({
@@ -217,6 +269,22 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
             </div>
 
             <div className="space-y-2">
+              <Label>{t("signup.purpose")}</Label>
+              <Select value={signUpData.purpose} onValueChange={(value) => setSignUpData(prev => ({ ...prev, purpose: value }))}>
+                <SelectTrigger>
+                  <SelectValue placeholder={t("signup.purposePlaceholder")} />
+                </SelectTrigger>
+                <SelectContent className="bg-background border shadow-lg z-50">
+                  {purposes.map((purpose) => (
+                    <SelectItem key={purpose} value={purpose}>
+                      {t(`signup.purposes.${purpose}`)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
               <Label>{t("auth.subscriptionPlan")}</Label>
               <RadioGroup 
                 value={signUpData.plan} 
@@ -234,7 +302,25 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
               </RadioGroup>
             </div>
 
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            <div className="flex items-start space-x-2">
+              <Checkbox 
+                id="terms" 
+                checked={acceptTerms}
+                onCheckedChange={(checked) => setAcceptTerms(checked === true)}
+              />
+              <Label htmlFor="terms" className="text-sm leading-5">
+                {t('signup.acceptTermsPrefix')}{' '}
+                <Link to="/privacy-policy" className="text-primary hover:underline" target="_blank">
+                  {t('signup.privacyPolicy')}
+                </Link>
+                {' '}{t('signup.and')}{' '}
+                <Link to="/terms-of-service" className="text-primary hover:underline" target="_blank">
+                  {t('signup.termsOfService')}
+                </Link>
+              </Label>
+            </div>
+
+            <Button type="submit" className="w-full" disabled={isLoading || !acceptTerms}>
               {isLoading ? t("auth.creating") : t("auth.createAccount")}
             </Button>
 

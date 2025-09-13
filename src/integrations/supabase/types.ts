@@ -178,6 +178,7 @@ export type Database = {
           industry: string | null
           position: string | null
           preferred_language: Database["public"]["Enums"]["language_code"]
+          purpose: string | null
           role: Database["public"]["Enums"]["user_role"]
           stripe_customer_id: string | null
           subscription_plan: string | null
@@ -193,6 +194,7 @@ export type Database = {
           industry?: string | null
           position?: string | null
           preferred_language?: Database["public"]["Enums"]["language_code"]
+          purpose?: string | null
           role?: Database["public"]["Enums"]["user_role"]
           stripe_customer_id?: string | null
           subscription_plan?: string | null
@@ -208,6 +210,7 @@ export type Database = {
           industry?: string | null
           position?: string | null
           preferred_language?: Database["public"]["Enums"]["language_code"]
+          purpose?: string | null
           role?: Database["public"]["Enums"]["user_role"]
           stripe_customer_id?: string | null
           subscription_plan?: string | null
@@ -219,8 +222,11 @@ export type Database = {
       subscriptions: {
         Row: {
           created_at: string
+          current_period_end: string | null
           id: string
           is_active: boolean
+          start_date: string | null
+          status: string | null
           stripe_customer_id: string | null
           stripe_price_id: string | null
           stripe_subscription_id: string | null
@@ -233,8 +239,11 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          current_period_end?: string | null
           id?: string
           is_active?: boolean
+          start_date?: string | null
+          status?: string | null
           stripe_customer_id?: string | null
           stripe_price_id?: string | null
           stripe_subscription_id?: string | null
@@ -247,8 +256,11 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          current_period_end?: string | null
           id?: string
           is_active?: boolean
+          start_date?: string | null
+          status?: string | null
           stripe_customer_id?: string | null
           stripe_price_id?: string | null
           stripe_subscription_id?: string | null

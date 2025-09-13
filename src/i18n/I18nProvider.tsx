@@ -375,6 +375,19 @@ const translations: Record<Lang, Translations> = {
     "signup.purposes.competitiveAnalysis": "Competitive Analysis",
     "signup.purposes.policyMonitoring": "Policy Monitoring",
     "signup.purposes.general": "General Business News",
+    "signup.purposes.regulatoryCompliance": "Regulatory Compliance",
+    "signup.purposes.other": "Other",
+
+    // Sign-up form fields
+    "signup.purpose": "Purpose / 購読目的",
+    "signup.purposePlaceholder": "Select your purpose",
+    "signup.acceptTermsPrefix": "I agree to the",
+    "signup.privacyPolicy": "Privacy Policy",
+    "signup.and": "and",
+    "signup.termsOfService": "Terms of Service",
+    "signup.errors.acceptTerms": "Please accept the Privacy Policy and Terms of Service",
+    "signup.errors.notAuthenticated": "Please sign up first",
+    "signup.errors.general": "An error occurred. Please try again.",
 
     // Authentication
     "auth.signUp": "Sign Up",
@@ -865,6 +878,19 @@ const translations: Record<Lang, Translations> = {
     "signup.purposes.competitiveAnalysis": "競合分析",
     "signup.purposes.policyMonitoring": "政策モニタリング",
     "signup.purposes.general": "一般ビジネスニュース",
+    "signup.purposes.regulatoryCompliance": "規制遵守",
+    "signup.purposes.other": "その他",
+
+    // Sign-up form fields
+    "signup.purpose": "購読目的",
+    "signup.purposePlaceholder": "目的を選択してください",
+    "signup.acceptTermsPrefix": "以下に同意します：",
+    "signup.privacyPolicy": "プライバシーポリシー",
+    "signup.and": "および",
+    "signup.termsOfService": "利用規約",
+    "signup.errors.acceptTerms": "プライバシーポリシーと利用規約に同意してください",
+    "signup.errors.notAuthenticated": "先にサインアップしてください",
+    "signup.errors.general": "エラーが発生しました。もう一度お試しください。",
 
     // My Page / Dashboard (Japanese)
     "dashboard.title": "マイページ - Harmony Asia News",
