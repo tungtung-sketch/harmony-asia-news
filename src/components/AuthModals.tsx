@@ -148,7 +148,6 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
           description: t("auth.loginSuccess")
         });
         onLoginClose();
-        navigate('/mypage');
         setLoginData({ email: '', password: '' });
       }
     } catch (error) {

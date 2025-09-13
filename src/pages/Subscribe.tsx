@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
@@ -7,19 +8,31 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Check, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from '@/contexts/AuthContext';
+import { AuthModals } from '@/components/AuthModals';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Subscribe = () => {
   const { t } = useI18n();
+  const { user, session } = useAuth();
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<'basic' | 'premium'>('basic');
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const plans = [
     {
+      id: 'basic' as const,
       name: t("subscribe.plans.basic.title"),
       price: "฿599/month",
       billingInfo: t("subscribe.plans.basic.billingInfo"),
       description: t("subscribe.plans.basic.description"),
       cta: t("subscribe.plans.basic.cta"),
       isPopular: false,
-      stripeLink: "https://buy.stripe.com/28EbJ18Nz7gB7bRa4s8Vi00",
       features: {
         dailyNews: true,
         premiumInsights: false,
@@ -28,13 +41,13 @@ const Subscribe = () => {
       }
     },
     {
+      id: 'premium' as const,
       name: t("subscribe.plans.premium.title"),
       price: "฿1,299/month",
       billingInfo: t("subscribe.plans.premium.billingInfo"),
       description: t("subscribe.plans.premium.description"),
       cta: t("subscribe.plans.premium.cta"),
       isPopular: true,
-      stripeLink: "https://buy.stripe.com/aFafZhd3P8kFao3ekI8Vi01",
       features: {
         dailyNews: true,
         premiumInsights: true,
@@ -53,6 +66,63 @@ const Subscribe = () => {
 
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubscribe = async (planType: 'basic' | 'premium') => {
+    // Check if user is logged in
+    if (!user || !session) {
+      setSelectedPlan(planType);
+      setIsLoginOpen(true);
+      return;
+    }
+
+    setIsProcessing(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('create-checkout-session', {
+        body: { planType },
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
+        }
+      });
+
+      if (error) {
+        toast({
+          title: t("auth.error"),
+          description: error.message,
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (data?.url) {
+        window.open(data.url, '_blank');
+      }
+    } catch (error) {
+      toast({
+        title: t("auth.error"),
+        description: t("auth.unexpectedError"),
+        variant: "destructive"
+      });
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleAuthSuccess = () => {
+    // After successful login/signup, proceed with the selected plan
+    if (selectedPlan) {
+      handleSubscribe(selectedPlan);
+    }
+  };
+
+  const handleSwitchToSignUp = () => {
+    setIsLoginOpen(false);
+    setIsSignUpOpen(true);
+  };
+
+  const handleSwitchToLogin = () => {
+    setIsSignUpOpen(false);
+    setIsLoginOpen(true);
   };
 
   const FeatureIcon = ({ included }: { included: boolean | string }) => {
@@ -111,17 +181,16 @@ const Subscribe = () => {
                        {t(`subscribe.plans.${index === 0 ? 'basic' : 'premium'}.detailedDescription`)}
                      </p>
                    </CardContent>
-                  <CardFooter>
-                    <Button 
-                      asChild
-                      className="w-full" 
-                      variant={plan.isPopular ? "default" : "outline"}
-                    >
-                      <a href={plan.stripeLink} target="_blank" rel="noopener noreferrer">
-                        {plan.cta}
-                      </a>
-                    </Button>
-                  </CardFooter>
+                   <CardFooter>
+                     <Button 
+                       onClick={() => handleSubscribe(plan.id)}
+                       className="w-full" 
+                       variant={plan.isPopular ? "default" : "outline"}
+                       disabled={isProcessing}
+                     >
+                       {isProcessing ? t("common.loading") : plan.cta}
+                     </Button>
+                   </CardFooter>
                 </Card>
               ))}
             </div>
@@ -179,6 +248,18 @@ const Subscribe = () => {
 
         <Footer />
       </div>
+
+      <AuthModals
+        isSignUpOpen={isSignUpOpen}
+        isLoginOpen={isLoginOpen}
+        onSignUpClose={() => setIsSignUpOpen(false)}
+        onLoginClose={() => {
+          setIsLoginOpen(false);
+          handleAuthSuccess();
+        }}
+        onSwitchToLogin={handleSwitchToLogin}
+        onSwitchToSignUp={handleSwitchToSignUp}
+      />
     </>
   );
 };

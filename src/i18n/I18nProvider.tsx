@@ -450,6 +450,15 @@ const translations: Record<Lang, Translations> = {
 
     // Common
     "common.loading": "Loading...",
+
+    // Paywall
+    "paywall.login.title": "Continue Reading",
+    "paywall.login.description": "To continue reading, please subscribe or log in to your account.",
+    "paywall.login.freeTrialButton": "Try Free for 30 Days",
+    "paywall.login.loginButton": "Log In",
+    "paywall.premium.title": "Premium Content",
+    "paywall.premium.description": "This content is available only to Premium members. Upgrade to access.",
+    "paywall.premium.upgradeButton": "Upgrade to Premium",
     "dashboard.subscription.inactive": "Inactive",
     "dashboard.subscription.manage": "Manage Subscription",
     "dashboard.subscription.upgrade": "Upgrade Plan",
@@ -1142,6 +1151,15 @@ const translations: Record<Lang, Translations> = {
 
     // Common (Japanese)
     "common.loading": "読み込み中...",
+
+    // Paywall (Japanese)
+    "paywall.login.title": "続きを読む",
+    "paywall.login.description": "続きを読むには、サブスクリプションにご登録いただくか、アカウントにログインしてください。",
+    "paywall.login.freeTrialButton": "30日間無料トライアル",
+    "paywall.login.loginButton": "ログイン",
+    "paywall.premium.title": "プレミアムコンテンツ",
+    "paywall.premium.description": "このコンテンツはプレミアム会員専用です。アクセスするにはアップグレードしてください。",
+    "paywall.premium.upgradeButton": "プレミアムにアップグレード",
     
     "bi.workforce.title": "労働力・社会",
     "bi.workforce.metaDescription": "国家統計局と労働省からのタイの雇用統計、労働市場データ、社会指標。",

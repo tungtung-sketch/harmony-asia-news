@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useI18n } from '@/i18n/I18nProvider';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
@@ -11,6 +11,8 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { supabase } from '@/integrations/supabase/client';
 import { CalendarDays, CreditCard, User, Briefcase, Building, Eye } from 'lucide-react';
+import { useSubscription } from '@/hooks/useSubscription';
+import { useToast } from '@/hooks/use-toast';
 
 interface UserProfile {
   full_name: string;
@@ -29,12 +31,14 @@ interface Subscription {
 }
 
 const MyPage = () => {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, signOut, session } = useAuth();
   const { t } = useI18n();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [profileLoading, setProfileLoading] = useState(true);
+  const { subscriptionStatus: subStatus, refreshSubscription } = useSubscription();
 
   useEffect(() => {
     if (!loading && !user) {
@@ -86,6 +90,37 @@ const MyPage = () => {
     navigate('/');
   };
 
+  const handleManageSubscription = async () => {
+    if (!session) return;
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('customer-portal', {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
+        }
+      });
+
+      if (error) {
+        toast({
+          title: t("auth.error"),
+          description: error.message,
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (data?.url) {
+        window.open(data.url, '_blank');
+      }
+    } catch (error) {
+      toast({
+        title: t("auth.error"),
+        description: t("auth.unexpectedError"),
+        variant: "destructive"
+      });
+    }
+  };
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString(undefined, {
       year: 'numeric',
@@ -95,6 +130,22 @@ const MyPage = () => {
   };
 
   const getSubscriptionStatus = () => {
+    // Use the new subscription hook status first
+    if (subStatus.loading) {
+      return { text: t('common.loading'), variant: 'secondary' as const };
+    }
+
+    if (subStatus.isActive) {
+      if (subStatus.plan === 'free_trial') {
+        return { text: t('mypage.freeTrial'), variant: 'default' as const };
+      } else if (subStatus.plan === 'premium') {
+        return { text: t('subscribe.plans.premium.title'), variant: 'default' as const };
+      } else if (subStatus.plan === 'basic') {
+        return { text: t('subscribe.plans.basic.title'), variant: 'default' as const };
+      }
+    }
+
+    // Fallback to local subscription data
     if (!subscription) return { text: t('mypage.noSubscription'), variant: 'secondary' as const };
     
     if (subscription.tier === 'free_trial') {
@@ -123,7 +174,7 @@ const MyPage = () => {
     { title: "Thai Manufacturing Sector Analysis", date: "2024-01-05", category: "Manufacturing" }
   ];
 
-  if (loading || profileLoading) {
+  if (loading || profileLoading || subStatus.loading) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -135,7 +186,7 @@ const MyPage = () => {
     );
   }
 
-  const subscriptionStatus = getSubscriptionStatus();
+  const displaySubscriptionStatus = getSubscriptionStatus();
 
   return (
     <>
@@ -220,8 +271,8 @@ const MyPage = () => {
                       }
                     </p>
                   </div>
-                  <Badge variant={subscriptionStatus.variant}>
-                    {subscriptionStatus.text}
+                  <Badge variant={displaySubscriptionStatus.variant}>
+                    {displaySubscriptionStatus.text}
                   </Badge>
                 </div>
 
@@ -252,13 +303,18 @@ const MyPage = () => {
                 <Separator />
 
                 <div className="flex flex-wrap gap-2">
-                  <Button variant="default">
-                    {t('mypage.upgradePlan')}
+                  <Button asChild variant="default">
+                    <Link to="/subscribe">
+                      {t('mypage.upgradePlan')}
+                    </Link>
                   </Button>
-                  <Button variant="outline">
+                  <Button variant="outline" onClick={handleManageSubscription}>
                     {t('mypage.manageSubscription')}
                   </Button>
-                  <Button variant="destructive">
+                  <Button variant="destructive" onClick={() => toast({
+                    title: t('common.loading'),
+                    description: "Feature coming soon",
+                  })}>
                     {t('mypage.cancelSubscription')}
                   </Button>
                 </div>

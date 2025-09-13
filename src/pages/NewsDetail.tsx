@@ -7,10 +7,13 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { useI18n } from '@/i18n/I18nProvider';
 import { newsArticles } from '@/data/newsData';
+import { ProtectedContent } from '@/components/ProtectedContent';
+import { useSubscription } from '@/hooks/useSubscription';
 
 const NewsDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { t, lang } = useI18n();
+  const { subscriptionStatus } = useSubscription();
   
   const article = newsArticles.find(article => article.id === id);
 
@@ -39,6 +42,17 @@ const NewsDetail = () => {
   const currentTitle = article.title[lang];
   const currentContent = article.content[lang];
   const currentCategory = article.category[lang];
+
+  // Determine if this is premium content (you can adjust this logic)
+  const isPremiumContent = article.category.en.includes('Premium') || 
+                          article.title.en.includes('Executive') ||
+                          article.title.en.includes('Analysis');
+
+  // Split content into paragraphs
+  const contentParagraphs = currentContent.split('\n\n');
+  
+  // For preview, show first paragraph only
+  const previewContent = contentParagraphs[0];
 
   return (
     <>
@@ -103,13 +117,24 @@ const NewsDetail = () => {
             </header>
 
             {/* Article Content */}
-            <div className="prose prose-gray dark:prose-invert max-w-none">
-              {currentContent.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 text-base leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            <ProtectedContent
+              requiredPlan={isPremiumContent ? 'premium' : 'basic'}
+              previewContent={
+                <div className="prose prose-gray dark:prose-invert max-w-none">
+                  <p className="mb-4 text-base leading-relaxed">
+                    {previewContent}
+                  </p>
+                </div>
+              }
+            >
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                {contentParagraphs.map((paragraph, index) => (
+                  <p key={index} className="mb-4 text-base leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </ProtectedContent>
 
             {/* Back to News */}
             <div className="mt-12 pt-8 border-t">
