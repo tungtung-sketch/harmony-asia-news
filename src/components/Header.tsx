@@ -89,23 +89,27 @@ const Header = () => {
             <span>{t('nav.businessIntelligence')}</span>
             <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="z-50 bg-background border shadow-lg">
-            <DropdownMenuItem asChild>
+          <DropdownMenuContent 
+            align="start" 
+            className="z-50 bg-background border shadow-lg mt-2 min-w-[200px] py-2"
+            sideOffset={8}
+          >
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence">{t('bi.nav.overview')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence/economy">{t('bi.nav.economy')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence/trade">{t('bi.nav.trade')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence/regulation">{t('bi.nav.regulation')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence/workforce">{t('bi.nav.workforce')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence/infrastructure">{t('bi.nav.infrastructure')}</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -142,23 +146,27 @@ const Header = () => {
             <span>{t('nav.insights')}</span>
             <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="z-50 bg-background border shadow-lg">
-            <DropdownMenuItem asChild>
+          <DropdownMenuContent 
+            align="start" 
+            className="z-50 bg-background border shadow-lg mt-2 min-w-[200px] py-2"
+            sideOffset={8}
+          >
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights">{t('insights.dropdown.overview')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/services">{t('insights.dropdown.services')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/manufacturing">{t('insights.dropdown.manufacturing')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/wellness-healthcare">{t('insights.dropdown.wellness')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/agriculture">{t('insights.dropdown.agriculture')}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/real-estate">{t('insights.dropdown.realestate')}</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
