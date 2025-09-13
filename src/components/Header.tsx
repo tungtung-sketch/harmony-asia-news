@@ -209,24 +209,24 @@ const Header = () => {
         {/* Top Row: Logo and Right Actions */}
         <div className="flex h-16 items-center justify-between">
           {/* Logo with Tagline */}
-          <div className="flex flex-col">
+          <Link to="/" className="flex flex-col group">
             <div className="flex items-center space-x-2">
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
                 alt="HARMONY logo - Harmonize the global business"
-                className="h-6 w-6 sm:h-8 sm:w-8"
+                className="h-6 w-6 sm:h-8 sm:w-8 transition-transform group-hover:scale-105"
                 loading="eager"
                 width={32}
                 height={32}
               />
-              <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent group-hover:from-primary/80 group-hover:to-primary/40 transition-all">
                 {t('brand.name')}
               </span>
             </div>
-            <div className="hidden sm:block text-xs text-muted-foreground ml-8 sm:ml-10 -mt-1">
+            <div className="hidden sm:block text-xs text-muted-foreground ml-8 sm:ml-10 -mt-1 group-hover:text-muted-foreground/80 transition-colors">
               {t('brand.tagline')}
             </div>
-          </div>
+          </Link>
 
           {/* Right side: Search, Language toggle, Auth buttons and Mobile menu */}
           <div className="flex items-center space-x-4">
