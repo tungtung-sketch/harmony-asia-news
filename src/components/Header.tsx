@@ -235,7 +235,8 @@ const Header = () => {
               <SearchBox />
             </div>
             
-            <div className="hidden sm:flex space-x-1">
+            {/* Language Toggle - Always visible */}
+            <div className="flex space-x-1">
               <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
               <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
             </div>
