@@ -1,6 +1,7 @@
 import { Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useI18n } from '@/i18n/I18nProvider';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useI18n();
@@ -40,27 +41,29 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Categories */}
+          {/* Business Intelligence */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-base">{t('footer.categories')}</h3>
+            <h3 className="font-semibold text-base">{t('nav.businessIntelligence')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.politics')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.business')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.technology')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.culture')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.categories.sports')}</a></li>
+              <li><Link to="/business-intelligence" className="text-muted-foreground hover:text-primary transition-colors">{t('bi.nav.overview')}</Link></li>
+              <li><Link to="/business-intelligence/economy" className="text-muted-foreground hover:text-primary transition-colors">{t('bi.nav.economy')}</Link></li>
+              <li><Link to="/business-intelligence/trade" className="text-muted-foreground hover:text-primary transition-colors">{t('bi.nav.trade')}</Link></li>
+              <li><Link to="/business-intelligence/regulation" className="text-muted-foreground hover:text-primary transition-colors">{t('bi.nav.regulation')}</Link></li>
+              <li><Link to="/business-intelligence/workforce" className="text-muted-foreground hover:text-primary transition-colors">{t('bi.nav.workforce')}</Link></li>
+              <li><Link to="/business-intelligence/infrastructure" className="text-muted-foreground hover:text-primary transition-colors">{t('bi.nav.infrastructure')}</Link></li>
             </ul>
           </div>
 
-          {/* Regions */}
+          {/* Insights */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-base">{t('footer.regions')}</h3>
+            <h3 className="font-semibold text-base">{t('nav.insights')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.eastAsia')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.southeastAsia')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.southAsia')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.pacific')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">{t('footer.regions.centralAsia')}</a></li>
+              <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.overview')}</Link></li>
+              <li><Link to="/insights/services" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.services')}</Link></li>
+              <li><Link to="/insights/manufacturing" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.manufacturing')}</Link></li>
+              <li><Link to="/insights/wellness-healthcare" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.wellness')}</Link></li>
+              <li><Link to="/insights/agriculture" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.agriculture')}</Link></li>
+              <li><Link to="/insights/real-estate" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.realestate')}</Link></li>
             </ul>
           </div>
 
