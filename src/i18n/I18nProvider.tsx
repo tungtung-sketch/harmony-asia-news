@@ -919,7 +919,7 @@ const translations: Record<Lang, Translations> = {
     "signup.purposes.market_research": "市場・業界調査のため",
     "signup.purposes.strategic_decisions": "戦略的な意思決定のため",
     "signup.purposes.team_insights": "チームとインサイトを共有するため",
-    "signup.purposes.other": "その他（自由入力）",
+    "signup.purposes.other": "その他",
 
     // Sign-up form fields
     "signup.purpose": "購読目的",

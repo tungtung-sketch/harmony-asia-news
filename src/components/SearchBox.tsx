@@ -19,7 +19,7 @@ const SearchBox = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center max-w-sm w-full">
+    <form onSubmit={handleSearch} className="flex items-center max-w-md w-full">
       <div className="relative flex-1">
         <Input
           type="text"
