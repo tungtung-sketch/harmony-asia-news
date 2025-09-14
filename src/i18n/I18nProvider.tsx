@@ -408,6 +408,14 @@ const translations: Record<Lang, Translations> = {
     "auth.loginSuccess": "Successfully logged in",
     "auth.creating": "Creating account...",
     "auth.loggingIn": "Logging in...",
+    "auth.rememberMe": "Remember me",
+    "auth.forgotPassword": "Forgot my password?",
+    "auth.resetPassword": "Reset Password",
+    "auth.resetPasswordDescription": "Enter your email to receive password reset instructions",
+    "auth.sendResetEmail": "Send Reset Email",
+    "auth.resetEmailSent": "Reset email sent",
+    "auth.resetEmailSentDescription": "Check your email for password reset instructions",
+    "auth.backToLogin": "Back to Login",
 
     // My Page / Dashboard
     "dashboard.title": "My Dashboard - Harmony Asia News",

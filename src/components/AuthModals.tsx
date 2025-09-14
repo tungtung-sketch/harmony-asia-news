@@ -52,6 +52,17 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
 
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  
+  // Load saved email on component mount
+  React.useEffect(() => {
+    const savedEmail = localStorage.getItem('remembered_email');
+    if (savedEmail) {
+      setLoginData(prev => ({ ...prev, email: savedEmail }));
+      setRememberMe(true);
+    }
+  }, []);
 
   const positions = [
     "ceo", "executive", "manager", "analyst", "consultant", "entrepreneur", "investor", "other"
@@ -143,12 +154,62 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
           variant: "destructive"
         });
       } else {
+        // Save or remove email based on remember me checkbox
+        if (rememberMe) {
+          localStorage.setItem('remembered_email', loginData.email);
+        } else {
+          localStorage.removeItem('remembered_email');
+        }
+        
         toast({
           title: t("auth.welcome"),
           description: t("auth.loginSuccess")
         });
         onLoginClose();
         setLoginData({ email: '', password: '' });
+        setRememberMe(false);
+      }
+    } catch (error) {
+      toast({
+        title: t("auth.error"),
+        description: t("auth.unexpectedError"),
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!loginData.email) {
+      toast({
+        title: t("auth.error"),
+        description: "Please enter your email address",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const redirectUrl = `${window.location.origin}/`;
+      const { error } = await supabase.auth.resetPasswordForEmail(loginData.email, {
+        redirectTo: redirectUrl
+      });
+
+      if (error) {
+        toast({
+          title: t("auth.error"),
+          description: error.message,
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: t("auth.resetEmailSent"),
+          description: t("auth.resetEmailSentDescription")
+        });
+        setShowForgotPassword(false);
       }
     } catch (error) {
       toast({
@@ -341,47 +402,101 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
         <DialogContent className="sm:max-w-[400px]">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-center">
-              {t("auth.login")}
+              {showForgotPassword ? t("auth.resetPassword") : t("auth.login")}
             </DialogTitle>
           </DialogHeader>
           
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="login-email">{t("auth.email")}</Label>
-              <Input
-                id="login-email"
-                type="email"
-                value={loginData.email}
-                onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))}
-                required
-              />
-            </div>
+          {showForgotPassword ? (
+            <form onSubmit={handleForgotPassword} className="space-y-4">
+              <p className="text-sm text-muted-foreground text-center">
+                {t("auth.resetPasswordDescription")}
+              </p>
+              
+              <div className="space-y-2">
+                <Label htmlFor="reset-email">{t("auth.email")}</Label>
+                <Input
+                  id="reset-email"
+                  type="email"
+                  value={loginData.email}
+                  onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))}
+                  required
+                />
+              </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="login-password">{t("auth.password")}</Label>
-              <Input
-                id="login-password"
-                type="password"
-                value={loginData.password}
-                onChange={(e) => setLoginData(prev => ({ ...prev, password: e.target.value }))}
-                required
-              />
-            </div>
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Sending..." : t("auth.sendResetEmail")}
+              </Button>
 
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? t("auth.loggingIn") : t("auth.login")}
-            </Button>
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowForgotPassword(false)}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {t("auth.backToLogin")}
+                </button>
+              </div>
+            </form>
+          ) : (
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="login-email">{t("auth.email")}</Label>
+                <Input
+                  id="login-email"
+                  type="email"
+                  value={loginData.email}
+                  onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))}
+                  required
+                />
+              </div>
 
-            <div className="text-center">
-              <button
-                type="button"
-                onClick={onSwitchToSignUp}
-                className="text-sm text-primary hover:underline"
-              >
-                {t("auth.needAccount")}
-              </button>
-            </div>
-          </form>
+              <div className="space-y-2">
+                <Label htmlFor="login-password">{t("auth.password")}</Label>
+                <Input
+                  id="login-password"
+                  type="password"
+                  value={loginData.password}
+                  onChange={(e) => setLoginData(prev => ({ ...prev, password: e.target.value }))}
+                  required
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <Checkbox 
+                    id="remember-me" 
+                    checked={rememberMe}
+                    onCheckedChange={(checked) => setRememberMe(checked === true)}
+                  />
+                  <Label htmlFor="remember-me" className="text-sm">
+                    {t("auth.rememberMe")}
+                  </Label>
+                </div>
+                
+                <button
+                  type="button"
+                  onClick={() => setShowForgotPassword(true)}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {t("auth.forgotPassword")}
+                </button>
+              </div>
+
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? t("auth.loggingIn") : t("auth.login")}
+              </Button>
+
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={onSwitchToSignUp}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {t("auth.needAccount")}
+                </button>
+              </div>
+            </form>
+          )}
         </DialogContent>
       </Dialog>
     </>
