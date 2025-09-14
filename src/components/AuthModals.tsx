@@ -468,7 +468,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
                     checked={rememberMe}
                     onCheckedChange={(checked) => setRememberMe(checked === true)}
                   />
-                  <Label htmlFor="remember-me" className="text-sm">
+                  <Label htmlFor="remember-me" className="text-xs">
                     {t("auth.rememberMe")}
                   </Label>
                 </div>
@@ -476,7 +476,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowForgotPassword(true)}
-                  className="text-sm text-primary hover:underline"
+                  className="text-xs text-primary hover:underline"
                 >
                   {t("auth.forgotPassword")}
                 </button>
