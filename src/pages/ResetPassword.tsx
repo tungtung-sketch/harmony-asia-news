@@ -101,20 +101,30 @@ const ResetPassword = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[calc(100vh-200px)]">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center">
+        <Card className="w-full max-w-lg shadow-lg">
+          <CardHeader className="text-center pb-6">
+            <div className="mb-4">
+              <img 
+                src="/lovable-uploads/Harmony_Logo_only.png" 
+                alt="Harmony" 
+                className="h-12 mx-auto mb-2"
+              />
+              <p className="text-sm text-muted-foreground">Harmonize the global business</p>
+            </div>
+            <CardTitle className="text-2xl font-bold">
               {t("auth.resetPassword")}
             </CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription>
               {t("auth.enterNewPassword")}
             </CardDescription>
           </CardHeader>
           
-          <CardContent>
-            <form onSubmit={handlePasswordReset} className="space-y-4">
+          <CardContent className="px-6 pb-6">
+            <form onSubmit={handlePasswordReset} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="newPassword">{t("auth.newPassword")}</Label>
+                <Label htmlFor="newPassword" className="text-sm font-medium">
+                  {t("auth.newPassword")}
+                </Label>
                 <Input
                   id="newPassword"
                   type="password"
@@ -122,11 +132,15 @@ const ResetPassword = () => {
                   onChange={(e) => setPasswords(prev => ({ ...prev, newPassword: e.target.value }))}
                   required
                   minLength={6}
+                  className="h-11"
+                  placeholder={t("auth.enterNewPassword")}
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">{t("auth.confirmPassword")}</Label>
+                <Label htmlFor="confirmPassword" className="text-sm font-medium">
+                  {t("auth.confirmPassword")}
+                </Label>
                 <Input
                   id="confirmPassword"
                   type="password"
@@ -134,10 +148,16 @@ const ResetPassword = () => {
                   onChange={(e) => setPasswords(prev => ({ ...prev, confirmPassword: e.target.value }))}
                   required
                   minLength={6}
+                  className="h-11"
+                  placeholder={t("auth.confirmNewPassword")}
                 />
               </div>
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button 
+                type="submit" 
+                className="w-full h-11 font-medium" 
+                disabled={isLoading}
+              >
                 {isLoading ? t("auth.updating") : t("auth.updatePassword")}
               </Button>
             </form>

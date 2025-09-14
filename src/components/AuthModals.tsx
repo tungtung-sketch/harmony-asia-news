@@ -185,7 +185,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
     if (!loginData.email) {
       toast({
         title: t("auth.error"),
-        description: "Please enter your email address",
+        description: t("auth.emailRequired"),
         variant: "destructive"
       });
       return;
@@ -204,13 +204,32 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
           description: error.message,
           variant: "destructive"
         });
-      } else {
-        toast({
-          title: t("auth.resetEmailSent"),
-          description: t("auth.resetEmailSentDescription")
-        });
-        setShowForgotPassword(false);
+        return;
       }
+
+      // Send custom branded reset email
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-reset-email', {
+          body: {
+            email: loginData.email,
+            resetUrl: redirectUrl,
+            language: 'en' // Default to English for now
+          }
+        });
+
+        if (emailError) {
+          console.error('Custom email sending failed:', emailError);
+        }
+      } catch (emailError) {
+        console.error('Email function error:', emailError);
+      }
+
+      toast({
+        title: t("auth.success"),
+        description: t("auth.resetEmailSentDescription")
+      });
+      setShowForgotPassword(false);
+      onLoginClose();
     } catch (error) {
       toast({
         title: t("auth.error"),
