@@ -26,14 +26,33 @@ const ResetPassword = () => {
   const [isValidReset, setIsValidReset] = useState(false);
 
   useEffect(() => {
-    // Check if user has a valid password reset session
-    if (session && session.user) {
+    // Allow access when coming from a valid Supabase recovery link and wait for session readiness
+    const hash = window.location.hash || "";
+    const params = new URLSearchParams(hash.startsWith('#') ? hash.slice(1) : hash);
+    const type = params.get('type');
+
+    if (type === 'recovery') {
       setIsValidReset(true);
-    } else {
-      // If no session, redirect to home
-      navigate('/');
     }
-  }, [session, navigate]);
+
+    // Check for an existing session (Supabase sets one on recovery links)
+    supabase.auth.getSession().then(({ data }) => {
+      if (data?.session) {
+        setIsValidReset(true);
+      }
+    });
+
+    // Listen for auth state changes (e.g., when Supabase finalizes the recovery session)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setIsValidReset(true);
+      }
+    });
+
+    return () => {
+      subscription?.unsubscribe();
+    };
+  }, []);
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
