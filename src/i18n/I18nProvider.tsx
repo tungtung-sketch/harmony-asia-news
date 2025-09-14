@@ -373,10 +373,10 @@ const translations: Record<Lang, Translations> = {
     "signup.purposes.market_research": "For market/industry research",
     "signup.purposes.strategic_decisions": "For strategic decision-making",
     "signup.purposes.team_insights": "To share insights with my team",
-    "signup.purposes.other": "Other (please specify)",
+    "signup.purposes.other": "Other",
 
     // Sign-up form fields
-    "signup.purpose": "Purpose / 購読目的",
+    "signup.purpose": "Purpose",
     "signup.purposePlaceholder": "Select your purpose",
     "signup.acceptTermsPrefix": "I agree to the",
     "signup.privacyPolicy": "Privacy Policy",
