@@ -1147,6 +1147,14 @@ const translations: Record<Lang, Translations> = {
     "auth.loginSuccess": "ログインしました",
     "auth.creating": "アカウント作成中...",
     "auth.loggingIn": "ログイン中...",
+    "auth.rememberMe": "ログイン情報を記憶する",
+    "auth.forgotPassword": "パスワードを忘れましたか？",
+    "auth.resetPassword": "パスワードリセット",
+    "auth.resetPasswordDescription": "パスワードリセット手順をメールで受け取るためにメールアドレスを入力してください",
+    "auth.sendResetEmail": "リセットメールを送信",
+    "auth.resetEmailSent": "リセットメールを送信しました",
+    "auth.resetEmailSentDescription": "パスワードリセット手順のメールをご確認ください",
+    "auth.backToLogin": "ログインに戻る",
 
     // My Page (Japanese)
     "mypage.title": "マイページ - Harmony Asia News",
