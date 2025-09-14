@@ -636,7 +636,7 @@ const translations: Record<Lang, Translations> = {
     // Common
     "brand.name": "HARMONY",
     "cta.membership": "メンバーシップ",
-    "search.placeholder": "ニュース、チップス、インサイトを検索...",
+    "search.placeholder": "ニュース、インサイトを検索...",
     "search.submit": "検索",
     "search.results": "検索結果",
     "search.queryLabel": "検索結果",

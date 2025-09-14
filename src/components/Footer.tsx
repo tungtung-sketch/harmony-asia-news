@@ -25,20 +25,6 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               {t('footer.tagline')}
             </p>
-            <div className="flex space-x-2">
-              <Button variant="ghost" size="icon" aria-label="Twitter">
-                <Twitter className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon" aria-label="Facebook">
-                <Facebook className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon" aria-label="Instagram">
-                <Instagram className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon" aria-label="YouTube">
-                <Youtube className="h-4 w-4" />
-              </Button>
-            </div>
           </div>
 
           {/* Business Intelligence */}

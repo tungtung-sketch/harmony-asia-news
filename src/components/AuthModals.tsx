@@ -399,7 +399,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
 
       {/* Login Modal */}
       <Dialog open={isLoginOpen} onOpenChange={onLoginClose}>
-        <DialogContent className="sm:max-w-[400px]">
+        <DialogContent className="sm:max-w-[450px]">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-center">
               {showForgotPassword ? t("auth.resetPassword") : t("auth.login")}
