@@ -33,6 +33,7 @@ import WorkforceSociety from "./pages/bi/WorkforceSociety";
 import InfrastructureInnovation from "./pages/bi/InfrastructureInnovation";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ResetPassword from "./pages/ResetPassword";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,7 @@ const App = () => (
               <Route path="/insights/wellness-healthcare" element={<InsightWellnessHealthcare />} />
               <Route path="/insights/agriculture" element={<InsightAgriculture />} />
               <Route path="/insights/real-estate" element={<InsightRealEstate />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

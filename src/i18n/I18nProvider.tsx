@@ -416,6 +416,15 @@ const translations: Record<Lang, Translations> = {
     "auth.resetEmailSent": "Reset email sent",
     "auth.resetEmailSentDescription": "Check your email for password reset instructions",
     "auth.backToLogin": "Back to Login",
+    "auth.newPassword": "New Password",
+    "auth.confirmPassword": "Confirm Password", 
+    "auth.enterNewPassword": "Enter your new password below",
+    "auth.updatePassword": "Update Password",
+    "auth.updating": "Updating...",
+    "auth.passwordResetSuccess": "Password updated successfully",
+    "auth.passwordsDoNotMatch": "Passwords do not match",
+    "auth.passwordTooShort": "Password must be at least 6 characters",
+    "auth.success": "Success",
 
     // My Page / Dashboard
     "dashboard.title": "My Dashboard - Harmony Asia News",
@@ -1155,6 +1164,15 @@ const translations: Record<Lang, Translations> = {
     "auth.resetEmailSent": "リセットメールを送信しました",
     "auth.resetEmailSentDescription": "パスワードリセット手順のメールをご確認ください",
     "auth.backToLogin": "ログインに戻る",
+    "auth.newPassword": "新しいパスワード",
+    "auth.confirmPassword": "パスワード確認",
+    "auth.enterNewPassword": "下記に新しいパスワードを入力してください",
+    "auth.updatePassword": "パスワードを更新",
+    "auth.updating": "更新中...",
+    "auth.passwordResetSuccess": "パスワードが正常に更新されました",
+    "auth.passwordsDoNotMatch": "パスワードが一致しません",
+    "auth.passwordTooShort": "パスワードは6文字以上である必要があります",
+    "auth.success": "成功",
 
     // My Page (Japanese)
     "mypage.title": "マイページ - Harmony Asia News",
