@@ -608,14 +608,16 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.category": "Real Estate Sector",
 
     // About page - Company Profile
-    "about.title": "Company Profile - WaLens",
-    "about.description": "Learn about WaLens - Your Japanese lens into ASEAN business intelligence and insights",
-    "about.hero.title": "Company Profile",
-    "about.hero.subtitle": "WaLens is an open and sincere start-up, driven by the aspiration to transform the business world and to revitalize the presence of Japan and Thailand together.",
-    "about.hero.cta": "Get Started Today",
+    "about.title": "About WaLens (和視) - Company Profile",
+    "about.description": "Learn about WaLens (和視) - Your Japanese lens into ASEAN business",
+    "about.hero.title": "About WaLens (和視)",
+    "about.hero.subtitle": "Your Japanese lens into ASEAN business",
+    "about.hero.cta": "Join Our Community",
+    "about.narrative.title": "Our Story",
+    "about.narrative.content": "At WaLens, we are here with one clear mission: **to change the business world, and to make your life better.**\n\nWe know — by nature, you might not believe in start-ups. But if you don't take the step now, then when will life truly get better?\n\nFor too long, Japan and Thailand have been trapped in the same routines, relying on the same old companies and outdated ways. But in today's volatile world, trusting only in the old may cause Japan to lose its presence on the global stage.\n\nThat is why WaLens exists. We are open, sincere, and bold. We deliver not only news, but **fast and deep insights that empower you to make the right and precise decisions.** With better information, you can build better strategies — and a stronger future.\n\nAnd the cost? It's just a fraction compared to the value it can unlock. A single decision backed by the right insight can transform your business, your organization, and even the presence of Japan in Thailand.\n\nWaLens is not just another company. We are a movement to bring Japan and Thailand back to greatness — together.",
     
     // Company Profile Table
-    "about.profile.title": "Company Information",
+    "about.profile.title": "Company Profile",
     "about.profile.company": "Company Name",
     "about.profile.founded": "Founded",
     "about.profile.headquarters": "Headquarters", 
@@ -649,9 +651,9 @@ const translations: Record<Lang, Translations> = {
     "about.value.point4": "Editorial and content team with over 10 years of consulting experience, having worked closely with Japanese executives across diverse industries",
     "about.value.point5": "A sincere start-up spirit aiming to reshape the business landscape and strengthen Japan-Thailand presence",
     
-    "about.cta.title": "Ready to Transform Your Business Intelligence?",
-    "about.cta.content": "Join thousands of professionals who rely on WaLens for strategic insights and competitive advantage.",
-    "about.cta.button": "Start Your Journey"
+    "about.cta.title": "Ready to Transform Your Business?",
+    "about.cta.content": "Join WaLens (和視) today and gain access to the strategic insights that will drive your success in the ASEAN market.",
+    "about.cta.button": "Subscribe Now"
   },
   ja: {
     // Common
@@ -1036,20 +1038,22 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.category": "不動産部門",
 
     // About page - Company Profile (Japanese)
-    "about.title": "会社概要 - WaLens",
-    "about.description": "WaLens について - ASEANビジネスを解き明かす日本の視座",
-    "about.hero.title": "会社概要",
-    "about.hero.subtitle": "WaLensは、オープンかつ誠実なスタートアップとして、ビジネスの世界を変革し、日タイ両国のプレゼンスを再び大きく高めることを目指しています。",
-    "about.hero.cta": "今すぐ始める",
+    "about.title": "WaLens (和視) について - 会社概要",
+    "about.description": "WaLens (和視) について - ASEANビジネスを解き明かす日本の視座",
+    "about.hero.title": "WaLens (和視) について",
+    "about.hero.subtitle": "ASEANビジネスを解き明かす日本の視座",
+    "about.hero.cta": "コミュニティに参加",
+    "about.narrative.title": "私たちの物語",
+    "about.narrative.content": "WaLensの使命はただ一つ。\n**ビジネスの世界を変え、あなたの人生をより良くすること。**\n\n私たちは理解しています。人は本能的にスタートアップを信じにくいものです。\nしかし、今挑戦しなければ、いつ人生は良くなるのでしょうか？\n\nあまりにも長い間、日本とタイは同じ古い慣習、同じ古い企業に頼り続けてきました。\nしかし、変動の激しい現代において、古いものだけを信じ続けることは、日本が世界でのプレゼンスを失う危険につながります。\n\nだからこそ、WaLensは存在します。\n私たちは誠実で、オープンで、大胆です。単なるニュースではなく、**迅速で深いインサイト**を提供し、正しく精度の高い意思決定を支援します。\nより良い情報を手にすることで、より良い戦略を築き、より強い未来を創ることができるのです。\n\nそして、そのコストはわずか。解き放たれる価値に比べればほんの一部にすぎません。\n正しいインサイトに基づいた一つの意思決定が、あなたのビジネスを、組織を、そして日本のタイにおけるプレゼンスを変えるのです。\n\nWaLensは単なる会社ではありません。\nそれは **日本とタイを再び偉大な存在へと導くムーブメント** なのです。",
     
     // Company Profile Table (Japanese)
-    "about.profile.title": "会社情報",
+    "about.profile.title": "会社概要",
     "about.profile.company": "会社名",
     "about.profile.founded": "設立",
-    "about.profile.headquarters": "本社", 
+    "about.profile.headquarters": "本社所在地", 
     "about.profile.business": "事業内容",
     "about.profile.team": "編集チーム",
-    "about.profile.identity": "アイデンティティ / 核心メッセージ",
+    "about.profile.identity": "アイデンティティ / コアメッセージ",
     
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025年",
@@ -1077,9 +1081,9 @@ const translations: Record<Lang, Translations> = {
     "about.value.point4": "10年以上にわたり日本企業経営層と協働してきたコンサルタント出身の編集チーム",
     "about.value.point5": "ビジネスの世界を変革し、日タイのプレゼンスを強化することを目指す誠実なスタートアップの精神",
     
-    "about.cta.title": "ビジネスインテリジェンスを変革する準備はできましたか？",
-    "about.cta.content": "戦略的インサイトと競争優位性を求めて WaLens を信頼する何千もの専門家に参加してください。",
-    "about.cta.button": "旅を始める",
+    "about.cta.title": "ビジネスを変革する準備はできていますか？",
+    "about.cta.content": "今すぐWaLens (和視) に参加し、ASEAN市場での成功を促進する戦略的インサイトにアクセスしましょう。",
+    "about.cta.button": "今すぐ購読",
 
     // Terms of Service (Japanese)
     "terms.title": "利用規約 - WaLens Asia News",
@@ -1391,51 +1395,42 @@ const translations: Record<Lang, Translations> = {
     "subscribe.metaDescription": "ทดลองใช้ฟรี 1 เดือน จากนั้นรายเดือน/รายปี",
 
     // About page - Company Profile (Thai)
-    "about.title": "ข้อมูลบริษัท - WaLens",
-    "about.description": "เรียนรู้เกี่ยวกับ WaLens - มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
-    "about.hero.title": "ข้อมูลบริษัท",
-    "about.hero.subtitle": "WaLens เป็นสตาร์ทอัพที่เปิดกว้างและจริงใจ โดยมีแรงบันดาลใจที่จะเปลี่ยนแปลงโลกธุรกิจและฟื้นฟูการปรากฏตัวของญี่ปุ่นและไทยร่วมกัน",
-    "about.hero.cta": "เริ่มต้นวันนี้",
-    
-    // Company Profile Table (Thai)
+    "about.title": "เกี่ยวกับ WaLens (和視) - ข้อมูลบริษัท",
+    "about.description": "เรียนรู้เกี่ยวกับ WaLens (和視) - มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
+    "about.hero.title": "เกี่ยวกับ WaLens (和視)",
+    "about.hero.subtitle": "มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
+    "about.hero.cta": "เข้าร่วมชุมชนของเรา",
+    "about.narrative.title": "เรื่องราวของเรา",
+    "about.narrative.content": "ที่ WaLens เรามาพร้อมกับภารกิจที่ชัดเจนเพียงหนึ่งเดียว: **เปลี่ยนแปลงโลกธุรกิจและทำให้ชีวิตของคุณดีขึ้น**\n\nเรารู้ว่าโดยธรรมชาติแล้ว คุณอาจไม่เชื่อในสตาร์ทอัพ แต่หากคุณไม่ก้าวไปข้างหน้าตอนนี้ แล้วจะมีเวลาไหนที่ชีวิตจะดีขึ้นได้จริง?\n\nมานานเกินไปแล้วที่ญี่ปุ่นและไทยติดอยู่ในรูปแบบเดิม ๆ พึ่งพาบริษัทเก่า ๆ และวิธีการที่ล้าสมัย แต่ในโลกที่เปลี่ยนแปลงไวอย่างปัจจุบัน การเชื่อในสิ่งเก่า ๆ เพียงอย่างเดียวอาจทำให้ญี่ปุ่นสูญเสียการปรากฏตัวบนเวทีโลก\n\nนั่นคือเหตุผลที่ WaLens มีอยู่ เราเปิดกว้าง จริงใจ และกล้าหาญ เราไม่ได้ส่งมอบเพียงข่าวสาร แต่เป็น **ข้อมูลเชิงลึกที่รวดเร็วและลึกซึ้งที่ช่วยให้คุณตัดสินใจได้อย่างถูกต้องและแม่นยำ** ด้วยข้อมูลที่ดีกว่า คุณสามารถสร้างกลยุทธ์ที่ดีกว่า — และอนาคตที่แข็งแกร่งกว่า\n\nและค่าใช้จ่าย? มันเป็นเพียงเศษเสี้ยวเมื่อเทียบกับคุณค่าที่จะได้รับ การตัดสินใจเพียงครั้งเดียวที่มีข้อมูลเชิงลึกที่ถูกต้องสามารถเปลี่ยนแปลงธุรกิจ องค์กร และแม้กระทั่งการปรากฏตัวของญี่ปุ่นในประเทศไทย\n\nWaLens ไม่ใช่แค่บริษัทอีกแห่งหนึ่ง เราคือการเคลื่อนไหวเพื่อนำญี่ปุ่นและไทยกลับสู่ความยิ่งใหญ่ — ร่วมกัน",
     "about.profile.title": "ข้อมูลบริษัท",
     "about.profile.company": "ชื่อบริษัท",
-    "about.profile.founded": "ก่อตั้ง",
-    "about.profile.headquarters": "สำนักงานใหญ่", 
-    "about.profile.business": "เนื้อหาธุรกิจ",
-    "about.profile.team": "ทีมบรรณาธิการ",
-    "about.profile.identity": "อัตลักษณ์ / ข้อความหลัก",
-    
     "about.profile.company.value": "WaLens",
+    "about.profile.founded": "ก่อตั้ง",
     "about.profile.founded.value": "2025",
-    "about.profile.headquarters.value": "กรุงเทพฯ ประเทศไทย",
-    "about.profile.business.value": "ข่าวสารเฉพาะทางและรายงานอุตสาหกรรมที่ให้ข่าวกรองธุรกิจเชิงกลยุทธ์สำหรับผู้บริหารญี่ปุ่นในประเทศไทย",
-    "about.profile.team.value": "ประกอบด้วยที่ปรึกษาธุรกิจที่มีประสบการณ์มากกว่า 10 ปีในการทำงานร่วมกับผู้บริหารญี่ปุ่นในอุตสาหกรรมต่างๆ",
+    "about.profile.headquarters": "สำนักงานใหญ่",
+    "about.profile.headquarters.value": "กรุงเทพมหานคร ประเทศไทย",
+    "about.profile.business": "เนื้อหาธุรกิจ",
+    "about.profile.business.value": "ข่าวสารและรายงานอุตสาหกรรมเฉพาะที่ให้ข้อมูลทางธุรกิจเชิงกลยุทธ์สำหรับผู้บริหารญี่ปุ่นในประเทศไทย",
+    "about.profile.team": "ทีมบรรณาธิการ",
+    "about.profile.team.value": "ประกอบด้วยที่ปรึกษาธุรกิจที่มีประสบการณ์มากกว่า 10 ปีในการทำงานร่วมกับผู้บริหารญี่ปุ่นในอุตสาหกรรมที่หลากหลาย",
+    "about.profile.identity": "อัตลักษณ์ / ข้อความหลัก",
     "about.profile.identity.value": "WaLens เป็นสตาร์ทอัพที่เปิดกว้างและจริงใจ โดยมีแรงบันดาลใจที่จะเปลี่ยนแปลงโลกธุรกิจและฟื้นฟูการปรากฏตัวของญี่ปุ่นและไทยร่วมกัน",
-    
-    // Vision (Thai)
     "about.vision.title": "วิสัยทัศน์",
-    "about.vision.content": "สร้างแพลตฟอร์มข่าวกรองธุรกิจที่เชื่อมโยงไทยและญี่ปุ่น อำนวยความสะดวกในการนำเสนอโซลูชั่นนวัตกรรมที่แก้ไขปัญหาทางสังคมและเศรษฐกิจ และมีส่วนร่วมในการพัฒนาที่ยั่งยืนของไทย",
-    
-    // Mission (Thai)
-    "about.mission.title": "ภารกิจ",
-    "about.mission.point1": "ส่งมอบข้อมูลธุรกิจที่แม่นยำ ครอบคลุม และทันเวลาสำหรับผู้บริหารญี่ปุ่นที่ดำเนินธุรกิจในประเทศไทย",
-    "about.mission.point2": "จัดทำรายงานและการวิเคราะห์เชิงลึกที่สามารถใช้สนับสนุนการวางแผนและดำเนินกลยุทธ์",
-    "about.mission.point3": "ส่งเสริมความเข้าใจในสภาพแวดล้อมและวัฒนธรรมธุรกิจของไทย เพื่อสนับสนุนการบริหารที่ยั่งยืน",
-    "about.mission.point4": "สนับสนุนการรักษาและขยายธุรกิจญี่ปุ่นในไทย เพื่อมีส่วนร่วมในการเติบโตร่วมกันของเศรษฐกิจไทยและญี่ปุ่น",
-    
-    // Value Proposition (Thai)
+    "about.vision.content": "สร้างแพลตฟอร์มข้อมูลทางธุรกิจที่เชื่อมโยงไทยและญี่ปุ่น อำนวยความสะดวกในการนำเสนอโซลูชันนวัตกรรมที่แก้ไขความท้าทายทางสังคมและเศรษฐกิจ และมีส่วนร่วมต่อการพัฒนาที่ยั่งยืนของประเทศไทย",
+    "about.mission.title": "พันธกิจ",
+    "about.mission.point1": "นำเสนอข้อมูลทางธุรกิจที่ถูกต้อง ครอบคลุม และทันเวลาสำหรับผู้บริหารญี่ปุ่นที่ดำเนินงานในประเทศไทย",
+    "about.mission.point2": "ให้รายงานและการวิเคราะห์เชิงลึกที่สามารถใช้สนับสนุนการวางแผนและการดำเนินงานเชิงกลยุทธ์",
+    "about.mission.point3": "ส่งเสริมความเข้าใจเกี่ยวกับสภาพแวดล้อมทางธุรกิจและวัฒนธรรมของไทย เพื่อเปิดใช้แนวทางการจัดการที่ยั่งยืน",
+    "about.mission.point4": "สนับสนุนการรักษาและขยายธุรกิจญี่ปุ่นในประเทศไทย ซึ่งจะมีส่วนช่วยให้เศรษฐกิจของทั้งไทยและญี่ปุ่นเติบโตร่วมกัน",
     "about.value.title": "ข้อเสนอคุณค่า",
     "about.value.point1": "แหล่งข้อมูลท้องถิ่นที่เชื่อถือได้จากประเทศไทย",
-    "about.value.point2": "รายงานการวิเคราะห์ที่มีรายละเอียดเพียงพอสำหรับการใช้เชิงกลยุทธ์", 
-    "about.value.point3": "การอัปเดตแบบเรียลไทม์โดยไม่มีความล่าช้า",
-    "about.value.point4": "ทีมบรรณาธิการและเนื้อหาที่มีประสบการณ์การให้คำปรึกษามากกว่า 10 ปี โดยได้ทำงานอย่างใกล้ชิดกับผู้บริหารญี่ปุ่นในอุตสาหกรรมต่างๆ",
-    "about.value.point5": "จิตวิญญาณสตาร์ทอัพที่จริงใจ มุ่งเป้าที่จะปรับโฉมภูมิทัศน์ธุรกิจและเสริมสร้างการปรากฏตัวของญี่ปุ่น-ไทย",
-    
-    "about.cta.title": "พร้อมที่จะเปลี่ยนแปลงข่าวกรองธุรกิจของคุณแล้วหรือยัง?",
-    "about.cta.content": "เข้าร่วมกับผู้เชี่ยวชาญหลายพันคนที่ไว้วางใจ WaLens สำหรับข้อมูลเชิงลึกเชิงกลยุทธ์และความได้เปรียบในการแข่งขัน",
-    "about.cta.button": "เริ่มต้นการเดินทาง",
-  },
+    "about.value.point2": "รายงานการวิเคราะห์ที่มีรายละเอียดเพียงพอสำหรับการใช้งานเชิงกลยุทธ์",
+    "about.value.point3": "การอัพเดตแบบเรียลไทม์โดยไม่มีความล่าช้า",
+    "about.value.point4": "ทีมบรรณาธิการและเนื้อหาที่มีประสบการณ์การให้คำปรึกษามากกว่า 10 ปี โดยทำงานอย่างใกล้ชิดกับผู้บริหารญี่ปุ่นในอุตสาหกรรมที่หลากหลาย",
+    "about.value.point5": "จิตวิญญาณสตาร์ทอัพที่จริงใจที่มุ่งหวังเปลี่ยนแปลงธุรกิจและเสริมสร้างการปรากฏตัวของญี่ปุ่น-ไทย",
+    "about.cta.title": "พร้อมที่จะเปลี่ยนแปลงธุรกิจของคุณหรือยัง?",
+    "about.cta.content": "เข้าร่วม WaLens (和視) วันนี้และเข้าถึงข้อมูลเชิงลึกเชิงกลยุทธ์ที่จะขับเคลื่อนความสำเร็จของคุณในตลาดอาเซียน",
+     },
 };
 
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

@@ -38,6 +38,32 @@ const About = () => {
             </div>
           </section>
 
+          {/* Narrative Section */}
+          <section className="container mx-auto py-16 md:py-20 px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">
+                {t('about.narrative.title')}
+              </h2>
+              <div className="prose prose-lg mx-auto text-foreground leading-relaxed">
+                {t('about.narrative.content').split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="mb-6 text-base md:text-lg">
+                    {paragraph.includes('**') ? (
+                      paragraph.split('**').map((part, i) => 
+                        i % 2 === 1 ? (
+                          <strong key={i} className="font-bold text-primary">{part}</strong>
+                        ) : (
+                          part
+                        )
+                      )
+                    ) : (
+                      paragraph
+                    )}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Company Profile Table Section */}
           <section className="container mx-auto py-16 md:py-20 px-4">
             <div className="max-w-5xl mx-auto">
