@@ -214,7 +214,7 @@ const Header = () => {
             <div className="flex items-center space-x-2">
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
-                alt="WaLens logo - Harmonize the global business"
+                alt="WaLens logo - Your Japanese lens into ASEAN business"
                 className="h-6 w-6 sm:h-8 sm:w-8 transition-transform group-hover:scale-105"
                 loading="eager"
                 width={32}

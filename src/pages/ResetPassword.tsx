@@ -128,7 +128,7 @@ const ResetPassword = () => {
                 alt="WaLens" 
                 className="h-12 mx-auto mb-2"
               />
-              <p className="text-sm text-muted-foreground">Harmonize the global business</p>
+              <p className="text-sm text-muted-foreground">{t("brand.tagline")}</p>
             </div>
             <CardTitle className="text-2xl font-bold">
               {t("auth.resetPassword")}

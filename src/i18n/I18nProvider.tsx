@@ -15,8 +15,8 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 const translations: Record<Lang, Translations> = {
   en: {
     // Common
-    "brand.name": "WaLens",
-    "brand.tagline": "Harmonize the global business",
+    "brand.name": "WaLens (和視)",
+    "brand.tagline": "Your Japanese lens into ASEAN business",
     "cta.membership": "Membership",
     "search.placeholder": "Search news, tips, insights...",
     "search.submit": "Search",
@@ -634,7 +634,7 @@ const translations: Record<Lang, Translations> = {
   },
   ja: {
     // Common
-    "brand.name": "WaLens",
+    "brand.name": "WaLens (和視)",
     "cta.membership": "メンバーシップ",
     "search.placeholder": "ニュース、インサイトを検索...",
     "search.submit": "検索",
@@ -678,7 +678,7 @@ const translations: Record<Lang, Translations> = {
     "nav.languages.en": "English",
 
     // Brand
-    "brand.tagline": "Harmonize the global business",
+    "brand.tagline": "ASEANビジネスを解き明かす日本の視座",
 
     // Banner
     "banner.text": "WaLens へようこそ — 洞察に満ちたニュース、レポート、Thailand 101 をお届けします。",
@@ -1255,8 +1255,8 @@ const translations: Record<Lang, Translations> = {
   },
   th: {
     // Common
-    "brand.name": "WaLens",
-    "brand.tagline": "ผสานธุรกิจระดับโลก",
+    "brand.name": "WaLens (和視)",
+    "brand.tagline": "มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
     "cta.membership": "สมาชิก",
     "search.placeholder": "ค้นหาข่าว...",
 

@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
       <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="text-align: center; margin-bottom: 40px;">
           <img src="https://qyqssdzhwhwagdhxxews.supabase.co/storage/v1/object/public/lovable-uploads/Harmony_Logo_only.png" alt="WaLens" style="height: 60px; margin-bottom: 10px;">
-          <p style="color: #666; margin: 0; font-size: 14px;">${isJapanese ? 'Harmonize the global business' : 'Harmonize the global business'}</p>
+          <p style="color: #666; margin: 0; font-size: 14px;">${isJapanese ? 'ASEANビジネスを解き明かす日本の視座' : 'Your Japanese lens into ASEAN business'}</p>
         </div>
         
         <div style="background: #f8f9fa; padding: 30px; border-radius: 8px; margin-bottom: 30px;">
