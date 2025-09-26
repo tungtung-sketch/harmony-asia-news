@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
-import { Resend } from "npm:resend@2.0.0";
+import { Resend } from "https://esm.sh/resend@4.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -68,7 +68,7 @@ serve(async (req) => {
     }
 
     // Cancel all active subscriptions
-    const cancelPromises = subscriptions.data.map(async (subscription) => {
+    const cancelPromises = subscriptions.data.map(async (subscription: any) => {
       logStep("Cancelling subscription", { subscriptionId: subscription.id });
       return stripe.subscriptions.update(subscription.id, {
         cancel_at_period_end: true,
@@ -100,23 +100,23 @@ serve(async (req) => {
     // Send confirmation email
     try {
       const emailResponse = await resend.emails.send({
-        from: "Harmony Asia News <noreply@harmonyasianews.com>",
+        from: "WaLens Asia News <noreply@harmonyasianews.com>",
         to: [user.email],
         subject: "Subscription Cancellation Confirmation / サブスクリプション解約確認",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333;">Harmony Asia News</h2>
+            <h2 style="color: #333;">WaLens Asia News</h2>
             
             <h3 style="color: #333;">Subscription Cancellation Confirmation</h3>
             <p>Dear Valued Subscriber,</p>
-            <p>Your subscription has been successfully cancelled. Thank you for using Harmony Asia News.</p>
+            <p>Your subscription has been successfully cancelled. Thank you for using WaLens Asia News.</p>
             <p>Your subscription will remain active until the end of your current billing cycle. You will continue to have access to premium content until that time.</p>
             
             <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
             
             <h3 style="color: #333;">サブスクリプション解約確認</h3>
             <p>お客様各位</p>
-            <p>サブスクリプションは正常に解約されました。Harmony Asia Newsをご利用いただきありがとうございました。</p>
+            <p>サブスクリプションは正常に解約されました。WaLens Asia Newsをご利用いただきありがとうございました。</p>
             <p>現在の請求サイクルが終了するまで、サブスクリプションは有効です。その期間中はプレミアムコンテンツにアクセスできます。</p>
             
             <div style="margin-top: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 5px;">

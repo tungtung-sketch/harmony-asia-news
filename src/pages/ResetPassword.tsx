@@ -125,7 +125,7 @@ const ResetPassword = () => {
             <div className="mb-4">
               <img 
                 src="/lovable-uploads/Harmony_Logo_only.png" 
-                alt="Harmony" 
+                alt="WaLens" 
                 className="h-12 mx-auto mb-2"
               />
               <p className="text-sm text-muted-foreground">Harmonize the global business</p>

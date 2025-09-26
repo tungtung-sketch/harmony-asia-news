@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2">
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
-                alt="HARMONY logo"
+                alt="WaLens logo"
                 className="h-6 w-6"
                 width={24}
                 height={24}

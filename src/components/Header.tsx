@@ -214,7 +214,7 @@ const Header = () => {
             <div className="flex items-center space-x-2">
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
-                alt="HARMONY logo - Harmonize the global business"
+                alt="WaLens logo - Harmonize the global business"
                 className="h-6 w-6 sm:h-8 sm:w-8 transition-transform group-hover:scale-105"
                 loading="eager"
                 width={32}
@@ -283,7 +283,7 @@ const Header = () => {
                     <div className="flex items-center space-x-2">
                       <img
                         src="/lovable-uploads/Harmony_Logo_only.png"
-                        alt="HARMONY logo"
+                        alt="WaLens logo"
                         className="h-6 w-6"
                         width={24}
                         height={24}

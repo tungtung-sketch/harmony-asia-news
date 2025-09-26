@@ -15,7 +15,7 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 const translations: Record<Lang, Translations> = {
   en: {
     // Common
-    "brand.name": "HARMONY",
+    "brand.name": "WaLens",
     "brand.tagline": "Harmonize the global business",
     "cta.membership": "Membership",
     "search.placeholder": "Search news, tips, insights...",
@@ -66,16 +66,16 @@ const translations: Record<Lang, Translations> = {
     "tips.backToTips": "Back to Business Tips",
 
     // News
-    "news.title": "Latest News - Harmony Asia",
+    "news.title": "Latest News - WaLens Asia",
     "news.description": "Stay updated with the latest business news and insights from across Asia",
     "news.heroTitle": "Latest News & Updates",
     "news.heroSubtitle": "Stay informed with breaking news, market analysis, and expert insights from across Asia's dynamic business landscape.",
     "news.backToNews": "Back to News",
 
     // Pages
-    "insights.title": "Insights - HARMONY",
-    "tips.title": "Business Tips - HARMONY", 
-    "subscribe.title": "Subscribe - Harmony Asia News",
+    "insights.title": "Insights - WaLens",
+    "tips.title": "Business Tips - WaLens", 
+    "subscribe.title": "Subscribe - WaLens Asia News",
 
     // Home hero
     "home.hero.title": "Future Thailand: Executive Business & Market Insights",
@@ -100,14 +100,14 @@ const translations: Record<Lang, Translations> = {
 
     // About stealth
     "home.about.title": "About Us",
-    "home.about.text": "Harmony Asia News is operated by Harmony Editorial Team — bridging Japanese & Thai business culture through trusted, clear, and actionable information.",
+    "home.about.text": "WaLens Asia News is operated by WaLens Editorial Team — bridging Japanese & Thai business culture through trusted, clear, and actionable information.",
 
     // Hero fallback keys used elsewhere
     "hero.featuredImageLabel": "Featured Image",
 
     // Business Intelligence translations
     "nav.businessIntelligence": "Business Intelligence",
-    "bi.title": "Business Intelligence - HARMONY",
+    "bi.title": "Business Intelligence - WaLens",
     "bi.metaDescription": "Access real-time Thai business data, economic indicators, and market insights from official government sources.",
     "bi.hero.title": "Business Intelligence",
     "bi.hero.subtitle": "Real-time insights from official Thai government data sources, presented in professional business intelligence format.",
@@ -225,12 +225,12 @@ const translations: Record<Lang, Translations> = {
 
     // Privacy Policy
     "privacy.locale": "en-US",
-    "privacy.title": "Privacy Policy - Harmony Asia News",
-    "privacy.description": "Learn how Harmony Asia News protects your privacy and personal information.",
+    "privacy.title": "Privacy Policy - WaLens Asia News",
+    "privacy.description": "Learn how WaLens Asia News protects your privacy and personal information.",
     "privacy.effectiveDate": "Effective Date",
     "privacy.lastUpdated": "Last Updated",
     "privacy.introduction.title": "Introduction",
-    "privacy.introduction.content": "At Harmony Asia News, we are committed to protecting the privacy and personal information of our subscribers and visitors. This Privacy Policy explains how we collect, use, store, and protect your information.",
+    "privacy.introduction.content": "At WaLens Asia News, we are committed to protecting the privacy and personal information of our subscribers and visitors. This Privacy Policy explains how we collect, use, store, and protect your information.",
     "privacy.informationCollected.title": "Information We Collect",
     "privacy.informationCollected.personal.title": "Personal Details:",
     "privacy.informationCollected.personal.content": "Name, email, position, industry, subscription plan, and stated purpose.",
@@ -263,8 +263,8 @@ const translations: Record<Lang, Translations> = {
     "ad.placeholder": "Your Ad Here (Responsive 728x90 / 970x90)",
 
     // Contact
-    "contact.title": "Contact Us - HARMONY",
-    "contact.metaDescription": "Get in touch with HARMONY. Send us your email and message.",
+    "contact.title": "Contact Us - WaLens",
+    "contact.metaDescription": "Get in touch with WaLens. Send us your email and message.",
     "contact.h1": "Contact Us",
     "contact.emailLabel": "Email",
     "contact.emailPlaceholder": "you@example.com",
@@ -274,7 +274,7 @@ const translations: Record<Lang, Translations> = {
     "contact.success": "Thanks! We'll be in touch soon.",
 
     "subscribe.metaDescription": "Choose the right plan for your business insights in Thailand",
-    "subscribe.hero.title": "Stay Ahead with Harmony Asia News",
+    "subscribe.hero.title": "Stay Ahead with WaLens Asia News",
     "subscribe.hero.subtitle": "Choose the right plan for your business insights in Thailand",
     "subscribe.hero.cta": "Subscribe Now",
     
@@ -317,15 +317,15 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.notIncluded": "Not Included",
     
     // Final CTA
-    "subscribe.finalCta.title": "Join hundreds of executives already staying ahead with Harmony Asia News",
+    "subscribe.finalCta.title": "Join hundreds of executives already staying ahead with WaLens Asia News",
     "subscribe.finalCta.button": "Subscribe Now",
 
     // Expanded subscription plan descriptions - see above in plans section
 
     // Sign-up page
-    "signup.title": "Sign Up - Harmony Asia News",
-    "signup.metaDescription": "Create your account and start your subscription to Harmony Asia News",
-    "signup.hero.title": "Join Harmony Asia News",
+    "signup.title": "Sign Up - WaLens Asia News",
+    "signup.metaDescription": "Create your account and start your subscription to WaLens Asia News",
+    "signup.hero.title": "Join WaLens Asia News",
     "signup.hero.subtitle": "Create your account and choose your subscription plan",
     "signup.form.name": "Name",
     "signup.form.namePlaceholder": "Your full name",
@@ -427,8 +427,8 @@ const translations: Record<Lang, Translations> = {
     "auth.success": "Success",
 
     // My Page / Dashboard
-    "dashboard.title": "My Dashboard - Harmony Asia News",
-    "dashboard.metaDescription": "Manage your subscription, profile, and access to Harmony Asia News",
+    "dashboard.title": "My Dashboard - WaLens Asia News",
+    "dashboard.metaDescription": "Manage your subscription, profile, and access to WaLens Asia News",
     "dashboard.welcomeBack": "Welcome back",
     "dashboard.profile.title": "Profile Information",
     "dashboard.profile.edit": "Edit Profile",
@@ -440,7 +440,7 @@ const translations: Record<Lang, Translations> = {
     "dashboard.subscription.active": "Active",
 
     // My Page
-    "mypage.title": "My Page - Harmony Asia News",
+    "mypage.title": "My Page - WaLens Asia News",
     "mypage.description": "Manage your account and subscription",
     "mypage.welcome": "My Page",
     "mypage.signOut": "Sign Out",
@@ -471,7 +471,7 @@ const translations: Record<Lang, Translations> = {
     "cancellation.processing": "Cancelling Subscription...",
     "cancellation.processingMessage": "Please wait while we process your cancellation.",
     "cancellation.success.title": "Subscription Cancelled",
-    "cancellation.success.description": "Your subscription has been successfully cancelled. Thank you for using Harmony Asia News.",
+    "cancellation.success.description": "Your subscription has been successfully cancelled. Thank you for using WaLens Asia News.",
     "mypage.notProvided": "Not provided",
     "mypage.noSubscription": "No subscription",
     "mypage.activeSubscription": "Active",
@@ -502,11 +502,11 @@ const translations: Record<Lang, Translations> = {
     "dashboard.history.viewAll": "View All Articles",
 
     // Translations for Payment Success
-    "paymentSuccess.title": "Payment Successful - Harmony Asia News",
+    "paymentSuccess.title": "Payment Successful - WaLens Asia News",
     "paymentSuccess.loading": "Loading...",
     "paymentSuccess.details.customerInfo": "Customer Information",
     "paymentSuccess.metaDescription": "Your payment has been processed successfully",
-    "paymentSuccess.hero.title": "Payment Successful – Welcome to Harmony Asia News!",
+    "paymentSuccess.hero.title": "Payment Successful – Welcome to WaLens Asia News!",
     "paymentSuccess.details.title": "Subscription Summary",
     "paymentSuccess.details.plan": "Plan",
     "paymentSuccess.details.startDate": "Start Date",
@@ -520,16 +520,16 @@ const translations: Record<Lang, Translations> = {
     "notfound.backHome": "Back to Home",
 
     // Terms of Service
-    "terms.title": "Terms of Service - Harmony Asia News",
-    "terms.metaDescription": "Terms of Service for Harmony Asia News subscription and website usage",
+    "terms.title": "Terms of Service - WaLens Asia News",
+    "terms.metaDescription": "Terms of Service for WaLens Asia News subscription and website usage",
     "terms.hero.title": "Terms of Service",
     "terms.hero.subtitle": "Please read these terms carefully before using our services",
     
     "terms.section1.title": "1. Introduction",
-    "terms.section1.content": "Welcome to Harmony Asia News. By accessing or using our website and subscription services, you agree to these Terms of Service. Please read them carefully before subscribing.",
+    "terms.section1.content": "Welcome to WaLens Asia News. By accessing or using our website and subscription services, you agree to these Terms of Service. Please read them carefully before subscribing.",
     
     "terms.section2.title": "2. Services",
-    "terms.section2.content": "Harmony Asia News provides business news, market insights, analysis reports, and resources to support international executives and companies operating in Thailand and Southeast Asia. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
+    "terms.section2.content": "WaLens Asia News provides business news, market insights, analysis reports, and resources to support international executives and companies operating in Thailand and Southeast Asia. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
     
     "terms.section3.title": "3. Subscription & Payment",
     "terms.section3.trial": "Users may start with a 30-day free trial under the Basic Plan. No charges will apply during the trial period.",
@@ -545,7 +545,7 @@ const translations: Record<Lang, Translations> = {
     "terms.section5.refunds": "Refunds are not generally provided for partial periods unless required by law.",
     
     "terms.section6.title": "6. Content & Intellectual Property",
-    "terms.section6.ownership": "All articles, insights, reports, and visuals are the property of Harmony Asia News.",
+    "terms.section6.ownership": "All articles, insights, reports, and visuals are the property of WaLens Asia News.",
     "terms.section6.purpose": "Content is provided for informational purposes only and should not be considered legal, financial, or investment advice.",
     
     "terms.section7.title": "7. Privacy & Data",
@@ -608,13 +608,13 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.category": "Real Estate Sector",
 
     // About page
-    "about.title": "About Harmony Asia News",
+    "about.title": "About WaLens Asia News",
     "about.description": "Empowering Japanese businesses in Thailand for a sustainable future through trusted insights and strategic intelligence.",
     "about.hero.title": "Empowering Japanese Businesses in Thailand for a Sustainable Future",
     "about.hero.subtitle": "We are committed to helping Japanese companies regain strong, sustainable presence in Thailand and Southeast Asia.",
     "about.hero.cta": "Subscribe for Insights",
     "about.overview.title": "Our Company",
-    "about.overview.content": "Harmony Asia News is a Thailand-based business news agency founded to empower Japanese companies and international leaders in navigating Thailand's complex market. With deep Japanese competency and trusted local expertise, our mission is to ensure Japanese businesses regain strong, sustainable presence in Thailand and Southeast Asia.",
+    "about.overview.content": "WaLens Asia News is a Thailand-based business news agency founded to empower Japanese companies and international leaders in navigating Thailand's complex market. With deep Japanese competency and trusted local expertise, our mission is to ensure Japanese businesses regain strong, sustainable presence in Thailand and Southeast Asia.",
     "about.mission.title": "Our Mission", 
     "about.mission.content": "We deliver not only speed and depth of business intelligence but also a long-term vision: enabling Japanese enterprises to thrive sustainably, expand confidently, and reclaim their leadership presence in Southeast Asia.",
     "about.vision.title": "Our Vision",
@@ -634,7 +634,7 @@ const translations: Record<Lang, Translations> = {
   },
   ja: {
     // Common
-    "brand.name": "HARMONY",
+    "brand.name": "WaLens",
     "cta.membership": "メンバーシップ",
     "search.placeholder": "ニュース、インサイトを検索...",
     "search.submit": "検索",
@@ -650,7 +650,7 @@ const translations: Record<Lang, Translations> = {
 
     // Header nav
     "nav.home": "ホーム",
-    "nav.about": "Harmonyについて",
+    "nav.about": "WaLensについて",
     "nav.news": "ニュース",
     "nav.insights": "インサイト",
     "nav.tips": "ビジネスTips",
@@ -681,7 +681,7 @@ const translations: Record<Lang, Translations> = {
     "brand.tagline": "Harmonize the global business",
 
     // Banner
-    "banner.text": "HARMONY へようこそ — 洞察に満ちたニュース、レポート、Thailand 101 をお届けします。",
+    "banner.text": "WaLens へようこそ — 洞察に満ちたニュース、レポート、Thailand 101 をお届けします。",
     "banner.subscribeLink": "全ての機能を利用するには購読",
 
     // Hero (home)
@@ -708,7 +708,7 @@ const translations: Record<Lang, Translations> = {
 
     // About stealth
     "home.about.title": "運営について",
-    "home.about.text": "Harmony Asia News は Harmony 編集チームによって運営され、日本とタイのビジネス文化をつなぐ、信頼できる明快で実践的な情報を提供します。プロフィールの公開は行っていません。",
+    "home.about.text": "WaLens Asia News は WaLens 編集チームによって運営され、日本とタイのビジネス文化をつなぐ、信頼できる明快で実践的な情報を提供します。プロフィールの公開は行っていません。",
 
     // News Section (Japanese)
     'newsSection.featuredStories': '注目のストーリー',
@@ -760,12 +760,12 @@ const translations: Record<Lang, Translations> = {
 
     // Privacy Policy
     "privacy.locale": "ja-JP",
-    "privacy.title": "プライバシーポリシー - Harmony Asia News",
-    "privacy.description": "Harmony Asia Newsがお客様のプライバシーと個人情報をどのように保護しているかをご説明します。",
+    "privacy.title": "プライバシーポリシー - WaLens Asia News",
+    "privacy.description": "WaLens Asia Newsがお客様のプライバシーと個人情報をどのように保護しているかをご説明します。",
     "privacy.effectiveDate": "施行日",
     "privacy.lastUpdated": "最終更新日",
     "privacy.introduction.title": "概要",
-    "privacy.introduction.content": "Harmony Asia News は、利用者および購読者の個人情報を保護することを最優先に考えています。本プライバシーポリシーは、当社が収集・利用・保管する情報およびその保護方法について説明します。",
+    "privacy.introduction.content": "WaLens Asia News は、利用者および購読者の個人情報を保護することを最優先に考えています。本プライバシーポリシーは、当社が収集・利用・保管する情報およびその保護方法について説明します。",
     "privacy.informationCollected.title": "収集する情報",
     "privacy.informationCollected.personal.title": "個人情報：",
     "privacy.informationCollected.personal.content": "氏名、メールアドレス、役職、業種、購読プラン、購読目的",
@@ -798,8 +798,8 @@ const translations: Record<Lang, Translations> = {
     "ad.placeholder": "広告枠 (レスポンシブ 728x90 / 970x90)",
 
     // Contact
-    "contact.title": "お問い合わせ - HARMONY",
-    "contact.metaDescription": "HARMONY へのお問い合わせ。メールとメッセージをお送りください。",
+    "contact.title": "お問い合わせ - WaLens",
+    "contact.metaDescription": "WaLens へのお問い合わせ。メールとメッセージをお送りください。",
     "contact.h1": "お問い合わせ",
     "contact.emailLabel": "メールアドレス",
     "contact.emailPlaceholder": "you@example.com",
@@ -809,18 +809,18 @@ const translations: Record<Lang, Translations> = {
     "contact.success": "ありがとうございます。追ってご連絡いたします。",
 
     // News
-    "news.title": "最新ニュース - Harmony Asia",
+    "news.title": "最新ニュース - WaLens Asia",
     "news.description": "アジア全域の最新ビジネスニュースと洞察で最新情報をキャッチアップ",
     "news.heroTitle": "最新ニュース & アップデート",
     "news.heroSubtitle": "アジアのダイナミックなビジネス環境からの速報、市場分析、専門家の洞察で情報を入手しましょう。",
     "news.backToNews": "ニュース一覧に戻る",
 
     // Pages
-    "insights.title": "インサイト - HARMONY",
-    "tips.title": "ビジネスチップス - HARMONY",
-    "subscribe.title": "購読 - Harmony Asia News",
+    "insights.title": "インサイト - WaLens",
+    "tips.title": "ビジネスチップス - WaLens",
+    "subscribe.title": "購読 - WaLens Asia News",
     "subscribe.metaDescription": "タイでのビジネスインサイトに適したプランを選択してください",
-    "subscribe.hero.title": "Harmony Asia Newsで先を行く",
+    "subscribe.hero.title": "WaLens Asia Newsで先を行く",
     "subscribe.hero.subtitle": "タイでのビジネスインサイトに適したプランを選択してください",
     "subscribe.hero.cta": "今すぐ購読",
     
@@ -863,15 +863,15 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.notIncluded": "含まない",
     
     // Final CTA
-    "subscribe.finalCta.title": "Harmony Asia Newsで既に先を行く数百人のエグゼクティブに参加しましょう",
+    "subscribe.finalCta.title": "WaLens Asia Newsで既に先を行く数百人のエグゼクティブに参加しましょう",
     "subscribe.finalCta.button": "今すぐ購読",
 
     // Expanded subscription plan descriptions - see above in plans section
 
     // Sign-up page (Japanese)
-    "signup.title": "サインアップ - Harmony Asia News",
-    "signup.metaDescription": "アカウントを作成してHarmony Asia Newsの購読を開始",
-    "signup.hero.title": "Harmony Asia Newsに参加",
+    "signup.title": "サインアップ - WaLens Asia News",
+    "signup.metaDescription": "アカウントを作成してWaLens Asia Newsの購読を開始",
+    "signup.hero.title": "WaLens Asia Newsに参加",
     "signup.hero.subtitle": "アカウントを作成して購読プランを選択してください",
     "signup.form.name": "名前",
     "signup.form.namePlaceholder": "フルネーム",
@@ -933,8 +933,8 @@ const translations: Record<Lang, Translations> = {
     "signup.errors.general": "エラーが発生しました。もう一度お試しください。",
 
     // My Page / Dashboard (Japanese)
-    "dashboard.title": "マイページ - Harmony Asia News",
-    "dashboard.metaDescription": "購読、プロフィール、Harmony Asia Newsへのアクセスを管理",
+    "dashboard.title": "マイページ - WaLens Asia News",
+    "dashboard.metaDescription": "購読、プロフィール、WaLens Asia Newsへのアクセスを管理",
     "dashboard.welcomeBack": "お帰りなさい",
     "dashboard.profile.title": "プロフィール情報",
     "dashboard.profile.edit": "プロフィール編集",
@@ -953,11 +953,11 @@ const translations: Record<Lang, Translations> = {
     "dashboard.history.viewAll": "すべての記事を表示",
 
     // Payment Success (Japanese)
-    "paymentSuccess.title": "決済完了 - Harmony Asia News",
+    "paymentSuccess.title": "決済完了 - WaLens Asia News",
     "paymentSuccess.loading": "読み込み中...",
     "paymentSuccess.details.customerInfo": "顧客情報",
     "paymentSuccess.metaDescription": "決済が正常に処理されました",
-    "paymentSuccess.hero.title": "決済が完了しました。Harmony Asia Newsへようこそ！",
+    "paymentSuccess.hero.title": "決済が完了しました。WaLens Asia Newsへようこそ！",
     "paymentSuccess.details.title": "購読サマリー",
     "paymentSuccess.details.plan": "プラン",
     "paymentSuccess.details.startDate": "開始日",
@@ -1015,13 +1015,13 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.category": "不動産部門",
 
     // About page
-    "about.title": "Harmony Asia Newsについて",
+    "about.title": "WaLens Asia Newsについて",
     "about.description": "信頼できるインサイトと戦略的インテリジェンスにより、持続可能な未来に向け日本企業のタイでの事業を支援。",
     "about.hero.title": "持続可能な未来に向け、日本企業のタイでの事業を支援",
     "about.hero.subtitle": "私たちは日本企業がタイおよび東南アジアで強固で持続可能な存在感を取り戻すことをお手伝いすることをお約束します。",
     "about.hero.cta": "インサイトを購読",
     "about.overview.title": "会社概要",
-    "about.overview.content": "Harmony Asia Newsは、日本企業と国際的なリーダーがタイの複雑な市場をナビゲートすることを支援するために設立されたタイ拠点のビジネスニュース通信社です。深い日本語能力と信頼できる現地の専門知識を持つ私たちの使命は、日本企業がタイおよび東南アジアで強固で持続可能な存在感を取り戻すことを確実にすることです。",
+    "about.overview.content": "WaLens Asia Newsは、日本企業と国際的なリーダーがタイの複雑な市場をナビゲートすることを支援するために設立されたタイ拠点のビジネスニュース通信社です。深い日本語能力と信頼できる現地の専門知識を持つ私たちの使命は、日本企業がタイおよび東南アジアで強固で持続可能な存在感を取り戻すことを確実にすることです。",
     "about.mission.title": "私たちの使命", 
     "about.mission.content": "私たちはビジネスインテリジェンスのスピードと深さだけでなく、長期的なビジョンも提供します：日本企業が持続可能に繁栄し、自信を持って拡大し、東南アジアでのリーダーシップの存在感を取り戻すことを可能にします。",
     "about.vision.title": "私たちのビジョン",
@@ -1040,16 +1040,16 @@ const translations: Record<Lang, Translations> = {
     "about.cta.button": "今すぐ購読",
 
     // Terms of Service (Japanese)
-    "terms.title": "利用規約 - Harmony Asia News",
-    "terms.metaDescription": "Harmony Asia News購読およびウェブサイト利用の利用規約",
+    "terms.title": "利用規約 - WaLens Asia News",
+    "terms.metaDescription": "WaLens Asia News購読およびウェブサイト利用の利用規約",
     "terms.hero.title": "利用規約",
     "terms.hero.subtitle": "サービスご利用前に利用規約をよくお読みください",
     
     "terms.section1.title": "1. はじめに",
-    "terms.section1.content": "本ウェブサイト Harmony Asia News をご利用いただくにあたり、本利用規約に同意いただく必要があります。ご利用前に必ずご確認ください。",
+    "terms.section1.content": "本ウェブサイト WaLens Asia News をご利用いただくにあたり、本利用規約に同意いただく必要があります。ご利用前に必ずご確認ください。",
     
     "terms.section2.title": "2. サービス内容",
-    "terms.section2.content": "Harmony Asia News は、タイおよび東南アジアで事業を展開する国際的なビジネスリーダーに向けて、ビジネスニュース、マーケットインサイト、分析レポート、ローカル知見を提供します。内容は契約プランにより異なります。",
+    "terms.section2.content": "WaLens Asia News は、タイおよび東南アジアで事業を展開する国際的なビジネスリーダーに向けて、ビジネスニュース、マーケットインサイト、分析レポート、ローカル知見を提供します。内容は契約プランにより異なります。",
     
     "terms.section3.title": "3. サブスクリプションと料金",
     "terms.section3.trial": "ベーシックプランでは最初の30日間を無料でご利用いただけます（無料トライアル）。",
@@ -1065,7 +1065,7 @@ const translations: Record<Lang, Translations> = {
     "terms.section5.refunds": "返金は原則として行われません（法律で義務付けられている場合を除きます）。",
     
     "terms.section6.title": "6. コンテンツと知的財産権",
-    "terms.section6.ownership": "記事、インサイト、レポート、ビジュアル等のコンテンツはすべて Harmony Asia News に帰属します。",
+    "terms.section6.ownership": "記事、インサイト、レポート、ビジュアル等のコンテンツはすべて WaLens Asia News に帰属します。",
     "terms.section6.purpose": "提供する情報は一般的な情報提供を目的としたものであり、法的・財務的・投資上の助言を構成するものではありません。",
     
     "terms.section7.title": "7. プライバシーとデータ",
@@ -1090,7 +1090,7 @@ const translations: Record<Lang, Translations> = {
     
     // Business Intelligence (Japanese)
     "nav.businessIntelligence": "ビジネスインテリジェンス",
-    "bi.title": "ビジネスインテリジェンス - HARMONY",
+    "bi.title": "ビジネスインテリジェンス - WaLens",
     "bi.metaDescription": "タイ政府公式データソースからのリアルタイムビジネスデータ、経済指標、市場洞察にアクセス。",
     "bi.hero.title": "ビジネスインテリジェンス",
     "bi.hero.subtitle": "タイ政府公式データソースからのリアルタイム洞察をプロフェッショナルなビジネスインテリジェンス形式で提供。",
@@ -1175,7 +1175,7 @@ const translations: Record<Lang, Translations> = {
     "auth.success": "成功",
 
     // My Page (Japanese)
-    "mypage.title": "マイページ - Harmony Asia News",
+    "mypage.title": "マイページ - WaLens Asia News",
     "mypage.description": "アカウントとサブスクリプションの管理",
     "mypage.welcome": "マイページ",
     "mypage.signOut": "ログアウト",
@@ -1206,7 +1206,7 @@ const translations: Record<Lang, Translations> = {
     "cancellation.processing": "サブスクリプションを解約中...",
     "cancellation.processingMessage": "解約処理中です。少々お待ちください。",
     "cancellation.success.title": "サブスクリプション解約完了",
-    "cancellation.success.description": "サブスクリプションは正常に解約されました。Harmony Asia Newsをご利用いただきありがとうございました。",
+    "cancellation.success.description": "サブスクリプションは正常に解約されました。WaLens Asia Newsをご利用いただきありがとうございました。",
     "mypage.notProvided": "未設定",
     "mypage.noSubscription": "サブスクリプションなし",
     "mypage.activeSubscription": "有効",
@@ -1255,7 +1255,7 @@ const translations: Record<Lang, Translations> = {
   },
   th: {
     // Common
-    "brand.name": "HARMONY",
+    "brand.name": "WaLens",
     "brand.tagline": "ผสานธุรกิจระดับโลก",
     "cta.membership": "สมาชิก",
     "search.placeholder": "ค้นหาข่าว...",
@@ -1291,7 +1291,7 @@ const translations: Record<Lang, Translations> = {
 
     // About stealth
     "home.about.title": "เกี่ยวกับเรา (Stealth Mode)",
-    "home.about.text": "Harmony Asia News ดำเนินการโดยทีมบรรณาธิการ Harmony — เชื่อมวัฒนธรรมธุรกิจญี่ปุ่นและไทยด้วยข้อมูลที่เชื่อถือได้ ชัดเจน และนำไปใช้ได้จริง ไม่มีการแสดงโปรไฟล์ส่วนบุคคล",
+    "home.about.text": "WaLens Asia News ดำเนินการโดยทีมบรรณาธิการ WaLens — เชื่อมวัฒนธรรมธุรกิจญี่ปุ่นและไทยด้วยข้อมูลที่เชื่อถือได้ ชัดเจน และนำไปใช้ได้จริง ไม่มีการแสดงโปรไฟล์ส่วนบุคคล",
 
     // News Section
     "newsSection.featuredStories": "เรื่องเด่น",
@@ -1331,8 +1331,8 @@ const translations: Record<Lang, Translations> = {
     "ad.placeholder": "พื้นที่โฆษณา (Responsive 728x90 / 970x90)",
 
     // Contact
-    "contact.title": "ติดต่อเรา - HARMONY",
-    "contact.metaDescription": "ติดต่อ HARMONY ส่งอีเมลและข้อความถึงเรา",
+    "contact.title": "ติดต่อเรา - WaLens",
+    "contact.metaDescription": "ติดต่อ WaLens ส่งอีเมลและข้อความถึงเรา",
     "contact.h1": "ติดต่อเรา",
     "contact.emailLabel": "อีเมล",
     "contact.emailPlaceholder": "you@example.com",
@@ -1342,10 +1342,10 @@ const translations: Record<Lang, Translations> = {
     "contact.success": "ขอบคุณ! เราจะติดต่อกลับโดยเร็ว",
 
     // Pages
-    "news.title": "ข่าว - HARMONY",
-    "insights.title": "อินไซต์ - HARMONY",
-    "tips.title": "เคล็ดลับธุรกิจ - HARMONY",
-    "subscribe.title": "สมัครสมาชิก - HARMONY",
+    "news.title": "ข่าว - WaLens",
+    "insights.title": "อินไซต์ - WaLens",
+    "tips.title": "เคล็ดลับธุรกิจ - WaLens",
+    "subscribe.title": "สมัครสมาชิก - WaLens",
     "subscribe.metaDescription": "ทดลองใช้ฟรี 1 เดือน จากนั้นรายเดือน/รายปี",
   },
 };

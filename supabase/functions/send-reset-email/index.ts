@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
+import { Resend } from "https://esm.sh/resend@4.0.0";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -43,7 +43,7 @@ const handler = async (req: Request): Promise<Response> => {
       </head>
       <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="text-align: center; margin-bottom: 40px;">
-          <img src="https://qyqssdzhwhwagdhxxews.supabase.co/storage/v1/object/public/lovable-uploads/Harmony_Logo_only.png" alt="Harmony" style="height: 60px; margin-bottom: 10px;">
+          <img src="https://qyqssdzhwhwagdhxxews.supabase.co/storage/v1/object/public/lovable-uploads/Harmony_Logo_only.png" alt="WaLens" style="height: 60px; margin-bottom: 10px;">
           <p style="color: #666; margin: 0; font-size: 14px;">${isJapanese ? 'Harmonize the global business' : 'Harmonize the global business'}</p>
         </div>
         
@@ -54,8 +54,8 @@ const handler = async (req: Request): Promise<Response> => {
           
           <p style="margin: 0 0 20px 0; color: #64748b; font-size: 16px;">
             ${isJapanese 
-              ? 'Harmonyアカウントのパスワードリセットをご希望の旨、承りました。下記のボタンをクリックして、新しいパスワードを設定してください。' 
-              : 'We received a request to reset your Harmony account password. Click the button below to set a new password.'}
+              ? 'WaLensアカウントのパスワードリセットをご希望の旨、承りました。下記のボタンをクリックして、新しいパスワードを設定してください。' 
+              : 'We received a request to reset your WaLens account password. Click the button below to set a new password.'}
           </p>
           
           <div style="text-align: center; margin: 30px 0;">
@@ -75,8 +75,8 @@ const handler = async (req: Request): Promise<Response> => {
         <div style="text-align: center; color: #94a3b8; font-size: 12px; margin-top: 40px;">
           <p style="margin: 0;">
             ${isJapanese 
-              ? '© 2024 Harmony. All rights reserved.' 
-              : '© 2024 Harmony. All rights reserved.'}
+              ? '© 2024 WaLens. All rights reserved.' 
+              : '© 2024 WaLens. All rights reserved.'}
           </p>
         </div>
       </body>
@@ -84,7 +84,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Harmony <onboarding@resend.dev>",
+      from: "WaLens <onboarding@resend.dev>",
       to: [email],
       subject: subject,
       html: emailHtml,
