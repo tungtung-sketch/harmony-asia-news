@@ -5,7 +5,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Recycle, Globe, Handshake } from 'lucide-react';
+import { CheckCircle, Star } from 'lucide-react';
 
 const About = () => {
   const { t } = useI18n();
@@ -13,7 +13,7 @@ const About = () => {
   return (
     <>
       <SEO
-        title={t('about.title') + " - Business Intelligence for Thailand"}
+        title={t('about.title')}
         description={t('about.description')}
         canonicalPath="/about"
       />
@@ -38,31 +38,53 @@ const About = () => {
             </div>
           </section>
 
-          {/* Company Overview Section */}
+          {/* Company Profile Table Section */}
           <section className="container mx-auto py-16 md:py-20 px-4">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">
-                {t('about.overview.title')}
+                {t('about.profile.title')}
               </h2>
               <Card className="bg-muted/30 border-primary/10">
                 <CardContent className="p-8 md:p-12">
-                  <p className="text-lg md:text-xl text-foreground leading-relaxed text-center">
-                    {t('about.overview.content')}
-                  </p>
+                  <div className="grid gap-6">
+                    {/* Company Name */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-b border-muted pb-4">
+                      <div className="font-semibold text-foreground">{t('about.profile.company')}</div>
+                      <div className="md:col-span-2 text-muted-foreground">{t('about.profile.company.value')}</div>
+                    </div>
+                    
+                    {/* Founded */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-b border-muted pb-4">
+                      <div className="font-semibold text-foreground">{t('about.profile.founded')}</div>
+                      <div className="md:col-span-2 text-muted-foreground">{t('about.profile.founded.value')}</div>
+                    </div>
+                    
+                    {/* Headquarters */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-b border-muted pb-4">
+                      <div className="font-semibold text-foreground">{t('about.profile.headquarters')}</div>
+                      <div className="md:col-span-2 text-muted-foreground">{t('about.profile.headquarters.value')}</div>
+                    </div>
+                    
+                    {/* Business Content */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start border-b border-muted pb-4">
+                      <div className="font-semibold text-foreground">{t('about.profile.business')}</div>
+                      <div className="md:col-span-2 text-muted-foreground">{t('about.profile.business.value')}</div>
+                    </div>
+                    
+                    {/* Editorial Team */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start border-b border-muted pb-4">
+                      <div className="font-semibold text-foreground">{t('about.profile.team')}</div>
+                      <div className="md:col-span-2 text-muted-foreground">{t('about.profile.team.value')}</div>
+                    </div>
+                    
+                    {/* Identity */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+                      <div className="font-semibold text-foreground">{t('about.profile.identity')}</div>
+                      <div className="md:col-span-2 text-muted-foreground">{t('about.profile.identity.value')}</div>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
-            </div>
-          </section>
-
-          {/* Mission Section */}
-          <section className="container mx-auto py-16 md:py-20 px-4">
-            <div className="text-center max-w-5xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-foreground">
-                {t('about.mission.title')}
-              </h2>
-              <p className="text-xl md:text-2xl lg:text-3xl font-light text-primary leading-relaxed">
-                {t('about.mission.content')}
-              </p>
             </div>
           </section>
 
@@ -82,56 +104,86 @@ const About = () => {
             </div>
           </section>
 
-          {/* Sustainability & Impact Section */}
+          {/* Mission Section */}
           <section className="container mx-auto py-16 md:py-20 px-4">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">
-                {t('about.sustainability.title')}
+                {t('about.mission.title')}
               </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                <div className="text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                    <Recycle className="w-10 h-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">{t('about.sustainability.growth.title')}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {t('about.sustainability.growth.content')}
+              <div className="grid gap-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.mission.point1')}
                   </p>
                 </div>
-
-                <div className="text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                    <Globe className="w-10 h-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">{t('about.sustainability.presence.title')}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {t('about.sustainability.presence.content')}
+                
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.mission.point2')}
                   </p>
                 </div>
-
-                <div className="text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                    <Handshake className="w-10 h-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">{t('about.sustainability.partnership.title')}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {t('about.sustainability.partnership.content')}
+                
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.mission.point3')}
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.mission.point4')}
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Who We Serve Section */}
+          {/* Value Proposition Section */}
           <section className="container mx-auto py-16 md:py-20 px-4">
-            <div className="max-w-5xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-foreground">
-                {t('about.target.title')}
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">
+                {t('about.value.title')}
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-                {t('about.target.content')}
-              </p>
+              <div className="grid gap-6">
+                <div className="flex items-start space-x-4">
+                  <Star className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.value.point1')}
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <Star className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.value.point2')}
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <Star className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.value.point3')}
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <Star className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.value.point4')}
+                  </p>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <Star className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    {t('about.value.point5')}
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
