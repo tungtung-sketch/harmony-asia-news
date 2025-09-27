@@ -618,6 +618,10 @@ const translations: Record<Lang, Translations> = {
     
     // Company Profile Table
     "about.profile.title": "Company Profile",
+    
+    // Origin of the Name
+    "about.origin.title": "Origin of the Name",
+    "about.origin.content": "The name \"WaLens\" is a combination of two elements:\n- \"Wa (和)\" represents Japan, harmony, and collaboration.\n- \"Lens\" represents perspective, clarity, and the ability to see deeper insights.\n\nTogether, WaLens means \"Japanese Lens\" — providing a clear and deep perspective for Japanese executives to understand Thailand and ASEAN business environments. It reflects our mission to serve as the bridge between Japan and Thailand, helping businesses discover new opportunities and create sustainable growth.",
     "about.profile.company": "Company Name",
     "about.profile.founded": "Founded",
     "about.profile.headquarters": "Headquarters", 
@@ -1048,6 +1052,10 @@ const translations: Record<Lang, Translations> = {
     
     // Company Profile Table (Japanese)
     "about.profile.title": "会社概要",
+    
+    // Origin of the Name (Japanese)
+    "about.origin.title": "名前の由来",
+    "about.origin.content": "「WaLens」という名称は、二つの要素を組み合わせています。\n- 「Wa（和）」は、日本、調和、協力を象徴します。\n- 「Lens」は、視点、明確さ、深い洞察を意味します。\n\nこの二つを合わせた「WaLens」は「日本のレンズ」を意味し、日本企業の経営者に対し、タイおよびASEANのビジネス環境を明確かつ深く理解できる視点を提供します。\nそれは、日タイの架け橋となり、新たなビジネスチャンスを発見し、持続的な成長を実現するという私たちの使命を体現しています。",
     "about.profile.company": "会社名",
     "about.profile.founded": "設立",
     "about.profile.headquarters": "本社所在地", 
@@ -1403,6 +1411,10 @@ const translations: Record<Lang, Translations> = {
     "about.narrative.title": "เรื่องราวของเรา",
     "about.narrative.content": "ที่ WaLens เรามาพร้อมกับภารกิจที่ชัดเจนเพียงหนึ่งเดียว: **เปลี่ยนแปลงโลกธุรกิจและทำให้ชีวิตของคุณดีขึ้น**\n\nเรารู้ว่าโดยธรรมชาติแล้ว คุณอาจไม่เชื่อในสตาร์ทอัพ แต่หากคุณไม่ก้าวไปข้างหน้าตอนนี้ แล้วจะมีเวลาไหนที่ชีวิตจะดีขึ้นได้จริง?\n\nมานานเกินไปแล้วที่ญี่ปุ่นและไทยติดอยู่ในรูปแบบเดิม ๆ พึ่งพาบริษัทเก่า ๆ และวิธีการที่ล้าสมัย แต่ในโลกที่เปลี่ยนแปลงไวอย่างปัจจุบัน การเชื่อในสิ่งเก่า ๆ เพียงอย่างเดียวอาจทำให้ญี่ปุ่นสูญเสียการปรากฏตัวบนเวทีโลก\n\nนั่นคือเหตุผลที่ WaLens มีอยู่ เราเปิดกว้าง จริงใจ และกล้าหาญ เราไม่ได้ส่งมอบเพียงข่าวสาร แต่เป็น **ข้อมูลเชิงลึกที่รวดเร็วและลึกซึ้งที่ช่วยให้คุณตัดสินใจได้อย่างถูกต้องและแม่นยำ** ด้วยข้อมูลที่ดีกว่า คุณสามารถสร้างกลยุทธ์ที่ดีกว่า — และอนาคตที่แข็งแกร่งกว่า\n\nและค่าใช้จ่าย? มันเป็นเพียงเศษเสี้ยวเมื่อเทียบกับคุณค่าที่จะได้รับ การตัดสินใจเพียงครั้งเดียวที่มีข้อมูลเชิงลึกที่ถูกต้องสามารถเปลี่ยนแปลงธุรกิจ องค์กร และแม้กระทั่งการปรากฏตัวของญี่ปุ่นในประเทศไทย\n\nWaLens ไม่ใช่แค่บริษัทอีกแห่งหนึ่ง เราคือการเคลื่อนไหวเพื่อนำญี่ปุ่นและไทยกลับสู่ความยิ่งใหญ่ — ร่วมกัน",
     "about.profile.title": "ข้อมูลบริษัท",
+    
+    // Origin of the Name (Thai)
+    "about.origin.title": "ที่มาของชื่อ",
+    "about.origin.content": "ชื่อ \"WaLens\" เป็นการรวมของสององค์ประกอบ:\n- \"Wa (和)\" แสดงถึงญี่ปุ่น ความสามัคคี และการร่วมมือ\n- \"Lens\" แสดงถึงมุมมอง ความชัดเจน และความสามารถในการมองเห็นข้อมูลเชิงลึก\n\nเมื่อรวมกัน WaLens หมายความว่า \"เลนส์ญี่ปุ่น\" — ให้มุมมองที่ชัดเจนและลึกซึ้งแก่ผู้บริหารญี่ปุ่นเพื่อทำความเข้าใจสภาพแวดล้อมทางธุรกิจในไทยและอาเซียน นี่คือภารกิจของเราในการเป็นสะพานเชื่อมระหว่างญี่ปุ่นและไทย ช่วยให้ธุรกิจค้นพบโอกาสใหม่และสร้างการเติบโตอย่างยั่งยืน",
     "about.profile.company": "ชื่อบริษัท",
     "about.profile.company.value": "WaLens",
     "about.profile.founded": "ก่อตั้ง",

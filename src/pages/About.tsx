@@ -114,6 +114,41 @@ const About = () => {
             </div>
           </section>
 
+          {/* Origin of the Name Section */}
+          <section className="container mx-auto py-16 md:py-20 px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-foreground">
+                {t('about.origin.title')}
+              </h2>
+              <Card className="bg-muted/30 border-primary/10">
+                <CardContent className="p-8 md:p-12">
+                  <div className="prose prose-lg mx-auto text-foreground leading-relaxed">
+                    {t('about.origin.content').split('\n\n').map((paragraph, index) => (
+                      <p key={index} className="mb-6 text-base md:text-lg">
+                        {paragraph.split('\n').map((line, lineIndex) => (
+                          <span key={lineIndex}>
+                            {line.includes('**') ? (
+                              line.split('**').map((part, i) => 
+                                i % 2 === 1 ? (
+                                  <strong key={i} className="font-bold text-primary">{part}</strong>
+                                ) : (
+                                  part
+                                )
+                              )
+                            ) : (
+                              line
+                            )}
+                            {lineIndex < paragraph.split('\n').length - 1 && <br />}
+                          </span>
+                        ))}
+                      </p>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
           {/* Vision Section */}
           <section className="container mx-auto py-16 md:py-20 px-4">
             <div className="max-w-5xl mx-auto">
