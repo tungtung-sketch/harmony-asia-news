@@ -12,6 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Link } from 'react-router-dom';
+import { PasswordValidation, validatePassword, isPasswordValid } from '@/components/PasswordValidation';
 
 interface AuthModalsProps {
   isSignUpOpen: boolean;
@@ -90,6 +91,17 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
       toast({
         title: t("auth.error"),
         description: t("signup.errors.acceptTerms"),
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Validate password
+    const passwordRequirements = validatePassword(signUpData.password);
+    if (!isPasswordValid(passwordRequirements)) {
+      toast({
+        title: t("auth.error"),
+        description: t("auth.passwordValidationError"),
         variant: "destructive"
       });
       return;
@@ -313,6 +325,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
                 onChange={(e) => setSignUpData(prev => ({ ...prev, password: e.target.value }))}
                 required
               />
+              {signUpData.password && <PasswordValidation password={signUpData.password} />}
             </div>
 
             <div className="space-y-2">

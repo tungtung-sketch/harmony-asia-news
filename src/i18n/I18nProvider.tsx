@@ -423,7 +423,12 @@ const translations: Record<Lang, Translations> = {
     "auth.updating": "Updating...",
     "auth.passwordResetSuccess": "Your password has been successfully reset. Please log in again.",
     "auth.passwordsDoNotMatch": "Passwords do not match",
-    "auth.passwordTooShort": "Password must be at least 6 characters",
+    "auth.passwordTooShort": "Password must be at least 8 characters long",
+    "auth.passwordRequirements.uppercase": "Contains uppercase letter (A-Z)",
+    "auth.passwordRequirements.lowercase": "Contains lowercase letter (a-z)",
+    "auth.passwordRequirements.number": "Contains number (0-9)",
+    "auth.passwordRequirements.minLength": "At least 8 characters long",
+    "auth.passwordValidationError": "Please make sure your password includes uppercase, lowercase, and number.",
     "auth.success": "Success",
 
     // My Page / Dashboard
@@ -1225,7 +1230,12 @@ const translations: Record<Lang, Translations> = {
     "auth.updating": "更新中...",
     "auth.passwordResetSuccess": "パスワードのリセットが完了しました。再度ログインしてください。",
     "auth.passwordsDoNotMatch": "パスワードが一致しません",
-    "auth.passwordTooShort": "パスワードは6文字以上である必要があります",
+    "auth.passwordTooShort": "パスワードは8文字以上である必要があります",
+    "auth.passwordRequirements.uppercase": "大文字を含む (A-Z)",
+    "auth.passwordRequirements.lowercase": "小文字を含む (a-z)",
+    "auth.passwordRequirements.number": "数字を含む (0-9)",
+    "auth.passwordRequirements.minLength": "8文字以上",
+    "auth.passwordValidationError": "パスワードには大文字・小文字・数字を含める必要があります。",
     "auth.success": "成功",
 
     // My Page (Japanese)

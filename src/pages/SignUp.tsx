@@ -10,9 +10,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PasswordValidation, validatePassword, isPasswordValid } from "@/components/PasswordValidation";
+import { useToast } from "@/hooks/use-toast";
 
 const SignUp = () => {
   const { t } = useI18n();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,6 +47,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate password
+    const passwordRequirements = validatePassword(formData.password);
+    if (!isPasswordValid(passwordRequirements)) {
+      toast({
+        title: t("auth.error"),
+        description: t("auth.passwordValidationError"),
+        variant: "destructive"
+      });
+      return;
+    }
     
     try {
       const { supabase } = await import("@/integrations/supabase/client");
@@ -149,6 +163,7 @@ const SignUp = () => {
                         onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
                         required
                       />
+                      {formData.password && <PasswordValidation password={formData.password} />}
                     </div>
 
                     {/* Position */}

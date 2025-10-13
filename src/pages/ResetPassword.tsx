@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
+import { PasswordValidation, validatePassword, isPasswordValid } from '@/components/PasswordValidation';
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -66,10 +67,12 @@ const ResetPassword = () => {
       return;
     }
 
-    if (passwords.newPassword.length < 6) {
+    // Validate password requirements
+    const passwordRequirements = validatePassword(passwords.newPassword);
+    if (!isPasswordValid(passwordRequirements)) {
       toast({
         title: t("auth.error"),
-        description: t("auth.passwordTooShort"),
+        description: t("auth.passwordValidationError"),
         variant: "destructive"
       });
       return;
@@ -150,10 +153,11 @@ const ResetPassword = () => {
                   value={passwords.newPassword}
                   onChange={(e) => setPasswords(prev => ({ ...prev, newPassword: e.target.value }))}
                   required
-                  minLength={6}
+                  minLength={8}
                   className="h-11"
                   placeholder={t("auth.enterNewPassword")}
                 />
+                {passwords.newPassword && <PasswordValidation password={passwords.newPassword} />}
               </div>
 
               <div className="space-y-2">
@@ -166,7 +170,7 @@ const ResetPassword = () => {
                   value={passwords.confirmPassword}
                   onChange={(e) => setPasswords(prev => ({ ...prev, confirmPassword: e.target.value }))}
                   required
-                  minLength={6}
+                  minLength={8}
                   className="h-11"
                   placeholder={t("auth.confirmNewPassword")}
                 />
