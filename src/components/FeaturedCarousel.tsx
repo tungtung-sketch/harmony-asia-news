@@ -2,11 +2,11 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
-// const slides = [
-// { title: "Thailand-Japan Investment Dialog Kicks Off", tag: "tags.breaking" },
-// { title: "Thai Baht Outlook: What Exporters Should Watch", tag: "tags.analysis" },
-// { title: "Opinion: Why 2025 Is Pivotal for Supply Chains", tag: "tags.opinion" },
-// ];
+const slides = [
+  { title: "Thailand-Japan Investment Dialog Kicks Off", tag: "tags.breaking" },
+  { title: "Thai Baht Outlook: What Exporters Should Watch", tag: "tags.analysis" },
+  { title: "Opinion: Why 2025 Is Pivotal for Supply Chains", tag: "tags.opinion" },
+];
 
 const FeaturedCarousel = () => {
   const { t } = useI18n();
