@@ -16,12 +16,12 @@ const FeaturedCarousel = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {slides.map((s, i) => (
           <Card key={i} className="hover:shadow-md transition-shadow duration-200">
-            <CardContent className="p-4 md:p-5 space-y-3">
+              <CardContent className="p-4 md:p-5 space-y-3">
               <Badge variant="secondary" className="text-xs">{t(s.tag)}</Badge>
               <h3 className="font-semibold leading-snug text-sm md:text-base">{s.title}</h3>
               <div className="aspect-[16/10] rounded-md bg-muted" aria-label="Slide image placeholder" />
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
         ))}
       </div>
     </section>
