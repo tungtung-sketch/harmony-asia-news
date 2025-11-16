@@ -19,62 +19,76 @@ export type WalensNews = {
   schema_version?: string;
 };
 
-const SHEETS_JSON_URL =
-  "https://docs.google.com/spreadsheets/d/1cxgOwBvOse2pSsTb2aGZqDbPbsGdkWP417HrAKudnoc/gviz/tq?tqx=out:json";
-// 👆 ใส่ ID ของ Google Sheets ตัวจริงแทน XXXXXX
+// ใส่ Spreadsheet ID และชื่อ Sheet ที่คุณใช้อยู่
+const SPREADSHEET_ID = "1cxgOwBvOse2pSsTb2aGZqDbPbsGdkWP417HrAKudnoc";
+const SHEET_NAME = "Merged_news";
 
-function toBool(v: unknown): boolean {
-  if (typeof v === "string") {
-    return v.toLowerCase() === "true" || v === "✔";
-  }
-  if (typeof v === "boolean") return v;
-  return false;
+// URL สำหรับ gviz JSON
+const SHEETS_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(
+  SHEET_NAME,
+)}`;
+
+// parse gviz format
+function parseGVizJSON(text: string) {
+  const json = text.replace(/^[^{]+/, "").replace(/;?\s*$/, "");
+  return JSON.parse(json).table;
 }
 
-function cleanText(v: unknown): string {
+// แปลง cell → string
+function clean(v: any): string {
   if (!v) return "";
-  return String(v).replace(/\s+/g, " ").trim();
+  return typeof v === "string" ? v.trim() : String(v).trim();
 }
 
+// boolean จาก Google Sheets
+function toBool(v: any): boolean {
+  if (!v) return false;
+  if (typeof v === "boolean") return v;
+  return String(v).toLowerCase() === "true" || v === "✔";
+}
+
+// โหลดข้อมูลข่าว
 export async function fetchWalensNews(): Promise<WalensNews[]> {
   try {
-    const res = await fetch(SHEETS_JSON_URL);
+    const res = await fetch(SHEETS_URL);
     const text = await res.text();
+    const table = parseGVizJSON(text);
 
-    const match = text.match(/setResponse\((.*)\);?/s);
-    if (!match) {
-      console.error("[Walens] Cannot parse sheet JSON");
-      return [];
-    }
+    const headers = table.cols.map((c: any) => c.label || c.id || "");
 
-    const payload = JSON.parse(match[1]);
-    const rows: any[] = payload.table.rows ?? [];
+    const rows = table.rows.map((row: any, index: number) => {
+      const obj: any = {};
+      headers.forEach((h, i) => {
+        obj[h] = row.c[i]?.v ?? "";
+      });
 
-    const news: WalensNews[] = rows
-      .map((r) => r.c?.map((c: any) => (c ? c.v : "")) ?? [])
-      .filter((cols) => cols[0]) // ต้องมี date
-      .map((cols) => ({
-        date: cleanText(cols[0]),
-        time: cleanText(cols[1]),
-        title_raw: cleanText(cols[2]),
-        content_raw: cleanText(cols[3]),
-        title_en: cleanText(cols[4]),
-        content_en: cleanText(cols[5]),
-        title_jp: cleanText(cols[6]),
-        content_jp: cleanText(cols[7]),
-        url: cleanText(cols[8]),
-        category: cleanText(cols[9]) || "News",
-        approved: toBool(cols[10]),
-        published: toBool(cols[11]),
-        image: cleanText(cols[12]),
-        slug: cleanText(cols[13]),
-        url_published: cleanText(cols[14]),
-        schema_version: cleanText(cols[15]),
-      }));
+      return {
+        date: clean(obj.date),
+        time: clean(obj.time),
+        title_raw: clean(obj.title_raw),
+        content_raw: clean(obj.content_raw),
+        title_en: clean(obj.title_en),
+        content_en: clean(obj.content_en),
+        title_jp: clean(obj.title_jp),
+        content_jp: clean(obj.content_jp),
+        url: clean(obj.url),
+        category: clean(obj.category),
+        approved: toBool(obj.approved),
+        published: toBool(obj.published),
+        image: clean(obj.image),
+        slug: clean(obj.slug),
+        url_published: clean(obj.url_published),
+        schema_version: clean(obj.schema_version),
+      } as WalensNews;
+    });
 
-    return news;
-  } catch (e) {
-    console.error("[Walens] fetchWalensNews error", e);
+    // Filter ข่าวที่ “approved”
+    const approvedNews = rows.filter((r) => r.approved);
+
+    console.log("[Walens] Loaded approved articles:", approvedNews);
+    return approvedNews;
+  } catch (err) {
+    console.error("[Walens] Failed to fetch sheet:", err);
     return [];
   }
 }
