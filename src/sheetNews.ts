@@ -30,7 +30,15 @@ const SHEETS_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gvi
 
 // parse gviz format
 function parseGVizJSON(text: string) {
-  const json = text.replace(/^[^{]+/, "").replace(/;?\s*$/, "");
+  // Remove everything before the first '{' and after the last '}'
+  const startIdx = text.indexOf('{');
+  const endIdx = text.lastIndexOf('}');
+  
+  if (startIdx === -1 || endIdx === -1) {
+    throw new Error('Invalid gviz response format');
+  }
+  
+  const json = text.substring(startIdx, endIdx + 1);
   return JSON.parse(json).table;
 }
 
