@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
+import NewsDetailFromSheet from "./pages/NewsDetailFromSheet";
 import BusinessTips from "./pages/BusinessTips";
 import BusinessTipDetail from "./pages/BusinessTipDetail";
 import SearchResults from "./pages/SearchResults";
@@ -51,6 +52,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/news" element={<News />} />
               <Route path="/news/:id" element={<NewsDetail />} />
+              <Route path="/news/sheet/:slug" element={<NewsDetailFromSheet />} />
               <Route path="/business-tips" element={<BusinessTips />} />
               <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
               <Route path="/search" element={<SearchResults />} />

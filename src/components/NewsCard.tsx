@@ -1,44 +1,68 @@
 // src/components/NewsCard.tsx
 
+import { Link } from "react-router-dom";
 import type { WalensNews } from "@/sheetNews";
+import { useI18n } from "@/i18n/I18nProvider";
 
 type Props = {
   article: WalensNews;
 };
 
 const NewsCard = ({ article }: Props) => {
+  const { lang } = useI18n();
+
   if (!article) {
     return null;
   }
-  
-  const href = article.url_published || article.url || "#";
-  const hasLink = href && href !== "#";
+
+  // Use language-specific fields
+  const title = lang === 'ja' ? article.title_jp : article.title_en;
+  const content = lang === 'ja' ? article.content_jp : article.content_en;
+
+  // Format date based on language
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    
+    if (lang === 'ja') {
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      return `${year}年${month}月${day}日`;
+    } else {
+      return date.toLocaleDateString('en-US', { 
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+  };
+
+  const formattedDate = formatDate(article.date);
 
   return (
     <article className="flex flex-col justify-between border rounded-2xl p-4 md:p-5 bg-card hover:shadow-md transition-shadow h-full">
       {/* meta */}
       <p className="text-xs text-muted-foreground mb-1">
-        {article.date} {article.time && `・${article.time}`} {article.category && `・${article.category}`}
+        {formattedDate} {article.time && `・${article.time}`} {article.category && `・${article.category}`}
       </p>
 
       {/* title */}
-      <h3 className="font-semibold mb-2 line-clamp-2">{article.title_en || article.title_raw || "Untitled"}</h3>
+      <h3 className="font-semibold mb-2 line-clamp-2">{title || article.title_raw || "Untitled"}</h3>
 
       {/* excerpt */}
       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-        {article.content_en || article.content_raw || ""}
+        {content || article.content_raw || ""}
       </p>
 
       {/* link */}
-      {hasLink && (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+      {article.slug && (
+        <Link
+          to={`/news/sheet/${article.slug}`}
           className="mt-auto text-sm font-medium text-primary hover:underline"
         >
-          Read more →
-        </a>
+          {lang === 'ja' ? '続きを読む →' : 'Read more →'}
+        </Link>
       )}
     </article>
   );
