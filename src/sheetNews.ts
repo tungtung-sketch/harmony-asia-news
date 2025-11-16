@@ -65,28 +65,35 @@ export async function fetchWalensNews(): Promise<WalensNews[]> {
     const headers = table.cols.map((c: any) => c.label || c.id || "");
 
     const rows = table.rows.map((row: any, index: number) => {
-      const obj: any = {};
-      headers.forEach((h, i) => {
-        obj[h] = row.c[i]?.v ?? "";
-      });
+      // Helper to get cell value - use 'f' (formatted) for dates, 'v' for others
+      const getCellValue = (cell: any, useFormatted: boolean = false) => {
+        if (!cell) return "";
+        return useFormatted && cell.f ? cell.f : (cell.v ?? "");
+      };
+
+      const cells = row.c;
+      const getValueByHeader = (header: string, useFormatted: boolean = false) => {
+        const index = headers.indexOf(header);
+        return index >= 0 ? getCellValue(cells[index], useFormatted) : "";
+      };
 
       return {
-        date: clean(obj.date),
-        time: clean(obj.time),
-        title_raw: clean(obj.title_raw),
-        content_raw: clean(obj.content_raw),
-        title_en: clean(obj.title_en),
-        content_en: clean(obj.content_en),
-        title_jp: clean(obj.title_jp),
-        content_jp: clean(obj.content_jp),
-        url: clean(obj.url),
-        category: clean(obj.category),
-        approved: toBool(obj.approved),
-        published: toBool(obj.published),
-        image: clean(obj.image),
-        slug: clean(obj.slug),
-        url_published: clean(obj.url_published),
-        schema_version: clean(obj.schema_version),
+        date: clean(getValueByHeader("date", true)), // Use formatted date
+        time: clean(getValueByHeader("time", true)), // Use formatted time
+        title_raw: clean(getValueByHeader("title_raw")),
+        content_raw: clean(getValueByHeader("content_raw")),
+        title_en: clean(getValueByHeader("title_en")),
+        content_en: clean(getValueByHeader("content_en")),
+        title_jp: clean(getValueByHeader("title_jp")),
+        content_jp: clean(getValueByHeader("content_jp")),
+        url: clean(getValueByHeader("url")),
+        category: clean(getValueByHeader("category")),
+        approved: toBool(getValueByHeader("approved")),
+        published: toBool(getValueByHeader("published")),
+        image: clean(getValueByHeader("image")),
+        slug: clean(getValueByHeader("slug")),
+        url_published: clean(getValueByHeader("url_published")),
+        schema_version: clean(getValueByHeader("schema_version")),
       } as WalensNews;
     });
 
