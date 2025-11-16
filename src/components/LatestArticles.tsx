@@ -1,11 +1,12 @@
-import { useState } from "react";
+// src/components/LatestArticles.tsx
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import NewsCard from "@/components/NewsCard";
 import { useI18n } from "@/i18n/I18nProvider";
 import { fetchWalensNews, WalensNews } from "@/sheetNews";
 
 const categories = ["News", "Analysis", "Tips"] as const;
-
 type Cat = (typeof categories)[number];
 
 const LatestArticles = () => {
@@ -15,23 +16,31 @@ const LatestArticles = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const load = async () => {
-      try {
-        const data = await fetchWalensNews();
-        setArticles(data.filter((a) => a.approved)); // หรือ a.approved && a.published
-      } finally {
+    let cancelled = false;
+
+    (async () => {
+      setLoading(true);
+      const data = await fetchWalensNews();
+      if (!cancelled) {
+        // เก็บเฉพาะ approved เท่านั้น
+        setArticles(data.filter((n) => n.approved));
         setLoading(false);
       }
+    })();
+
+    return () => {
+      cancelled = true;
     };
-    load();
   }, []);
 
   const filtered = articles.filter((a) => a.category === active);
 
   return (
     <section className="container mx-auto py-8 md:py-12">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-        <h2 className="text-xl md:text-2xl font-bold">{t("home.latest")}</h2>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
+        <h2 className="text-xl md:text-2xl font-bold">
+          {t("home.latestArticles", { defaultValue: "Latest Articles" })}
+        </h2>
         <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0">
           {categories.map((c) => (
             <Button
@@ -46,9 +55,16 @@ const LatestArticles = () => {
           ))}
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        {filtered.map((a, i) => (
-          <NewsCard key={i} featured={false} {...a} />
+
+      {loading && <p className="text-sm text-muted-foreground">Loading articles…</p>}
+
+      {!loading && filtered.length === 0 && (
+        <p className="text-sm text-muted-foreground">No articles in this category yet.</p>
+      )}
+
+      <div className="grid gap-4 md:gap-6 md:grid-cols-3">
+        {filtered.map((article) => (
+          <NewsCard key={article.slug || article.url} article={article} />
         ))}
       </div>
     </section>
