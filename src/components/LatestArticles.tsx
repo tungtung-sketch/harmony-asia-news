@@ -4,33 +4,6 @@ import NewsCard from "@/components/NewsCard";
 import { useI18n } from "@/i18n/I18nProvider";
 import { fetchWalensNews, WalensNews } from "@/sheetNews";
 
-const allArticles = [
-  {
-    title: "BOI Approvals Rise in Q3",
-    excerpt: "Foreign direct investment sees a surge...",
-    category: "News",
-    time: "1d",
-    author: "Team",
-    location: "Bangkok",
-  },
-  {
-    title: "Entering Thai E-commerce",
-    excerpt: "Key steps for Japanese SMEs...",
-    category: "Tips",
-    time: "2d",
-    author: "Team",
-    location: "Bangkok",
-  },
-  {
-    title: "2025 GDP Outlook",
-    excerpt: "Market analysts expect...",
-    category: "Analysis",
-    time: "3d",
-    author: "Team",
-    location: "Tokyo",
-  },
-];
-
 const categories = ["News", "Analysis", "Tips"] as const;
 
 type Cat = (typeof categories)[number];
@@ -38,7 +11,22 @@ type Cat = (typeof categories)[number];
 const LatestArticles = () => {
   const { t } = useI18n();
   const [active, setActive] = useState<Cat>("News");
-  const filtered = allArticles.filter((a) => a.category === active);
+  const [articles, setArticles] = useState<WalensNews[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await fetchWalensNews();
+        setArticles(data.filter((a) => a.approved)); // หรือ a.approved && a.published
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const filtered = articles.filter((a) => a.category === active);
 
   return (
     <section className="container mx-auto py-8 md:py-12">
