@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
 import { useI18n } from "@/i18n/I18nProvider";
-import NewsSection from '@/components/NewsSection';
+import NewsSectionFromSheet from '@/components/NewsSectionFromSheet';
 
 const News = () => {
   const { t } = useI18n();
@@ -31,7 +31,7 @@ const News = () => {
           </section>
 
           {/* News Content */}
-          <NewsSection />
+          <NewsSectionFromSheet />
         </main>
 
         <Footer />
