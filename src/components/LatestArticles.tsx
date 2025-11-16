@@ -22,7 +22,6 @@ const LatestArticles = () => {
       setLoading(true);
       const data = await fetchWalensNews();
       if (!cancelled) {
-        // เก็บเฉพาะ approved เท่านั้น
         setArticles(data.filter((n) => n.approved));
         setLoading(false);
       }

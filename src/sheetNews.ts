@@ -1,6 +1,6 @@
 // src/sheetNews.ts
 
-export interface WalensNews {
+export type WalensNews = {
   date: string;
   time: string;
   title_raw: string;
@@ -17,71 +17,64 @@ export interface WalensNews {
   slug: string;
   url_published: string;
   schema_version?: string;
+};
+
+const SHEETS_JSON_URL =
+  "https://docs.google.com/spreadsheets/d/1cxgOwBvOse2pSsTb2aGZqDbPbsGdkWP417HrAKudnoc/gviz/tq?tqx=out:json";
+// 👆 ใส่ ID ของ Google Sheets ตัวจริงแทน XXXXXX
+
+function toBool(v: unknown): boolean {
+  if (typeof v === "string") {
+    return v.toLowerCase() === "true" || v === "✔";
+  }
+  if (typeof v === "boolean") return v;
+  return false;
 }
 
-// URL ของ Google Sheets (ต้องเป็น Anyone with the link / Viewer แล้ว)
-// แก้ ID และชื่อชีตให้ตรงของจริงนะครับ
-const SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/1cxgOWbOse2pSsTb2aGZqDbPbsGdkWP417HrAKudnoc/gviz/tq?tqx=out:json&sheet=Merged_news";
-
-function parseGvizJson(text: string): any {
-  // gviz return string แบบ "/*O_o*/google.visualization.Query.setResponse({...});"
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-  const json = text.slice(start, end + 1);
-  return JSON.parse(json);
+function cleanText(v: unknown): string {
+  if (!v) return "";
+  return String(v).replace(/\s+/g, " ").trim();
 }
 
 export async function fetchWalensNews(): Promise<WalensNews[]> {
-  const res = await fetch(SHEET_URL);
-  const text = await res.text();
-  const data = parseGvizJson(text);
+  try {
+    const res = await fetch(SHEETS_JSON_URL);
+    const text = await res.text();
 
-  // ใช้ label ของคอลัมน์ = header แถวแรกในชีต
-  const cols: string[] = data.table.cols.map((c: any) => c.label);
-  const rows: any[] = data.table.rows;
+    const match = text.match(/setResponse\((.*)\);?/s);
+    if (!match) {
+      console.error("[Walens] Cannot parse sheet JSON");
+      return [];
+    }
 
-  const toBool = (v: any) => v === true || v === "TRUE" || v === "true" || v === 1 || v === "1";
+    const payload = JSON.parse(match[1]);
+    const rows: any[] = payload.table.rows ?? [];
 
-  return (
-    rows
-      // ตัด row ว่างทิ้ง
-      .filter((r) => r.c && r.c.some((cell: any) => cell && cell.v != null))
-      .map((r) => {
-        const obj: Record<string, any> = {};
-        cols.forEach((col, idx) => {
-          const cell = r.c[idx];
-          obj[col] = cell ? cell.v : "";
-        });
+    const news: WalensNews[] = rows
+      .map((r) => r.c?.map((c: any) => (c ? c.v : "")) ?? [])
+      .filter((cols) => cols[0]) // ต้องมี date
+      .map((cols) => ({
+        date: cleanText(cols[0]),
+        time: cleanText(cols[1]),
+        title_raw: cleanText(cols[2]),
+        content_raw: cleanText(cols[3]),
+        title_en: cleanText(cols[4]),
+        content_en: cleanText(cols[5]),
+        title_jp: cleanText(cols[6]),
+        content_jp: cleanText(cols[7]),
+        url: cleanText(cols[8]),
+        category: cleanText(cols[9]) || "News",
+        approved: toBool(cols[10]),
+        published: toBool(cols[11]),
+        image: cleanText(cols[12]),
+        slug: cleanText(cols[13]),
+        url_published: cleanText(cols[14]),
+        schema_version: cleanText(cols[15]),
+      }));
 
-        // เผื่อ slug ว่าง ก็สร้างจาก title_en ให้อัตโนมัติ
-        const autoSlug =
-          obj.slug ||
-          (obj.title_en
-            ? String(obj.title_en)
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, "-")
-                .replace(/^-+|-+$/g, "")
-            : "");
-
-        return {
-          date: obj.date || "",
-          time: obj.time || "",
-          title_raw: obj.title_raw || "",
-          content_raw: obj.content_raw || "",
-          title_en: obj.title_en || "",
-          content_en: obj.content_en || "",
-          title_jp: obj.title_jp || "",
-          content_jp: obj.content_jp || "",
-          url: obj.url || "",
-          category: obj.category || "News",
-          approved: toBool(obj.approved),
-          published: toBool(obj.published),
-          image: obj.image || "",
-          slug: autoSlug,
-          url_published: obj.url_published || "",
-          schema_version: obj.schema_version || "",
-        } as WalensNews;
-      })
-  );
+    return news;
+  } catch (e) {
+    console.error("[Walens] fetchWalensNews error", e);
+    return [];
+  }
 }
