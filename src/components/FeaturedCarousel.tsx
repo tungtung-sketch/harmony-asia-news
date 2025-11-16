@@ -46,7 +46,7 @@ const FeaturedCarousel = () => {
     return (
       <section className="container mx-auto py-6 md:py-8">
         <p className="text-sm text-muted-foreground">
-          {t("home.featured.loading", { defaultValue: "Loading featured news…" })}
+          {t("home.featured.loading") || "Loading featured news…"}
         </p>
       </section>
     );
@@ -56,9 +56,7 @@ const FeaturedCarousel = () => {
     return (
       <section className="container mx-auto py-6 md:py-8">
         <p className="text-sm text-muted-foreground">
-          {t("home.featured.empty", {
-            defaultValue: "No featured news available yet.",
-          })}
+          {t("home.featured.empty") || "No featured news available yet."}
         </p>
       </section>
     );
@@ -67,7 +65,7 @@ const FeaturedCarousel = () => {
   return (
     <section className="container mx-auto py-6 md:py-8">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-4">
-        <h2 className="text-xl md:text-2xl font-bold">{t("home.featured.title", { defaultValue: "Featured News" })}</h2>
+        <h2 className="text-xl md:text-2xl font-bold">{t("home.featured.title") || "Featured News"}</h2>
       </div>
 
       {/* layout 3 การ์ดแนวนอนเหมือน section แรกของเว็บเดิม */}

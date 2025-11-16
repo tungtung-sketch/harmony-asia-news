@@ -7,6 +7,10 @@ type Props = {
 };
 
 const NewsCard = ({ article }: Props) => {
+  if (!article) {
+    return null;
+  }
+  
   const href = article.url_published || article.url || "#";
   const hasLink = href && href !== "#";
 
