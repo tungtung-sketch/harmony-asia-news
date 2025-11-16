@@ -38,7 +38,7 @@ const LatestArticles = () => {
     <section className="container mx-auto py-8 md:py-12">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
         <h2 className="text-xl md:text-2xl font-bold">
-          {t("home.latestArticles", { defaultValue: "Latest Articles" })}
+          {t("home.latestArticles") || "Latest Articles"}
         </h2>
         <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0">
           {categories.map((c) => (

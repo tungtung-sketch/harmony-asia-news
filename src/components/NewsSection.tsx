@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import NewsCard from './NewsCard';
+import NewsCardLocal from './NewsCardLocal';
 import NewsFilter, { FilterState } from './NewsFilter';
 import { useI18n } from '@/i18n/I18nProvider';
 import { newsArticles } from '@/data/newsData';
@@ -50,7 +50,7 @@ const NewsSection = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {featuredNews.map((article) => (
             <Link key={article.id} to={`/news/${article.id}`}>
-              <NewsCard 
+              <NewsCardLocal 
                 title={article.title[lang]}
                 excerpt={article.excerpt[lang]}
                 category={article.category[lang]}
@@ -73,7 +73,7 @@ const NewsSection = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {latestNews.map((article) => (
             <Link key={article.id} to={`/news/${article.id}`}>
-              <NewsCard 
+              <NewsCardLocal 
                 title={article.title[lang]}
                 excerpt={article.excerpt[lang]}
                 category={article.category[lang]}
