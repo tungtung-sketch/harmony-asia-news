@@ -94,6 +94,33 @@ const NewsDetailFromSheet = () => {
     }
   };
 
+  // Extract company name from URL
+  const getSourceName = (url: string) => {
+    try {
+      const urlObj = new URL(url);
+      const hostname = urlObj.hostname.replace('www.', '');
+      
+      // Map common domains to proper names
+      const sourceMap: Record<string, string> = {
+        'bangkokpost.com': 'Bangkok Post',
+        'thaipbsworld.com': 'Thai PBS World',
+        'nationthailand.com': 'The Nation Thailand',
+        'thaiexaminer.com': 'Thai Examiner',
+        'prachachat.net': 'Prachachat',
+        'reuters.com': 'Reuters',
+        'bangkokbiznews.com': 'Bangkok Biz News'
+      };
+      
+      return sourceMap[hostname] || hostname
+        .split('.')[0]
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    } catch {
+      return url;
+    }
+  };
+
   return (
     <>
       <SEO
@@ -172,7 +199,7 @@ const NewsDetailFromSheet = () => {
                   rel="noopener noreferrer"
                   className="text-primary hover:underline text-sm"
                 >
-                  {article.url}
+                  {getSourceName(article.url)}
                 </a>
               </div>
             )}
