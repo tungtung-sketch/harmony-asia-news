@@ -304,6 +304,36 @@ export type Database = {
           },
         ]
       }
+      reading_history: {
+        Row: {
+          article_slug: string
+          article_title: string
+          article_url: string
+          id: string
+          language: string
+          read_at: string
+          user_id: string
+        }
+        Insert: {
+          article_slug: string
+          article_title: string
+          article_url: string
+          id?: string
+          language?: string
+          read_at?: string
+          user_id: string
+        }
+        Update: {
+          article_slug?: string
+          article_title?: string
+          article_url?: string
+          id?: string
+          language?: string
+          read_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       role_article_rules: {
         Row: {
           access_level: Database["public"]["Enums"]["access_level"]
