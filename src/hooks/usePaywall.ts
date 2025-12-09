@@ -80,17 +80,33 @@ export const usePaywall = () => {
         return 'BASIC';
       }
 
-      // Check local subscription for free trial
+      // Check local subscription table (for manually granted or non-Stripe subscriptions)
       const { data: localSub } = await supabase
         .from('subscriptions')
         .select('*')
         .eq('user_id', user.id)
         .maybeSingle();
 
-      if (localSub?.tier === 'free_trial' && localSub?.trial_end_date) {
-        const trialEnd = new Date(localSub.trial_end_date);
-        if (trialEnd > new Date()) {
-          return 'PREMIUM'; // Free trial gets premium access
+      if (localSub) {
+        const now = new Date();
+        const isActive = localSub.is_active && localSub.status === 'active';
+        const hasValidEndDate = !localSub.subscription_end_date || new Date(localSub.subscription_end_date) > now;
+        
+        // Check for active paid subscription (starter = basic, business/enterprise = premium)
+        if (isActive && hasValidEndDate) {
+          if (localSub.tier === 'starter') {
+            return 'BASIC';
+          } else if (localSub.tier === 'business' || localSub.tier === 'enterprise') {
+            return 'PREMIUM';
+          }
+        }
+        
+        // Check for free trial
+        if (localSub.tier === 'free_trial' && localSub.trial_end_date) {
+          const trialEnd = new Date(localSub.trial_end_date);
+          if (trialEnd > now) {
+            return 'PREMIUM'; // Free trial gets premium access
+          }
         }
       }
 
