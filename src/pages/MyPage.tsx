@@ -36,18 +36,13 @@ interface Subscription {
   current_period_end: string;
 }
 
-interface ArticleView {
+interface ReadingHistoryItem {
   id: string;
-  article_id: string;
-  viewed_at: string;
-  article?: {
-    id: string;
-    slug: string;
-    content_type: string;
-  };
-  article_content?: {
-    title: string;
-  }[];
+  article_slug: string;
+  article_title: string;
+  article_url: string;
+  language: string;
+  read_at: string;
 }
 
 const MyPage = () => {
@@ -72,7 +67,7 @@ const MyPage = () => {
   const [isSaving, setIsSaving] = useState(false);
   
   // Reading history state
-  const [readingHistory, setReadingHistory] = useState<ArticleView[]>([]);
+  const [readingHistory, setReadingHistory] = useState<ReadingHistoryItem[]>([]);
   const [historyLoading, setHistoryLoading] = useState(true);
 
   const positions = [
@@ -140,44 +135,20 @@ const MyPage = () => {
     try {
       setHistoryLoading(true);
       
-      // Fetch article views for the current user (includes sheet news stored with role_name as slug)
-      const { data: viewsData, error: viewsError } = await supabase
-        .from('article_views')
-        .select(`
-          id,
-          article_id,
-          viewed_at,
-          role_name
-        `)
+      // Fetch from the new reading_history table
+      const { data, error } = await supabase
+        .from('reading_history')
+        .select('id, article_slug, article_title, article_url, language, read_at')
         .eq('user_id', user?.id)
-        .order('viewed_at', { ascending: false })
-        .limit(10);
+        .order('read_at', { ascending: false })
+        .limit(50);
 
-      if (viewsError) {
-        console.error('Error fetching reading history:', viewsError);
+      if (error) {
+        console.error('Error fetching reading history:', error);
         return;
       }
 
-      if (viewsData && viewsData.length > 0) {
-        // For sheet news (no article_id, slug stored in role_name), we'll display those
-        const historyItems: ArticleView[] = viewsData.map(view => ({
-          id: view.id,
-          article_id: view.article_id || view.role_name || '',
-          viewed_at: view.viewed_at,
-          article: {
-            id: view.article_id || view.role_name || '',
-            slug: view.role_name || view.article_id || '',
-            content_type: 'news'
-          },
-          article_content: [{
-            title: view.role_name ? 
-              view.role_name.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 
-              'Article'
-          }]
-        }));
-        
-        setReadingHistory(historyItems);
-      }
+      setReadingHistory(data || []);
     } catch (error) {
       console.error('Error fetching reading history:', error);
     } finally {
@@ -579,20 +550,20 @@ const MyPage = () => {
                     {readingHistory.map((item) => (
                       <Link 
                         key={item.id} 
-                        to={`/news/${item.article?.slug || item.article_id}`}
+                        to={item.article_url}
                         className="flex justify-between items-center p-3 border rounded-lg hover:bg-muted/50 transition-colors"
                       >
-                        <div>
-                          <h4 className="font-medium">
-                            {item.article_content?.[0]?.title || 'Untitled Article'}
+                        <div className="flex-1 min-w-0 mr-4">
+                          <h4 className="font-medium truncate">
+                            {item.article_title}
                           </h4>
-                          <p className="text-sm text-muted-foreground capitalize">
-                            {item.article?.content_type?.replace('_', ' ') || 'Article'}
+                          <p className="text-sm text-muted-foreground">
+                            {item.language === 'JP' ? '日本語' : 'English'}
                           </p>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right flex-shrink-0">
                           <span className="text-sm text-muted-foreground">
-                            {formatDateTime(item.viewed_at)}
+                            {formatDateTime(item.read_at)}
                           </span>
                         </div>
                       </Link>

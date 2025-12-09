@@ -14,6 +14,53 @@ import { AccessLevel } from '@/types/paywall';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 
+/**
+ * Records reading history for a logged-in user.
+ * Uses 12-hour deduplication: if the same article was read within 12 hours,
+ * updates the read_at timestamp instead of creating a duplicate row.
+ */
+const recordReadingHistory = async (
+  userId: string,
+  articleSlug: string,
+  articleTitle: string,
+  articleUrl: string,
+  language: string
+) => {
+  try {
+    const twelveHoursAgo = new Date(Date.now() - 12 * 60 * 60 * 1000).toISOString();
+    
+    // Check if there's a recent record within 12 hours
+    const { data: existingRecord } = await supabase
+      .from('reading_history')
+      .select('id, read_at')
+      .eq('user_id', userId)
+      .eq('article_slug', articleSlug)
+      .gte('read_at', twelveHoursAgo)
+      .maybeSingle();
+
+    if (existingRecord) {
+      // Update existing record's read_at to now
+      await supabase
+        .from('reading_history')
+        .update({ read_at: new Date().toISOString() })
+        .eq('id', existingRecord.id);
+    } else {
+      // Insert new record
+      await supabase
+        .from('reading_history')
+        .insert({
+          user_id: userId,
+          article_slug: articleSlug,
+          article_title: articleTitle,
+          article_url: articleUrl,
+          language: language
+        });
+    }
+  } catch (err) {
+    console.error('Failed to record reading history:', err);
+  }
+};
+
 // Default access level for sheet news - can be configured per category
 const getAccessLevelForCategory = (category: string): AccessLevel => {
   const categoryAccessMap: Record<string, AccessLevel> = {
@@ -35,28 +82,6 @@ const NewsDetailFromSheet = () => {
   const [loading, setLoading] = useState(true);
   const viewRecorded = useRef(false);
 
-  // Record article view
-  const recordArticleView = async () => {
-    if (!user || viewRecorded.current) return;
-    
-    try {
-      // Use slug as a unique identifier for sheet news
-      const { error } = await supabase
-        .from('article_views')
-        .insert({
-          user_id: user.id,
-          article_id: null, // Sheet news don't have article_id in DB
-          role_name: slug // Store slug in role_name for identification
-        });
-      
-      if (!error) {
-        viewRecorded.current = true;
-      }
-    } catch (err) {
-      console.error('Failed to record article view:', err);
-    }
-  };
-
   useEffect(() => {
     const loadArticle = async () => {
       try {
@@ -64,9 +89,14 @@ const NewsDetailFromSheet = () => {
         const found = articles.find(a => a.slug === slug);
         setArticle(found || null);
         
-        // Record view after article is loaded
-        if (found) {
-          recordArticleView();
+        // Record reading history after article is loaded (fire-and-forget)
+        if (found && user && !viewRecorded.current) {
+          viewRecorded.current = true;
+          const currentTitle = lang === 'ja' ? found.title_jp : found.title_en;
+          const articleUrl = `/news/${slug}`;
+          const language = lang === 'ja' ? 'JP' : 'EN';
+          
+          recordReadingHistory(user.id, slug!, currentTitle, articleUrl, language);
         }
       } catch (error) {
         console.error('Failed to load article:', error);
@@ -76,7 +106,7 @@ const NewsDetailFromSheet = () => {
     };
 
     loadArticle();
-  }, [slug, user]);
+  }, [slug, user, lang]);
 
   if (loading) {
     return (
