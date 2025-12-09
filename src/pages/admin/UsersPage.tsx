@@ -195,7 +195,7 @@ export const UsersPage: React.FC = () => {
                     <td className="py-3 px-4">
                       <Select 
                         value={user.role} 
-                        onValueChange={(value) => updateUserRole(user.user_id, value)}
+                        onValueChange={(value) => updateUserRole(user.user_id, value as 'reader' | 'editor' | 'admin')}
                         disabled={user.email === ADMIN_EMAIL}
                       >
                         <SelectTrigger className="w-32">

@@ -201,7 +201,7 @@ export const ArticlesPage: React.FC = () => {
                     <td className="py-3 px-4">
                       <Select 
                         value={article.status} 
-                        onValueChange={(value) => updateArticle(article.id, { status: value })}
+                        onValueChange={(value) => updateArticle(article.id, { status: value as 'draft' | 'published' | 'archived' })}
                       >
                         <SelectTrigger className="w-28">
                           <SelectValue />
