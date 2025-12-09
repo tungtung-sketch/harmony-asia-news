@@ -483,6 +483,12 @@ const translations: Record<Lang, Translations> = {
     "mypage.inactiveSubscription": "Inactive",
     "mypage.trialExpired": "Trial Expired",
     "mypage.basicPlan": "Basic Plan",
+    "mypage.editProfile": "Edit",
+    "mypage.saveProfile": "Save",
+    "mypage.profileRemark": "The more information you provide, the more accurate news we can provide to you.",
+    "mypage.freeTrialUntil": "Free trial until",
+    "mypage.noReadingHistory": "No reading history yet",
+    "mypage.readAt": "Read at",
 
     // Common
     "common.loading": "Loading...",
@@ -1277,6 +1283,12 @@ const translations: Record<Lang, Translations> = {
     "mypage.inactiveSubscription": "無効",
     "mypage.trialExpired": "トライアル期間終了",
     "mypage.basicPlan": "ベーシックプラン",
+    "mypage.editProfile": "編集",
+    "mypage.saveProfile": "保存",
+    "mypage.profileRemark": "より多くの情報を入力いただくと、より正確なニュースをお届けできます。",
+    "mypage.freeTrialUntil": "無料トライアル期限",
+    "mypage.noReadingHistory": "閲覧履歴はまだありません",
+    "mypage.readAt": "閲覧日時",
 
     // Common (Japanese)
     "common.loading": "読み込み中...",
