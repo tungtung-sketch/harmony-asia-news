@@ -10,6 +10,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import SearchBox from '@/components/SearchBox';
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from './AuthModals';
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const { t, setLang } = useI18n();
@@ -242,6 +243,11 @@ const Header = () => {
               <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
             </div>
 
+            {/* Theme Toggle - Desktop */}
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+
             {/* Auth Buttons - Desktop */}
             <div className="hidden md:flex items-center gap-2">
               {user ? (
@@ -344,6 +350,11 @@ const Header = () => {
                     <div className="flex space-x-2 justify-center">
                       <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
                       <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
+                    </div>
+
+                    {/* Theme Toggle - Mobile */}
+                    <div className="flex justify-center">
+                      <ThemeToggle variant="text" />
                     </div>
                   </div>
                 </div>
