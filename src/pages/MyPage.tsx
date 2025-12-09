@@ -14,6 +14,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe, Image } from 'lucide-react';
+import SavedArticles from '@/components/SavedArticles';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
 import { CancellationModal } from '@/components/CancellationModal';
@@ -682,6 +683,9 @@ const MyPage = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Saved Articles / Bookmarks */}
+            <SavedArticles />
 
             {/* Reading History */}
             <Card>

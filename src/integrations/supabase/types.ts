@@ -143,6 +143,42 @@ export type Database = {
           },
         ]
       }
+      bookmarks: {
+        Row: {
+          article_language: string | null
+          article_slug: string
+          article_title: string
+          article_url: string | null
+          category: string | null
+          created_at: string | null
+          id: string
+          thumbnail_url: string | null
+          user_id: string
+        }
+        Insert: {
+          article_language?: string | null
+          article_slug: string
+          article_title: string
+          article_url?: string | null
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          thumbnail_url?: string | null
+          user_id: string
+        }
+        Update: {
+          article_language?: string | null
+          article_slug?: string
+          article_title?: string
+          article_url?: string | null
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          thumbnail_url?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       categories: {
         Row: {
           content_type: Database["public"]["Enums"]["content_type"]
