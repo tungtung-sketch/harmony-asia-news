@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { I18nProvider } from "@/i18n/I18nProvider";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -46,6 +47,7 @@ const App = () => (
       <Sonner />
       <I18nProvider>
         <AuthProvider>
+          <ThemeProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -82,6 +84,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
+          </ThemeProvider>
         </AuthProvider>
       </I18nProvider>
     </TooltipProvider>

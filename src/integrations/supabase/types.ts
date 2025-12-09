@@ -295,6 +295,7 @@ export type Database = {
           role_id: string | null
           stripe_customer_id: string | null
           subscription_plan: string | null
+          theme: string | null
           updated_at: string
           user_id: string
         }
@@ -314,6 +315,7 @@ export type Database = {
           role_id?: string | null
           stripe_customer_id?: string | null
           subscription_plan?: string | null
+          theme?: string | null
           updated_at?: string
           user_id: string
         }
@@ -333,6 +335,7 @@ export type Database = {
           role_id?: string | null
           stripe_customer_id?: string | null
           subscription_plan?: string | null
+          theme?: string | null
           updated_at?: string
           user_id?: string
         }
