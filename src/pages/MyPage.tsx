@@ -13,17 +13,20 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
-import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt } from 'lucide-react';
+import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe, Image } from 'lucide-react';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
 import { CancellationModal } from '@/components/CancellationModal';
 import { PasswordChangeModal } from '@/components/PasswordChangeModal';
+import { ADMIN_EMAIL } from '@/types/paywall';
 
 interface UserProfile {
   full_name: string;
   email: string;
   position: string;
   industry: string;
+  company: string;
+  country: string;
   subscription_plan: string;
   created_at: string;
 }
@@ -34,6 +37,7 @@ interface Subscription {
   subscription_end_date: string;
   is_active: boolean;
   current_period_end: string;
+  status: string;
 }
 
 interface ReadingHistoryItem {
@@ -43,6 +47,8 @@ interface ReadingHistoryItem {
   article_url: string;
   language: string;
   read_at: string;
+  thumbnail_url: string | null;
+  category: string | null;
 }
 
 const MyPage = () => {
@@ -57,12 +63,17 @@ const MyPage = () => {
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const { subscriptionStatus: subStatus, refreshSubscription } = useSubscription();
   
+  // Check if user is admin
+  const isAdmin = user?.email === ADMIN_EMAIL;
+  
   // Edit mode state
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({
     full_name: '',
     position: '',
-    industry: ''
+    industry: '',
+    company: '',
+    country: ''
   });
   const [isSaving, setIsSaving] = useState(false);
   
@@ -76,6 +87,10 @@ const MyPage = () => {
 
   const industries = [
     'manufacturing', 'technology', 'finance', 'trading', 'retail', 'construction', 'healthcare', 'legal', 'consulting', 'other'
+  ];
+
+  const countries = [
+    'japan', 'thailand', 'singapore', 'malaysia', 'indonesia', 'vietnam', 'philippines', 'myanmar', 'cambodia', 'laos', 'other'
   ];
 
   useEffect(() => {
@@ -107,7 +122,9 @@ const MyPage = () => {
           setEditForm({
             full_name: profileData.full_name || '',
             position: profileData.position || '',
-            industry: profileData.industry || ''
+            industry: profileData.industry || '',
+            company: profileData.company || '',
+            country: profileData.country || ''
           });
         }
       }
@@ -135,10 +152,9 @@ const MyPage = () => {
     try {
       setHistoryLoading(true);
       
-      // Fetch from the new reading_history table
       const { data, error } = await supabase
         .from('reading_history')
-        .select('id, article_slug, article_title, article_url, language, read_at')
+        .select('id, article_slug, article_title, article_url, language, read_at, thumbnail_url, category')
         .eq('user_id', user?.id)
         .order('read_at', { ascending: false })
         .limit(50);
@@ -168,11 +184,12 @@ const MyPage = () => {
 
   const handleEditToggle = () => {
     if (isEditing) {
-      // Reset form when canceling
       setEditForm({
         full_name: profile?.full_name || '',
         position: profile?.position || '',
-        industry: profile?.industry || ''
+        industry: profile?.industry || '',
+        company: profile?.company || '',
+        country: profile?.country || ''
       });
     }
     setIsEditing(!isEditing);
@@ -189,6 +206,8 @@ const MyPage = () => {
           full_name: editForm.full_name,
           position: editForm.position,
           industry: editForm.industry,
+          company: editForm.company,
+          country: editForm.country,
           updated_at: new Date().toISOString()
         })
         .eq('user_id', user.id);
@@ -232,32 +251,60 @@ const MyPage = () => {
     });
   };
 
+  // Helper to check if trial is active (not expired)
+  const isTrialActive = () => {
+    if (!subscription || subscription.tier !== 'free_trial') return false;
+    const trialEnd = new Date(subscription.trial_end_date);
+    return trialEnd > new Date();
+  };
+
+  // Helper to check if user has an active paid subscription
+  const hasPaidSubscription = () => {
+    if (!subscription) return false;
+    return subscription.tier !== 'free_trial' && subscription.is_active;
+  };
+
+  // Helper to check if subscription is cancelled but still active until end date
+  const isCancelledButActive = () => {
+    if (!subscription) return false;
+    return subscription.status === 'cancelled' && subscription.is_active;
+  };
+
   const getSubscriptionStatus = () => {
+    // Admin never sees subscription status issues
+    if (isAdmin) {
+      return { text: lang === 'ja' ? '管理者' : 'Admin', variant: 'default' as const };
+    }
+
     if (subStatus.loading) {
       return { text: t('common.loading'), variant: 'secondary' as const };
     }
 
-    if (subStatus.isActive) {
-      if (subStatus.plan === 'free_trial') {
-        return { text: t('mypage.freeTrial'), variant: 'default' as const };
-      } else if (subStatus.plan === 'premium') {
-        return { text: t('subscribe.plans.premium.title'), variant: 'default' as const };
-      } else if (subStatus.plan === 'basic') {
-        return { text: t('subscribe.plans.basic.title'), variant: 'default' as const };
-      }
+    // Check for paid active subscriptions first
+    if (subStatus.plan === 'premium' && subStatus.isActive) {
+      return { text: t('subscribe.plans.premium.title'), variant: 'default' as const };
+    }
+    if (subStatus.plan === 'basic' && subStatus.isActive) {
+      return { text: t('subscribe.plans.basic.title'), variant: 'default' as const };
     }
 
-    if (!subscription) return { text: t('mypage.noSubscription'), variant: 'secondary' as const };
-    
-    if (subscription.tier === 'free_trial') {
-      const trialEnd = new Date(subscription.trial_end_date);
-      const now = new Date();
-      
-      if (trialEnd > now) {
+    // Check for free trial
+    if (subscription?.tier === 'free_trial') {
+      if (isTrialActive()) {
         return { text: t('mypage.freeTrial'), variant: 'default' as const };
       } else {
         return { text: t('mypage.trialExpired'), variant: 'destructive' as const };
       }
+    }
+
+    // Check cancelled subscription
+    if (isCancelledButActive()) {
+      return { text: lang === 'ja' ? 'キャンセル済み' : 'Cancelled', variant: 'secondary' as const };
+    }
+
+    // No subscription
+    if (!subscription) {
+      return { text: t('mypage.noSubscription'), variant: 'secondary' as const };
     }
     
     if (subscription.is_active) {
@@ -265,6 +312,35 @@ const MyPage = () => {
     }
     
     return { text: t('mypage.inactiveSubscription'), variant: 'secondary' as const };
+  };
+
+  // Determine if cancel button should show and what text
+  const getCancelButtonConfig = () => {
+    // Admin never sees cancel button
+    if (isAdmin) {
+      return { show: false, text: '', isTrialCancel: false };
+    }
+
+    // Trial user - show "Cancel Free Trial"
+    if (subscription?.tier === 'free_trial' && isTrialActive()) {
+      return { 
+        show: true, 
+        text: lang === 'ja' ? '無料トライアルをキャンセル' : 'Cancel Free Trial',
+        isTrialCancel: true 
+      };
+    }
+
+    // Paid subscription - show "Cancel Subscription"
+    if (hasPaidSubscription() && !isCancelledButActive()) {
+      return { 
+        show: true, 
+        text: t('mypage.cancelSubscription'),
+        isTrialCancel: false 
+      };
+    }
+
+    // No active subscription or already cancelled - hide button
+    return { show: false, text: '', isTrialCancel: false };
   };
 
   if (loading || profileLoading || subStatus.loading) {
@@ -280,6 +356,7 @@ const MyPage = () => {
   }
 
   const displaySubscriptionStatus = getSubscriptionStatus();
+  const cancelButtonConfig = getCancelButtonConfig();
 
   return (
     <>
@@ -388,6 +465,33 @@ const MyPage = () => {
                         </SelectContent>
                       </Select>
                     </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="company">{lang === 'ja' ? '会社名' : 'Company Name'}</Label>
+                      <Input
+                        id="company"
+                        value={editForm.company}
+                        onChange={(e) => setEditForm({ ...editForm, company: e.target.value })}
+                        placeholder={lang === 'ja' ? '会社名を入力（任意）' : 'Enter company name (optional)'}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="country">{lang === 'ja' ? '国' : 'Country'}</Label>
+                      <Select 
+                        value={editForm.country} 
+                        onValueChange={(value) => setEditForm({ ...editForm, country: value })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder={lang === 'ja' ? '国を選択' : 'Select country'} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {countries.map((c) => (
+                            <SelectItem key={c} value={c}>
+                              {lang === 'ja' ? getCountryNameJa(c) : getCountryNameEn(c)}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
                     <div className="col-span-full flex justify-end">
                       <Button onClick={handleSaveProfile} disabled={isSaving}>
                         <Save className="h-4 w-4 mr-1" />
@@ -427,6 +531,25 @@ const MyPage = () => {
                         {profile?.industry ? t(`signup.industries.${profile.industry}`) : t('mypage.notProvided')}
                       </p>
                     </div>
+                    <div>
+                      <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                        <Building className="h-4 w-4" />
+                        {lang === 'ja' ? '会社名' : 'Company'}
+                      </label>
+                      <p className="text-base">{profile?.company || t('mypage.notProvided')}</p>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                        <Globe className="h-4 w-4" />
+                        {lang === 'ja' ? '国' : 'Country'}
+                      </label>
+                      <p className="text-base">
+                        {profile?.country 
+                          ? (lang === 'ja' ? getCountryNameJa(profile.country) : getCountryNameEn(profile.country))
+                          : t('mypage.notProvided')
+                        }
+                      </p>
+                    </div>
                   </div>
                 )}
               </CardContent>
@@ -445,9 +568,13 @@ const MyPage = () => {
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">{t('mypage.currentPlan')}</p>
                     <p className="text-lg font-semibold">
-                      {subscription?.tier === 'free_trial' 
-                        ? t('mypage.freeTrial') 
-                        : profile?.subscription_plan ? t(`subscribe.plans.${profile.subscription_plan}.title`) : t('mypage.basicPlan')
+                      {isAdmin 
+                        ? (lang === 'ja' ? '管理者' : 'Admin')
+                        : subscription?.tier === 'free_trial' 
+                          ? t('mypage.freeTrial') 
+                          : profile?.subscription_plan 
+                            ? t(`subscribe.plans.${profile.subscription_plan}.title`) 
+                            : t('mypage.basicPlan')
                       }
                     </p>
                   </div>
@@ -456,10 +583,11 @@ const MyPage = () => {
                   </Badge>
                 </div>
 
-                {subscription && (
+                {/* Only show subscription dates for non-admin users */}
+                {!isAdmin && subscription && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Free Trial End Date */}
-                    {subscription.tier === 'free_trial' && subscription.trial_end_date && (
+                    {/* Free Trial End Date - Only show if trial is active */}
+                    {subscription.tier === 'free_trial' && isTrialActive() && subscription.trial_end_date && (
                       <div className="p-3 bg-primary/10 rounded-lg">
                         <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                           <CalendarDays className="h-4 w-4" />
@@ -468,13 +596,38 @@ const MyPage = () => {
                         <p className="text-base font-semibold text-primary">{formatDate(subscription.trial_end_date)}</p>
                       </div>
                     )}
+
+                    {/* Trial Expired Notice */}
+                    {subscription.tier === 'free_trial' && !isTrialActive() && (
+                      <div className="p-3 bg-destructive/10 rounded-lg col-span-full">
+                        <p className="text-sm font-medium text-destructive">
+                          {lang === 'ja' 
+                            ? '無料トライアル期間が終了しました。プレミアムコンテンツにアクセスするにはプランをアップグレードしてください。' 
+                            : 'Your free trial has expired. Upgrade your plan to access premium content.'
+                          }
+                        </p>
+                      </div>
+                    )}
                     
-                    {/* Next Billing Date */}
-                    {subscription.tier !== 'free_trial' && (subscription.subscription_end_date || subscription.current_period_end) && (
+                    {/* Next Billing Date for paid subscriptions */}
+                    {subscription.tier !== 'free_trial' && subscription.is_active && !isCancelledButActive() && (subscription.subscription_end_date || subscription.current_period_end) && (
                       <div>
                         <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                           <CalendarDays className="h-4 w-4" />
                           {t('mypage.nextBilling')}
+                        </label>
+                        <p className="text-base">
+                          {formatDate(subscription.current_period_end || subscription.subscription_end_date)}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Subscription ends on date for cancelled subscriptions */}
+                    {isCancelledButActive() && (subscription.subscription_end_date || subscription.current_period_end) && (
+                      <div className="p-3 bg-muted rounded-lg">
+                        <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                          <CalendarDays className="h-4 w-4" />
+                          {lang === 'ja' ? 'サブスクリプション終了日' : 'Subscription Ends On'}
                         </label>
                         <p className="text-base">
                           {formatDate(subscription.current_period_end || subscription.subscription_end_date)}
@@ -487,25 +640,28 @@ const MyPage = () => {
                 <Separator />
 
                 <div className="flex flex-wrap gap-2">
-                  <Button asChild variant="default">
-                    <Link to="/subscribe">
-                      {t('mypage.upgradePlan')}
-                    </Link>
-                  </Button>
+                  {/* Hide upgrade button for admin */}
+                  {!isAdmin && (
+                    <Button asChild variant="default">
+                      <Link to="/subscribe">
+                        {t('mypage.upgradePlan')}
+                      </Link>
+                    </Button>
+                  )}
                   <Button asChild variant="outline">
                     <Link to="/billing-history">
                       <Receipt className="h-4 w-4 mr-1" />
                       {lang === 'ja' ? '請求履歴' : 'Billing History'}
                     </Link>
                   </Button>
-                  {/* Show cancel button for any active subscription or trial */}
-                  {(subStatus.isActive || (subscription && subscription.is_active)) && (
+                  {/* Cancel button with conditional text */}
+                  {cancelButtonConfig.show && (
                     <Button 
                       variant="outline" 
                       onClick={() => setIsCancellationModalOpen(true)}
                       className="text-destructive hover:text-destructive border-destructive/50 hover:bg-destructive/10"
                     >
-                      {t('mypage.cancelSubscription')}
+                      {cancelButtonConfig.text}
                     </Button>
                   )}
                 </div>
@@ -551,20 +707,41 @@ const MyPage = () => {
                       <Link 
                         key={item.id} 
                         to={item.article_url}
-                        className="flex justify-between items-center p-3 border rounded-lg hover:bg-muted/50 transition-colors"
+                        className="flex gap-4 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
                       >
-                        <div className="flex-1 min-w-0 mr-4">
-                          <h4 className="font-medium truncate">
+                        {/* Thumbnail */}
+                        <div className="flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded overflow-hidden bg-muted">
+                          {item.thumbnail_url ? (
+                            <img 
+                              src={item.thumbnail_url} 
+                              alt={item.article_title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Image className="h-6 w-6 text-muted-foreground/50" />
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium line-clamp-2 text-sm md:text-base">
                             {item.article_title}
                           </h4>
-                          <p className="text-sm text-muted-foreground">
-                            {item.language === 'JP' ? '日本語' : 'English'}
-                          </p>
-                        </div>
-                        <div className="text-right flex-shrink-0">
-                          <span className="text-sm text-muted-foreground">
-                            {formatDateTime(item.read_at)}
-                          </span>
+                          <div className="flex flex-wrap items-center gap-2 mt-1 text-xs md:text-sm text-muted-foreground">
+                            {item.category && (
+                              <>
+                                <Badge variant="outline" className="text-xs">
+                                  {item.category}
+                                </Badge>
+                                <span>•</span>
+                              </>
+                            )}
+                            <span>{item.language === 'JP' ? '日本語' : 'English'}</span>
+                            <span>•</span>
+                            <span>{formatDateTime(item.read_at)}</span>
+                          </div>
                         </div>
                       </Link>
                     ))}
@@ -587,6 +764,7 @@ const MyPage = () => {
         isOpen={isCancellationModalOpen}
         onClose={() => setIsCancellationModalOpen(false)}
         onCancellationComplete={handleCancellationComplete}
+        isTrialCancellation={cancelButtonConfig.isTrialCancel}
       />
 
       <PasswordChangeModal
@@ -595,6 +773,41 @@ const MyPage = () => {
       />
     </>
   );
+};
+
+// Helper functions for country names
+const getCountryNameEn = (code: string): string => {
+  const names: Record<string, string> = {
+    japan: 'Japan',
+    thailand: 'Thailand',
+    singapore: 'Singapore',
+    malaysia: 'Malaysia',
+    indonesia: 'Indonesia',
+    vietnam: 'Vietnam',
+    philippines: 'Philippines',
+    myanmar: 'Myanmar',
+    cambodia: 'Cambodia',
+    laos: 'Laos',
+    other: 'Other'
+  };
+  return names[code] || code;
+};
+
+const getCountryNameJa = (code: string): string => {
+  const names: Record<string, string> = {
+    japan: '日本',
+    thailand: 'タイ',
+    singapore: 'シンガポール',
+    malaysia: 'マレーシア',
+    indonesia: 'インドネシア',
+    vietnam: 'ベトナム',
+    philippines: 'フィリピン',
+    myanmar: 'ミャンマー',
+    cambodia: 'カンボジア',
+    laos: 'ラオス',
+    other: 'その他'
+  };
+  return names[code] || code;
 };
 
 export default MyPage;

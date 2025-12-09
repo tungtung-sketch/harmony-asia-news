@@ -24,7 +24,9 @@ const recordReadingHistory = async (
   articleSlug: string,
   articleTitle: string,
   articleUrl: string,
-  language: string
+  language: string,
+  thumbnailUrl?: string,
+  category?: string
 ) => {
   try {
     const twelveHoursAgo = new Date(Date.now() - 12 * 60 * 60 * 1000).toISOString();
@@ -47,7 +49,11 @@ const recordReadingHistory = async (
       // Update existing record's read_at to now
       const { error: updateError } = await supabase
         .from('reading_history')
-        .update({ read_at: new Date().toISOString() })
+        .update({ 
+          read_at: new Date().toISOString(),
+          thumbnail_url: thumbnailUrl,
+          category: category
+        })
         .eq('id', existingRecord.id);
       
       if (updateError) {
@@ -62,7 +68,9 @@ const recordReadingHistory = async (
           article_slug: articleSlug,
           article_title: articleTitle,
           article_url: articleUrl,
-          language: language
+          language: language,
+          thumbnail_url: thumbnailUrl,
+          category: category
         });
       
       if (insertError) {
@@ -127,7 +135,15 @@ const NewsDetailFromSheet = () => {
     const language = lang === 'ja' ? 'JP' : 'EN';
     
     // Fire and forget - don't block rendering
-    recordReadingHistory(user.id, slug!, currentTitle, articleUrl, language);
+    recordReadingHistory(
+      user.id, 
+      slug!, 
+      currentTitle, 
+      articleUrl, 
+      language,
+      article.image || undefined,
+      article.category || undefined
+    );
   }, [user, article, slug, lang]);
 
   if (loading) {
