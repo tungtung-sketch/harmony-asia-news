@@ -8,6 +8,22 @@ import SEO from '@/components/SEO';
 import { useI18n } from '@/i18n/I18nProvider';
 import { useEffect, useState } from 'react';
 import { fetchWalensNews, type WalensNews } from '@/sheetNews';
+import { PaywallGuard } from '@/components/paywall';
+import { AccessLevelBadge } from '@/components/paywall';
+import { AccessLevel } from '@/types/paywall';
+
+// Default access level for sheet news - can be configured per category
+const getAccessLevelForCategory = (category: string): AccessLevel => {
+  const categoryAccessMap: Record<string, AccessLevel> = {
+    'breaking': 'free',
+    'free': 'free',
+    'analysis': 'premium',
+    'premium': 'premium',
+    'industry': 'basic',
+    'policy': 'basic',
+  };
+  return categoryAccessMap[category.toLowerCase()] || 'basic';
+};
 
 const NewsDetailFromSheet = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -74,6 +90,7 @@ const NewsDetailFromSheet = () => {
 
   const currentTitle = lang === 'ja' ? article.title_jp : article.title_en;
   const currentContent = lang === 'ja' ? article.content_jp : article.content_en;
+  const accessLevel = getAccessLevelForCategory(article.category);
 
   // Format date based on language
   const formatDate = (dateStr: string) => {
@@ -121,6 +138,52 @@ const NewsDetailFromSheet = () => {
     }
   };
 
+  // Split content into paragraphs
+  const paragraphs = currentContent.split('\n\n').filter(p => p.trim());
+  const previewParagraphs = paragraphs.slice(0, 1); // First paragraph as preview
+  const remainingParagraphs = paragraphs.slice(1);
+
+  // Preview content component
+  const PreviewContent = () => (
+    <div className="prose prose-gray dark:prose-invert max-w-none">
+      {previewParagraphs.map((paragraph, index) => (
+        <p key={index} className="mb-4 text-base leading-relaxed">
+          {paragraph}
+        </p>
+      ))}
+      {/* Fade effect at the end of preview */}
+      <div className="relative h-16 -mt-16 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+    </div>
+  );
+
+  // Full content component
+  const FullContent = () => (
+    <div className="prose prose-gray dark:prose-invert max-w-none">
+      {paragraphs.map((paragraph, index) => (
+        <p key={index} className="mb-4 text-base leading-relaxed">
+          {paragraph}
+        </p>
+      ))}
+
+      {/* Source Link */}
+      {article.url && (
+        <div className="mt-8 pt-6 border-t not-prose">
+          <p className="text-sm text-muted-foreground mb-2">
+            {lang === 'ja' ? '情報源:' : 'Source:'}
+          </p>
+          <a 
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline text-sm"
+          >
+            {getSourceName(article.url)}
+          </a>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <>
       <SEO
@@ -160,6 +223,7 @@ const NewsDetailFromSheet = () => {
                 <Badge variant="secondary">
                   {article.category}
                 </Badge>
+                <AccessLevelBadge accessLevel={accessLevel} />
               </div>
               
               <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
@@ -178,31 +242,13 @@ const NewsDetailFromSheet = () => {
               </div>
             </header>
 
-            {/* Article Content */}
-            <div className="prose prose-gray dark:prose-invert max-w-none">
-              {currentContent.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 text-base leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            {/* Source Link */}
-            {article.url && (
-              <div className="mt-8 pt-6 border-t">
-                <p className="text-sm text-muted-foreground mb-2">
-                  {lang === 'ja' ? '情報源:' : 'Source:'}
-                </p>
-                <a 
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline text-sm"
-                >
-                  {getSourceName(article.url)}
-                </a>
-              </div>
-            )}
+            {/* Article Content with Paywall */}
+            <PaywallGuard
+              accessLevel={accessLevel}
+              previewParagraphs={1}
+              fullContent={<FullContent />}
+              previewContent={<PreviewContent />}
+            />
 
             {/* Back to News */}
             <div className="mt-12 pt-8 border-t">
