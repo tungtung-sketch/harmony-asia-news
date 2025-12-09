@@ -39,7 +39,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         return stored;
       }
     }
-    return 'system';
+    return 'light';
   });
 
   const resolvedTheme = resolveTheme(theme);
