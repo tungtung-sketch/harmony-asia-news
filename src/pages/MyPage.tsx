@@ -13,10 +13,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
-import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info } from 'lucide-react';
+import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt } from 'lucide-react';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
 import { CancellationModal } from '@/components/CancellationModal';
+import { PasswordChangeModal } from '@/components/PasswordChangeModal';
 
 interface UserProfile {
   full_name: string;
@@ -58,6 +59,7 @@ const MyPage = () => {
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [profileLoading, setProfileLoading] = useState(true);
   const [isCancellationModalOpen, setIsCancellationModalOpen] = useState(false);
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const { subscriptionStatus: subStatus, refreshSubscription } = useSubscription();
   
   // Edit mode state
@@ -519,6 +521,12 @@ const MyPage = () => {
                       {t('mypage.upgradePlan')}
                     </Link>
                   </Button>
+                  <Button asChild variant="outline">
+                    <Link to="/billing-history">
+                      <Receipt className="h-4 w-4 mr-1" />
+                      {lang === 'ja' ? '請求履歴' : 'Billing History'}
+                    </Link>
+                  </Button>
                   {/* Show cancel button for any active subscription or trial */}
                   {(subStatus.isActive || (subscription && subscription.is_active)) && (
                     <Button 
@@ -529,6 +537,21 @@ const MyPage = () => {
                       {t('mypage.cancelSubscription')}
                     </Button>
                   )}
+                </div>
+
+                {/* Password Change */}
+                <Separator />
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium">{lang === 'ja' ? 'パスワード' : 'Password'}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {lang === 'ja' ? 'アカウントのパスワードを変更' : 'Change your account password'}
+                    </p>
+                  </div>
+                  <Button variant="outline" size="sm" onClick={() => setIsPasswordModalOpen(true)}>
+                    <Key className="h-4 w-4 mr-1" />
+                    {lang === 'ja' ? '変更' : 'Change'}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -593,6 +616,11 @@ const MyPage = () => {
         isOpen={isCancellationModalOpen}
         onClose={() => setIsCancellationModalOpen(false)}
         onCancellationComplete={handleCancellationComplete}
+      />
+
+      <PasswordChangeModal
+        isOpen={isPasswordModalOpen}
+        onClose={() => setIsPasswordModalOpen(false)}
       />
     </>
   );
