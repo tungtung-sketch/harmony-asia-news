@@ -55,8 +55,41 @@ export type Database = {
           },
         ]
       }
+      article_views: {
+        Row: {
+          article_id: string | null
+          id: string
+          role_name: string | null
+          user_id: string | null
+          viewed_at: string
+        }
+        Insert: {
+          article_id?: string | null
+          id?: string
+          role_name?: string | null
+          user_id?: string | null
+          viewed_at?: string
+        }
+        Update: {
+          article_id?: string | null
+          id?: string
+          role_name?: string | null
+          user_id?: string | null
+          viewed_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_views_article_id_fkey"
+            columns: ["article_id"]
+            isOneToOne: false
+            referencedRelation: "articles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       articles: {
         Row: {
+          access_level: Database["public"]["Enums"]["access_level"]
           author_id: string | null
           category_id: string | null
           content_type: Database["public"]["Enums"]["content_type"]
@@ -64,12 +97,14 @@ export type Database = {
           featured_image_url: string | null
           id: string
           is_premium: boolean
+          preview_paragraphs: number
           published_at: string | null
           slug: string
           status: Database["public"]["Enums"]["content_status"]
           updated_at: string
         }
         Insert: {
+          access_level?: Database["public"]["Enums"]["access_level"]
           author_id?: string | null
           category_id?: string | null
           content_type: Database["public"]["Enums"]["content_type"]
@@ -77,12 +112,14 @@ export type Database = {
           featured_image_url?: string | null
           id?: string
           is_premium?: boolean
+          preview_paragraphs?: number
           published_at?: string | null
           slug: string
           status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
         }
         Update: {
+          access_level?: Database["public"]["Enums"]["access_level"]
           author_id?: string | null
           category_id?: string | null
           content_type?: Database["public"]["Enums"]["content_type"]
@@ -90,6 +127,7 @@ export type Database = {
           featured_image_url?: string | null
           id?: string
           is_premium?: boolean
+          preview_paragraphs?: number
           published_at?: string | null
           slug?: string
           status?: Database["public"]["Enums"]["content_status"]
@@ -168,6 +206,42 @@ export type Database = {
         }
         Relationships: []
       }
+      plans: {
+        Row: {
+          created_at: string
+          description: string | null
+          features: Json | null
+          id: string
+          is_active: boolean
+          name: string
+          price_monthly: number | null
+          price_yearly: number | null
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean
+          name: string
+          price_monthly?: number | null
+          price_yearly?: number | null
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          price_monthly?: number | null
+          price_yearly?: number | null
+          slug?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -180,6 +254,7 @@ export type Database = {
           preferred_language: Database["public"]["Enums"]["language_code"]
           purpose: string | null
           role: Database["public"]["Enums"]["user_role"]
+          role_id: string | null
           stripe_customer_id: string | null
           subscription_plan: string | null
           updated_at: string
@@ -196,6 +271,7 @@ export type Database = {
           preferred_language?: Database["public"]["Enums"]["language_code"]
           purpose?: string | null
           role?: Database["public"]["Enums"]["user_role"]
+          role_id?: string | null
           stripe_customer_id?: string | null
           subscription_plan?: string | null
           updated_at?: string
@@ -212,10 +288,78 @@ export type Database = {
           preferred_language?: Database["public"]["Enums"]["language_code"]
           purpose?: string | null
           role?: Database["public"]["Enums"]["user_role"]
+          role_id?: string | null
           stripe_customer_id?: string | null
           subscription_plan?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_role_id_fkey"
+            columns: ["role_id"]
+            isOneToOne: false
+            referencedRelation: "roles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      role_article_rules: {
+        Row: {
+          access_level: Database["public"]["Enums"]["access_level"]
+          can_comment: boolean
+          can_download_pdf: boolean
+          can_view_full: boolean
+          created_at: string
+          id: string
+          role_id: string
+        }
+        Insert: {
+          access_level: Database["public"]["Enums"]["access_level"]
+          can_comment?: boolean
+          can_download_pdf?: boolean
+          can_view_full?: boolean
+          created_at?: string
+          id?: string
+          role_id: string
+        }
+        Update: {
+          access_level?: Database["public"]["Enums"]["access_level"]
+          can_comment?: boolean
+          can_download_pdf?: boolean
+          can_view_full?: boolean
+          created_at?: string
+          id?: string
+          role_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "role_article_rules_role_id_fkey"
+            columns: ["role_id"]
+            isOneToOne: false
+            referencedRelation: "roles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      roles: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
         }
         Relationships: []
       }
@@ -278,9 +422,21 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      can_view_full_article: {
+        Args: {
+          article_access_level: Database["public"]["Enums"]["access_level"]
+          user_email: string
+          user_subscription_tier: string
+        }
+        Returns: boolean
+      }
+      get_user_role: {
+        Args: { user_email: string; user_subscription_tier?: string }
+        Returns: string
+      }
     }
     Enums: {
+      access_level: "free" | "basic" | "premium" | "admin_only"
       content_status: "draft" | "published" | "archived"
       content_type: "news" | "analysis" | "thailand_101"
       language_code: "en" | "ja" | "th"
@@ -413,6 +569,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      access_level: ["free", "basic", "premium", "admin_only"],
       content_status: ["draft", "published", "archived"],
       content_type: ["news", "analysis", "thailand_101"],
       language_code: ["en", "ja", "th"],
