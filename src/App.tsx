@@ -18,6 +18,7 @@ import SearchResults from "./pages/SearchResults";
 import Subscribe from "./pages/Subscribe";
 import SignUp from "./pages/SignUp";
 import MyPage from "./pages/MyPage";
+import BillingHistory from "./pages/BillingHistory";
 import Dashboard from "./pages/Dashboard";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import InsightsLanding from "./pages/insights/InsightsLanding";
@@ -59,6 +60,7 @@ const App = () => (
               <Route path="/subscribe" element={<Subscribe />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/mypage" element={<MyPage />} />
+              <Route path="/billing-history" element={<BillingHistory />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/business-intelligence" element={<BusinessIntelligence />} />
