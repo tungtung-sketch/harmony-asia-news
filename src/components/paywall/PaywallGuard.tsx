@@ -3,7 +3,7 @@ import { usePaywall, getPreviewContent } from '@/hooks/usePaywall';
 import { AccessLevel } from '@/types/paywall';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Lock, Crown, Star, User } from 'lucide-react';
+import { Lock, Crown, User } from 'lucide-react';
 import { useI18n } from '@/i18n/I18nProvider';
 import { AuthModals } from '@/components/AuthModals';
 import { Link } from 'react-router-dom';
@@ -131,7 +131,7 @@ const PaywallBannerByReason: React.FC<PaywallBannerByReasonProps> = ({
         };
       case 'UPGRADE_TO_BASIC':
         return {
-          icon: <Star className="h-6 w-6 text-blue-600" />,
+          icon: <Lock className="h-6 w-6 text-blue-600" />,
           title: isJapanese ? 'Basic会員限定コンテンツ' : 'Basic Member Content',
           description: isJapanese 
             ? 'この記事を読むにはBasicプラン以上の購読が必要です。' 
@@ -208,7 +208,7 @@ const PaywallBannerByReason: React.FC<PaywallBannerByReasonProps> = ({
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           {content.showSignUp && (
             <Button onClick={onSignUpClick} className="flex items-center gap-2">
-              <Star className="h-4 w-4" />
+              <Lock className="h-4 w-4" />
               {content.primaryButton}
             </Button>
           )}
