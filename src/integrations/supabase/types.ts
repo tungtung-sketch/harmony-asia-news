@@ -245,6 +245,8 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          company: string | null
+          country: string | null
           created_at: string
           email: string
           full_name: string | null
@@ -262,6 +264,8 @@ export type Database = {
         }
         Insert: {
           avatar_url?: string | null
+          company?: string | null
+          country?: string | null
           created_at?: string
           email: string
           full_name?: string | null
@@ -279,6 +283,8 @@ export type Database = {
         }
         Update: {
           avatar_url?: string | null
+          company?: string | null
+          country?: string | null
           created_at?: string
           email?: string
           full_name?: string | null
@@ -309,27 +315,33 @@ export type Database = {
           article_slug: string
           article_title: string
           article_url: string
+          category: string | null
           id: string
           language: string
           read_at: string
+          thumbnail_url: string | null
           user_id: string
         }
         Insert: {
           article_slug: string
           article_title: string
           article_url: string
+          category?: string | null
           id?: string
           language?: string
           read_at?: string
+          thumbnail_url?: string | null
           user_id: string
         }
         Update: {
           article_slug?: string
           article_title?: string
           article_url?: string
+          category?: string | null
           id?: string
           language?: string
           read_at?: string
+          thumbnail_url?: string | null
           user_id?: string
         }
         Relationships: []

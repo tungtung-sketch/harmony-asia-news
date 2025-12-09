@@ -14,16 +14,18 @@ interface CancellationModalProps {
   isOpen: boolean;
   onClose: () => void;
   onCancellationComplete: () => void;
+  isTrialCancellation?: boolean;
 }
 
 export const CancellationModal: React.FC<CancellationModalProps> = ({
   isOpen,
   onClose,
-  onCancellationComplete
+  onCancellationComplete,
+  isTrialCancellation = false
 }) => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { toast } = useToast();
-  const { session } = useAuth();
+  const { session, user } = useAuth();
   const [step, setStep] = useState<'reason' | 'confirm' | 'processing'>('reason');
   const [reason, setReason] = useState('');
   const [otherReason, setOtherReason] = useState('');
@@ -50,7 +52,7 @@ export const CancellationModal: React.FC<CancellationModalProps> = ({
   };
 
   const handleFinalConfirm = async () => {
-    if (!session) return;
+    if (!session || !user) return;
     
     setIsProcessing(true);
     setStep('processing');
@@ -58,24 +60,48 @@ export const CancellationModal: React.FC<CancellationModalProps> = ({
     try {
       const cancellationReason = reason === 'other' ? otherReason : reasons.find(r => r.value === reason)?.label;
       
-      const { data, error } = await supabase.functions.invoke('cancel-subscription', {
-        body: { 
-          reason: cancellationReason || reason 
-        },
-        headers: {
-          Authorization: `Bearer ${session.access_token}`
+      if (isTrialCancellation) {
+        // For trial cancellation, update the subscription directly in Supabase
+        const { error } = await supabase
+          .from('subscriptions')
+          .update({
+            is_active: false,
+            status: 'cancelled',
+            trial_end_date: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          })
+          .eq('user_id', user.id);
+
+        if (error) throw error;
+
+        toast({
+          title: lang === 'ja' ? 'キャンセル完了' : 'Trial Cancelled',
+          description: lang === 'ja' 
+            ? '無料トライアルがキャンセルされました。' 
+            : 'Your free trial has been cancelled.',
+          variant: 'default'
+        });
+      } else {
+        // For paid subscription, call the edge function
+        const { data, error } = await supabase.functions.invoke('cancel-subscription', {
+          body: { 
+            reason: cancellationReason || reason 
+          },
+          headers: {
+            Authorization: `Bearer ${session.access_token}`
+          }
+        });
+
+        if (error) {
+          throw error;
         }
-      });
 
-      if (error) {
-        throw error;
+        toast({
+          title: t('cancellation.success.title'),
+          description: t('cancellation.success.description'),
+          variant: 'default'
+        });
       }
-
-      toast({
-        title: t('cancellation.success.title'),
-        description: t('cancellation.success.description'),
-        variant: 'default'
-      });
 
       onCancellationComplete();
       handleCancel();
@@ -95,11 +121,21 @@ export const CancellationModal: React.FC<CancellationModalProps> = ({
   const renderReasonStep = () => (
     <>
       <DialogHeader>
-        <DialogTitle>{t('cancellation.selectReason')}</DialogTitle>
+        <DialogTitle>
+          {isTrialCancellation 
+            ? (lang === 'ja' ? '無料トライアルをキャンセルする理由' : 'Reason for Cancelling Free Trial')
+            : t('cancellation.selectReason')
+          }
+        </DialogTitle>
       </DialogHeader>
       <div className="space-y-4">
         <p className="text-sm text-muted-foreground">
-          {t('cancellation.selectReasonDescription')}
+          {isTrialCancellation
+            ? (lang === 'ja' 
+                ? 'キャンセル理由を選択してください。フィードバックをいただけると幸いです。' 
+                : 'Please select a reason for cancellation. Your feedback helps us improve.')
+            : t('cancellation.selectReasonDescription')
+          }
         </p>
         
         <RadioGroup value={reason} onValueChange={setReason}>
@@ -146,18 +182,31 @@ export const CancellationModal: React.FC<CancellationModalProps> = ({
       <DialogHeader>
         <DialogTitle className="flex items-center gap-2">
           <AlertTriangle className="h-5 w-5 text-destructive" />
-          {t('cancellation.confirmTitle')}
+          {isTrialCancellation 
+            ? (lang === 'ja' ? '無料トライアルのキャンセル確認' : 'Confirm Trial Cancellation')
+            : t('cancellation.confirmTitle')
+          }
         </DialogTitle>
       </DialogHeader>
       <div className="space-y-4">
         <div className="space-y-3">
           <p className="text-sm font-medium">
-            {t('cancellation.confirmQuestion')}
+            {isTrialCancellation
+              ? (lang === 'ja' 
+                  ? '無料トライアルをキャンセルしてもよろしいですか？' 
+                  : 'Are you sure you want to cancel your free trial?')
+              : t('cancellation.confirmQuestion')
+            }
           </p>
           
           <div className="bg-muted p-4 rounded-lg">
             <p className="text-sm text-muted-foreground">
-              {t('cancellation.warningMessage')}
+              {isTrialCancellation
+                ? (lang === 'ja' 
+                    ? 'キャンセルすると、プレミアムコンテンツへのアクセスが即座に失われます。いつでも新しいプランに登録できます。' 
+                    : 'Once cancelled, you will immediately lose access to premium content. You can subscribe to a new plan anytime.')
+                : t('cancellation.warningMessage')
+              }
             </p>
           </div>
         </div>
@@ -167,7 +216,10 @@ export const CancellationModal: React.FC<CancellationModalProps> = ({
             {t('common.back')}
           </Button>
           <Button variant="destructive" onClick={handleFinalConfirm}>
-            {t('cancellation.confirmCancel')}
+            {isTrialCancellation 
+              ? (lang === 'ja' ? 'トライアルをキャンセル' : 'Cancel Trial')
+              : t('cancellation.confirmCancel')
+            }
           </Button>
         </div>
       </div>
