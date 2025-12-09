@@ -464,6 +464,8 @@ export type Database = {
         Args: { user_email: string; user_subscription_tier?: string }
         Returns: string
       }
+      is_admin_user: { Args: never; Returns: boolean }
+      is_editor_or_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       access_level: "free" | "basic" | "premium" | "admin_only"
