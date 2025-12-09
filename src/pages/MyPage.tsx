@@ -138,13 +138,14 @@ const MyPage = () => {
     try {
       setHistoryLoading(true);
       
-      // Fetch article views for the current user
+      // Fetch article views for the current user (includes sheet news stored with role_name as slug)
       const { data: viewsData, error: viewsError } = await supabase
         .from('article_views')
         .select(`
           id,
           article_id,
-          viewed_at
+          viewed_at,
+          role_name
         `)
         .eq('user_id', user?.id)
         .order('viewed_at', { ascending: false })
@@ -156,38 +157,24 @@ const MyPage = () => {
       }
 
       if (viewsData && viewsData.length > 0) {
-        // Fetch article details for each view
-        const articleIds = viewsData.map(v => v.article_id).filter(Boolean);
+        // For sheet news (no article_id, slug stored in role_name), we'll display those
+        const historyItems: ArticleView[] = viewsData.map(view => ({
+          id: view.id,
+          article_id: view.article_id || view.role_name || '',
+          viewed_at: view.viewed_at,
+          article: {
+            id: view.article_id || view.role_name || '',
+            slug: view.role_name || view.article_id || '',
+            content_type: 'news'
+          },
+          article_content: [{
+            title: view.role_name ? 
+              view.role_name.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 
+              'Article'
+          }]
+        }));
         
-        if (articleIds.length > 0) {
-          const { data: articlesData, error: articlesError } = await supabase
-            .from('articles')
-            .select(`
-              id,
-              slug,
-              content_type,
-              article_content (
-                title,
-                language
-              )
-            `)
-            .in('id', articleIds);
-
-          if (!articlesError && articlesData) {
-            const enrichedHistory = viewsData.map(view => {
-              const article = articlesData.find(a => a.id === view.article_id);
-              const content = article?.article_content?.find(c => c.language === lang) || 
-                             article?.article_content?.[0];
-              return {
-                ...view,
-                article,
-                article_content: content ? [content] : []
-              };
-            }).filter(v => v.article);
-            
-            setReadingHistory(enrichedHistory);
-          }
-        }
+        setReadingHistory(historyItems);
       }
     } catch (error) {
       console.error('Error fetching reading history:', error);
@@ -532,7 +519,8 @@ const MyPage = () => {
                       {t('mypage.upgradePlan')}
                     </Link>
                   </Button>
-                  {subStatus.isActive && (
+                  {/* Show cancel button for any active subscription or trial */}
+                  {(subStatus.isActive || (subscription && subscription.is_active)) && (
                     <Button 
                       variant="outline" 
                       onClick={() => setIsCancellationModalOpen(true)}

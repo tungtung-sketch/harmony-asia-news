@@ -6,11 +6,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { useI18n } from '@/i18n/I18nProvider';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { fetchWalensNews, type WalensNews } from '@/sheetNews';
 import { PaywallGuard } from '@/components/paywall';
 import { AccessLevelBadge } from '@/components/paywall';
 import { AccessLevel } from '@/types/paywall';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Default access level for sheet news - can be configured per category
 const getAccessLevelForCategory = (category: string): AccessLevel => {
@@ -28,8 +30,32 @@ const getAccessLevelForCategory = (category: string): AccessLevel => {
 const NewsDetailFromSheet = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, lang } = useI18n();
+  const { user } = useAuth();
   const [article, setArticle] = useState<WalensNews | null>(null);
   const [loading, setLoading] = useState(true);
+  const viewRecorded = useRef(false);
+
+  // Record article view
+  const recordArticleView = async () => {
+    if (!user || viewRecorded.current) return;
+    
+    try {
+      // Use slug as a unique identifier for sheet news
+      const { error } = await supabase
+        .from('article_views')
+        .insert({
+          user_id: user.id,
+          article_id: null, // Sheet news don't have article_id in DB
+          role_name: slug // Store slug in role_name for identification
+        });
+      
+      if (!error) {
+        viewRecorded.current = true;
+      }
+    } catch (err) {
+      console.error('Failed to record article view:', err);
+    }
+  };
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -37,6 +63,11 @@ const NewsDetailFromSheet = () => {
         const articles = await fetchWalensNews();
         const found = articles.find(a => a.slug === slug);
         setArticle(found || null);
+        
+        // Record view after article is loaded
+        if (found) {
+          recordArticleView();
+        }
       } catch (error) {
         console.error('Failed to load article:', error);
       } finally {
@@ -45,7 +76,7 @@ const NewsDetailFromSheet = () => {
     };
 
     loadArticle();
-  }, [slug]);
+  }, [slug, user]);
 
   if (loading) {
     return (
