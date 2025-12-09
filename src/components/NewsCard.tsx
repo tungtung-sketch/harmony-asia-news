@@ -3,12 +3,14 @@
 import { Link } from "react-router-dom";
 import type { WalensNews } from "@/sheetNews";
 import { useI18n } from "@/i18n/I18nProvider";
+import { BookmarkButton } from "@/components/BookmarkButton";
 
 type Props = {
   article: WalensNews;
+  showBookmark?: boolean;
 };
 
-const NewsCard = ({ article }: Props) => {
+const NewsCard = ({ article, showBookmark = true }: Props) => {
   const { lang } = useI18n();
 
   if (!article) {
@@ -41,7 +43,24 @@ const NewsCard = ({ article }: Props) => {
   const formattedDate = formatDate(article.date);
 
   return (
-    <article className="flex flex-col justify-between border rounded-2xl p-4 md:p-5 bg-card hover:shadow-md transition-shadow h-full">
+    <article className="flex flex-col justify-between border rounded-2xl p-4 md:p-5 bg-card hover:shadow-md transition-shadow h-full relative group">
+      {/* Bookmark button */}
+      {showBookmark && article.slug && (
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+          <BookmarkButton
+            article={{
+              slug: article.slug,
+              title: title || article.title_raw || "Untitled",
+              language: lang === 'ja' ? 'JP' : 'EN',
+              url: `/news/sheet/${article.slug}`,
+              thumbnail_url: article.image,
+              category: article.category
+            }}
+            variant="icon"
+          />
+        </div>
+      )}
+
       {/* meta */}
       <p className="text-xs text-muted-foreground mb-1">
         {formattedDate} {article.time && `・${article.time}`} {article.category && `・${article.category}`}

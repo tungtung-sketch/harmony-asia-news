@@ -13,6 +13,7 @@ import { AccessLevelBadge } from '@/components/paywall';
 import { AccessLevel } from '@/types/paywall';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
+import { BookmarkButton } from '@/components/BookmarkButton';
 
 /**
  * Records reading history for a logged-in user.
@@ -318,11 +319,24 @@ const NewsDetailFromSheet = () => {
 
             {/* Article Header */}
             <header className="mb-8">
-              <div className="flex items-center gap-2 mb-4">
-                <Badge variant="secondary">
-                  {article.category}
-                </Badge>
-                <AccessLevelBadge accessLevel={accessLevel} />
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="flex items-center gap-2">
+                  <Badge variant="secondary">
+                    {article.category}
+                  </Badge>
+                  <AccessLevelBadge accessLevel={accessLevel} />
+                </div>
+                <BookmarkButton 
+                  article={{
+                    slug: slug!,
+                    title: currentTitle,
+                    language: lang === 'ja' ? 'JP' : 'EN',
+                    url: `/news/sheet/${slug}`,
+                    thumbnail_url: article.image,
+                    category: article.category
+                  }}
+                  variant="button"
+                />
               </div>
               
               <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
