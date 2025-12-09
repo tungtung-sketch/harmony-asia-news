@@ -110,8 +110,8 @@ const PaywallBannerByReason: React.FC<PaywallBannerByReasonProps> = ({
   onLoginClick,
   onSignUpClick
 }) => {
-  const { t } = useI18n();
-  const isJapanese = t('lang') === 'ja';
+  const { lang } = useI18n();
+  const isJapanese = lang === 'ja';
 
   const getContent = () => {
     switch (reason) {
@@ -239,7 +239,7 @@ const PaywallBannerByReason: React.FC<PaywallBannerByReasonProps> = ({
               to="/subscribe" 
               className="text-sm text-muted-foreground hover:text-primary underline"
             >
-              {t('lang') === 'ja' ? 'プランを比較する →' : 'Compare plans →'}
+              {isJapanese ? 'プランを比較する →' : 'Compare plans →'}
             </Link>
           </div>
         )}
