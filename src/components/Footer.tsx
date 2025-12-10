@@ -15,7 +15,7 @@ const Footer = () => {
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
                 alt="WaLens logo"
-                className="h-6 w-6"
+                className="h-6 w-6 dark:invert"
                 width={24}
                 height={24}
                 loading="lazy"
