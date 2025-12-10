@@ -104,48 +104,116 @@ serve(async (req) => {
       });
     }
 
-    // GET /subscribers - Fetch active subscribers
+    // GET /subscribers - Fetch newsletter-eligible users from profiles + subscriptions
     if (req.method === "GET" && endpoint === "subscribers") {
-      const status = url.searchParams.get("status") || "active";
+      const status = url.searchParams.get("status");
       const segment = url.searchParams.get("segment");
 
-      let query = supabase
-        .from("newsletter_subscribers")
-        .select("id, email, full_name, preferred_language, segment, is_active, company, subscribed_at");
+      // Newsletter-eligible tiers (Basic plan or higher)
+      const eligibleTiers = ["starter", "business", "enterprise", "free_trial"];
 
-      if (status === "active") {
-        query = query.eq("is_active", true);
-      } else if (status === "inactive") {
-        query = query.eq("is_active", false);
-      }
+      // Query profiles with their subscription data
+      const { data: profilesData, error: profilesError } = await supabase
+        .from("profiles")
+        .select(`
+          id,
+          user_id,
+          email,
+          full_name,
+          company,
+          preferred_language,
+          created_at,
+          subscriptions!inner (
+            tier,
+            is_active,
+            status,
+            subscription_end_date,
+            trial_end_date
+          )
+        `)
+        .not("email", "is", null);
 
-      if (segment) {
-        query = query.eq("segment", segment);
-      }
-
-      const { data, error } = await query;
-
-      if (error) {
-        console.error("Error fetching subscribers:", error);
-        return new Response(JSON.stringify({ error: error.message }), {
+      if (profilesError) {
+        console.error("Error fetching profiles:", profilesError);
+        return new Response(JSON.stringify({ error: profilesError.message }), {
           headers: { ...corsHeaders, "Content-Type": "application/json" },
           status: 500,
         });
       }
 
-      // Transform to expected format
-      const subscribers = (data || []).map((sub: any) => ({
-        id: sub.id,
-        email: sub.email,
-        full_name: sub.full_name || "",
-        language_preference: sub.preferred_language || "en",
-        segment: sub.segment || "general",
-        status: sub.is_active ? "active" : "inactive",
-        company: sub.company || "",
-        created_at: sub.subscribed_at,
-      }));
+      // Map tier to segment name
+      const tierToSegment = (tier: string): string => {
+        switch (tier) {
+          case "starter": return "BASIC";
+          case "business": return "PREMIUM";
+          case "enterprise": return "ENTERPRISE";
+          case "free_trial": return "TRIAL";
+          default: return "FREE";
+        }
+      };
 
-      console.log(`Returning ${subscribers.length} subscribers`);
+      // Determine if user has active newsletter-eligible subscription
+      const isActiveSubscriber = (profile: any): boolean => {
+        const sub = profile.subscriptions;
+        if (!sub || !Array.isArray(sub) || sub.length === 0) return false;
+        
+        const subscription = sub[0];
+        const tier = subscription.tier;
+        const isActive = subscription.is_active;
+        const subStatus = subscription.status;
+        
+        // Check if tier is newsletter-eligible
+        if (!eligibleTiers.includes(tier)) return false;
+        
+        // Check subscription is active
+        if (!isActive) return false;
+        
+        // For free_trial, check if trial hasn't expired
+        if (tier === "free_trial" && subscription.trial_end_date) {
+          const trialEnd = new Date(subscription.trial_end_date);
+          if (trialEnd < new Date()) return false;
+        }
+        
+        // For paid plans, check subscription_end_date if exists
+        if (tier !== "free_trial" && subscription.subscription_end_date) {
+          const subEnd = new Date(subscription.subscription_end_date);
+          if (subEnd < new Date()) return false;
+        }
+        
+        return true;
+      };
+
+      // Transform and filter data
+      let subscribers = (profilesData || []).map((profile: any) => {
+        const sub = profile.subscriptions?.[0];
+        const tier = sub?.tier || "free";
+        const active = isActiveSubscriber(profile);
+        
+        return {
+          id: profile.user_id || profile.id,
+          email: profile.email,
+          full_name: profile.full_name || "",
+          language_preference: profile.preferred_language || "en",
+          segment: tierToSegment(tier),
+          status: active ? "active" : "inactive",
+          company: profile.company || "",
+          created_at: profile.created_at,
+        };
+      });
+
+      // Filter by status parameter
+      if (status === "active") {
+        subscribers = subscribers.filter((s: any) => s.status === "active");
+      } else if (status === "inactive") {
+        subscribers = subscribers.filter((s: any) => s.status === "inactive");
+      }
+
+      // Filter by segment if provided
+      if (segment) {
+        subscribers = subscribers.filter((s: any) => s.segment === segment.toUpperCase());
+      }
+
+      console.log(`Returning ${subscribers.length} subscribers (status=${status || "all"}, segment=${segment || "all"})`);
       return new Response(JSON.stringify(subscribers), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 200,
