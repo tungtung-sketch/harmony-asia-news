@@ -108,7 +108,7 @@ serve(async (req) => {
     if (req.method === "GET" && endpoint === "subscribers") {
       const { data, error } = await supabase
         .from("profiles")
-        .select("id, email, full_name, role, created_at")
+        .select("*")
         .not("email", "is", null);
 
       if (error) {
@@ -119,14 +119,8 @@ serve(async (req) => {
         });
       }
 
-      // Transform to subscriber format
-      const subscribers = (data || []).map((profile: any) => ({
-        id: profile.id,
-        email: profile.email,
-        full_name: profile.full_name || "",
-        role: profile.role || "reader",
-        created_at: profile.created_at,
-      }));
+      // Return profiles directly
+      const subscribers = data || [];
 
       console.log(`Returning ${subscribers.length} subscribers`);
       return new Response(JSON.stringify(subscribers), {
