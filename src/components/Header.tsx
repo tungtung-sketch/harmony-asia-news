@@ -216,12 +216,12 @@ const Header = () => {
               <img
                 src="/lovable-uploads/Harmony_Logo_only.png"
                 alt="WaLens logo - Your Japanese lens into ASEAN business"
-                className="h-6 w-6 sm:h-8 sm:w-8 transition-transform group-hover:scale-105"
+                className="h-6 w-6 sm:h-8 sm:w-8 transition-transform group-hover:scale-105 dark:invert"
                 loading="eager"
                 width={32}
                 height={32}
               />
-              <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent group-hover:from-primary/80 group-hover:to-primary/40 transition-all">
+              <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:text-foreground dark:bg-none group-hover:from-primary/80 group-hover:to-primary/40 transition-all">
                 {t('brand.name')}
               </span>
             </div>
@@ -290,11 +290,11 @@ const Header = () => {
                       <img
                         src="/lovable-uploads/Harmony_Logo_only.png"
                         alt="WaLens logo"
-                        className="h-6 w-6"
+                        className="h-6 w-6 dark:invert"
                         width={24}
                         height={24}
                       />
-                      <span className="text-lg font-bold">{t('brand.name')}</span>
+                      <span className="text-lg font-bold text-foreground">{t('brand.name')}</span>
                     </div>
                   </div>
                   
