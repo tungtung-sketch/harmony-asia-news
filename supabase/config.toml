@@ -44,3 +44,6 @@ port = 54329
 
 [functions.send-reset-email]
 verify_jwt = false
+
+[functions.newsletter-api]
+verify_jwt = false

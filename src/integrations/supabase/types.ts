@@ -218,26 +218,108 @@ export type Database = {
         }
         Relationships: []
       }
+      newsletter_opens: {
+        Row: {
+          id: string
+          ip_hash: string | null
+          opened_at: string
+          send_id: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          id?: string
+          ip_hash?: string | null
+          opened_at?: string
+          send_id?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          id?: string
+          ip_hash?: string | null
+          opened_at?: string
+          send_id?: string | null
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "newsletter_opens_send_id_fkey"
+            columns: ["send_id"]
+            isOneToOne: false
+            referencedRelation: "newsletter_sends"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_sends: {
+        Row: {
+          article_ids: Json
+          created_at: string
+          email: string
+          id: string
+          provider: string | null
+          sent_at: string
+          subscriber_id: string | null
+          tracking_id: string
+        }
+        Insert: {
+          article_ids?: Json
+          created_at?: string
+          email: string
+          id?: string
+          provider?: string | null
+          sent_at?: string
+          subscriber_id?: string | null
+          tracking_id: string
+        }
+        Update: {
+          article_ids?: Json
+          created_at?: string
+          email?: string
+          id?: string
+          provider?: string | null
+          sent_at?: string
+          subscriber_id?: string | null
+          tracking_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "newsletter_sends_subscriber_id_fkey"
+            columns: ["subscriber_id"]
+            isOneToOne: false
+            referencedRelation: "newsletter_subscribers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       newsletter_subscribers: {
         Row: {
+          company: string | null
           email: string
+          full_name: string | null
           id: string
           is_active: boolean
           preferred_language: Database["public"]["Enums"]["language_code"]
+          segment: string | null
           subscribed_at: string
         }
         Insert: {
+          company?: string | null
           email: string
+          full_name?: string | null
           id?: string
           is_active?: boolean
           preferred_language?: Database["public"]["Enums"]["language_code"]
+          segment?: string | null
           subscribed_at?: string
         }
         Update: {
+          company?: string | null
           email?: string
+          full_name?: string | null
           id?: string
           is_active?: boolean
           preferred_language?: Database["public"]["Enums"]["language_code"]
+          segment?: string | null
           subscribed_at?: string
         }
         Relationships: []
