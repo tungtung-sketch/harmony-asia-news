@@ -11,6 +11,7 @@ import SearchBox from '@/components/SearchBox';
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from './AuthModals';
 import { ThemeToggle } from './ThemeToggle';
+import Logo from './Logo';
 
 const Header = () => {
   const { t, setLang } = useI18n();
@@ -213,19 +214,12 @@ const Header = () => {
           {/* Logo with Tagline */}
           <Link to="/" className="flex flex-col group">
             <div className="flex items-center space-x-2">
-              <img
-                src="/lovable-uploads/Harmony_Logo_only.png"
-                alt="WaLens logo - Your Japanese lens into ASEAN business"
-                className="h-6 w-6 sm:h-8 sm:w-8 transition-transform group-hover:scale-105 dark:invert"
-                loading="eager"
-                width={32}
-                height={32}
-              />
+              <Logo size="md" className="group-hover:scale-105 transition-transform" />
               <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:text-foreground dark:bg-none group-hover:from-primary/80 group-hover:to-primary/40 transition-all">
                 {t('brand.name')}
               </span>
             </div>
-            <div className="hidden sm:block text-xs text-muted-foreground ml-8 sm:ml-10 -mt-1 group-hover:text-muted-foreground/80 transition-colors">
+            <div className="hidden sm:block text-xs text-muted-foreground ml-10 -mt-1 group-hover:text-muted-foreground/80 transition-colors">
               {t('brand.tagline')}
             </div>
           </Link>
@@ -287,13 +281,7 @@ const Header = () => {
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between p-4 border-b">
                     <div className="flex items-center space-x-2">
-                      <img
-                        src="/lovable-uploads/Harmony_Logo_only.png"
-                        alt="WaLens logo"
-                        className="h-6 w-6 dark:invert"
-                        width={24}
-                        height={24}
-                      />
+                      <Logo size="sm" />
                       <span className="text-lg font-bold text-foreground">{t('brand.name')}</span>
                     </div>
                   </div>

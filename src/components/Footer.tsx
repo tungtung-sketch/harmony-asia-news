@@ -2,6 +2,7 @@ import { Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useI18n } from '@/i18n/I18nProvider';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer = () => {
   const { t } = useI18n();
@@ -12,14 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2">
-              <img
-                src="/lovable-uploads/Harmony_Logo_only.png"
-                alt="WaLens logo"
-                className="h-6 w-6 dark:invert"
-                width={24}
-                height={24}
-                loading="lazy"
-              />
+              <Logo size="sm" />
               <span className="text-lg md:text-xl font-bold">{t('brand.name')}</span>
             </div>
             <p className="text-sm text-muted-foreground">
