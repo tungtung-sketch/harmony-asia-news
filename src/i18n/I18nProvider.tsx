@@ -682,7 +682,7 @@ const translations: Record<Lang, Translations> = {
     "bi.keyIndicators.nav": "Key Indicators",
     "bi.keyIndicators.hero.title": "Thailand Business Intelligence – Key Indicators",
     "bi.keyIndicators.hero.subtitle": "Latest official data from trusted Thai authorities",
-    "bi.keyIndicators.updateNotice": "Data updated monthly/quarterly from official sources",
+    "bi.keyIndicators.updateNotice": "Data updated as of December 2025 from official sources",
     "bi.keyIndicators.dataSourcesNote": "All data sourced from official Thai government agencies: NESDC, Bank of Thailand, Ministry of Commerce, Office of Industrial Economics, Board of Investment, and National Statistical Office.",
     
     "bi.keyIndicators.gdp.label": "GDP Growth Rate (YoY)",
@@ -1373,7 +1373,7 @@ const translations: Record<Lang, Translations> = {
     "bi.keyIndicators.nav": "主要指標",
     "bi.keyIndicators.hero.title": "タイ ビジネスインテリジェンス – 主要指標",
     "bi.keyIndicators.hero.subtitle": "信頼できるタイ当局からの最新公式データ",
-    "bi.keyIndicators.updateNotice": "データは公式ソースから月次/四半期ごとに更新",
+    "bi.keyIndicators.updateNotice": "2025年12月時点の公式データ",
     "bi.keyIndicators.dataSourcesNote": "すべてのデータはタイ政府機関（NESDC、タイ中央銀行、商務省、工業経済局、投資委員会、国家統計局）の公式データに基づいています。",
     
     "bi.keyIndicators.gdp.label": "GDP成長率（前年比）",
