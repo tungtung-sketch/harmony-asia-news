@@ -87,7 +87,8 @@ const MyPage = () => {
   ];
 
   const industries = [
-    'manufacturing', 'technology', 'finance', 'retail', 'healthcare', 'consulting', 'other'
+    'manufacturing', 'technology', 'finance', 'healthcare', 'retail', 
+    'automotive', 'realestate', 'agriculture', 'logistics', 'energy', 'consulting', 'other'
   ];
 
   const countries = [
