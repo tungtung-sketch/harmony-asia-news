@@ -56,8 +56,10 @@ const App = () => (
               <Route path="/news" element={<News />} />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/news/sheet/:slug" element={<NewsDetailFromSheet />} />
+              {/* Business Tips - Hidden for now, will be added later
               <Route path="/business-tips" element={<BusinessTips />} />
               <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
+              */}
               <Route path="/search" element={<SearchResults />} />
               <Route path="/subscribe" element={<Subscribe />} />
               <Route path="/signup" element={<SignUp />} />

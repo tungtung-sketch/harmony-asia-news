@@ -176,6 +176,7 @@ const Header = () => {
         </DropdownMenu>
       )}
       
+      {/* Business Tips - Hidden for now, will be added later
       <NavLink 
         to="/business-tips" 
         className={({ isActive }) => 
@@ -185,6 +186,7 @@ const Header = () => {
       >
         {t('nav.tips')}
       </NavLink>
+      */}
       <NavLink 
         to="/subscribe" 
         className={({ isActive }) => 
