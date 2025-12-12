@@ -355,13 +355,8 @@ const Header = () => {
                     <SearchBox />
                   </div>
                   
-                  <ScrollArea className="flex-1">
-                    <nav className="py-4" aria-label="Mobile navigation">
-                      <NavLinks mobile closeMenu={() => setMobileMenuOpen(false)} />
-                    </nav>
-                  </ScrollArea>
-                  
-                  <div className="border-t p-4 space-y-4">
+                  {/* Auth Buttons, Language Toggle, Theme Toggle - Right under search */}
+                  <div className="px-4 py-4 border-b space-y-3">
                     {/* Mobile Auth Buttons */}
                     <div className="space-y-2">
                       {user ? (
@@ -398,17 +393,21 @@ const Header = () => {
                       )}
                     </div>
 
-                    {/* Language Toggle */}
-                    <div className="flex space-x-2 justify-center">
-                      <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
-                      <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
-                    </div>
-
-                    {/* Theme Toggle - Mobile */}
-                    <div className="flex justify-center">
+                    {/* Language Toggle and Theme Toggle */}
+                    <div className="flex items-center justify-center space-x-4">
+                      <div className="flex space-x-1">
+                        <Button variant="ghost" size="sm" onClick={() => setLang('ja')} aria-label="Switch to Japanese">JP</Button>
+                        <Button variant="ghost" size="sm" onClick={() => setLang('en')} aria-label="Switch to English">EN</Button>
+                      </div>
                       <ThemeToggle variant="text" />
                     </div>
                   </div>
+                  
+                  <ScrollArea className="flex-1">
+                    <nav className="py-4" aria-label="Mobile navigation">
+                      <NavLinks mobile closeMenu={() => setMobileMenuOpen(false)} />
+                    </nav>
+                  </ScrollArea>
                 </div>
               </SheetContent>
             </Sheet>
