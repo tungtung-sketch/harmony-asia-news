@@ -131,6 +131,9 @@ const Header = () => {
             <Link to="/business-intelligence/infrastructure" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('bi.nav.infrastructure')}
             </Link>
+            <Link to="/business-intelligence/key-indicators" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('bi.keyIndicators.nav')}
+            </Link>
           </div>
         </div>
       ) : (
@@ -161,6 +164,9 @@ const Header = () => {
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/business-intelligence/infrastructure">{t('bi.nav.infrastructure')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/business-intelligence/key-indicators">{t('bi.keyIndicators.nav')}</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
