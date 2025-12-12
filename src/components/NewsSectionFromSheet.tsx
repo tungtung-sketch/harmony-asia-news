@@ -1,6 +1,7 @@
 // src/components/NewsSectionFromSheet.tsx
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import NewsCard from './NewsCard';
 import { useI18n } from '@/i18n/I18nProvider';
@@ -8,9 +9,28 @@ import { fetchWalensNews, WalensNews } from '@/sheetNews';
 
 const NewsSectionFromSheet = () => {
   const { t, lang } = useI18n();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [articles, setArticles] = useState<WalensNews[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  
+  // Get category from URL, default to 'all'
+  const categoryFromUrl = searchParams.get('category') || 'all';
+  const [activeCategory, setActiveCategory] = useState<string>(categoryFromUrl);
+
+  // Sync activeCategory with URL changes
+  useEffect(() => {
+    setActiveCategory(categoryFromUrl);
+  }, [categoryFromUrl]);
+
+  // Update URL when category changes via button click
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    if (cat === 'all') {
+      setSearchParams({});
+    } else {
+      setSearchParams({ category: cat });
+    }
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -41,12 +61,12 @@ const NewsSectionFromSheet = () => {
     <div className="container mx-auto px-4 py-12">
       {/* Filter Bar */}
       <div className="flex flex-wrap gap-2 mb-8">
-        {categories.map((cat) => (
+      {categories.map((cat) => (
           <Button
             key={cat}
             variant={activeCategory === cat ? "default" : "secondary"}
             size="sm"
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => handleCategoryChange(cat)}
             className="whitespace-nowrap"
           >
             {cat === 'all' ? t('newsFilter.allCategories') || 'All Categories' : cat}
@@ -77,7 +97,7 @@ const NewsSectionFromSheet = () => {
           <h3 className="text-lg font-semibold mb-2">{t('newsFilter.noResults') || 'No articles found'}</h3>
           <p className="text-muted-foreground mb-4">{t('newsFilter.noResultsDesc') || 'Try adjusting your filters'}</p>
           <button
-            onClick={() => setActiveCategory('all')}
+            onClick={() => handleCategoryChange('all')}
             className="text-primary hover:text-primary/80 underline"
           >
             {t('newsFilter.clearFilters') || 'Clear filters'}
