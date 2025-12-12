@@ -674,7 +674,33 @@ const translations: Record<Lang, Translations> = {
     
     "about.cta.title": "Ready to Transform Your Business?",
     "about.cta.content": "Join WaLens (和視) today and gain access to the strategic insights that will drive your success in the ASEAN market.",
-    "about.cta.button": "Subscribe Now"
+    "about.cta.button": "Subscribe Now",
+
+    // Thailand Key Indicators
+    "bi.keyIndicators.title": "Thailand Key Indicators - WaLens",
+    "bi.keyIndicators.metaDescription": "Executive dashboard showing Thailand's key economic indicators from official government sources including NESDC, BOT, MOC, and BOI.",
+    "bi.keyIndicators.nav": "Key Indicators",
+    "bi.keyIndicators.hero.title": "Thailand Business Intelligence – Key Indicators",
+    "bi.keyIndicators.hero.subtitle": "Latest official data from trusted Thai authorities",
+    "bi.keyIndicators.updateNotice": "Data updated monthly/quarterly from official sources",
+    "bi.keyIndicators.dataSourcesNote": "All data sourced from official Thai government agencies: NESDC, Bank of Thailand, Ministry of Commerce, Office of Industrial Economics, Board of Investment, and National Statistical Office.",
+    
+    "bi.keyIndicators.gdp.label": "GDP Growth Rate (YoY)",
+    "bi.keyIndicators.gdp.description": "Year-over-year GDP growth rate",
+    "bi.keyIndicators.inflation.label": "Inflation Rate (CPI)",
+    "bi.keyIndicators.inflation.description": "Headline consumer price inflation",
+    "bi.keyIndicators.interestRate.label": "Policy Interest Rate",
+    "bi.keyIndicators.interestRate.description": "Current BOT policy rate",
+    "bi.keyIndicators.exchangeRate.label": "THB / JPY Rate",
+    "bi.keyIndicators.exchangeRate.description": "Thai Baht per 1 Japanese Yen",
+    "bi.keyIndicators.exportGrowth.label": "Export Growth (YoY)",
+    "bi.keyIndicators.exportGrowth.description": "Year-over-year export value growth",
+    "bi.keyIndicators.ipi.label": "Industrial Production Index",
+    "bi.keyIndicators.ipi.description": "Manufacturing sector activity index",
+    "bi.keyIndicators.boiInvestment.label": "BOI Investment Value",
+    "bi.keyIndicators.boiInvestment.description": "Total promoted investment (THB)",
+    "bi.keyIndicators.unemployment.label": "Unemployment Rate",
+    "bi.keyIndicators.unemployment.description": "National unemployment rate"
   },
   ja: {
     // Common
@@ -1340,6 +1366,32 @@ const translations: Record<Lang, Translations> = {
     "bi.dataSources.ieat": "工業団地と特別経済区域データ",
     "bi.dataSources.depa": "デジタル経済と技術開発指標",
     "bi.dataSources.aot": "空港運営と交通インフラ",
+
+    // Thailand Key Indicators (Japanese)
+    "bi.keyIndicators.title": "タイ主要指標 - WaLens",
+    "bi.keyIndicators.metaDescription": "NESDC、BOT、商務省、BOIなど公式政府機関からのタイ主要経済指標を表示するエグゼクティブダッシュボード。",
+    "bi.keyIndicators.nav": "主要指標",
+    "bi.keyIndicators.hero.title": "タイ ビジネスインテリジェンス – 主要指標",
+    "bi.keyIndicators.hero.subtitle": "信頼できるタイ当局からの最新公式データ",
+    "bi.keyIndicators.updateNotice": "データは公式ソースから月次/四半期ごとに更新",
+    "bi.keyIndicators.dataSourcesNote": "すべてのデータはタイ政府機関（NESDC、タイ中央銀行、商務省、工業経済局、投資委員会、国家統計局）の公式データに基づいています。",
+    
+    "bi.keyIndicators.gdp.label": "GDP成長率（前年比）",
+    "bi.keyIndicators.gdp.description": "前年同期比GDP成長率",
+    "bi.keyIndicators.inflation.label": "インフレ率（CPI）",
+    "bi.keyIndicators.inflation.description": "総合消費者物価上昇率",
+    "bi.keyIndicators.interestRate.label": "政策金利",
+    "bi.keyIndicators.interestRate.description": "現在のBOT政策金利",
+    "bi.keyIndicators.exchangeRate.label": "THB / JPY レート",
+    "bi.keyIndicators.exchangeRate.description": "1円あたりタイバーツ",
+    "bi.keyIndicators.exportGrowth.label": "輸出成長率（前年比）",
+    "bi.keyIndicators.exportGrowth.description": "前年同期比輸出額成長率",
+    "bi.keyIndicators.ipi.label": "工業生産指数",
+    "bi.keyIndicators.ipi.description": "製造業活動指数",
+    "bi.keyIndicators.boiInvestment.label": "BOI投資額",
+    "bi.keyIndicators.boiInvestment.description": "認可投資総額（タイバーツ）",
+    "bi.keyIndicators.unemployment.label": "失業率",
+    "bi.keyIndicators.unemployment.description": "全国失業率"
   },
   th: {
     // Common

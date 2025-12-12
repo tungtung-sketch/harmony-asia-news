@@ -34,6 +34,7 @@ import TradeIndustry from "./pages/bi/TradeIndustry";
 import RegulationTax from "./pages/bi/RegulationTax";
 import WorkforceSociety from "./pages/bi/WorkforceSociety";
 import InfrastructureInnovation from "./pages/bi/InfrastructureInnovation";
+import ThailandKeyIndicators from "./pages/bi/ThailandKeyIndicators";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ResetPassword from "./pages/ResetPassword";
@@ -73,6 +74,7 @@ const App = () => (
               <Route path="/business-intelligence/regulation" element={<RegulationTax />} />
               <Route path="/business-intelligence/workforce" element={<WorkforceSociety />} />
               <Route path="/business-intelligence/infrastructure" element={<InfrastructureInnovation />} />
+              <Route path="/business-intelligence/key-indicators" element={<ThailandKeyIndicators />} />
               <Route path="/insights" element={<InsightsLanding />} />
               <Route path="/insights/services" element={<InsightServices />} />
               <Route path="/insights/manufacturing" element={<InsightManufacturing />} />
