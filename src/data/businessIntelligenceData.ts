@@ -500,10 +500,7 @@ export const getDataByCategory = (category: string) => {
 };
 
 export const getAvailableYears = () => {
-  const years = allBusinessData.map(item => 
-    new Date(item.lastUpdated).getFullYear()
-  );
-  return [...new Set(years)].sort((a, b) => b - a);
+  return [2025, 2024, 2023, 2022];
 };
 
 export type TimePeriod = 'monthly' | 'quarterly' | 'yearly';

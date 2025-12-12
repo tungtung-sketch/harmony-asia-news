@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -6,15 +7,48 @@ import { useI18n } from "@/i18n/I18nProvider";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
-import { Mail } from "lucide-react";
+import { Mail, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { t } = useI18n();
   const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ description: t("contact.success") });
+    
+    if (!email || !message) {
+      toast({ 
+        description: t("contact.errorRequired") || "Email and message are required",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("contact-form", {
+        body: { email, message }
+      });
+
+      if (error) throw error;
+
+      toast({ description: t("contact.success") });
+      setEmail("");
+      setMessage("");
+    } catch (error: any) {
+      console.error("Contact form error:", error);
+      toast({ 
+        description: t("contact.error") || "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,9 +83,12 @@ const Contact = () => {
                     id="email" 
                     type="email" 
                     required 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder={t("contact.emailPlaceholder")}
                     aria-label={t("contact.emailLabel")} 
                     className="w-full"
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
@@ -61,12 +98,23 @@ const Contact = () => {
                   <Textarea 
                     id="message" 
                     rows={5} 
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     placeholder={t("contact.messagePlaceholder")} 
                     className="w-full"
+                    disabled={isSubmitting}
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  {t("contact.submit")}
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {t("contact.sending") || "Sending..."}
+                    </>
+                  ) : (
+                    t("contact.submit")
+                  )}
                 </Button>
               </form>
             </div>
