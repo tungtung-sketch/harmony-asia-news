@@ -71,6 +71,12 @@ const translations: Record<Lang, Translations> = {
     "news.heroTitle": "Latest News & Updates",
     "news.heroSubtitle": "Stay informed with breaking news, market analysis, and expert insights from across Asia's dynamic business landscape.",
     "news.backToNews": "Back to News",
+    "news.dropdown.all": "All News",
+    "news.dropdown.politics": "Politics",
+    "news.dropdown.economic": "Economic",
+    "news.dropdown.business": "Business",
+    "news.dropdown.technology": "Technology",
+    "news.dropdown.society": "Society",
 
     // Pages
     "insights.title": "Insights - WaLens",
@@ -852,6 +858,12 @@ const translations: Record<Lang, Translations> = {
     "news.heroTitle": "最新ニュース & アップデート",
     "news.heroSubtitle": "アジアのダイナミックなビジネス環境からの速報、市場分析、専門家の洞察で情報を入手しましょう。",
     "news.backToNews": "ニュース一覧に戻る",
+    "news.dropdown.all": "すべてのニュース",
+    "news.dropdown.politics": "政治",
+    "news.dropdown.economic": "経済",
+    "news.dropdown.business": "ビジネス",
+    "news.dropdown.technology": "テクノロジー",
+    "news.dropdown.society": "社会",
 
     // Pages
     "insights.title": "インサイト - WaLens",

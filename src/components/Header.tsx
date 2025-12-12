@@ -52,15 +52,62 @@ const Header = () => {
       >
         {t('nav.about')}
       </NavLink>
-      <NavLink 
-        to="/news" 
-        className={({ isActive }) => 
-          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
-        }
-        onClick={closeMenu}
-      >
-        {t('nav.news')}
-      </NavLink>
+      {mobile ? (
+        <div className="py-3 px-4">
+          <div className="text-lg font-medium mb-2">{t('nav.news')}</div>
+          <div className="ml-4 space-y-2">
+            <Link to="/news" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('news.dropdown.all')}
+            </Link>
+            <Link to="/news?category=politics" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('news.dropdown.politics')}
+            </Link>
+            <Link to="/news?category=economic" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('news.dropdown.economic')}
+            </Link>
+            <Link to="/news?category=business" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('news.dropdown.business')}
+            </Link>
+            <Link to="/news?category=technology" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('news.dropdown.technology')}
+            </Link>
+            <Link to="/news?category=society" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('news.dropdown.society')}
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <DropdownMenu>
+          <DropdownMenuTrigger className="inline-flex items-center hover:text-primary focus:outline-none">
+            <span>{t('nav.news')}</span>
+            <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent 
+            align="start" 
+            className="z-50 bg-background border shadow-lg mt-2 min-w-[200px] py-2"
+            sideOffset={8}
+          >
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/news">{t('news.dropdown.all')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/news?category=politics">{t('news.dropdown.politics')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/news?category=economic">{t('news.dropdown.economic')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/news?category=business">{t('news.dropdown.business')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/news?category=technology">{t('news.dropdown.technology')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/news?category=society">{t('news.dropdown.society')}</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
       
       {mobile ? (
         <div className="py-3 px-4">
