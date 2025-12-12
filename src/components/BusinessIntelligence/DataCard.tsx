@@ -97,25 +97,31 @@ const DataCard = ({ data, compact = false, timePeriod = 'quarterly' }: DataCardP
             </div>
           </div>
 
-          {/* Chart (if available) - Blurred for non-subscribers */}
+          {/* Chart (if available) - Shows graph but hides axis labels for non-subscribers */}
           {chartData && !compact && (
-            <div className={`h-32 w-full relative ${!hasAccess && !isLoading ? 'blur-md select-none pointer-events-none' : ''}`}>
+            <div className="h-32 w-full relative">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
                   <XAxis 
                     dataKey="period" 
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12 }}
+                    tick={hasAccess ? { fontSize: 12 } : false}
                   />
-                  <YAxis hide={!hasAccess} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: 'hsl(var(--background))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '6px'
-                    }}
+                  <YAxis 
+                    hide={!hasAccess}
+                    axisLine={false}
+                    tickLine={false}
                   />
+                  {hasAccess && (
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'hsl(var(--background))',
+                        border: '1px solid hsl(var(--border))',
+                        borderRadius: '6px'
+                      }}
+                    />
+                  )}
                   <Line 
                     type="monotone" 
                     dataKey="value" 
@@ -128,34 +134,34 @@ const DataCard = ({ data, compact = false, timePeriod = 'quarterly' }: DataCardP
             </div>
           )}
 
-          {/* Paywall Overlay for non-subscribers */}
+          {/* Paywall Overlay for non-subscribers - shows at bottom, graph still visible */}
           {!hasAccess && !isLoading && (
-            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm flex flex-col items-center justify-center p-4">
-              <div className="bg-background border rounded-lg p-6 shadow-lg text-center max-w-sm">
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-3">
-                  <Lock className="h-6 w-6 text-primary" />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/95 to-transparent pt-16 pb-4 px-4">
+              <div className="bg-background border rounded-lg p-4 shadow-lg text-center max-w-sm mx-auto">
+                <div className="p-2 bg-primary/10 rounded-full w-fit mx-auto mb-2">
+                  <Lock className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">
-                  {lang === 'ja' ? 'プレミアムコンテンツ' : 'Premium Content'}
+                <h3 className="font-semibold text-base mb-1">
+                  {lang === 'ja' ? 'Basicメンバー限定コンテンツ' : 'Basic Member Content'}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-xs text-muted-foreground mb-3">
                   {lang === 'ja' 
                     ? 'このデータを閲覧するにはBasicプラン以上が必要です'
                     : 'Subscribe to Basic plan or above to view this data'
                   }
                 </p>
                 {user ? (
-                  <Button asChild className="w-full">
+                  <Button asChild size="sm" className="w-full">
                     <Link to="/subscribe">
                       {lang === 'ja' ? 'プランをアップグレード' : 'Upgrade Plan'}
                     </Link>
                   </Button>
                 ) : (
                   <div className="flex flex-col gap-2">
-                    <Button onClick={() => setIsLoginOpen(true)} variant="outline" className="w-full">
+                    <Button onClick={() => setIsLoginOpen(true)} variant="outline" size="sm" className="w-full">
                       {lang === 'ja' ? 'ログイン' : 'Login'}
                     </Button>
-                    <Button onClick={() => setIsSignUpOpen(true)} className="w-full">
+                    <Button onClick={() => setIsSignUpOpen(true)} size="sm" className="w-full">
                       {lang === 'ja' ? '無料で始める' : 'Start Free Trial'}
                     </Button>
                   </div>
