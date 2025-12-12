@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, ArrowRight, Clock } from "lucide-react";
-import { searchContent, SearchResult } from '@/data/searchData';
+import { searchContentAsync, SearchResult } from '@/data/searchData';
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
@@ -18,15 +18,30 @@ const SearchResults = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let cancelled = false;
     setIsLoading(true);
-    // Simulate search delay for better UX
-    const timer = setTimeout(() => {
-      const searchResults = searchContent(query);
-      setResults(searchResults);
-      setIsLoading(false);
-    }, 300);
+    
+    const performSearch = async () => {
+      try {
+        const searchResults = await searchContentAsync(query);
+        if (!cancelled) {
+          setResults(searchResults);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error('Search failed:', error);
+        if (!cancelled) {
+          setResults([]);
+          setIsLoading(false);
+        }
+      }
+    };
 
-    return () => clearTimeout(timer);
+    performSearch();
+
+    return () => {
+      cancelled = true;
+    };
   }, [query]);
 
   const getTypeLabel = (type: SearchResult['type']) => {
@@ -37,6 +52,8 @@ const SearchResults = () => {
         return lang === 'ja' ? 'ビジネスチップ' : 'Business Tip';
       case 'insight':
         return lang === 'ja' ? 'インサイト' : 'Industry Insight';
+      case 'bi':
+        return lang === 'ja' ? 'ビジネスインテリジェンス' : 'Business Intelligence';
       default:
         return type;
     }
@@ -50,6 +67,8 @@ const SearchResults = () => {
         return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
       case 'insight':
         return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300';
+      case 'bi':
+        return 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300';
       default:
         return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300';
     }
