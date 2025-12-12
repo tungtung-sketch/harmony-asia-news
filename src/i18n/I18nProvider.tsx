@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
+
 type Lang = "en" | "ja" | "th";
 
 type Translations = Record<string, string>;
