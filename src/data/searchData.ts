@@ -170,7 +170,7 @@ function convertNewsToSearchResults(news: WalensNews[]): SearchResult[] {
     type: 'article' as const,
     category: article.category || 'News',
     categoryJa: getCategoryJa(article.category),
-    url: `/news/${article.slug}`,
+    url: `/news/sheet/${article.slug}`,
     image: article.image,
   }));
 }
