@@ -21,8 +21,7 @@ const BusinessIntelligence = () => {
   const filteredData = useMemo(() => {
     return allBusinessData.filter(item => {
       const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
-      const matchesYear = selectedYear === 'all' || 
-        new Date(item.lastUpdated).getFullYear().toString() === selectedYear;
+      const matchesYear = selectedYear === 'all' || item.year?.toString() === selectedYear;
       const matchesSearch = searchQuery === '' || 
         item.title.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.title.ja.toLowerCase().includes(searchQuery.toLowerCase()) ||
