@@ -19,14 +19,14 @@ const SearchBox = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center max-w-md w-full">
+    <form onSubmit={handleSearch} className="flex items-center w-full min-w-[200px] max-w-[320px]">
       <div className="relative flex-1">
         <Input
           type="text"
           placeholder={t('search.placeholder')}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="pr-10 h-9 text-sm border-border/50 focus:border-primary/50 bg-background/50"
+          className="pr-10 h-9 text-sm border-border/50 focus:border-primary/50 bg-background/50 w-full"
         />
         <Button
           type="submit"
