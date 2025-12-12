@@ -6,7 +6,8 @@ import SEO from '@/components/SEO';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import BIFilter from '@/components/BusinessIntelligence/BIFilter';
 import DataCard from '@/components/BusinessIntelligence/DataCard';
-import { allBusinessData, categories } from '@/data/businessIntelligenceData';
+import TimePeriodFilter from '@/components/BusinessIntelligence/TimePeriodFilter';
+import { allBusinessData, categories, TimePeriod } from '@/data/businessIntelligenceData';
 import { BarChart3, TrendingUp, Database } from 'lucide-react';
 
 const BusinessIntelligence = () => {
@@ -14,6 +15,7 @@ const BusinessIntelligence = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedYear, setSelectedYear] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [timePeriod, setTimePeriod] = useState<TimePeriod>('quarterly');
 
   // Filter data based on selected filters
   const filteredData = useMemo(() => {
@@ -100,23 +102,33 @@ const BusinessIntelligence = () => {
           </div>
 
           {/* Filter Section */}
-          <BIFilter
-            selectedCategory={selectedCategory}
-            selectedYear={selectedYear}
-            searchQuery={searchQuery}
-            onCategoryChange={setSelectedCategory}
-            onYearChange={setSelectedYear}
-            onSearchChange={setSearchQuery}
-            onClearFilters={handleClearFilters}
-            resultCount={filteredData.length}
-            totalCount={allBusinessData.length}
-          />
+          <div className="space-y-4">
+            <BIFilter
+              selectedCategory={selectedCategory}
+              selectedYear={selectedYear}
+              searchQuery={searchQuery}
+              onCategoryChange={setSelectedCategory}
+              onYearChange={setSelectedYear}
+              onSearchChange={setSearchQuery}
+              onClearFilters={handleClearFilters}
+              resultCount={filteredData.length}
+              totalCount={allBusinessData.length}
+            />
+            
+            {/* Time Period Filter */}
+            <div className="flex justify-end">
+              <TimePeriodFilter
+                selectedPeriod={timePeriod}
+                onPeriodChange={setTimePeriod}
+              />
+            </div>
+          </div>
 
           {/* Data Grid */}
           {filteredData.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
               {filteredData.map((data) => (
-                <DataCard key={data.id} data={data} />
+                <DataCard key={data.id} data={data} timePeriod={timePeriod} />
               ))}
             </div>
           ) : (
