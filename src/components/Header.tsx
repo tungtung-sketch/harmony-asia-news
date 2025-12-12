@@ -258,6 +258,15 @@ const Header = () => {
       >
         {t('nav.contact')}
       </NavLink>
+      <NavLink 
+        to="/faq" 
+        className={({ isActive }) => 
+          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
+        }
+        onClick={closeMenu}
+      >
+        {t('nav.faq')}
+      </NavLink>
     </>
   );
 

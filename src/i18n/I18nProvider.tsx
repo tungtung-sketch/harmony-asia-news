@@ -39,6 +39,7 @@ const translations: Record<Lang, Translations> = {
     "nav.subscribe": "Subscribe",
     "nav.signup": "Sign Up",
     "nav.contact": "Contact",
+    "nav.faq": "FAQ",
 
     // Header
     "header.login": "Login",
@@ -727,6 +728,7 @@ const translations: Record<Lang, Translations> = {
     "nav.subscribe": "購読",
     "nav.signup": "サインアップ",
     "nav.contact": "お問い合わせ",
+    "nav.faq": "FAQ",
 
     // Header
     "header.login": "ログイン",
