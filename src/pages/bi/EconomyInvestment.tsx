@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { useI18n } from '@/i18n/I18nProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import DataCard from '@/components/BusinessIntelligence/DataCard';
-import { economyData } from '@/data/businessIntelligenceData';
+import TimePeriodFilter from '@/components/BusinessIntelligence/TimePeriodFilter';
+import { economyData, TimePeriod } from '@/data/businessIntelligenceData';
 import { TrendingUp, DollarSign } from 'lucide-react';
 
 const EconomyInvestment = () => {
+  const [timePeriod, setTimePeriod] = useState<TimePeriod>('quarterly');
   const { t } = useI18n();
 
   return (
@@ -50,10 +53,18 @@ const EconomyInvestment = () => {
             </p>
           </div>
 
+          {/* Time Period Filter */}
+          <div className="flex justify-end mb-6">
+            <TimePeriodFilter
+              selectedPeriod={timePeriod}
+              onPeriodChange={setTimePeriod}
+            />
+          </div>
+
           {/* Key Indicators */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {economyData.map((data) => (
-              <DataCard key={data.id} data={data} />
+              <DataCard key={data.id} data={data} timePeriod={timePeriod} />
             ))}
           </div>
 
