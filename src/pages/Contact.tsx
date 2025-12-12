@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -13,9 +14,18 @@ import { supabase } from "@/integrations/supabase/client";
 const Contact = () => {
   const { t } = useI18n();
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Pre-fill message from URL query parameter
+  useEffect(() => {
+    const prefillMessage = searchParams.get('message');
+    if (prefillMessage) {
+      setMessage(prefillMessage);
+    }
+  }, [searchParams]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
