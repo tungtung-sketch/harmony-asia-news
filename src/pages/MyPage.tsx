@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
-import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe, Image } from 'lucide-react';
+import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe } from 'lucide-react';
 import SavedArticles from '@/components/SavedArticles';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
@@ -87,7 +87,7 @@ const MyPage = () => {
   ];
 
   const industries = [
-    'manufacturing', 'technology', 'finance', 'trading', 'retail', 'construction', 'healthcare', 'legal', 'consulting', 'other'
+    'manufacturing', 'technology', 'finance', 'retail', 'healthcare', 'consulting', 'other'
   ];
 
   const countries = [
@@ -102,9 +102,15 @@ const MyPage = () => {
 
     if (user) {
       fetchUserData();
-      fetchReadingHistory();
     }
   }, [user, loading, navigate]);
+
+  // Separate effect for reading history to re-fetch when language changes
+  useEffect(() => {
+    if (user) {
+      fetchReadingHistory();
+    }
+  }, [user, lang]);
 
   const fetchUserData = async () => {
     try {
@@ -165,7 +171,10 @@ const MyPage = () => {
         return;
       }
 
-      setReadingHistory(data || []);
+      // Filter by current language
+      const currentLangCode = lang === 'ja' ? 'JP' : 'EN';
+      const filteredData = (data || []).filter(item => item.language === currentLangCode);
+      setReadingHistory(filteredData);
     } catch (error) {
       console.error('Error fetching reading history:', error);
     } finally {
@@ -710,24 +719,9 @@ const MyPage = () => {
                     {readingHistory.map((item) => (
                       <Link 
                         key={item.id} 
-                        to={item.article_url}
+                        to={`/news/sheet/${item.article_slug}`}
                         className="flex gap-4 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
                       >
-                        {/* Thumbnail */}
-                        <div className="flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded overflow-hidden bg-muted">
-                          {item.thumbnail_url ? (
-                            <img 
-                              src={item.thumbnail_url} 
-                              alt={item.article_title}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <Image className="h-6 w-6 text-muted-foreground/50" />
-                            </div>
-                          )}
-                        </div>
-                        
                         {/* Content */}
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium line-clamp-2 text-sm md:text-base">
@@ -742,8 +736,6 @@ const MyPage = () => {
                                 <span>•</span>
                               </>
                             )}
-                            <span>{item.language === 'JP' ? '日本語' : 'English'}</span>
-                            <span>•</span>
                             <span>{formatDateTime(item.read_at)}</span>
                           </div>
                         </div>
