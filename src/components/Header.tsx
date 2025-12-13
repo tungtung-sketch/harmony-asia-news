@@ -188,7 +188,6 @@ const Header = () => {
             <Link to="/insights/manufacturing/ev-battery" className="block py-2 pl-4 text-sm text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.reports.evBattery')}
             </Link>
-            </Link>
             <Link to="/insights/wellness-healthcare" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.wellness')}
             </Link>
