@@ -29,7 +29,7 @@ interface UserProfile {
   company: string | null;
 }
 
-// Simple PDF generation using HTML template
+// Generate PDF HTML for browser printing
 function generatePdfHtml(
   content: PdfRequest['reportContent'],
   userProfile: UserProfile,
@@ -44,19 +44,26 @@ function generatePdfHtml(
     @page {
       size: A4;
       margin: 2cm;
-      @bottom-center {
-        content: "© WaLens | Not for redistribution | Page " counter(page) " of " counter(pages);
-        font-size: 9pt;
-        color: #666;
-      }
+    }
+    
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+    }
+    
+    * {
+      box-sizing: border-box;
     }
     
     body {
-      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 11pt;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #1a1a1a;
-      counter-reset: page;
+      margin: 0;
+      padding: 20px;
+      background: white;
     }
     
     .watermark {
@@ -64,37 +71,60 @@ function generatePdfHtml(
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-45deg);
-      font-size: 48pt;
-      color: rgba(200, 200, 200, 0.15);
+      font-size: 42pt;
+      color: rgba(200, 200, 200, 0.12);
       white-space: nowrap;
       pointer-events: none;
       z-index: 1000;
       user-select: none;
     }
     
+    .print-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 24px;
+      background: #1a365d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14pt;
+      font-weight: bold;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .print-button:hover {
+      background: #2d4a7c;
+    }
+    
     .cover-page {
-      page-break-after: always;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 80vh;
+      min-height: 85vh;
       text-align: center;
-    }
-    
-    .cover-logo {
-      font-size: 24pt;
-      font-weight: bold;
-      color: #1a365d;
+      padding: 40px;
+      border-bottom: 3px solid #d69e2e;
       margin-bottom: 40px;
     }
     
-    .cover-title {
+    .cover-logo {
       font-size: 28pt;
+      font-weight: bold;
+      color: #1a365d;
+      margin-bottom: 50px;
+    }
+    
+    .cover-title {
+      font-size: 26pt;
       font-weight: bold;
       color: #1a365d;
       margin-bottom: 20px;
       line-height: 1.3;
+      max-width: 600px;
     }
     
     .cover-category {
@@ -111,16 +141,16 @@ function generatePdfHtml(
     .premium-badge {
       background: linear-gradient(135deg, #d69e2e, #ecc94b);
       color: #1a1a1a;
-      padding: 8px 24px;
-      border-radius: 20px;
+      padding: 10px 30px;
+      border-radius: 25px;
       font-weight: bold;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       display: inline-block;
     }
     
     .section {
+      margin-bottom: 35px;
       page-break-inside: avoid;
-      margin-bottom: 30px;
     }
     
     .section-title {
@@ -128,21 +158,23 @@ function generatePdfHtml(
       font-weight: bold;
       color: #1a365d;
       border-bottom: 2px solid #d69e2e;
-      padding-bottom: 8px;
-      margin-bottom: 16px;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
     }
     
     .executive-summary {
-      background: #f7fafc;
+      background: #f8fafc;
       border-left: 4px solid #d69e2e;
-      padding: 20px;
-      margin-bottom: 30px;
+      padding: 25px;
+      margin-bottom: 35px;
+      border-radius: 0 8px 8px 0;
     }
     
     .summary-item {
-      margin-bottom: 12px;
-      padding-left: 20px;
+      margin-bottom: 14px;
+      padding-left: 25px;
       position: relative;
+      line-height: 1.6;
     }
     
     .summary-item::before {
@@ -150,6 +182,15 @@ function generatePdfHtml(
       position: absolute;
       left: 0;
       color: #d69e2e;
+      font-weight: bold;
+    }
+    
+    .section-content {
+      line-height: 1.8;
+    }
+    
+    .section-content strong {
+      color: #1a365d;
     }
     
     .sources-list {
@@ -157,49 +198,52 @@ function generatePdfHtml(
       color: #666;
     }
     
+    .sources-list div {
+      margin-bottom: 6px;
+    }
+    
     .disclaimer {
       font-size: 9pt;
       color: #888;
       border-top: 1px solid #ddd;
-      padding-top: 20px;
-      margin-top: 40px;
+      padding-top: 25px;
+      margin-top: 45px;
+      line-height: 1.6;
     }
     
     .citation-box {
       background: #f0f9ff;
       border: 1px solid #bee3f8;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 25px;
+      margin-top: 35px;
       border-radius: 8px;
     }
     
     .citation-title {
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: #2b6cb0;
+      font-size: 12pt;
     }
     
-    .user-watermark {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      font-size: 8pt;
-      color: #ccc;
-      user-select: none;
-    }
-    
-    /* Disable text selection for security */
-    * {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    .footer-info {
+      font-size: 9pt;
+      color: #aaa;
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
     }
   `;
 
   const citationText = isJapanese
     ? `引用方法：WaLens（${new Date().getFullYear()}）『${content?.title || 'Report'}』WaLens株式会社`
     : `Citation: WaLens (${new Date().getFullYear()}), "${content?.title || 'Report'}", WaLens Co., Ltd.`;
+
+  const printButtonText = isJapanese ? 'PDFとして保存' : 'Save as PDF';
+  const printInstructions = isJapanese 
+    ? 'このボタンをクリックし、印刷ダイアログで「PDFとして保存」を選択してください。'
+    : 'Click this button and select "Save as PDF" in the print dialog.';
 
   return `
 <!DOCTYPE html>
@@ -208,11 +252,15 @@ function generatePdfHtml(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${content?.title || 'WaLens Report'}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>${pageStyles}</style>
 </head>
 <body>
   <div class="watermark">${watermarkText}</div>
-  <div class="user-watermark">${userInfo} | ${timestamp}</div>
+  
+  <button class="print-button no-print" onclick="window.print()" title="${printInstructions}">
+    🖨️ ${printButtonText}
+  </button>
   
   <!-- Cover Page -->
   <div class="cover-page">
@@ -240,7 +288,7 @@ function generatePdfHtml(
   ${(content?.sections || []).map(section => `
     <div class="section">
       <h2 class="section-title">${section.title}</h2>
-      <div>${section.content}</div>
+      <div class="section-content">${section.content}</div>
     </div>
   `).join('')}
   
@@ -269,6 +317,21 @@ function generatePdfHtml(
     ${userProfile.company ? `${isJapanese ? '会社名' : 'Company'}: ${userProfile.company}<br>` : ''}
     ${isJapanese ? 'ダウンロード日時' : 'Downloaded at'}: ${new Date().toLocaleString(isJapanese ? 'ja-JP' : 'en-US')}
   </div>
+  
+  <div class="footer-info">
+    © ${new Date().getFullYear()} WaLens Co., Ltd. | ${userInfo} | ${timestamp}
+  </div>
+  
+  <script>
+    // Auto-focus print dialog on load for better UX
+    window.onload = function() {
+      // Give a small delay for the page to fully render
+      setTimeout(function() {
+        // Show a subtle hint that the page is ready
+        document.querySelector('.print-button').style.animation = 'pulse 2s infinite';
+      }, 500);
+    };
+  </script>
 </body>
 </html>`;
 }
@@ -379,89 +442,9 @@ serve(async (req: Request) => {
 
     const watermarkText = reportSettings?.watermark_text || 'For Premium Members of WaLen Only';
 
-    // Check cache
-    const { data: cachedPdf } = await supabaseClient
-      .from('pdf_cache')
-      .select('*')
-      .eq('report_slug', reportId)
-      .eq('user_id', user.id)
-      .eq('language', language)
-      .maybeSingle();
-
-    const contentVersion = reportSettings?.last_content_update || new Date().toISOString();
-
-    // If we have a valid cache entry, return signed URL
-    if (cachedPdf && 
-        new Date(cachedPdf.expires_at) > now &&
-        cachedPdf.content_version === contentVersion) {
-      logStep("Using cached PDF", { storagePath: cachedPdf.storage_path });
-      
-      const { data: signedUrl } = await supabaseClient.storage
-        .from('insight-pdfs')
-        .createSignedUrl(cachedPdf.storage_path, 3600); // 1 hour expiry
-
-      if (signedUrl?.signedUrl) {
-        // Log the download
-        await supabaseClient.from('pdf_downloads').insert({
-          report_slug: reportId,
-          user_id: user.id,
-          user_email: user.email,
-          user_company: userProfile.company,
-          language,
-          ip_hash: null, // Could hash IP for analytics
-        });
-
-        return new Response(
-          JSON.stringify({ 
-            pdfUrl: signedUrl.signedUrl,
-            cached: true,
-            message: language === 'ja' ? 'PDFを準備しました。' : 'PDF is ready.'
-          }),
-          { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
-    }
-
-    // Generate new PDF
-    logStep("Generating new PDF");
-    
+    // Generate the PDF HTML
+    logStep("Generating PDF HTML");
     const pdfHtml = generatePdfHtml(reportContent, userProfile, language, watermarkText);
-    
-    // Convert HTML to PDF using a simple approach
-    // In production, you'd use a PDF service like Puppeteer Cloud, PDFShift, etc.
-    // For now, we'll store the HTML and provide instructions
-    
-    const fileName = `${user.id}/${reportId}_${language}_${Date.now()}.html`;
-    
-    // Store the HTML file (as a demonstration - real impl would convert to PDF)
-    const { error: uploadError } = await supabaseClient.storage
-      .from('insight-pdfs')
-      .upload(fileName, pdfHtml, {
-        contentType: 'text/html',
-        upsert: true,
-      });
-
-    if (uploadError) {
-      logStep("Upload error", { error: uploadError.message });
-      throw new Error(`Upload failed: ${uploadError.message}`);
-    }
-
-    // Update cache
-    await supabaseClient
-      .from('pdf_cache')
-      .upsert({
-        report_slug: reportId,
-        user_id: user.id,
-        language,
-        storage_path: fileName,
-        content_version: contentVersion,
-        expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // 24 hours
-      }, { onConflict: 'report_slug,user_id,language' });
-
-    // Create signed URL
-    const { data: signedUrl } = await supabaseClient.storage
-      .from('insight-pdfs')
-      .createSignedUrl(fileName, 3600);
 
     // Log download
     await supabaseClient.from('pdf_downloads').insert({
@@ -472,17 +455,20 @@ serve(async (req: Request) => {
       language,
     });
 
-    logStep("PDF generated successfully", { fileName });
+    logStep("PDF HTML generated successfully");
+
+    // Return HTML content as base64 data URL for browser rendering
+    const base64Html = btoa(unescape(encodeURIComponent(pdfHtml)));
+    const dataUrl = `data:text/html;base64,${base64Html}`;
 
     return new Response(
       JSON.stringify({
-        pdfUrl: signedUrl?.signedUrl,
+        pdfUrl: dataUrl,
+        htmlContent: pdfHtml,
         cached: false,
         message: language === 'ja' 
-          ? 'PDFを生成しました。ブラウザの印刷機能でPDFとして保存できます。'
-          : 'PDF generated. Use your browser\'s print function to save as PDF.',
-        // Note: This returns an HTML file that can be printed to PDF
-        // For production, integrate with a PDF generation service
+          ? 'PDFを生成しました。「PDFとして保存」ボタンをクリックしてダウンロードしてください。'
+          : 'PDF generated. Click "Save as PDF" button to download.',
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
