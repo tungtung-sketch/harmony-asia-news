@@ -627,57 +627,94 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.description": "Explore commercial property, REITs, and urban development trends in Thailand's dynamic real estate market.",
     "insights.realestate.category": "Real Estate Sector",
 
+    // Why WaLens Section (Landing Page)
+    "whyWaLens.title": "Why WaLens?",
+    "whyWaLens.chatgpt": "ChatGPT tells you everything.",
+    "whyWaLens.walens": "WaLens tells you what actually matters for Japanese executives in Thailand.",
+    "whyWaLens.point1.title": "Decision Filter",
+    "whyWaLens.point1.description": "We filter information through the lens of Japanese executive decision-making in Thailand.",
+    "whyWaLens.point2.title": "Context-Aware",
+    "whyWaLens.point2.description": "Every insight is tailored to the unique challenges facing Japanese businesses in Thailand.",
+    "whyWaLens.point3.title": "Actionable Interpretation",
+    "whyWaLens.point3.description": "We don't just report facts—we interpret what they mean for your business decisions.",
+    "whyWaLens.point4.title": "Trusted Judgment",
+    "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives in Thailand.",
+
     // About page - Company Profile
-    "about.title": "About WaLens (和視) - Company Profile",
-    "about.description": "Learn about WaLens (和視) - Your Japanese lens into ASEAN business",
+    "about.title": "About WaLens (和視) - Decision-Support Platform",
+    "about.description": "WaLens is a premium decision-support platform for Japanese executives in Thailand—not a news media, but a judgment layer.",
     "about.hero.title": "About WaLens (和視)",
-    "about.hero.subtitle": "Your Japanese lens into ASEAN business",
-    "about.hero.cta": "Join Our Community",
-    "about.narrative.title": "Our Story",
-    "about.narrative.content": "At WaLens, we are here with one clear mission: **to empower your business success and strengthen Japan-Thailand partnerships.**\n\nWe understand that today's business environment presents new challenges. With shifting global dynamics — from changing trade policies and tariffs to intensified competition from China — Japanese businesses in Thailand face an increasingly complex landscape.\n\nThe traditional approaches that once worked effectively now require adaptation to navigate these evolving realities. In this rapidly changing world, having access to timely, accurate insights has become more critical than ever for maintaining competitive advantage.\n\nThat is why WaLens exists. We are here to support you with **fast and deep insights that empower you to make informed and strategic decisions.** By providing you with better information, we help you build stronger strategies and secure a more resilient future.\n\nOur service represents exceptional value — a small investment compared to the competitive advantage it can unlock. A single well-informed decision can significantly impact your business trajectory and strengthen Japan's continued success in Thailand.\n\nWaLens is more than a news service. We are your strategic partner, committed to helping Japan and Thailand navigate today's challenges and thrive together in tomorrow's opportunities.",
+    "about.hero.subtitle": "A premium decision-support platform designed specifically for Japanese executives investing in or operating businesses in Thailand.",
+    "about.hero.cta": "Start Your Trial",
+    
+    // Key Message
+    "about.keyMessage.chatgpt": "ChatGPT tells you everything.",
+    "about.keyMessage.walens": "WaLens tells you what actually matters for Japanese executives in Thailand.",
+    
+    // Definition Section
+    "about.definition.title": "What WaLens Is",
+    "about.definition.is.title": "WaLens IS:",
+    "about.definition.is.point1": "A decision-filter and judgment layer for Japanese executives",
+    "about.definition.is.point2": "Context-aware intelligence tailored to Thailand operations",
+    "about.definition.is.point3": "Interpretation that translates information into decision relevance",
+    "about.definition.isNot.title": "WaLens is NOT:",
+    "about.definition.isNot.point1": "A general news media platform",
+    "about.definition.isNot.point2": "A replacement for AI tools like ChatGPT",
+    "about.definition.isNot.point3": "Raw data without executive context",
+    
+    // Problem Section
+    "about.problem.title": "The Challenge Executives Face",
+    "about.problem.overload.title": "Information Overload",
+    "about.problem.overload.description": "Endless news, reports, and data without clarity on what matters for your specific decisions.",
+    "about.problem.ai.title": "AI Limitations",
+    "about.problem.ai.description": "General AI provides information but lacks the contextual judgment needed for executive decisions in Thailand.",
+    "about.problem.context.title": "Missing Context",
+    "about.problem.context.description": "Global insights often miss the unique dynamics of Japanese business operations in Thailand.",
+    
+    // Japanese Executive Context
+    "about.context.title": "Why Japanese Executives in Thailand Need WaLens",
+    "about.context.paragraph1": "Japanese companies operating in Thailand face unique challenges that global information sources cannot address. From navigating BOI incentives and regulatory changes to understanding local labor markets and supply chain dynamics, the decisions you make require Thailand-specific intelligence filtered through a Japanese executive perspective.",
+    "about.context.paragraph2": "WaLens bridges this gap. We provide not just information, but interpretation—helping you understand what policy changes, market shifts, and industry developments actually mean for your investment decisions, operational strategies, and risk management.",
+    
+    // Value Section (updated)
+    "about.value.title": "How WaLens Adds Value",
+    "about.value.filter.title": "Decision Filtering",
+    "about.value.filter.description": "We filter vast amounts of information to surface only what is decision-relevant for Japanese executives.",
+    "about.value.interpretation.title": "Contextual Interpretation",
+    "about.value.interpretation.description": "We interpret facts through the lens of Japanese business operations in Thailand.",
+    "about.value.prioritization.title": "Strategic Prioritization",
+    "about.value.prioritization.description": "We prioritize insights based on impact to your investment and operational decisions.",
+    "about.value.judgment.title": "Trusted Judgment",
+    "about.value.judgment.description": "Our team has 10+ years advising Japanese executives, providing judgment you can rely on.",
+    
+    // Decisions Section
+    "about.decisions.title": "Decisions We Support",
+    "about.decisions.investment.title": "Investment Decisions",
+    "about.decisions.investment.description": "Market entry, expansion, M&A, and capital allocation in Thailand.",
+    "about.decisions.regulation.title": "Regulatory Response",
+    "about.decisions.regulation.description": "BOI incentives, tax policy, labor law, and compliance changes.",
+    "about.decisions.risk.title": "Risk Management",
+    "about.decisions.risk.description": "Political, economic, and operational risk assessment for Thailand.",
+    "about.decisions.operations.title": "Operational Strategy",
+    "about.decisions.operations.description": "Supply chain, workforce, and business model decisions.",
     
     // Company Profile Table
     "about.profile.title": "Company Profile",
-    
-    // Origin of the Name
-    "about.origin.title": "Origin of the Name",
-    "about.origin.content": "The name \"WaLens\" is a combination of two elements:\n- \"Wa (和)\" represents Japan, harmony, and collaboration.\n- \"Lens\" represents perspective, clarity, and the ability to see deeper insights.\n\nTogether, WaLens means \"Japanese Lens\" — providing a clear and deep perspective for Japanese executives to understand Thailand and ASEAN business environments. It reflects our mission to serve as the bridge between Japan and Thailand, helping businesses discover new opportunities and create sustainable growth.",
     "about.profile.company": "Company Name",
     "about.profile.founded": "Founded",
     "about.profile.headquarters": "Headquarters", 
     "about.profile.business": "Business Content",
     "about.profile.team": "Editorial Team",
-    "about.profile.identity": "Identity / Core Message",
-    
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025",
     "about.profile.headquarters.value": "Bangkok, Thailand",
-    "about.profile.business.value": "Exclusive insight news & industry reports providing strategic business intelligence for Japanese executives in Thailand.",
-    "about.profile.team.value": "Comprised of experienced business consultants with over 10 years of professional experience working alongside Japanese executives across diverse industries.",
-    "about.profile.identity.value": "WaLens is an open and sincere start-up, driven by the aspiration to transform the business world and to revitalize the presence of Japan and Thailand together.",
+    "about.profile.business.value": "Decision-support platform providing strategic intelligence and judgment for Japanese executives operating in Thailand.",
+    "about.profile.team.value": "Comprised of experienced business consultants with over 10 years advising Japanese executives across diverse industries in Thailand.",
     
-    // Vision
-    "about.vision.title": "Vision",
-    "about.vision.content": "To build a business intelligence platform that connects Thailand and Japan, facilitating the introduction of innovative solutions that address social and economic challenges and contribute to Thailand's sustainable development.",
-    
-    // Mission  
-    "about.mission.title": "Mission",
-    "about.mission.point1": "Deliver accurate, comprehensive, and timely business information for Japanese executives operating in Thailand.",
-    "about.mission.point2": "Provide in-depth reports and analyses that can be used to support strategic planning and execution.",
-    "about.mission.point3": "Promote understanding of Thailand's business environment and culture, enabling sustainable management practices.",
-    "about.mission.point4": "Support the preservation and expansion of Japanese businesses in Thailand, thereby contributing to mutual growth of both Thai and Japanese economies.",
-    
-    // Value Proposition
-    "about.value.title": "Value Proposition",
-    "about.value.point1": "Reliable local information sources from Thailand",
-    "about.value.point2": "Analytical reports detailed enough for strategic use", 
-    "about.value.point3": "Real-time updates without delay",
-    "about.value.point4": "Editorial and content team with over 10 years of consulting experience, having worked closely with Japanese executives across diverse industries",
-    "about.value.point5": "A sincere start-up spirit aiming to reshape the business landscape and strengthen Japan-Thailand presence",
-    
-    "about.cta.title": "Ready to Transform Your Business?",
-    "about.cta.content": "Join WaLens (和視) today and gain access to the strategic insights that will drive your success in the ASEAN market.",
-    "about.cta.button": "Subscribe Now",
+    // CTA Section
+    "about.cta.title": "Your Judgment Partner in Thailand",
+    "about.cta.content": "WaLens is not just an information source—we are your trusted judgment partner. Let us help you make better decisions with confidence.",
+    "about.cta.button": "Start Your Trial",
 
     // Thailand Key Indicators
     "bi.keyIndicators.title": "Thailand Key Indicators - WaLens",
@@ -1095,57 +1132,94 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.description": "タイのダイナミックな不動産市場における商業用不動産、REIT、都市開発トレンドを探索します。",
     "insights.realestate.category": "不動産部門",
 
+    // Why WaLens Section (Landing Page) - Japanese
+    "whyWaLens.title": "なぜWaLensか？",
+    "whyWaLens.chatgpt": "ChatGPTはすべてを教えてくれます。",
+    "whyWaLens.walens": "WaLensは、タイにおける日本人経営者にとって本当に重要なことを伝えます。",
+    "whyWaLens.point1.title": "意思決定フィルター",
+    "whyWaLens.point1.description": "タイにおける日本人経営者の意思決定の視点から情報をフィルタリング。",
+    "whyWaLens.point2.title": "コンテキスト対応",
+    "whyWaLens.point2.description": "タイで日本企業が直面する固有の課題に合わせたインサイトを提供。",
+    "whyWaLens.point3.title": "実行可能な解釈",
+    "whyWaLens.point3.description": "事実を報告するだけでなく、ビジネス上の意思決定にとって何を意味するかを解釈。",
+    "whyWaLens.point4.title": "信頼できる判断",
+    "whyWaLens.point4.description": "タイで日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
+
     // About page - Company Profile (Japanese)
-    "about.title": "WaLens (和視) について - 会社概要",
-    "about.description": "WaLens (和視) について - ASEANビジネスを解き明かす日本の視座",
+    "about.title": "WaLens (和視) について - 意思決定支援プラットフォーム",
+    "about.description": "WaLensは日本人経営者向けのプレミアム意思決定支援プラットフォームです。ニュースメディアではなく、判断レイヤーです。",
     "about.hero.title": "WaLens (和視) について",
-    "about.hero.subtitle": "ASEANビジネスを解き明かす日本の視座",
-    "about.hero.cta": "コミュニティに参加",
-    "about.narrative.title": "私たちの物語",
-    "about.narrative.content": "WaLensの使命は明確です。\n**あなたのビジネス成功を支援し、日タイパートナーシップを強化すること。**\n\n私たちは、今日のビジネス環境が新たな課題を抱えていることを理解しています。貿易政策や関税の変化、中国からの激化する競争など、グローバルな動向の変化により、タイの日本企業はますます複雑な環境に直面しています。\n\nこれまで効果的だった従来のアプローチも、こうした変化する現実に適応していく必要があります。この急速に変化する世界において、競争優位性を維持するためには、タイムリーで正確なインサイトへのアクセスがこれまで以上に重要になっています。\n\nだからこそ、WaLensは存在します。\n私たちは**迅速で深いインサイト**を提供し、情報に基づいた戦略的な意思決定を支援します。より良い情報を提供することで、より強固な戦略の構築とより強靭な未来の確保をお手伝いします。\n\n私たちのサービスは卓越した価値を提供します。それがもたらす競争優位性と比較すれば、わずかな投資です。\n適切な情報に基づいた一つの意思決定が、あなたのビジネスの軌道を大きく変え、日本のタイでの継続的な成功を強化することができるのです。\n\nWaLensは単なるニュースサービスを超えた存在です。\n私たちは **今日の課題を乗り越え、明日の機会で共に繁栄する** ための戦略的パートナーなのです。",
+    "about.hero.subtitle": "タイへの投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォーム。",
+    "about.hero.cta": "無料トライアルを開始",
+    
+    // Key Message (Japanese)
+    "about.keyMessage.chatgpt": "ChatGPTはすべてを教えてくれます。",
+    "about.keyMessage.walens": "WaLensは、タイにおける日本人経営者にとって本当に重要なことを伝えます。",
+    
+    // Definition Section (Japanese)
+    "about.definition.title": "WaLensとは",
+    "about.definition.is.title": "WaLensが提供するもの：",
+    "about.definition.is.point1": "日本人経営者のための意思決定フィルターと判断レイヤー",
+    "about.definition.is.point2": "タイ事業に特化したコンテキスト対応型インテリジェンス",
+    "about.definition.is.point3": "情報を意思決定に関連する形で解釈・翻訳",
+    "about.definition.isNot.title": "WaLensが提供しないもの：",
+    "about.definition.isNot.point1": "一般的なニュースメディアプラットフォーム",
+    "about.definition.isNot.point2": "ChatGPTなどのAIツールの代替",
+    "about.definition.isNot.point3": "経営者のコンテキストを欠いた生データ",
+    
+    // Problem Section (Japanese)
+    "about.problem.title": "経営者が直面する課題",
+    "about.problem.overload.title": "情報過多",
+    "about.problem.overload.description": "特定の意思決定にとって何が重要かが不明確な、終わりのないニュース、レポート、データ。",
+    "about.problem.ai.title": "AIの限界",
+    "about.problem.ai.description": "汎用AIは情報を提供しますが、タイでの経営判断に必要なコンテキストに基づく判断が欠けています。",
+    "about.problem.context.title": "欠落するコンテキスト",
+    "about.problem.context.description": "グローバルなインサイトは、タイにおける日本企業の事業運営に固有のダイナミクスを見落としがちです。",
+    
+    // Japanese Executive Context (Japanese)
+    "about.context.title": "なぜタイの日本人経営者にWaLensが必要なのか",
+    "about.context.paragraph1": "タイで事業を展開する日本企業は、グローバルな情報源では対応できない固有の課題に直面しています。BOI優遇措置や規制変更への対応から、現地の労働市場やサプライチェーンのダイナミクスの理解まで、意思決定には日本人経営者の視点でフィルタリングされたタイ特化型インテリジェンスが必要です。",
+    "about.context.paragraph2": "WaLensはこのギャップを埋めます。私たちは情報だけでなく解釈を提供し、政策変更、市場の変化、業界動向が投資判断、事業戦略、リスク管理に何を意味するかを理解できるよう支援します。",
+    
+    // Value Section (Japanese - updated)
+    "about.value.title": "WaLensが提供する価値",
+    "about.value.filter.title": "意思決定フィルタリング",
+    "about.value.filter.description": "膨大な情報をフィルタリングし、日本人経営者にとって意思決定に関連するものだけを抽出。",
+    "about.value.interpretation.title": "コンテキストに基づく解釈",
+    "about.value.interpretation.description": "タイにおける日本企業の事業運営の視点から事実を解釈。",
+    "about.value.prioritization.title": "戦略的優先順位付け",
+    "about.value.prioritization.description": "投資と事業運営の意思決定への影響に基づいてインサイトを優先順位付け。",
+    "about.value.judgment.title": "信頼できる判断",
+    "about.value.judgment.description": "当チームは10年以上日本人経営者にアドバイスしてきた実績があり、信頼できる判断を提供。",
+    
+    // Decisions Section (Japanese)
+    "about.decisions.title": "WaLensがサポートする意思決定",
+    "about.decisions.investment.title": "投資判断",
+    "about.decisions.investment.description": "タイにおける市場参入、事業拡大、M&A、資本配分。",
+    "about.decisions.regulation.title": "規制対応",
+    "about.decisions.regulation.description": "BOI優遇措置、税制、労働法、コンプライアンス変更。",
+    "about.decisions.risk.title": "リスク管理",
+    "about.decisions.risk.description": "タイにおける政治、経済、事業運営リスクの評価。",
+    "about.decisions.operations.title": "事業戦略",
+    "about.decisions.operations.description": "サプライチェーン、労働力、ビジネスモデルに関する意思決定。",
     
     // Company Profile Table (Japanese)
     "about.profile.title": "会社概要",
-    
-    // Origin of the Name (Japanese)
-    "about.origin.title": "名前の由来",
-    "about.origin.content": "「WaLens」という名称は、二つの要素を組み合わせています。\n- 「Wa（和）」は、日本、調和、協力を象徴します。\n- 「Lens」は、視点、明確さ、深い洞察を意味します。\n\nこの二つを合わせた「WaLens」は「日本のレンズ」を意味し、日本企業の経営者に対し、タイおよびASEANのビジネス環境を明確かつ深く理解できる視点を提供します。\nそれは、日タイの架け橋となり、新たなビジネスチャンスを発見し、持続的な成長を実現するという私たちの使命を体現しています。",
     "about.profile.company": "会社名",
     "about.profile.founded": "設立",
     "about.profile.headquarters": "本社所在地", 
     "about.profile.business": "事業内容",
     "about.profile.team": "編集チーム",
-    "about.profile.identity": "アイデンティティ / コアメッセージ",
-    
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025年",
     "about.profile.headquarters.value": "タイ・バンコク",
-    "about.profile.business.value": "日本企業の経営者向けに、戦略的意思決定に資する特別なインサイトニュースおよび産業レポートを提供。",
-    "about.profile.team.value": "多様な業界で日本企業経営層と10年以上にわたり協働してきた経験豊富な経営コンサルタントチームで構成。",
-    "about.profile.identity.value": "WaLensは、オープンかつ誠実なスタートアップとして、ビジネスの世界を変革し、日タイ両国のプレゼンスを再び大きく高めることを目指しています。",
+    "about.profile.business.value": "タイで事業を展開する日本人経営者向けに、戦略的インテリジェンスと判断を提供する意思決定支援プラットフォーム。",
+    "about.profile.team.value": "タイで多様な業界の日本人経営者に10年以上アドバイスしてきた経験豊富な経営コンサルタントで構成。",
     
-    // Vision (Japanese)
-    "about.vision.title": "ビジョン",
-    "about.vision.content": "タイと日本をつなぐ情報基盤を構築し、革新的なソリューションを導入することで、タイの社会的・経済的課題の解決と持続可能な発展に貢献する。",
-    
-    // Mission (Japanese)
-    "about.mission.title": "ミッション",
-    "about.mission.point1": "タイで事業を展開する日本企業の経営者に、正確で包括的かつタイムリーなビジネス情報を提供する。",
-    "about.mission.point2": "戦略立案・実行に活用できる深度あるレポートと分析を発信する。",
-    "about.mission.point3": "タイのビジネス環境と文化への理解を促進し、持続的なマネジメントを支援する。",
-    "about.mission.point4": "日本企業のタイにおけるプレゼンス維持・拡大を支援し、両国経済の相互成長に寄与する。",
-    
-    // Value Proposition (Japanese)
-    "about.value.title": "バリュープロポジション",
-    "about.value.point1": "信頼できるタイ現地の情報ソース",
-    "about.value.point2": "戦略利用に十分な深度を備えた分析レポート", 
-    "about.value.point3": "遅延のないリアルタイムの情報提供",
-    "about.value.point4": "10年以上にわたり日本企業経営層と協働してきたコンサルタント出身の編集チーム",
-    "about.value.point5": "ビジネスの世界を変革し、日タイのプレゼンスを強化することを目指す誠実なスタートアップの精神",
-    
-    "about.cta.title": "ビジネスを変革する準備はできていますか？",
-    "about.cta.content": "今すぐWaLens (和視) に参加し、ASEAN市場での成功を促進する戦略的インサイトにアクセスしましょう。",
-    "about.cta.button": "今すぐ購読",
+    // CTA Section (Japanese)
+    "about.cta.title": "タイにおける判断パートナー",
+    "about.cta.content": "WaLensは単なる情報源ではありません。私たちはあなたの信頼できる判断パートナーです。自信を持ってより良い意思決定ができるようお手伝いします。",
+    "about.cta.button": "無料トライアルを開始",
 
     // Terms of Service (Japanese)
     "terms.title": "利用規約 - WaLens Asia News",
