@@ -7,12 +7,29 @@ import InsightSidebar from '@/components/InsightSidebar';
 import Breadcrumb from '@/components/Breadcrumb';
 import SEO from "@/components/SEO";
 import { useI18n } from "@/i18n/I18nProvider";
+import { Badge } from "@/components/ui/badge";
+import { FileText, Crown } from "lucide-react";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const Manufacturing = () => {
-  const title = "Manufacturing Insights | Harmony";
-  const description =
-    "Manufacturing insights for Thailand–Japan supply chains: incentives, localization, and Tier-2 suppliers.";
+  const { t, lang } = useI18n();
+  const isJapanese = lang === 'ja';
+  const title = isJapanese ? "製造業インサイト | WaLens" : "Manufacturing Insights | WaLens";
+  const description = isJapanese 
+    ? "タイ・日本サプライチェーンの製造業インサイト：インセンティブ、ローカライズ、Tier-2サプライヤー戦略。"
+    : "Manufacturing insights for Thailand–Japan supply chains: incentives, localization, and Tier-2 suppliers.";
+
+  const premiumReports = [
+    {
+      title: isJapanese ? "タイEV・バッテリー産業 プレミアムレポート" : "Thailand EV & Battery Industry Premium Report",
+      description: isJapanese 
+        ? "日系企業向けのEVバッテリー産業の包括的分析。市場構造、政策インセンティブ、リスク機会、戦略的示唆を含む。"
+        : "Comprehensive analysis of EV battery industry for Japanese enterprises. Includes market structure, policy incentives, risk-opportunity assessment, and strategic implications.",
+      category: isJapanese ? "プレミアムレポート" : "Premium Report",
+      lastUpdated: "2025-01",
+      link: "/insights/manufacturing/ev-battery"
+    }
+  ];
 
   const articles = [
     {
@@ -92,8 +109,46 @@ const Manufacturing = () => {
           <div className="grid lg:grid-cols-4 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-3">
+              {/* Premium Reports Section */}
+              <section className="mb-12">
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <Crown className="h-6 w-6 text-amber-500" />
+                  {isJapanese ? 'プレミアムレポート' : 'Premium Reports'}
+                </h2>
+                <div className="grid gap-6">
+                  {premiumReports.map((report, index) => (
+                    <Link 
+                      key={index} 
+                      to={report.link}
+                      className="block p-6 rounded-lg border-2 border-amber-500/30 bg-gradient-to-r from-amber-500/5 to-transparent hover:border-amber-500/50 hover:shadow-lg transition-all"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-lg bg-amber-500/10">
+                          <FileText className="h-8 w-8 text-amber-600" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Badge className="bg-amber-500 text-white hover:bg-amber-600">
+                              <Crown className="h-3 w-3 mr-1" />
+                              {report.category}
+                            </Badge>
+                            <span className="text-xs text-muted-foreground">
+                              {isJapanese ? '最終更新: ' : 'Updated: '}{report.lastUpdated}
+                            </span>
+                          </div>
+                          <h3 className="text-xl font-semibold mb-2">{report.title}</h3>
+                          <p className="text-muted-foreground">{report.description}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+
               <section>
-                <h2 className="text-2xl font-bold mb-6">Latest Manufacturing Intelligence</h2>
+                <h2 className="text-2xl font-bold mb-6">
+                  {isJapanese ? '最新製造業インテリジェンス' : 'Latest Manufacturing Intelligence'}
+                </h2>
                 <div className="grid gap-6 sm:grid-cols-2 mb-12">
                   {articles.map((article, index) => (
                     <InsightArticleCard key={index} {...article} />
