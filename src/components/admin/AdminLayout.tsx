@@ -26,7 +26,11 @@ const adminNavItems = [
   { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
 ];
 
-export const AdminLayout: React.FC = () => {
+interface AdminLayoutProps {
+  children?: React.ReactNode;
+}
+
+export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   const { user, loading: authLoading } = useAuth();
   const { userContext, loading: paywallLoading } = usePaywall();
   const navigate = useNavigate();
@@ -115,7 +119,7 @@ export const AdminLayout: React.FC = () => {
 
         {/* Main Content */}
         <main className="flex-1 p-6">
-          <Outlet />
+          {children || <Outlet />}
         </main>
       </div>
     </div>
