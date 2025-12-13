@@ -837,19 +837,7 @@ export type Database = {
       }
     }
     Views: {
-      premium_usage_summary: {
-        Row: {
-          action_type: Database["public"]["Enums"]["premium_action_type"] | null
-          industry_category: string | null
-          month: string | null
-          report_slug: string | null
-          report_title: string | null
-          total_actions: number | null
-          unique_companies: number | null
-          unique_users: number | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       can_view_full_article: {
@@ -866,6 +854,19 @@ export type Database = {
           flag_reason: string
           flag_type: string
           severity: string
+        }[]
+      }
+      get_premium_usage_summary: {
+        Args: { from_date?: string; to_date?: string }
+        Returns: {
+          action_type: Database["public"]["Enums"]["premium_action_type"]
+          industry_category: string
+          month: string
+          report_slug: string
+          report_title: string
+          total_actions: number
+          unique_companies: number
+          unique_users: number
         }[]
       }
       get_user_role: {

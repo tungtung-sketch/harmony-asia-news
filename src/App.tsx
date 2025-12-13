@@ -40,6 +40,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
+import PremiumAnalyticsPage from "./pages/admin/PremiumAnalyticsPage";
 
 const queryClient = new QueryClient();
 
@@ -88,6 +89,8 @@ const App = () => (
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/faq" element={<FAQ />} />
+              {/* Admin Routes */}
+              <Route path="/admin/premium-analytics" element={<PremiumAnalyticsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
