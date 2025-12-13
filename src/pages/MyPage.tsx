@@ -15,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { supabase } from '@/integrations/supabase/client';
 import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe } from 'lucide-react';
 import SavedArticles from '@/components/SavedArticles';
+import { InsightReadingHistory } from '@/components/InsightReadingHistory';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
 import { CancellationModal } from '@/components/CancellationModal';
@@ -696,6 +697,9 @@ const MyPage = () => {
 
             {/* Saved Articles / Bookmarks */}
             <SavedArticles />
+
+            {/* Insight Report Reading History */}
+            <InsightReadingHistory />
 
             {/* Reading History */}
             <Card>
