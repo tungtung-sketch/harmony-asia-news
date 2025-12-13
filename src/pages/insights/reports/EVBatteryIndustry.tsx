@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,6 +7,7 @@ import SEO from '@/components/SEO';
 import { useI18n } from '@/i18n/I18nProvider';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePaywall } from '@/hooks/usePaywall';
+import { usePremiumActionLogger } from '@/hooks/usePremiumActionLogger';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -58,12 +59,14 @@ const EVBatteryIndustry = () => {
   const { lang } = useI18n();
   const { user } = useAuth();
   const { canViewArticle } = usePaywall();
+  const { logView, logDataAccess } = usePremiumActionLogger();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
   const [expandedDeepDive, setExpandedDeepDive] = useState<string | null>(null);
   const [deepDiveMode, setDeepDiveMode] = useState<'summary' | 'deep' | 'full'>('summary');
   const [tocOpen, setTocOpen] = useState(false);
   const [readingMode, setReadingMode] = useState<ReadingMode>('updates');
+  const [hasLoggedView, setHasLoggedView] = useState(false);
 
   // Fetch living updates for this report
   const { updates, loading: updatesLoading, lastUpdateDate, updateCount30Days } = useLivingUpdates('ev-battery-industry');
@@ -72,6 +75,31 @@ const EVBatteryIndustry = () => {
   const hasFullAccess = access.canViewFull;
 
   const isJapanese = lang === 'ja';
+
+  // Log view when premium user accesses the report
+  useEffect(() => {
+    if (hasFullAccess && !hasLoggedView) {
+      logView(
+        'ev-battery-industry',
+        isJapanese ? 'タイEV・バッテリー産業レポート' : 'Thailand EV & Battery Industry Report',
+        'manufacturing',
+        lang
+      );
+      setHasLoggedView(true);
+    }
+  }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  // Handler for data appendix access logging
+  const handleDataAppendixAccess = () => {
+    if (hasFullAccess) {
+      logDataAccess(
+        'ev-battery-industry',
+        isJapanese ? 'タイEV・バッテリー産業レポート' : 'Thailand EV & Battery Industry Report',
+        'manufacturing',
+        lang
+      );
+    }
+  };
 
   // Scroll to section handler
   const scrollToSection = (sectionId: string) => {
