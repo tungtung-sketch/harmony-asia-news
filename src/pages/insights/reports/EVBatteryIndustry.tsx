@@ -1292,8 +1292,8 @@ These signals should be incorporated into quarterly Thailand market reviews. Whe
             { label: isJapanese ? 'EV・バッテリー産業' : 'EV & Battery Industry' }
           ]} />
 
-          {/* Floating TOC Button (Mobile) */}
-          <div className="fixed bottom-4 right-4 z-50 md:hidden">
+          {/* Floating TOC Button (Mobile & Tablet) */}
+          <div className="fixed bottom-4 right-4 z-50 xl:hidden">
             <Collapsible open={tocOpen} onOpenChange={setTocOpen}>
               <CollapsibleTrigger asChild>
                 <Button size="lg" className="rounded-full shadow-lg">
@@ -1316,8 +1316,8 @@ These signals should be incorporated into quarterly Thailand market reviews. Whe
             </Collapsible>
           </div>
 
-          {/* Desktop TOC Sidebar */}
-          <div className="hidden lg:block fixed left-4 top-32 w-48 z-40">
+          {/* Desktop TOC Sidebar - only show on xl+ to avoid overlay on iPad */}
+          <div className="hidden xl:block fixed left-4 top-32 w-48 z-40">
             <Card className="p-3">
               <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">
                 {isJapanese ? '目次' : 'Contents'}
