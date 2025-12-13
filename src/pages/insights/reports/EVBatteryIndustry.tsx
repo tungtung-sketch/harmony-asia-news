@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { 
-  Download, 
   FileText, 
   TrendingUp, 
   TrendingDown, 
@@ -27,20 +26,17 @@ import {
   Lock
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
-import { toast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import { PdfDownloadButton } from '@/components/insights/PdfDownloadButton';
 
 const EVBatteryIndustry = () => {
-  const { lang, t } = useI18n();
+  const { lang } = useI18n();
   const { user } = useAuth();
-  const { userContext, canViewArticle } = usePaywall();
+  const { canViewArticle } = usePaywall();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
-  const [isDownloading, setIsDownloading] = useState(false);
 
   const access = canViewArticle('premium');
   const hasFullAccess = access.canViewFull;
-  const canDownloadPdf = access.canDownloadPdf;
 
   const isJapanese = lang === 'ja';
 
@@ -263,60 +259,51 @@ const EVBatteryIndustry = () => {
     }
   };
 
-  const handleDownloadPdf = async () => {
-    if (!user) {
-      setIsLoginOpen(true);
-      return;
-    }
-
-    if (!canDownloadPdf) {
-      toast({
-        title: isJapanese ? "プレミアム会員限定" : "Premium Members Only",
-        description: isJapanese 
-          ? "PDFダウンロードにはプレミアムプランへのアップグレードが必要です。" 
-          : "Please upgrade to Premium plan to download PDF reports.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsDownloading(true);
-    try {
-      const { data: session } = await supabase.auth.getSession();
-      const response = await supabase.functions.invoke('generate-insight-pdf', {
-        body: {
-          reportId: 'ev-battery-industry',
-          language: lang,
-          userEmail: user.email,
-        },
-      });
-
-      if (response.error) {
-        throw new Error(response.error.message);
+  // Build report content for PDF generation
+  const buildReportContent = () => ({
+    title: isJapanese ? content.title.ja : content.title.en,
+    category: isJapanese ? content.category.ja : content.category.en,
+    lastUpdated: content.lastUpdated,
+    executiveSummary: isJapanese ? content.executiveSummary.ja : content.executiveSummary.en,
+    sections: [
+      {
+        title: isJapanese ? content.marketStructure.title.ja : content.marketStructure.title.en,
+        content: (isJapanese ? content.marketStructure.segments.ja : content.marketStructure.segments.en)
+          .map(s => `<strong>${s.name}</strong>: ${s.share} (${s.growth}) - ${s.players}`).join('<br>')
+      },
+      {
+        title: isJapanese ? content.keyPlayers.title.ja : content.keyPlayers.title.en,
+        content: (isJapanese ? content.keyPlayers.data.ja : content.keyPlayers.data.en)
+          .map(p => `<strong>${p.segment}</strong>: ${p.examples} (${p.status})`).join('<br>')
+      },
+      {
+        title: isJapanese ? content.policyInsights.title.ja : content.policyInsights.title.en,
+        content: (isJapanese ? content.policyInsights.items.ja : content.policyInsights.items.en)
+          .map(p => `<strong>${p.policy}</strong><br>${isJapanese ? '公式' : 'Official'}: ${p.official}<br>${isJapanese ? '実務的示唆' : 'Practical'}: ${p.practical}`).join('<br><br>')
+      },
+      {
+        title: isJapanese ? content.opportunities.title.ja : content.opportunities.title.en,
+        content: (isJapanese ? content.opportunities.items.ja : content.opportunities.items.en)
+          .map((item, i) => `${i + 1}. ${item}`).join('<br>')
+      },
+      {
+        title: isJapanese ? content.risks.title.ja : content.risks.title.en,
+        content: (isJapanese ? content.risks.items.ja : content.risks.items.en)
+          .map((item, i) => `${i + 1}. ${item}`).join('<br>')
+      },
+      {
+        title: isJapanese ? content.strategicImplications.title.ja : content.strategicImplications.title.en,
+        content: `<strong>${isJapanese ? content.strategicImplications.mistakes.title.ja : content.strategicImplications.mistakes.title.en}</strong><br>` +
+          (isJapanese ? content.strategicImplications.mistakes.items.ja : content.strategicImplications.mistakes.items.en)
+            .map((item, i) => `${i + 1}. ${item}`).join('<br>') +
+          `<br><br><strong>${isJapanese ? content.strategicImplications.options.title.ja : content.strategicImplications.options.title.en}</strong><br>` +
+          (isJapanese ? content.strategicImplications.options.items.ja : content.strategicImplications.options.items.en)
+            .map(o => `<strong>${o.option}</strong>: ${o.description}`).join('<br>')
       }
-
-      if (response.data?.pdfUrl) {
-        window.open(response.data.pdfUrl, '_blank');
-        toast({
-          title: isJapanese ? "ダウンロード開始" : "Download Started",
-          description: isJapanese 
-            ? "PDFのダウンロードが開始されました。" 
-            : "Your PDF download has started.",
-        });
-      }
-    } catch (error) {
-      console.error('PDF download error:', error);
-      toast({
-        title: isJapanese ? "エラー" : "Error",
-        description: isJapanese 
-          ? "PDFのダウンロードに失敗しました。後ほど再度お試しください。" 
-          : "Failed to download PDF. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsDownloading(false);
-    }
-  };
+    ],
+    sources: isJapanese ? content.sources.list.ja : content.sources.list.en,
+    disclaimer: isJapanese ? content.disclaimer.ja : content.disclaimer.en,
+  });
 
   const handleSwitchToLogin = () => {
     setIsSignUpOpen(false);
@@ -422,28 +409,11 @@ const EVBatteryIndustry = () => {
                 </div>
 
                 <div className="mt-6">
-                  <Button 
-                    onClick={handleDownloadPdf}
-                    disabled={isDownloading}
-                    className="gap-2"
-                    variant={canDownloadPdf ? "default" : "outline"}
-                  >
-                    {canDownloadPdf ? (
-                      <Download className="h-4 w-4" />
-                    ) : (
-                      <Lock className="h-4 w-4" />
-                    )}
-                    {isDownloading 
-                      ? (isJapanese ? "生成中..." : "Generating...") 
-                      : (isJapanese ? "PDFダウンロード" : "Download PDF")}
-                  </Button>
-                  {!canDownloadPdf && (
-                    <p className="text-xs text-muted-foreground mt-2">
-                      {isJapanese 
-                        ? "PDFダウンロードはプレミアム会員限定です" 
-                        : "PDF download is available for Premium members only"}
-                    </p>
-                  )}
+                  <PdfDownloadButton 
+                    reportId="ev-battery-industry"
+                    reportContent={buildReportContent()}
+                    onLoginRequired={() => setIsLoginOpen(true)}
+                  />
                 </div>
               </div>
             </div>

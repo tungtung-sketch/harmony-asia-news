@@ -218,6 +218,42 @@ export type Database = {
         }
         Relationships: []
       }
+      insight_reports: {
+        Row: {
+          created_at: string | null
+          id: string
+          last_content_update: string | null
+          pdf_enabled: boolean | null
+          report_slug: string
+          title_en: string
+          title_ja: string
+          updated_at: string | null
+          watermark_text: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          last_content_update?: string | null
+          pdf_enabled?: boolean | null
+          report_slug: string
+          title_en: string
+          title_ja: string
+          updated_at?: string | null
+          watermark_text?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          last_content_update?: string | null
+          pdf_enabled?: boolean | null
+          report_slug?: string
+          title_en?: string
+          title_ja?: string
+          updated_at?: string | null
+          watermark_text?: string | null
+        }
+        Relationships: []
+      }
       newsletter_opens: {
         Row: {
           id: string
@@ -321,6 +357,72 @@ export type Database = {
           preferred_language?: Database["public"]["Enums"]["language_code"]
           segment?: string | null
           subscribed_at?: string
+        }
+        Relationships: []
+      }
+      pdf_cache: {
+        Row: {
+          content_version: string
+          created_at: string | null
+          expires_at: string
+          id: string
+          language: string
+          report_slug: string
+          storage_path: string
+          user_id: string
+        }
+        Insert: {
+          content_version: string
+          created_at?: string | null
+          expires_at: string
+          id?: string
+          language?: string
+          report_slug: string
+          storage_path: string
+          user_id: string
+        }
+        Update: {
+          content_version?: string
+          created_at?: string | null
+          expires_at?: string
+          id?: string
+          language?: string
+          report_slug?: string
+          storage_path?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      pdf_downloads: {
+        Row: {
+          downloaded_at: string | null
+          id: string
+          ip_hash: string | null
+          language: string
+          report_slug: string
+          user_company: string | null
+          user_email: string
+          user_id: string
+        }
+        Insert: {
+          downloaded_at?: string | null
+          id?: string
+          ip_hash?: string | null
+          language: string
+          report_slug: string
+          user_company?: string | null
+          user_email: string
+          user_id: string
+        }
+        Update: {
+          downloaded_at?: string | null
+          id?: string
+          ip_hash?: string | null
+          language?: string
+          report_slug?: string
+          user_company?: string | null
+          user_email?: string
+          user_id?: string
         }
         Relationships: []
       }
