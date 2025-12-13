@@ -1,5 +1,6 @@
 import { businessTips } from './businessTips';
 import { fetchWalensNews, WalensNews } from '@/sheetNews';
+import { supabase } from '@/integrations/supabase/client';
 
 export interface SearchResult {
   id: string;
@@ -7,12 +8,14 @@ export interface SearchResult {
   titleJa: string;
   description: string;
   descriptionJa: string;
-  type: 'article' | 'tip' | 'insight' | 'bi';
+  type: 'article' | 'tip' | 'insight' | 'bi' | 'premium-report';
   category: string;
   categoryJa: string;
   url: string;
   readTime?: string;
   image?: string;
+  isPremium?: boolean;
+  lastUpdated?: string;
 }
 
 // Business Intelligence data
@@ -133,6 +136,22 @@ const insightsResults: SearchResult[] = [
   },
 ];
 
+// Premium Insight Reports
+const premiumInsightResults: SearchResult[] = [
+  {
+    id: 'premium-ev-battery',
+    title: 'Thailand EV & Battery Industry Intelligence Report',
+    titleJa: 'タイEV・バッテリー産業 インテリジェンスレポート',
+    description: 'Comprehensive analysis of EV battery industry for Japanese enterprises. Includes market structure, policy incentives, risk-opportunity assessment, and strategic implications.',
+    descriptionJa: '日系企業向けのEVバッテリー産業の包括的分析。市場構造、政策インセンティブ、リスク機会評価、戦略的示唆を含む。',
+    type: 'premium-report',
+    category: 'Premium Report - Manufacturing',
+    categoryJa: 'プレミアムレポート - 製造業',
+    url: '/insights/manufacturing/ev-battery',
+    isPremium: true,
+  }
+];
+
 // Convert business tips to search results format
 const businessTipResults: SearchResult[] = businessTips.map(tip => ({
   id: tip.id,
@@ -147,10 +166,11 @@ const businessTipResults: SearchResult[] = businessTips.map(tip => ({
   readTime: tip.readTime
 }));
 
-// Static search data (BI + Insights + Tips)
+// Static search data (BI + Insights + Tips + Premium Reports)
 const staticSearchData: SearchResult[] = [
   ...businessIntelligenceResults,
   ...insightsResults,
+  ...premiumInsightResults,
   ...businessTipResults
 ];
 
