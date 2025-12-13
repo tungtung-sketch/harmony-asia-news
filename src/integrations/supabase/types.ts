@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      anomaly_flags: {
+        Row: {
+          created_at: string | null
+          detected_at: string
+          flag_reason: string
+          flag_type: string
+          id: string
+          is_resolved: boolean | null
+          related_log_ids: string[] | null
+          review_notes: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          severity: string | null
+          user_email: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          detected_at?: string
+          flag_reason: string
+          flag_type: string
+          id?: string
+          is_resolved?: boolean | null
+          related_log_ids?: string[] | null
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          severity?: string | null
+          user_email: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          detected_at?: string
+          flag_reason?: string
+          flag_type?: string
+          id?: string
+          is_resolved?: boolean | null
+          related_log_ids?: string[] | null
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          severity?: string | null
+          user_email?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       article_content: {
         Row: {
           article_id: string
@@ -516,6 +564,57 @@ export type Database = {
         }
         Relationships: []
       }
+      premium_action_logs: {
+        Row: {
+          action_type: Database["public"]["Enums"]["premium_action_type"]
+          company_name: string | null
+          created_at: string | null
+          device_type: string | null
+          id: string
+          industry_category: string | null
+          ip_hash: string | null
+          language: string
+          logged_at: string
+          report_slug: string
+          report_title: string
+          report_version: string | null
+          user_email: string
+          user_id: string
+        }
+        Insert: {
+          action_type: Database["public"]["Enums"]["premium_action_type"]
+          company_name?: string | null
+          created_at?: string | null
+          device_type?: string | null
+          id?: string
+          industry_category?: string | null
+          ip_hash?: string | null
+          language?: string
+          logged_at?: string
+          report_slug: string
+          report_title: string
+          report_version?: string | null
+          user_email: string
+          user_id: string
+        }
+        Update: {
+          action_type?: Database["public"]["Enums"]["premium_action_type"]
+          company_name?: string | null
+          created_at?: string | null
+          device_type?: string | null
+          id?: string
+          industry_category?: string | null
+          ip_hash?: string | null
+          language?: string
+          logged_at?: string
+          report_slug?: string
+          report_title?: string
+          report_version?: string | null
+          user_email?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -738,7 +837,19 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      premium_usage_summary: {
+        Row: {
+          action_type: Database["public"]["Enums"]["premium_action_type"] | null
+          industry_category: string | null
+          month: string | null
+          report_slug: string | null
+          report_title: string | null
+          total_actions: number | null
+          unique_companies: number | null
+          unique_users: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       can_view_full_article: {
@@ -748,6 +859,14 @@ export type Database = {
           user_subscription_tier: string
         }
         Returns: boolean
+      }
+      check_user_anomalies: {
+        Args: { check_user_id: string }
+        Returns: {
+          flag_reason: string
+          flag_type: string
+          severity: string
+        }[]
       }
       get_user_role: {
         Args: { user_email: string; user_subscription_tier?: string }
@@ -761,6 +880,7 @@ export type Database = {
       content_status: "draft" | "published" | "archived"
       content_type: "news" | "analysis" | "thailand_101"
       language_code: "en" | "ja" | "th"
+      premium_action_type: "view" | "download" | "access_data"
       subscription_tier: "free_trial" | "starter" | "business" | "enterprise"
       user_role: "reader" | "editor" | "admin"
     }
@@ -894,6 +1014,7 @@ export const Constants = {
       content_status: ["draft", "published", "archived"],
       content_type: ["news", "analysis", "thailand_101"],
       language_code: ["en", "ja", "th"],
+      premium_action_type: ["view", "download", "access_data"],
       subscription_tier: ["free_trial", "starter", "business", "enterprise"],
       user_role: ["reader", "editor", "admin"],
     },
