@@ -43,10 +43,16 @@ import {
   Calendar,
   Battery,
   TrendingUp as TrendUp,
-  Menu
+  Menu,
+  RefreshCw
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
 import { PdfDownloadButton } from '@/components/insights/PdfDownloadButton';
+import { LivingUpdates } from '@/components/insights/LivingUpdates';
+import { ReadingModeSelector, ReadingMode } from '@/components/insights/ReadingModeSelector';
+import { BaseReportHeader } from '@/components/insights/BaseReportHeader';
+import { RetentionCTA } from '@/components/insights/RetentionCTA';
+import { useLivingUpdates } from '@/hooks/useLivingUpdates';
 
 const EVBatteryIndustry = () => {
   const { lang } = useI18n();
@@ -57,14 +63,28 @@ const EVBatteryIndustry = () => {
   const [expandedDeepDive, setExpandedDeepDive] = useState<string | null>(null);
   const [deepDiveMode, setDeepDiveMode] = useState<'summary' | 'deep' | 'full'>('summary');
   const [tocOpen, setTocOpen] = useState(false);
+  const [readingMode, setReadingMode] = useState<ReadingMode>('updates');
+
+  // Fetch living updates for this report
+  const { updates, loading: updatesLoading, lastUpdateDate, updateCount30Days } = useLivingUpdates('ev-battery-industry');
 
   const access = canViewArticle('premium');
   const hasFullAccess = access.canViewFull;
 
   const isJapanese = lang === 'ja';
 
-  // Table of Contents sections
+  // Scroll to section handler
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTocOpen(false);
+    }
+  };
+
+  // Table of Contents sections - add living-updates at top
   const tocSections = [
+    { id: 'living-updates', label: isJapanese ? '最新動向' : 'Living Updates' },
     { id: 'ceo-brief', label: isJapanese ? 'CEOブリーフ' : 'CEO Brief' },
     { id: 'executive-summary', label: isJapanese ? 'エグゼクティブサマリー' : 'Executive Summary' },
     { id: 'industry-snapshot', label: isJapanese ? '産業スナップショット' : 'Industry Snapshot' },
@@ -1086,13 +1106,8 @@ These signals should be incorporated into quarterly Thailand market reviews. Whe
     setIsSignUpOpen(true);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    setTocOpen(false);
-  };
+
+
 
   const getConfidenceBadge = (level: string) => {
     switch (level) {
@@ -1292,6 +1307,13 @@ These signals should be incorporated into quarterly Thailand market reviews. Whe
             { label: isJapanese ? 'EV・バッテリー産業' : 'EV & Battery Industry' }
           ]} />
 
+          {/* Reading Mode Selector */}
+          <ReadingModeSelector 
+            currentMode={readingMode} 
+            onModeChange={setReadingMode}
+            className="mt-6 mb-4"
+          />
+
           {/* Floating TOC Button (Mobile & Tablet) */}
           <div className="fixed bottom-4 right-4 z-50 xl:hidden">
             <Collapsible open={tocOpen} onOpenChange={setTocOpen}>
@@ -1300,7 +1322,7 @@ These signals should be incorporated into quarterly Thailand market reviews. Whe
                   <Menu className="h-5 w-5" />
                 </Button>
               </CollapsibleTrigger>
-              <CollapsibleContent className="absolute bottom-14 right-0 w-64 bg-background border rounded-lg shadow-xl p-2">
+              <CollapsibleContent className="absolute bottom-14 right-0 w-64 bg-background border rounded-lg shadow-xl p-2 max-h-[60vh] overflow-y-auto">
                 <nav className="space-y-1">
                   {tocSections.map((section) => (
                     <button
@@ -1336,48 +1358,71 @@ These signals should be incorporated into quarterly Thailand market reviews. Whe
             </Card>
           </div>
 
-          {/* Cover Section */}
-          <section className="mb-8 md:mb-12 mt-6 md:mt-8">
-            <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/10 via-background to-primary/5 border p-6 md:p-12">
-              <div className="absolute top-4 right-4 flex gap-2">
-                <Badge variant="default" className="bg-amber-500 hover:bg-amber-600">
-                  {isJapanese ? "プレミアム" : "Premium"}
-                </Badge>
-                <Badge variant="outline">
-                  <FileText className="h-3 w-3 mr-1" />
-                  {isJapanese ? "インサイトレポート" : "Insight Report"}
-                </Badge>
-              </div>
-              
-              <div className="max-w-3xl">
-                <p className="text-sm text-muted-foreground mb-2">
-                  {isJapanese ? content.category.ja : content.category.en}
-                </p>
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
-                  {isJapanese ? content.title.ja : content.title.en}
-                </h1>
-                
-                <div className="flex flex-wrap gap-3 md:gap-4 text-sm text-muted-foreground mt-4 md:mt-6">
-                  <span className="flex items-center gap-1">
-                    <BookOpen className="h-4 w-4" />
-                    {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Building className="h-4 w-4" />
-                    {(isJapanese ? content.sourceOrgs.ja : content.sourceOrgs.en).slice(0, 2).join(", ")}
-                  </span>
-                </div>
-
-                <div className="mt-6">
-                  <PdfDownloadButton 
-                    reportId="ev-battery-industry"
-                    reportContent={buildReportContent()}
-                    onLoginRequired={() => setIsLoginOpen(true)}
-                  />
-                </div>
-              </div>
-            </div>
+          {/* Living Updates Section - Always show first when in updates mode */}
+          <section id="living-updates" className="mb-8 md:mb-12 mt-6 md:mt-8">
+            <LivingUpdates
+              updates={updates}
+              reportSlug="ev-battery-industry"
+              lastUpdateDate={lastUpdateDate || undefined}
+              updateCount30Days={updateCount30Days}
+              onSectionClick={scrollToSection}
+            />
           </section>
+
+          {/* Show content based on reading mode */}
+          {(readingMode === 'base' || readingMode === 'all' || readingMode === 'updates') && (
+            <>
+              {/* Base Report Header */}
+              <BaseReportHeader 
+                version="1.0" 
+                lastUpdated={content.lastUpdated}
+                className="mb-6" 
+              />
+
+              {/* Cover Section */}
+              <section className="mb-8 md:mb-12">
+                <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/10 via-background to-primary/5 border p-6 md:p-12">
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <Badge variant="default" className="bg-amber-500 hover:bg-amber-600">
+                      {isJapanese ? "プレミアム" : "Premium"}
+                    </Badge>
+                    <Badge variant="outline">
+                      <FileText className="h-3 w-3 mr-1" />
+                      {isJapanese ? "ベースレポート" : "Base Report"}
+                    </Badge>
+                  </div>
+                  
+                  <div className="max-w-3xl">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {isJapanese ? content.category.ja : content.category.en}
+                    </p>
+                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
+                      {isJapanese ? content.title.ja : content.title.en}
+                    </h1>
+                    
+                    <div className="flex flex-wrap gap-3 md:gap-4 text-sm text-muted-foreground mt-4 md:mt-6">
+                      <span className="flex items-center gap-1">
+                        <RefreshCw className="h-4 w-4" />
+                        {isJapanese ? "ベースレポート更新" : "Base Report Updated"}: {content.lastUpdated}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Building className="h-4 w-4" />
+                        {(isJapanese ? content.sourceOrgs.ja : content.sourceOrgs.en).slice(0, 2).join(", ")}
+                      </span>
+                    </div>
+
+                    <div className="mt-6">
+                      <PdfDownloadButton 
+                        reportId="ev-battery-industry"
+                        reportContent={buildReportContent()}
+                        onLoginRequired={() => setIsLoginOpen(true)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
 
           {/* CEO Brief Section */}
           <section id="ceo-brief" className="mb-8 md:mb-12">

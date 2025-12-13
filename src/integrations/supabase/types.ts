@@ -220,6 +220,8 @@ export type Database = {
       }
       insight_reports: {
         Row: {
+          base_report_updated_at: string | null
+          base_report_version: string | null
           created_at: string | null
           id: string
           last_content_update: string | null
@@ -231,6 +233,8 @@ export type Database = {
           watermark_text: string | null
         }
         Insert: {
+          base_report_updated_at?: string | null
+          base_report_version?: string | null
           created_at?: string | null
           id?: string
           last_content_update?: string | null
@@ -242,6 +246,8 @@ export type Database = {
           watermark_text?: string | null
         }
         Update: {
+          base_report_updated_at?: string | null
+          base_report_version?: string | null
           created_at?: string | null
           id?: string
           last_content_update?: string | null
@@ -251,6 +257,54 @@ export type Database = {
           title_ja?: string
           updated_at?: string | null
           watermark_text?: string | null
+        }
+        Relationships: []
+      }
+      insight_updates: {
+        Row: {
+          created_at: string | null
+          created_by: string | null
+          description_en: string
+          description_ja: string
+          headline_en: string
+          headline_ja: string
+          id: string
+          is_published: boolean
+          related_section: string | null
+          report_slug: string
+          tag: string | null
+          update_date: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          created_by?: string | null
+          description_en: string
+          description_ja: string
+          headline_en: string
+          headline_ja: string
+          id?: string
+          is_published?: boolean
+          related_section?: string | null
+          report_slug: string
+          tag?: string | null
+          update_date?: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          created_by?: string | null
+          description_en?: string
+          description_ja?: string
+          headline_en?: string
+          headline_ja?: string
+          id?: string
+          is_published?: boolean
+          related_section?: string | null
+          report_slug?: string
+          tag?: string | null
+          update_date?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
