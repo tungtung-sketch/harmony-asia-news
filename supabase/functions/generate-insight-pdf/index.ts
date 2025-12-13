@@ -467,8 +467,8 @@ serve(async (req: Request) => {
         htmlContent: pdfHtml,
         cached: false,
         message: language === 'ja' 
-          ? 'PDFを生成しました。「PDFとして保存」ボタンをクリックしてダウンロードしてください。'
-          : 'PDF generated. Click "Save as PDF" button to download.',
+          ? '新しいタブでPDFプレビューが開きました。右上の「PDFとして保存」ボタンをクリックしてください。'
+          : 'PDF preview opened in new tab. Click the "Save as PDF" button in the top-right corner.',
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
