@@ -185,9 +185,6 @@ const Header = () => {
             <Link to="/insights/manufacturing" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.manufacturing')}
             </Link>
-            <Link to="/insights/manufacturing/ev-battery" className="block py-2 pl-4 text-sm text-muted-foreground hover:text-primary" onClick={closeMenu}>
-              {t('insights.reports.evBattery')}
-            </Link>
             <Link to="/insights/wellness-healthcare" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.wellness')}
             </Link>
@@ -218,9 +215,6 @@ const Header = () => {
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/manufacturing">{t('insights.dropdown.manufacturing')}</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild className="py-2 px-6 focus:bg-muted text-sm">
-              <Link to="/insights/manufacturing/ev-battery">{t('insights.reports.evBattery')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights/wellness-healthcare">{t('insights.dropdown.wellness')}</Link>
