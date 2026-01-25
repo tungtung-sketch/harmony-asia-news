@@ -31,7 +31,7 @@ import {
   Database
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
-import { PdfDownloadButton } from '@/components/insights/PdfDownloadButton';
+
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 
@@ -489,13 +489,6 @@ Whatever path is chosen, the timeline for decision is compressed. The structural
               </span>
             </div>
 
-            {hasFullAccess && (
-              <PdfDownloadButton 
-                reportId="ev-battery-industry"
-                reportContent={buildReportContent()}
-                onLoginRequired={() => setIsLoginOpen(true)}
-              />
-            )}
           </section>
 
           {/* Table of Contents */}
