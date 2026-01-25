@@ -16,7 +16,7 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 const translations: Record<Lang, Translations> = {
   en: {
     // Common
-    "brand.name": "WaLens (和視)",
+    "brand.name": "WaLens",
     "brand.tagline": "Your Japanese lens into ASEAN business",
     "cta.membership": "Membership",
     "search.placeholder": "Search news, tips, insights...",
@@ -641,9 +641,9 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives in Thailand.",
 
     // About page - Company Profile
-    "about.title": "About WaLens (和視) - Decision-Support Platform",
+    "about.title": "About WaLens - Decision-Support Platform",
     "about.description": "WaLens is a premium decision-support platform for Japanese executives in Thailand—not a news media, but a judgment layer.",
-    "about.hero.title": "About WaLens (和視)",
+    "about.hero.title": "About WaLens",
     "about.hero.subtitle": "A premium decision-support platform designed specifically for Japanese executives investing in or operating businesses in Thailand.",
     "about.hero.cta": "Start Your Trial",
     
@@ -744,7 +744,7 @@ const translations: Record<Lang, Translations> = {
   },
   ja: {
     // Common
-    "brand.name": "WaLens (和視)",
+    "brand.name": "WaLens",
     "cta.membership": "メンバーシップ",
     "search.placeholder": "ニュース、インサイトを検索...",
     "search.submit": "検索",
@@ -1146,9 +1146,9 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.description": "タイで日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
 
     // About page - Company Profile (Japanese)
-    "about.title": "WaLens (和視) について - 意思決定支援プラットフォーム",
+    "about.title": "WaLensについて - 意思決定支援プラットフォーム",
     "about.description": "WaLensは日本人経営者向けのプレミアム意思決定支援プラットフォームです。ニュースメディアではなく、判断レイヤーです。",
-    "about.hero.title": "WaLens (和視) について",
+    "about.hero.title": "WaLensについて",
     "about.hero.subtitle": "タイへの投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォーム。",
     "about.hero.cta": "無料トライアルを開始",
     
@@ -1474,7 +1474,7 @@ const translations: Record<Lang, Translations> = {
   },
   th: {
     // Common
-    "brand.name": "WaLens (和視)",
+    "brand.name": "WaLens",
     "brand.tagline": "มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
     "cta.membership": "สมาชิก",
     "search.placeholder": "ค้นหาข่าว...",
@@ -1568,9 +1568,9 @@ const translations: Record<Lang, Translations> = {
     "subscribe.metaDescription": "ทดลองใช้ฟรี 1 เดือน จากนั้นรายเดือน/รายปี",
 
     // About page - Company Profile (Thai)
-    "about.title": "เกี่ยวกับ WaLens (和視) - ข้อมูลบริษัท",
-    "about.description": "เรียนรู้เกี่ยวกับ WaLens (和視) - มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
-    "about.hero.title": "เกี่ยวกับ WaLens (和視)",
+    "about.title": "เกี่ยวกับ WaLens - ข้อมูลบริษัท",
+    "about.description": "เรียนรู้เกี่ยวกับ WaLens - มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
+    "about.hero.title": "เกี่ยวกับ WaLens",
     "about.hero.subtitle": "มุมมองญี่ปุ่นสู่ธุรกิจอาเซียน",
     "about.hero.cta": "เข้าร่วมชุมชนของเรา",
     "about.narrative.title": "เรื่องราวของเรา",
