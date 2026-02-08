@@ -109,6 +109,13 @@ const reportMetadata: Record<string, {
     description: "Thailand's energy transformation 2025–2030: PDP 2024 mandating 51% RE, Direct PPA liberalization, hydrogen/ammonia co-firing via AZEC, data center cooling, V2G ecosystem, and Eastern CCS Hub — strategic blueprint for Japanese executives.",
     descriptionJa: 'タイのエネルギー変革2025–2030：PDP 2024でRE 51%義務化、Direct PPA自由化、AZECを通じた水素/アンモニア混焼、データセンター冷却、V2Gエコシステム、東部CCSハブ——日系企業経営者のための戦略青写真。',
     link: '/insights/services/energy-industry'
+  },
+  'automotive-industry': {
+    industry: 'Manufacturing',
+    industryJa: '製造業',
+    description: "Thailand's automotive strategic realignment 2026: from 'Detroit of Asia' to 'Social Issue Solution Market.' Chinese EV surge (>80% BEV share), Multi-Pathway defense, 5 interconnected industries (Elderly Care, Food, Electronics, Education), Tier-2/3 supply chain crisis, and hydrogen logistics pivot for Japanese executives.",
+    descriptionJa: 'タイ自動車産業の構造転換2026：「アジアのデトロイト」から「社会課題解決型市場」へ。中国EVの台頭（BEVシェア80%超）、マルチパスウェイ防衛、5つの連関産業（高齢者ケア・食品・電子機器・教育）、Tier-2/3サプライチェーン危機、水素ロジスティクスピボット。',
+    link: '/insights/manufacturing/automotive-industry'
   }
 };
 

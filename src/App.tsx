@@ -36,6 +36,7 @@ import Decarbonization from "./pages/insights/reports/Decarbonization";
 import ChemicalIndustry from "./pages/insights/reports/ChemicalIndustry";
 import FoodIndustry from "./pages/insights/reports/FoodIndustry";
 import EnergyIndustry from "./pages/insights/reports/EnergyIndustry";
+import AutomotiveIndustry from "./pages/insights/reports/AutomotiveIndustry";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
@@ -105,6 +106,7 @@ const App = () => (
               <Route path="/insights/manufacturing/chemical-industry" element={<ChemicalIndustry />} />
               <Route path="/insights/agriculture/food-industry" element={<FoodIndustry />} />
               <Route path="/insights/services/energy-industry" element={<EnergyIndustry />} />
+              <Route path="/insights/manufacturing/automotive-industry" element={<AutomotiveIndustry />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
