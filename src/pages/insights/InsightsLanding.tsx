@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InsightHero from '@/components/InsightHero';
@@ -24,10 +25,23 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
+const VALID_FILTERS = ['all', 'manufacturing', 'services', 'agriculture', 'healthcare', 'real-estate'];
+
 const InsightsLanding = () => {
   const { t, lang } = useI18n();
   const { reports, loading } = useInsightReports();
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const filterParam = searchParams.get('filter') || 'all';
+  const activeFilter = VALID_FILTERS.includes(filterParam) ? filterParam : 'all';
+
+  const handleFilterChange = (value: string) => {
+    if (value === 'all') {
+      setSearchParams({});
+    } else {
+      setSearchParams({ filter: value });
+    }
+  };
 
   const isJapanese = lang === 'ja';
   const title = isJapanese ? 'インサイトレポート一覧 | WaLens' : 'Insight Reports Directory | WaLens';
@@ -95,7 +109,7 @@ const InsightsLanding = () => {
             </div>
 
             {/* Filter Tabs */}
-            <Tabs defaultValue="all" className="mb-6" onValueChange={setActiveFilter}>
+            <Tabs value={activeFilter} className="mb-6" onValueChange={handleFilterChange}>
               <TabsList className="flex flex-wrap h-auto gap-1 bg-transparent p-0">
                 {industries.map(ind => (
                   <TabsTrigger 
