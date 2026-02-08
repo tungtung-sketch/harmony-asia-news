@@ -629,8 +629,8 @@ const translations: Record<Lang, Translations> = {
 
     // Why WaLens Section (Landing Page)
     "whyWaLens.title": "Why WaLens?",
-    "whyWaLens.chatgpt": "ChatGPT tells you everything.",
-    "whyWaLens.walens": "WaLens tells you what actually matters for Japanese executives in Thailand.",
+    "whyWaLens.chatgpt": "Information is everywhere. But relevance is rare.",
+    "whyWaLens.walens": "WaLens delivers what actually matters for Japanese executives in Thailand.",
     "whyWaLens.point1.title": "Decision Filter",
     "whyWaLens.point1.description": "We filter information through the lens of Japanese executive decision-making in Thailand.",
     "whyWaLens.point2.title": "Context-Aware",
@@ -640,80 +640,54 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.title": "Trusted Judgment",
     "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives in Thailand.",
 
-    // About page - Company Profile
-    "about.title": "About WaLens - Decision-Support Platform",
-    "about.description": "WaLens is a premium decision-support platform for Japanese executives in Thailand—not a news media, but a judgment layer.",
-    "about.hero.title": "About WaLens",
-    "about.hero.subtitle": "A premium decision-support platform designed specifically for Japanese executives investing in or operating businesses in Thailand.",
-    "about.hero.cta": "Start Your Trial",
+    // About page
+    "about.title": "About WaLens - Executive Intelligence for Thailand",
+    "about.description": "WaLens is a premium decision-support platform for Japanese executives in Thailand. We filter, interpret, and prioritize information for executive-level judgment.",
+    "about.hero.title": "Intelligence That Serves Decision-Makers",
+    "about.hero.subtitle": "WaLens is a premium decision-support platform designed for Japanese executives investing in or operating businesses in Thailand.",
     
-    // Key Message
-    "about.keyMessage.chatgpt": "ChatGPT tells you everything.",
-    "about.keyMessage.walens": "WaLens tells you what actually matters for Japanese executives in Thailand.",
+    // Mission
+    "about.mission.paragraph1": "In today's information environment, the challenge is not access—it is relevance. Japanese executives in Thailand need more than news feeds and generic summaries. They need intelligence that reflects the local regulatory landscape, the nuances of Thai-Japanese business relations, and the priorities of executive-level decision-making. WaLens exists to provide that layer of judgment.",
     
     // Definition Section
-    "about.definition.title": "What WaLens Is",
-    "about.definition.is.title": "WaLens IS:",
-    "about.definition.is.point1": "A decision-filter and judgment layer for Japanese executives",
-    "about.definition.is.point2": "Context-aware intelligence tailored to Thailand operations",
-    "about.definition.is.point3": "Interpretation that translates information into decision relevance",
-    "about.definition.isNot.title": "WaLens is NOT:",
-    "about.definition.isNot.point1": "A general news media platform",
-    "about.definition.isNot.point2": "A replacement for AI tools like ChatGPT",
-    "about.definition.isNot.point3": "Raw data without executive context",
+    "about.definition.title": "What WaLens Is — and Is Not",
+    "about.definition.is.title": "WaLens provides:",
+    "about.definition.is.point1": "A judgment layer that filters and prioritizes information for Japanese executives",
+    "about.definition.is.point2": "Context-aware intelligence rooted in Thailand's regulatory, economic, and industry landscape",
+    "about.definition.is.point3": "Executive-level interpretation — not just summaries, but what information means for your decisions",
+    "about.definition.is.point4": "Insights shaped by Japanese business governance perspectives and local Thailand expertise",
+    "about.definition.isNot.title": "WaLens is not:",
+    "about.definition.isNot.point1": "A general news media or information aggregation platform",
+    "about.definition.isNot.point2": "A substitute for professional advisory — we complement, not replace, your existing counsel",
+    "about.definition.isNot.point3": "Raw data or unfiltered information without executive context",
     
-    // Problem Section
-    "about.problem.title": "The Challenge Executives Face",
-    "about.problem.overload.title": "Information Overload",
-    "about.problem.overload.description": "Endless news, reports, and data without clarity on what matters for your specific decisions.",
-    "about.problem.ai.title": "AI Limitations",
-    "about.problem.ai.description": "General AI provides information but lacks the contextual judgment needed for executive decisions in Thailand.",
-    "about.problem.context.title": "Missing Context",
-    "about.problem.context.description": "Global insights often miss the unique dynamics of Japanese business operations in Thailand.",
-    
-    // Japanese Executive Context
-    "about.context.title": "Why Japanese Executives in Thailand Need WaLens",
-    "about.context.paragraph1": "Japanese companies operating in Thailand face unique challenges that global information sources cannot address. From navigating BOI incentives and regulatory changes to understanding local labor markets and supply chain dynamics, the decisions you make require Thailand-specific intelligence filtered through a Japanese executive perspective.",
-    "about.context.paragraph2": "WaLens bridges this gap. We provide not just information, but interpretation—helping you understand what policy changes, market shifts, and industry developments actually mean for your investment decisions, operational strategies, and risk management.",
-    
-    // Value Section (updated)
+    // Value Section
     "about.value.title": "How WaLens Adds Value",
-    "about.value.filter.title": "Decision Filtering",
-    "about.value.filter.description": "We filter vast amounts of information to surface only what is decision-relevant for Japanese executives.",
+    "about.value.filter.title": "Noise Reduction",
+    "about.value.filter.description": "We surface only what is decision-relevant, saving executives from information overload across multiple sources.",
     "about.value.interpretation.title": "Contextual Interpretation",
-    "about.value.interpretation.description": "We interpret facts through the lens of Japanese business operations in Thailand.",
+    "about.value.interpretation.description": "Every insight is interpreted through the lens of Japanese business operations and governance in Thailand.",
     "about.value.prioritization.title": "Strategic Prioritization",
-    "about.value.prioritization.description": "We prioritize insights based on impact to your investment and operational decisions.",
+    "about.value.prioritization.description": "We prioritize based on impact to investment decisions, regulatory exposure, and operational risk.",
     "about.value.judgment.title": "Trusted Judgment",
-    "about.value.judgment.description": "Our team has 10+ years advising Japanese executives, providing judgment you can rely on.",
-    
-    // Decisions Section
-    "about.decisions.title": "Decisions We Support",
-    "about.decisions.investment.title": "Investment Decisions",
-    "about.decisions.investment.description": "Market entry, expansion, M&A, and capital allocation in Thailand.",
-    "about.decisions.regulation.title": "Regulatory Response",
-    "about.decisions.regulation.description": "BOI incentives, tax policy, labor law, and compliance changes.",
-    "about.decisions.risk.title": "Risk Management",
-    "about.decisions.risk.description": "Political, economic, and operational risk assessment for Thailand.",
-    "about.decisions.operations.title": "Operational Strategy",
-    "about.decisions.operations.description": "Supply chain, workforce, and business model decisions.",
+    "about.value.judgment.description": "Our editorial team combines deep Thailand expertise with over a decade of experience advising Japanese executives.",
     
     // Company Profile Table
     "about.profile.title": "Company Profile",
     "about.profile.company": "Company Name",
     "about.profile.founded": "Founded",
     "about.profile.headquarters": "Headquarters", 
-    "about.profile.business": "Business Content",
+    "about.profile.business": "Business Description",
     "about.profile.team": "Editorial Team",
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025",
     "about.profile.headquarters.value": "Bangkok, Thailand",
-    "about.profile.business.value": "Decision-support platform providing strategic intelligence and judgment for Japanese executives operating in Thailand.",
-    "about.profile.team.value": "Comprised of experienced business consultants with over 10 years advising Japanese executives across diverse industries in Thailand.",
+    "about.profile.business.value": "A decision-support platform providing strategic intelligence and executive-level judgment for Japanese businesses operating in Thailand.",
+    "about.profile.team.value": "Experienced business consultants with over 10 years advising Japanese executives across diverse industries in Thailand.",
     
     // CTA Section
-    "about.cta.title": "Your Judgment Partner in Thailand",
-    "about.cta.content": "WaLens is not just an information source—we are your trusted judgment partner. Let us help you make better decisions with confidence.",
+    "about.cta.title": "Your Trusted Decision Partner in Thailand",
+    "about.cta.content": "WaLens helps you spend less time gathering information and more time making confident, well-informed decisions.",
     "about.cta.button": "Start Your Trial",
 
     // Thailand Key Indicators
@@ -1134,8 +1108,8 @@ const translations: Record<Lang, Translations> = {
 
     // Why WaLens Section (Landing Page) - Japanese
     "whyWaLens.title": "なぜWaLensか？",
-    "whyWaLens.chatgpt": "ChatGPTはすべてを教えてくれます。",
-    "whyWaLens.walens": "WaLensは、タイにおける日本人経営者にとって本当に重要なことを伝えます。",
+    "whyWaLens.chatgpt": "情報はどこにでもあります。しかし、本当に必要な情報は限られています。",
+    "whyWaLens.walens": "WaLensは、タイにおける日本人経営者にとって本当に重要なことだけをお届けします。",
     "whyWaLens.point1.title": "意思決定フィルター",
     "whyWaLens.point1.description": "タイにおける日本人経営者の意思決定の視点から情報をフィルタリング。",
     "whyWaLens.point2.title": "コンテキスト対応",
@@ -1145,63 +1119,37 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.title": "信頼できる判断",
     "whyWaLens.point4.description": "タイで日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
 
-    // About page - Company Profile (Japanese)
-    "about.title": "WaLensについて - 意思決定支援プラットフォーム",
-    "about.description": "WaLensは日本人経営者向けのプレミアム意思決定支援プラットフォームです。ニュースメディアではなく、判断レイヤーです。",
-    "about.hero.title": "WaLensについて",
-    "about.hero.subtitle": "タイへの投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォーム。",
-    "about.hero.cta": "無料トライアルを開始",
+    // About page (Japanese)
+    "about.title": "WaLensについて - 経営判断のためのインテリジェンス",
+    "about.description": "WaLensは、タイで事業を展開する日本人経営者のためのプレミアム意思決定支援プラットフォームです。情報のフィルタリング、解釈、優先順位付けを通じて、経営レベルの判断を支援します。",
+    "about.hero.title": "意思決定者のためのインテリジェンス",
+    "about.hero.subtitle": "WaLensは、タイへの投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォームです。",
     
-    // Key Message (Japanese)
-    "about.keyMessage.chatgpt": "ChatGPTはすべてを教えてくれます。",
-    "about.keyMessage.walens": "WaLensは、タイにおける日本人経営者にとって本当に重要なことを伝えます。",
+    // Mission (Japanese)
+    "about.mission.paragraph1": "今日の情報環境における課題は、情報へのアクセスではなく、その「関連性」にあります。タイで活動する日本人経営者には、ニュースフィードや汎用的な要約以上のものが必要です。現地の規制環境、日タイビジネス関係の機微、そして経営レベルの意思決定の優先順位を反映したインテリジェンスが求められます。WaLensは、その判断のレイヤーを提供するために存在しています。",
     
     // Definition Section (Japanese)
-    "about.definition.title": "WaLensとは",
+    "about.definition.title": "WaLensとは — そうでないもの",
     "about.definition.is.title": "WaLensが提供するもの：",
-    "about.definition.is.point1": "日本人経営者のための意思決定フィルターと判断レイヤー",
-    "about.definition.is.point2": "タイ事業に特化したコンテキスト対応型インテリジェンス",
-    "about.definition.is.point3": "情報を意思決定に関連する形で解釈・翻訳",
+    "about.definition.is.point1": "日本人経営者のために情報をフィルタリングし、優先順位をつける判断レイヤー",
+    "about.definition.is.point2": "タイの規制・経済・産業環境に根ざしたコンテキスト対応型インテリジェンス",
+    "about.definition.is.point3": "単なる要約ではなく、情報が意思決定に何を意味するかを示す経営レベルの解釈",
+    "about.definition.is.point4": "日本のビジネスガバナンスの視点とタイ現地の専門知識に基づくインサイト",
     "about.definition.isNot.title": "WaLensが提供しないもの：",
-    "about.definition.isNot.point1": "一般的なニュースメディアプラットフォーム",
-    "about.definition.isNot.point2": "ChatGPTなどのAIツールの代替",
-    "about.definition.isNot.point3": "経営者のコンテキストを欠いた生データ",
+    "about.definition.isNot.point1": "一般的なニュースメディアや情報集約プラットフォーム",
+    "about.definition.isNot.point2": "専門的なアドバイザリーの代替 — 既存の助言機能を補完するものです",
+    "about.definition.isNot.point3": "経営者のコンテキストを欠いた生データや未加工の情報",
     
-    // Problem Section (Japanese)
-    "about.problem.title": "経営者が直面する課題",
-    "about.problem.overload.title": "情報過多",
-    "about.problem.overload.description": "特定の意思決定にとって何が重要かが不明確な、終わりのないニュース、レポート、データ。",
-    "about.problem.ai.title": "AIの限界",
-    "about.problem.ai.description": "汎用AIは情報を提供しますが、タイでの経営判断に必要なコンテキストに基づく判断が欠けています。",
-    "about.problem.context.title": "欠落するコンテキスト",
-    "about.problem.context.description": "グローバルなインサイトは、タイにおける日本企業の事業運営に固有のダイナミクスを見落としがちです。",
-    
-    // Japanese Executive Context (Japanese)
-    "about.context.title": "なぜタイの日本人経営者にWaLensが必要なのか",
-    "about.context.paragraph1": "タイで事業を展開する日本企業は、グローバルな情報源では対応できない固有の課題に直面しています。BOI優遇措置や規制変更への対応から、現地の労働市場やサプライチェーンのダイナミクスの理解まで、意思決定には日本人経営者の視点でフィルタリングされたタイ特化型インテリジェンスが必要です。",
-    "about.context.paragraph2": "WaLensはこのギャップを埋めます。私たちは情報だけでなく解釈を提供し、政策変更、市場の変化、業界動向が投資判断、事業戦略、リスク管理に何を意味するかを理解できるよう支援します。",
-    
-    // Value Section (Japanese - updated)
+    // Value Section (Japanese)
     "about.value.title": "WaLensが提供する価値",
-    "about.value.filter.title": "意思決定フィルタリング",
-    "about.value.filter.description": "膨大な情報をフィルタリングし、日本人経営者にとって意思決定に関連するものだけを抽出。",
+    "about.value.filter.title": "ノイズの削減",
+    "about.value.filter.description": "意思決定に関連する情報のみを抽出し、複数の情報源からの情報過多を解消します。",
     "about.value.interpretation.title": "コンテキストに基づく解釈",
-    "about.value.interpretation.description": "タイにおける日本企業の事業運営の視点から事実を解釈。",
+    "about.value.interpretation.description": "タイにおける日本企業の事業運営とガバナンスの視点から、すべてのインサイトを解釈します。",
     "about.value.prioritization.title": "戦略的優先順位付け",
-    "about.value.prioritization.description": "投資と事業運営の意思決定への影響に基づいてインサイトを優先順位付け。",
+    "about.value.prioritization.description": "投資判断、規制リスク、事業運営への影響に基づいてインサイトを優先順位付けします。",
     "about.value.judgment.title": "信頼できる判断",
-    "about.value.judgment.description": "当チームは10年以上日本人経営者にアドバイスしてきた実績があり、信頼できる判断を提供。",
-    
-    // Decisions Section (Japanese)
-    "about.decisions.title": "WaLensがサポートする意思決定",
-    "about.decisions.investment.title": "投資判断",
-    "about.decisions.investment.description": "タイにおける市場参入、事業拡大、M&A、資本配分。",
-    "about.decisions.regulation.title": "規制対応",
-    "about.decisions.regulation.description": "BOI優遇措置、税制、労働法、コンプライアンス変更。",
-    "about.decisions.risk.title": "リスク管理",
-    "about.decisions.risk.description": "タイにおける政治、経済、事業運営リスクの評価。",
-    "about.decisions.operations.title": "事業戦略",
-    "about.decisions.operations.description": "サプライチェーン、労働力、ビジネスモデルに関する意思決定。",
+    "about.value.judgment.description": "編集チームは、タイの深い専門知識と10年以上にわたる日本人経営者へのアドバイス経験を兼ね備えています。",
     
     // Company Profile Table (Japanese)
     "about.profile.title": "会社概要",
@@ -1213,12 +1161,12 @@ const translations: Record<Lang, Translations> = {
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025年",
     "about.profile.headquarters.value": "タイ・バンコク",
-    "about.profile.business.value": "タイで事業を展開する日本人経営者向けに、戦略的インテリジェンスと判断を提供する意思決定支援プラットフォーム。",
+    "about.profile.business.value": "タイで事業を展開する日本人経営者向けに、戦略的インテリジェンスと経営レベルの判断を提供する意思決定支援プラットフォーム。",
     "about.profile.team.value": "タイで多様な業界の日本人経営者に10年以上アドバイスしてきた経験豊富な経営コンサルタントで構成。",
     
     // CTA Section (Japanese)
-    "about.cta.title": "タイにおける判断パートナー",
-    "about.cta.content": "WaLensは単なる情報源ではありません。私たちはあなたの信頼できる判断パートナーです。自信を持ってより良い意思決定ができるようお手伝いします。",
+    "about.cta.title": "タイにおける信頼の意思決定パートナー",
+    "about.cta.content": "WaLensは、情報収集に費やす時間を減らし、確信を持った的確な意思決定に集中するための支援を提供します。",
     "about.cta.button": "無料トライアルを開始",
 
     // Terms of Service (Japanese)
