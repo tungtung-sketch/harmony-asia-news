@@ -36,7 +36,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to WaLens admin
     const emailResponse = await resend.emails.send({
       from: "WaLens Contact <onboarding@resend.dev>",
-      to: ["tungtungtutungtung@gmail.com"],
+      to: ["contact@walensnews.com"],
       subject: `[WaLens Contact Form] New message from ${email}`,
       html: `
         <h2>New Contact Form Submission</h2>
