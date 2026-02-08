@@ -35,6 +35,7 @@ import BigDataAI from "./pages/insights/reports/BigDataAI";
 import Decarbonization from "./pages/insights/reports/Decarbonization";
 import ChemicalIndustry from "./pages/insights/reports/ChemicalIndustry";
 import FoodIndustry from "./pages/insights/reports/FoodIndustry";
+import EnergyIndustry from "./pages/insights/reports/EnergyIndustry";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
@@ -103,6 +104,7 @@ const App = () => (
               <Route path="/insights/services/decarbonization" element={<Decarbonization />} />
               <Route path="/insights/manufacturing/chemical-industry" element={<ChemicalIndustry />} />
               <Route path="/insights/agriculture/food-industry" element={<FoodIndustry />} />
+              <Route path="/insights/services/energy-industry" element={<EnergyIndustry />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

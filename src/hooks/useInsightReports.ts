@@ -102,6 +102,13 @@ const reportMetadata: Record<string, {
     description: "Thailand's food revolution: from 'Kitchen of the World' to 'Pharmacy of the World.' Future Food, functional ingredients, alternative proteins, Halal hub strategy, and automation imperatives for Japanese enterprises.",
     descriptionJa: 'タイの食品革命：「世界の台所」から「世界の薬局」へ。フューチャーフード、機能性食品原料、代替タンパク質、ハラールハブ戦略、日系企業向け自動化の必然性。',
     link: '/insights/agriculture/food-industry'
+  },
+  'energy-industry': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: "Thailand's energy transformation 2025–2030: PDP 2024 mandating 51% RE, Direct PPA liberalization, hydrogen/ammonia co-firing via AZEC, data center cooling, V2G ecosystem, and Eastern CCS Hub — strategic blueprint for Japanese executives.",
+    descriptionJa: 'タイのエネルギー変革2025–2030：PDP 2024でRE 51%義務化、Direct PPA自由化、AZECを通じた水素/アンモニア混焼、データセンター冷却、V2Gエコシステム、東部CCSハブ——日系企業経営者のための戦略青写真。',
+    link: '/insights/services/energy-industry'
   }
 };
 
