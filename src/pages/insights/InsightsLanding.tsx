@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InsightHero from '@/components/InsightHero';
@@ -58,14 +57,8 @@ const InsightsLanding = () => {
     reports: reports.filter(r => r.industry.toLowerCase().includes(ind.labelEn.toLowerCase()))
   }));
 
-  // Navigation cards for industry pages
-  const industryCards = [
-    { to: '/insights/manufacturing', label: isJapanese ? '製造業' : 'Manufacturing', icon: Factory, description: isJapanese ? 'サプライチェーン、自動化、インダストリー4.0' : 'Supply chain, automation, Industry 4.0' },
-    { to: '/insights/services', label: isJapanese ? 'サービス' : 'Services', icon: Building2, description: isJapanese ? 'デジタル変革、金融サービス' : 'Digital transformation, financial services' },
-    { to: '/insights/wellness-healthcare', label: isJapanese ? 'ウェルネス・ヘルスケア' : 'Wellness / Healthcare', icon: Heart, description: isJapanese ? '医療技術、ウェルネスツーリズム' : 'Medical tech, wellness tourism' },
-    { to: '/insights/agriculture', label: isJapanese ? '農業' : 'Agriculture', icon: Leaf, description: isJapanese ? 'アグリテック、持続可能な農業' : 'Agritech, sustainable farming' },
-    { to: '/insights/real-estate', label: isJapanese ? '不動産' : 'Real Estate', icon: Home, description: isJapanese ? '商業不動産、都市開発' : 'Commercial property, urban development' },
-  ];
+
+
 
   return (
     <>
@@ -85,22 +78,6 @@ const InsightsLanding = () => {
 
         <main className="container mx-auto px-4 py-12">
           <Breadcrumb items={[{ label: t('insights.breadcrumb') }]} />
-
-          {/* Industry Navigation Cards */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">{isJapanese ? '業界別インサイト' : 'Industry Focus'}</h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {industryCards.map((item) => (
-                <Link key={item.to} to={item.to} className="group">
-                  <div className="h-full p-5 rounded-lg border bg-card hover:shadow-lg transition-all duration-300 group-hover:border-primary/20">
-                    <item.icon className="h-6 w-6 text-primary mb-3" />
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{item.label}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
 
           {/* Premium Reports Directory */}
           <section className="mb-12">
