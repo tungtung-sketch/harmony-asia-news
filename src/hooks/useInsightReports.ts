@@ -67,6 +67,20 @@ const reportMetadata: Record<string, {
     description: 'Thailand real estate market 2026: Two-speed market dynamics, Japanese J-Quality premium, EEC industrial boom, data center rush, and strategic recommendations for shifting from box-selling to operations.',
     descriptionJa: 'タイ不動産市場2026：二極化市場、日本品質プレミアム、EEC産業用不動産活況、データセンターラッシュ、「ハコ売り」から「運営」への転換提言。',
     link: '/insights/real-estate/market-2026'
+  },
+  'electronics-semiconductor': {
+    industry: 'Manufacturing',
+    industryJa: '製造業',
+    description: 'Thailand electronics & semiconductor industry 2026: PCB investment surge, automotive OSAT upgrading, supply chain realignment from China+1, and strategic recommendations for Japanese manufacturers.',
+    descriptionJa: 'タイ電子機器・半導体産業2026：PCB投資ラッシュ、車載OSAT高度化、チャイナプラスワンによるサプライチェーン再編、日本メーカーへの戦略提言。',
+    link: '/insights/manufacturing/electronics-semiconductor'
+  },
+  'big-data-ai': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: 'Big Data & AI trends in Thailand 2026: Hyperscale cloud regions, risk-tiered AI governance, PDPA enforcement reality, 80,000-person talent gap, and strategic plays for Japanese executives.',
+    descriptionJa: 'タイのビッグデータ＆AI動向2026：ハイパースケールクラウドリージョン、リスク階層型AIガバナンス、PDPA執行の実態、8万人の人材ギャップ、日本企業経営者の戦略的打ち手。',
+    link: '/insights/services/big-data-ai'
   }
 };
 
