@@ -1610,7 +1610,9 @@ const translations: Record<Lang, Translations> = {
      },
 };
 
-export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [lang, setLangState] = useState<Lang>(() => {
     try {
       const stored = localStorage.getItem("lang") as Lang | null;
