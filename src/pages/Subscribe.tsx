@@ -246,10 +246,7 @@ const Subscribe = () => {
         isSignUpOpen={isSignUpOpen}
         isLoginOpen={isLoginOpen}
         onSignUpClose={() => setIsSignUpOpen(false)}
-        onLoginClose={() => {
-          setIsLoginOpen(false);
-          handleAuthSuccess();
-        }}
+        onLoginClose={() => setIsLoginOpen(false)}
         onSwitchToLogin={handleSwitchToLogin}
         onSwitchToSignUp={handleSwitchToSignUp}
       />
