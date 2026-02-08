@@ -95,6 +95,13 @@ const reportMetadata: Record<string, {
     description: 'Thailand chemical industry at the 2025 inflection point: commodity-to-specialty pivot, 5 mega-themes (elderly care, bio-circular, EV materials, KOSEN talent, RCEP gateway), BCG economy model, and strategic roadmap for Japanese chemical firms.',
     descriptionJa: 'タイ化学産業の2025年転換点：コモディティからスペシャリティへの転換、5つのメガテーマ（高齢者ケア、バイオサーキュラー、EV素材、KOSEN人材、RCEPゲートウェイ）、BCG経済モデル、日系化学メーカーの戦略ロードマップ。',
     link: '/insights/manufacturing/chemical-industry'
+  },
+  'food-industry': {
+    industry: 'Agriculture',
+    industryJa: '農業',
+    description: "Thailand's food revolution: from 'Kitchen of the World' to 'Pharmacy of the World.' Future Food, functional ingredients, alternative proteins, Halal hub strategy, and automation imperatives for Japanese enterprises.",
+    descriptionJa: 'タイの食品革命：「世界の台所」から「世界の薬局」へ。フューチャーフード、機能性食品原料、代替タンパク質、ハラールハブ戦略、日系企業向け自動化の必然性。',
+    link: '/insights/agriculture/food-industry'
   }
 };
 
