@@ -45,16 +45,19 @@ const InsightsLanding = () => {
     { id: 'real-estate', label: isJapanese ? '不動産' : 'Real Estate', labelEn: 'Real Estate', icon: Home },
   ];
 
+  // Normalize strings for comparison (remove hyphens/spaces for consistent matching)
+  const normalize = (s: string) => s.toLowerCase().replace(/[-\s]/g, '');
+
   // Filter reports by industry
   const filteredReports = reports.filter(report => {
     if (activeFilter === 'all') return true;
-    return report.industry.toLowerCase().includes(activeFilter.toLowerCase());
+    return normalize(report.industry).includes(normalize(activeFilter));
   });
 
   // Group reports by industry for display
   const reportsByIndustry = industries.slice(1).map(ind => ({
     ...ind,
-    reports: reports.filter(r => r.industry.toLowerCase().includes(ind.labelEn.toLowerCase()))
+    reports: reports.filter(r => normalize(r.industry).includes(normalize(ind.labelEn)))
   }));
 
 
