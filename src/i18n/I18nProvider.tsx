@@ -1614,10 +1614,10 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [lang, setLangState] = useState<Lang>(() => {
     try {
       const stored = localStorage.getItem("lang") as Lang | null;
-      if (stored === "th") return "en";
-      return (stored as Lang) || "en";
+      if (stored === "th") return "ja";
+      return (stored as Lang) || "ja";
     } catch {
-      return "en";
+      return "ja";
     }
   });
 
