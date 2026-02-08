@@ -39,6 +39,13 @@ const reportMetadata: Record<string, {
     description: 'Comprehensive analysis of EV battery industry for Japanese enterprises. Includes market structure, policy incentives, risk-opportunity assessment, and strategic implications.',
     descriptionJa: '日系企業向けのEVバッテリー産業の包括的分析。市場構造、政策インセンティブ、リスク機会評価、戦略的示唆を含む。',
     link: '/insights/manufacturing/ev-battery'
+  },
+  'thailand-market-strategy': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: 'Strategic report redefining Thailand as a third-country market hub and social-issue-solving market. Covers 5 key industries: elderly care, smart home, future food, electronics, and education.',
+    descriptionJa: 'タイを第三国市場ハブ・社会課題解決型市場として再定義する戦略レポート。高齢者ケア、スマートホーム、次世代食品、エレクトロニクス、教育の5産業を詳説。',
+    link: '/insights/reports/thailand-market-strategy'
   }
 };
 
