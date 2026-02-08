@@ -46,6 +46,13 @@ const reportMetadata: Record<string, {
     description: 'Strategic report redefining Thailand as a third-country market hub and social-issue-solving market. Covers 5 key industries: elderly care, smart home, future food, electronics, and education.',
     descriptionJa: 'タイを第三国市場ハブ・社会課題解決型市場として再定義する戦略レポート。高齢者ケア、スマートホーム、次世代食品、エレクトロニクス、教育の5産業を詳説。',
     link: '/insights/reports/thailand-market-strategy'
+  },
+  'wellness-healthcare': {
+    industry: 'Healthcare',
+    industryJa: 'ヘルスケア',
+    description: 'Strategic blueprint for Japanese enterprise in Thailand\'s wellness & healthcare industry. Covers elderly care (Kaigo), wellness real estate, functional food, medical devices, and education with the "Mirror Image Opportunity" thesis.',
+    descriptionJa: 'タイのウェルネス＆ヘルスケア産業における日本企業のための戦略的青写真。介護（Kaigo）、ウェルネス不動産、機能性食品、医療機器、教育を「ミラーイメージ機会」論で詳説。',
+    link: '/insights/wellness-healthcare/wellness-report'
   }
 };
 
