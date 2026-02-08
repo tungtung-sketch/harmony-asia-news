@@ -50,9 +50,23 @@ const reportMetadata: Record<string, {
   'wellness-healthcare': {
     industry: 'Healthcare',
     industryJa: 'ヘルスケア',
-    description: 'Strategic blueprint for Japanese enterprise in Thailand\'s wellness & healthcare industry. Covers elderly care (Kaigo), wellness real estate, functional food, medical devices, and education with the "Mirror Image Opportunity" thesis.',
-    descriptionJa: 'タイのウェルネス＆ヘルスケア産業における日本企業のための戦略的青写真。介護（Kaigo）、ウェルネス不動産、機能性食品、医療機器、教育を「ミラーイメージ機会」論で詳説。',
+    description: 'Strategic blueprint for Japanese enterprise in Thailand\'s wellness & healthcare industry.',
+    descriptionJa: 'タイのウェルネス＆ヘルスケア産業における日本企業のための戦略的青写真。',
     link: '/insights/wellness-healthcare/wellness-report'
+  },
+  'agriculture-industry': {
+    industry: 'Agriculture',
+    industryJa: '農業',
+    description: 'Thailand agriculture sector analysis: compliance, climate & value-add cycle. Covers rice, durian, cassava, poultry, shrimp, rubber with EUDR readiness and strategic plays for Japanese companies.',
+    descriptionJa: 'タイ農業セクター分析：コンプライアンス・気候変動・高付加価値化サイクル。米、ドリアン、キャッサバ、鶏肉、エビ、ゴムのEUDR対応と日本企業の戦略的打ち手。',
+    link: '/insights/agriculture/industry-trends'
+  },
+  'real-estate-market': {
+    industry: 'Real Estate',
+    industryJa: '不動産',
+    description: 'Thailand real estate market 2026: Two-speed market dynamics, Japanese J-Quality premium, EEC industrial boom, data center rush, and strategic recommendations for shifting from box-selling to operations.',
+    descriptionJa: 'タイ不動産市場2026：二極化市場、日本品質プレミアム、EEC産業用不動産活況、データセンターラッシュ、「ハコ売り」から「運営」への転換提言。',
+    link: '/insights/real-estate/market-2026'
   }
 };
 
