@@ -81,6 +81,20 @@ const reportMetadata: Record<string, {
     description: 'Big Data & AI trends in Thailand 2026: Hyperscale cloud regions, risk-tiered AI governance, PDPA enforcement reality, 80,000-person talent gap, and strategic plays for Japanese executives.',
     descriptionJa: 'タイのビッグデータ＆AI動向2026：ハイパースケールクラウドリージョン、リスク階層型AIガバナンス、PDPA執行の実態、8万人の人材ギャップ、日本企業経営者の戦略的打ち手。',
     link: '/insights/services/big-data-ai'
+  },
+  'decarbonization': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: 'Thailand decarbonization 2026: NDC 3.0 net-zero by 2050, carbon tax THB 200/tCO₂e, Climate Change Act with ETS/CBAM, green electricity procurement (UGT/Direct PPA), and carbon credit market architecture for Japanese operations.',
+    descriptionJa: 'タイ脱炭素化2026：NDC 3.0で2050年ネットゼロ、炭素税THB 200/tCO₂e、ETS/CBAM付き気候変動法、グリーン電力調達（UGT/Direct PPA）、日系企業向けカーボンクレジット市場構造。',
+    link: '/insights/services/decarbonization'
+  },
+  'chemical-industry': {
+    industry: 'Manufacturing',
+    industryJa: '製造業',
+    description: 'Thailand chemical industry at the 2025 inflection point: commodity-to-specialty pivot, 5 mega-themes (elderly care, bio-circular, EV materials, KOSEN talent, RCEP gateway), BCG economy model, and strategic roadmap for Japanese chemical firms.',
+    descriptionJa: 'タイ化学産業の2025年転換点：コモディティからスペシャリティへの転換、5つのメガテーマ（高齢者ケア、バイオサーキュラー、EV素材、KOSEN人材、RCEPゲートウェイ）、BCG経済モデル、日系化学メーカーの戦略ロードマップ。',
+    link: '/insights/manufacturing/chemical-industry'
   }
 };
 

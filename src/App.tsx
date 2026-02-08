@@ -32,6 +32,8 @@ import AgricultureIndustry from "./pages/insights/reports/AgricultureIndustry";
 import RealEstateMarket from "./pages/insights/reports/RealEstateMarket";
 import ElectronicsSemiconductor from "./pages/insights/reports/ElectronicsSemiconductor";
 import BigDataAI from "./pages/insights/reports/BigDataAI";
+import Decarbonization from "./pages/insights/reports/Decarbonization";
+import ChemicalIndustry from "./pages/insights/reports/ChemicalIndustry";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
@@ -97,6 +99,8 @@ const App = () => (
               <Route path="/insights/real-estate/market-2026" element={<RealEstateMarket />} />
               <Route path="/insights/manufacturing/electronics-semiconductor" element={<ElectronicsSemiconductor />} />
               <Route path="/insights/services/big-data-ai" element={<BigDataAI />} />
+              <Route path="/insights/services/decarbonization" element={<Decarbonization />} />
+              <Route path="/insights/manufacturing/chemical-industry" element={<ChemicalIndustry />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
