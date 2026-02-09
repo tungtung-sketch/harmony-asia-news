@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
@@ -7,9 +7,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import SEO from '@/components/SEO';
 import { PasswordValidation, validatePassword, isPasswordValid } from '@/components/PasswordValidation';
-import { Eye, EyeOff, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, CheckCircle, AlertCircle, Loader2, RotateCcw } from 'lucide-react';
 
 type Lang = 'ja' | 'en';
+type PageState = 'loading' | 'ready' | 'success' | 'error';
 
 const i18n: Record<string, Record<Lang, string>> = {
   pageTitle: { ja: 'パスワードリセット', en: 'Password Reset' },
@@ -36,13 +37,29 @@ const i18n: Record<string, Record<Lang, string>> = {
   passwordValidationError: { ja: 'パスワードがセキュリティ要件を満たしていません', en: 'Password does not meet security requirements' },
   unexpectedError: { ja: '予期しないエラーが発生しました', en: 'An unexpected error occurred' },
   defaultError: {
-    ja: 'パスワードリセットリンクが無効または期限切れです。もう一度お試しください。',
-    en: 'The password reset link is invalid or has expired. Please try again.',
+    ja: 'パスワードリセットリンクが無効または期限切れです。新しいリセットメールをリクエストしてください。',
+    en: 'The password reset link is invalid or has expired. Please request a new reset email.',
+  },
+  otpExpired: {
+    ja: 'リセットリンクの有効期限が切れました。新しいリセットメールをリクエストしてください。',
+    en: 'Your reset link has expired. Please request a new reset email.',
+  },
+  accessDenied: {
+    ja: 'アクセスが拒否されました。リンクが既に使用されたか、無効です。新しいリセットメールをリクエストしてください。',
+    en: 'Access denied. The link may have already been used or is invalid. Please request a new reset email.',
+  },
+  resendEmail: { ja: 'リセットメールを再送信', en: 'Resend Reset Email' },
+  resendPrompt: { ja: 'メールアドレスを入力してください', en: 'Enter your email address' },
+  resendSending: { ja: '送信中...', en: 'Sending...' },
+  resendSuccess: {
+    ja: 'リセットメールを送信しました。メールをご確認ください。',
+    en: 'Reset email sent. Please check your inbox.',
   },
 };
 
 const ResetPassword = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
 
   const [lang, setLang] = useState<Lang>(() => {
@@ -56,47 +73,132 @@ const ResetPassword = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [pageState, setPageState] = useState<'loading' | 'ready' | 'success' | 'error'>('loading');
+  const [pageState, setPageState] = useState<PageState>('loading');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showResend, setShowResend] = useState(false);
+  const [resendEmail, setResendEmail] = useState('');
+  const [resendLoading, setResendLoading] = useState(false);
 
   useEffect(() => {
-    const hash = window.location.hash || '';
-    const params = new URLSearchParams(hash.startsWith('#') ? hash.slice(1) : hash);
-    const errorDesc = params.get('error_description') || params.get('error');
-    const type = params.get('type');
+    let cancelled = false;
 
-    if (errorDesc) {
-      setPageState('error');
-      setErrorMessage(errorDesc);
-      return;
-    }
+    const initRecovery = async () => {
+      // 1. Check for error in hash (e.g. #error=access_denied&error_code=otp_expired)
+      const hash = window.location.hash || '';
+      if (hash) {
+        const hashParams = new URLSearchParams(hash.slice(1));
+        const errorCode = hashParams.get('error_code') || '';
+        const errorDesc = hashParams.get('error_description') || hashParams.get('error') || '';
 
-    if (type === 'recovery') {
-      setPageState('ready');
-      return;
-    }
+        if (errorDesc || errorCode) {
+          if (!cancelled) {
+            if (errorCode === 'otp_expired') {
+              setErrorMessage(i18n.otpExpired[lang]);
+            } else if (errorCode === 'access_denied' || errorDesc.includes('access_denied')) {
+              setErrorMessage(i18n.accessDenied[lang]);
+            } else {
+              setErrorMessage(decodeURIComponent(errorDesc.replace(/\+/g, ' ')) || i18n.defaultError[lang]);
+            }
+            setPageState('error');
+            setShowResend(true);
+          }
+          return;
+        }
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'PASSWORD_RECOVERY') {
-        setPageState('ready');
-      } else if (event === 'SIGNED_IN' && session) {
-        setPageState('ready');
+        // 2. Check for hash tokens (implicit flow): #access_token=...&refresh_token=...&type=recovery
+        const accessToken = hashParams.get('access_token');
+        const refreshToken = hashParams.get('refresh_token');
+        const type = hashParams.get('type');
+
+        if (accessToken && refreshToken && type === 'recovery') {
+          try {
+            const { error } = await supabase.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken,
+            });
+            if (!cancelled) {
+              if (error) {
+                setErrorMessage(error.message);
+                setPageState('error');
+                setShowResend(true);
+              } else {
+                setPageState('ready');
+              }
+            }
+          } catch {
+            if (!cancelled) {
+              setErrorMessage(i18n.unexpectedError[lang]);
+              setPageState('error');
+              setShowResend(true);
+            }
+          }
+          return;
+        }
       }
-    });
 
-    supabase.auth.getSession().then(({ data }) => {
-      if (data?.session) {
-        setPageState('ready');
-      } else {
-        setTimeout(() => {
-          setPageState(prev => prev === 'loading' ? 'error' : prev);
-          setErrorMessage(t('defaultError'));
-        }, 3000);
+      // 3. Check for PKCE code in query params (?code=...)
+      const code = searchParams.get('code');
+      if (code) {
+        try {
+          const { error } = await supabase.auth.exchangeCodeForSession(code);
+          if (!cancelled) {
+            if (error) {
+              setErrorMessage(error.message);
+              setPageState('error');
+              setShowResend(true);
+            } else {
+              setPageState('ready');
+            }
+          }
+        } catch {
+          if (!cancelled) {
+            setErrorMessage(i18n.unexpectedError[lang]);
+            setPageState('error');
+            setShowResend(true);
+          }
+        }
+        return;
       }
-    });
 
-    return () => subscription?.unsubscribe();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+      // 4. Listen for auth state change (PASSWORD_RECOVERY event from Supabase)
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+        if (cancelled) return;
+        if (event === 'PASSWORD_RECOVERY') {
+          setPageState('ready');
+        } else if (event === 'SIGNED_IN' && session) {
+          setPageState('ready');
+        }
+      });
+
+      // 5. Check existing session
+      const { data } = await supabase.auth.getSession();
+      if (!cancelled) {
+        if (data?.session) {
+          setPageState('ready');
+        } else {
+          // Wait a bit for auth state change, then show error
+          setTimeout(() => {
+            if (!cancelled) {
+              setPageState(prev => {
+                if (prev === 'loading') {
+                  setErrorMessage(i18n.defaultError[lang]);
+                  setShowResend(true);
+                  return 'error';
+                }
+                return prev;
+              });
+            }
+          }, 4000);
+        }
+      }
+
+      return () => subscription?.unsubscribe();
+    };
+
+    initRecovery();
+
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePasswordReset = async (e: React.FormEvent) => {
@@ -124,6 +226,24 @@ const ResetPassword = () => {
       toast({ title: t('error'), description: t('unexpectedError'), variant: 'destructive' });
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleResendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!resendEmail) return;
+
+    setResendLoading(true);
+    try {
+      await supabase.functions.invoke('send-reset-email', {
+        body: { email: resendEmail, language: lang },
+      });
+      toast({ title: '✓', description: t('resendSuccess') });
+      setShowResend(false);
+    } catch {
+      toast({ title: t('error'), description: t('unexpectedError'), variant: 'destructive' });
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -179,7 +299,32 @@ const ResetPassword = () => {
                 </div>
                 <h2 className="text-lg font-semibold text-foreground mb-2">{t('invalidLink')}</h2>
                 <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">{errorMessage || t('defaultError')}</p>
-                <Button onClick={() => navigate('/')} className="bg-[hsl(221,39%,11%)] hover:bg-[hsl(221,39%,20%)] text-white">
+
+                {showResend && (
+                  <form onSubmit={handleResendEmail} className="max-w-sm mx-auto mb-6 space-y-3">
+                    <Input
+                      type="email"
+                      placeholder={t('resendPrompt')}
+                      value={resendEmail}
+                      onChange={(e) => setResendEmail(e.target.value)}
+                      required
+                      className="h-10"
+                    />
+                    <Button
+                      type="submit"
+                      disabled={resendLoading}
+                      className="w-full bg-[hsl(221,39%,11%)] hover:bg-[hsl(221,39%,20%)] text-white"
+                    >
+                      {resendLoading ? (
+                        <><Loader2 className="h-4 w-4 mr-2 animate-spin" />{t('resendSending')}</>
+                      ) : (
+                        <><RotateCcw className="h-4 w-4 mr-2" />{t('resendEmail')}</>
+                      )}
+                    </Button>
+                  </form>
+                )}
+
+                <Button variant="outline" onClick={() => navigate('/')}>
                   {t('returnHome')}
                 </Button>
               </div>
