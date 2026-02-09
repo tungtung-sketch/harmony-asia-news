@@ -205,13 +205,20 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
 
     setIsLoading(true);
     try {
-      // Use the published domain for redirect URL so the Supabase verify endpoint
-      // redirects to a URL in the allowed list
-      const redirectUrl = 'https://walens.lovable.app/reset-password';
-      const { error } = await supabase.auth.resetPasswordForEmail(loginData.email, {
-        redirectTo: redirectUrl
+      // Call custom edge function that generates recovery link via admin API
+      // and sends a professional branded email via Resend
+      const { error } = await supabase.functions.invoke('send-reset-email', {
+        body: {
+          email: loginData.email,
+          language: document.documentElement.lang || 'en',
+        },
       });
 
+      if (error) {
+        console.error("Reset email error:", error);
+      }
+
+      // Always show success to avoid email enumeration
       toast({
         title: t("auth.success"),
         description: t("auth.resetEmailSentDescription")
