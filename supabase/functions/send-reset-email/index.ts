@@ -19,7 +19,7 @@ const BRAND = {
   supportEmail: "contact@walensnews.com",
   senderName: "WaLen - editor team",
   senderEmail: "contact@walensnews.com",
-  logoUrl: "https://qyqssdzhwhwagdhxxews.supabase.co/storage/v1/object/public/lovable-uploads/WaLen_Logo_magnifier_inverted.png",
+  logoUrl: "https://walensnews.com/assets/logo-email.png",
 };
 
 interface ResetRequest {
@@ -64,7 +64,15 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
-    const resetUrl = linkData.properties?.action_link || `${BRAND.siteUrl}/reset-password`;
+    let resetUrl = linkData.properties?.action_link || `${BRAND.siteUrl}/reset-password`;
+    
+    // Fix: Supabase may embed the preview URL as redirect_to. Replace it with the production URL.
+    if (resetUrl.includes('redirect_to=')) {
+      resetUrl = resetUrl.replace(
+        /redirect_to=[^&]*/,
+        `redirect_to=${encodeURIComponent(`${BRAND.siteUrl}/reset-password`)}`
+      );
+    }
 
     // Get user name for personalization
     const { data: profile } = await supabaseAdmin
@@ -132,9 +140,9 @@ function buildEmailHtml({
 
           <!-- HEADER -->
           <tr>
-            <td style="background-color:#0f172a;padding:28px 32px;">
+            <td style="background-color:#ffffff;padding:24px 32px;border-bottom:1px solid #e2e8f0;">
               <a href="${BRAND.siteUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-                <img src="${BRAND.logoUrl}" alt="${BRAND.name}" width="120" height="36" style="display:block;height:36px;width:auto;border:0;" />
+                <img src="${BRAND.logoUrl}" alt="${BRAND.name}" width="40" height="40" style="display:inline-block;height:40px;width:40px;border:0;" />
               </a>
             </td>
           </tr>
