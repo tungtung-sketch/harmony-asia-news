@@ -18,7 +18,6 @@ interface ResetEmailRequest {
 const handler = async (req: Request): Promise<Response> => {
   console.log("Reset email request received:", req.method);
 
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -30,8 +29,8 @@ const handler = async (req: Request): Promise<Response> => {
     const isJapanese = language === 'ja';
     
     const subject = isJapanese 
-      ? "パスワードリセットのご案内" 
-      : "Reset Your Password";
+      ? "パスワードリセットのご案内 | WaLen" 
+      : "Reset Your Password | WaLen";
 
     const emailHtml = `
       <!DOCTYPE html>
@@ -41,42 +40,56 @@ const handler = async (req: Request): Promise<Response> => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${subject}</title>
       </head>
-      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-          <img src="https://qyqssdzhwhwagdhxxews.supabase.co/storage/v1/object/public/lovable-uploads/Harmony_Logo_only.png" alt="WaLens" style="height: 60px; margin-bottom: 10px;">
-          <p style="color: #666; margin: 0; font-size: 14px;">${isJapanese ? 'ASEANビジネスを解き明かす日本の視座' : 'Your Japanese lens into ASEAN business'}</p>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 0; background-color: #f4f5f7;">
+        
+        <!-- Dark header banner -->
+        <div style="background-color: hsl(221, 39%, 11%); padding: 24px 32px; border-radius: 8px 8px 0 0;">
+          <img src="https://qyqssdzhwhwagdhxxews.supabase.co/storage/v1/object/public/lovable-uploads/WaLen_Logo_magnifier_inverted.png" alt="WaLens" style="height: 40px; margin-bottom: 12px;">
+          <h1 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.3px;">
+            ${isJapanese ? 'パスワードリセットのご案内' : 'Password Reset'}
+          </h1>
+          <p style="color: rgba(255,255,255,0.5); margin: 4px 0 0 0; font-size: 13px; font-style: italic;">
+            ${isJapanese ? '日本語とグローバル視点のASEANビジネス情報' : 'For Japanese & global executives in Thailand'}
+          </p>
         </div>
         
-        <div style="background: #f8f9fa; padding: 30px; border-radius: 8px; margin-bottom: 30px;">
-          <h1 style="color: #1e293b; margin: 0 0 20px 0; font-size: 24px;">
-            ${isJapanese ? 'パスワードリセットのご案内' : 'Reset Your Password'}
-          </h1>
-          
-          <p style="margin: 0 0 20px 0; color: #64748b; font-size: 16px;">
-            ${isJapanese 
-              ? 'WaLensアカウントのパスワードリセットをご希望の旨、承りました。下記のボタンをクリックして、新しいパスワードを設定してください。' 
-              : 'We received a request to reset your WaLens account password. Click the button below to set a new password.'}
+        <!-- Content area -->
+        <div style="background: #ffffff; padding: 32px; border-radius: 0 0 8px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+          <p style="margin: 0 0 16px 0; color: #1e293b; font-size: 15px;">
+            ${isJapanese ? 'こんにちは、' : 'Hello,'}
           </p>
           
-          <div style="text-align: center; margin: 30px 0;">
+          <p style="margin: 0 0 24px 0; color: #64748b; font-size: 15px;">
+            ${isJapanese 
+              ? 'WaLenアカウントのパスワードリセットをご依頼いただきました。下記のボタンをクリックして、新しいパスワードを設定してください。' 
+              : 'We received a request to reset your WaLen account password. Click the button below to set a new password.'}
+          </p>
+          
+          <div style="text-align: center; margin: 32px 0;">
             <a href="${resetUrl}" 
-               style="display: inline-block; background: linear-gradient(135deg, hsl(221, 39%, 11%), hsl(221, 39%, 25%)); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 16px;">
+               style="display: inline-block; background: hsl(221, 39%, 11%); color: #ffffff; padding: 12px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; letter-spacing: 0.3px;">
               ${isJapanese ? 'パスワードをリセット' : 'Reset Password'}
             </a>
           </div>
           
-          <p style="margin: 20px 0 0 0; color: #64748b; font-size: 14px;">
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;">
+          
+          <p style="margin: 0 0 8px 0; color: #94a3b8; font-size: 13px;">
             ${isJapanese 
-              ? 'このリンクは24時間有効です。パスワードリセットをご希望でない場合は、このメールを無視してください。' 
-              : 'This link will expire in 24 hours. If you did not request a password reset, please ignore this email.'}
+              ? 'このリンクは24時間有効です。' 
+              : 'This link will expire in 24 hours.'}
+          </p>
+          <p style="margin: 0; color: #94a3b8; font-size: 13px;">
+            ${isJapanese 
+              ? 'パスワードリセットをご依頼でない場合は、このメールを無視してください。' 
+              : 'If you did not request a password reset, please ignore this email.'}
           </p>
         </div>
         
-        <div style="text-align: center; color: #94a3b8; font-size: 12px; margin-top: 40px;">
-          <p style="margin: 0;">
-            ${isJapanese 
-              ? '© 2024 WaLens. All rights reserved.' 
-              : '© 2024 WaLens. All rights reserved.'}
+        <!-- Footer -->
+        <div style="text-align: center; padding: 20px 32px;">
+          <p style="color: #94a3b8; font-size: 11px; margin: 0;">
+            © ${new Date().getFullYear()} WaLens. All rights reserved.
           </p>
         </div>
       </body>
@@ -84,7 +97,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "WaLens <onboarding@resend.dev>",
+      from: "WaLen - editor team <contact@walensnews.com>",
       to: [email],
       subject: subject,
       html: emailHtml,
@@ -94,10 +107,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     return new Response(JSON.stringify({ success: true, data: emailResponse }), {
       status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        ...corsHeaders,
-      },
+      headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   } catch (error: any) {
     console.error("Error in send-reset-email function:", error);
