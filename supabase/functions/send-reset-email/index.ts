@@ -16,6 +16,7 @@ const corsHeaders = {
 const BRAND = {
   name: "WaLens",
   siteUrl: "https://walensnews.com",
+  resetPageUrl: "https://walensnews.com/reset-password",
   supportEmail: "contact@walensnews.com",
   senderName: "WaLen - editor team",
   senderEmail: "contact@walensnews.com",
@@ -52,27 +53,37 @@ const handler = async (req: Request): Promise<Response> => {
       type: "recovery",
       email,
       options: {
-        redirectTo: `${BRAND.siteUrl}/reset-password`,
+        redirectTo: BRAND.resetPageUrl,
       },
     });
 
     if (linkError) {
       console.error("Failed to generate recovery link:", linkError);
+      // Return success to avoid email enumeration
       return new Response(JSON.stringify({ success: true }), {
         status: 200,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
     }
 
-    let resetUrl = linkData.properties?.action_link || `${BRAND.siteUrl}/reset-password`;
+    // Build the reset URL from the action_link.
+    // The action_link from generateLink goes through Supabase's /auth/v1/verify endpoint.
+    // Supabase will redirect the user to the redirect_to parameter after verification.
+    // CRITICAL: Force redirect_to to our production reset page to prevent
+    // redirects to lovableproject.com or any preview domain.
+    let resetUrl = linkData.properties?.action_link || BRAND.resetPageUrl;
     
-    // Fix: Supabase may embed the preview URL as redirect_to. Replace it with the production URL.
+    // Replace any redirect_to parameter with our production URL
     if (resetUrl.includes('redirect_to=')) {
       resetUrl = resetUrl.replace(
         /redirect_to=[^&]*/,
-        `redirect_to=${encodeURIComponent(`${BRAND.siteUrl}/reset-password`)}`
+        `redirect_to=${encodeURIComponent(BRAND.resetPageUrl)}`
       );
+    } else if (resetUrl.includes('?')) {
+      resetUrl += `&redirect_to=${encodeURIComponent(BRAND.resetPageUrl)}`;
     }
+
+    console.log("Generated reset URL (sanitized redirect_to):", resetUrl.substring(0, 100) + "...");
 
     // Get user name for personalization
     const { data: profile } = await supabaseAdmin
