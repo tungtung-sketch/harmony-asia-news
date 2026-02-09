@@ -205,36 +205,12 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
 
     setIsLoading(true);
     try {
-      const redirectUrl = `${window.location.origin}/reset-password`;
+      // Use the published domain for redirect URL so the Supabase verify endpoint
+      // redirects to a URL in the allowed list
+      const redirectUrl = 'https://walens.lovable.app/reset-password';
       const { error } = await supabase.auth.resetPasswordForEmail(loginData.email, {
         redirectTo: redirectUrl
       });
-
-      if (error) {
-        toast({
-          title: t("auth.error"),
-          description: error.message,
-          variant: "destructive"
-        });
-        return;
-      }
-
-      // Send custom branded reset email
-      try {
-        const { error: emailError } = await supabase.functions.invoke('send-reset-email', {
-          body: {
-            email: loginData.email,
-            resetUrl: redirectUrl,
-            language: 'en' // Default to English for now
-          }
-        });
-
-        if (emailError) {
-          console.error('Custom email sending failed:', emailError);
-        }
-      } catch (emailError) {
-        console.error('Email function error:', emailError);
-      }
 
       toast({
         title: t("auth.success"),
