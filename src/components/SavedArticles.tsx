@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Trash2, Image } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useBookmarks, Bookmark } from '@/hooks/useBookmarks';
 import { useI18n } from '@/i18n/I18nProvider';
+import { fetchWalensNews } from '@/sheetNews';
 
 interface SavedArticlesProps {
   className?: string;
@@ -14,6 +15,19 @@ interface SavedArticlesProps {
 export const SavedArticles: React.FC<SavedArticlesProps> = ({ className }) => {
   const { bookmarks, loading, removeBookmark } = useBookmarks();
   const { lang } = useI18n();
+  const [liveSlugs, setLiveSlugs] = useState<Set<string> | null>(null);
+
+  useEffect(() => {
+    fetchWalensNews().then(articles => {
+      setLiveSlugs(new Set(articles.map(a => a.slug)));
+    });
+  }, []);
+
+  // Only show bookmarks whose articles still exist in the sheet
+  const filteredBookmarks = useMemo(() => {
+    if (!liveSlugs) return bookmarks; // Still loading sheet data, show all
+    return bookmarks.filter(b => liveSlugs.has(b.article_slug));
+  }, [bookmarks, liveSlugs]);
 
   const formatDateTime = (dateString: string) => {
     return new Date(dateString).toLocaleDateString(lang === 'ja' ? 'ja-JP' : 'en-US', {
@@ -63,15 +77,15 @@ export const SavedArticles: React.FC<SavedArticlesProps> = ({ className }) => {
         <CardTitle className="flex items-center gap-2">
           <Star className="w-5 h-5 text-yellow-500" fill="currentColor" />
           {lang === 'ja' ? '保存した記事' : 'Saved Articles'}
-          {bookmarks.length > 0 && (
+          {filteredBookmarks.length > 0 && (
             <Badge variant="secondary" className="ml-2">
-              {bookmarks.length}
+              {filteredBookmarks.length}
             </Badge>
           )}
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {bookmarks.length === 0 ? (
+        {filteredBookmarks.length === 0 ? (
           <div className="text-center py-8 text-muted-foreground">
             <Star className="w-12 h-12 mx-auto mb-3 opacity-30" />
             <p className="text-sm">
@@ -82,7 +96,7 @@ export const SavedArticles: React.FC<SavedArticlesProps> = ({ className }) => {
           </div>
         ) : (
           <div className="space-y-3">
-            {bookmarks.map((bookmark) => (
+            {filteredBookmarks.map((bookmark) => (
               <BookmarkItem 
                 key={bookmark.id} 
                 bookmark={bookmark}
