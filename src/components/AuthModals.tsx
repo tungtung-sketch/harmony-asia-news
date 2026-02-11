@@ -125,6 +125,18 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
           variant: "destructive"
         });
       } else {
+        // Send branded confirmation email via custom edge function
+        try {
+          await supabase.functions.invoke('send-confirmation-email', {
+            body: {
+              email: signUpData.email,
+              fullName: signUpData.fullName,
+            },
+          });
+        } catch (emailErr) {
+          console.error("Failed to send branded confirmation email:", emailErr);
+        }
+
         toast({
           title: t("auth.checkEmail"),
           description: t("auth.verificationSent")

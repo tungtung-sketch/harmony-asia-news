@@ -48,5 +48,8 @@ verify_jwt = false
 [functions.newsletter-api]
 verify_jwt = false
 
+[functions.send-confirmation-email]
+verify_jwt = false
+
 [functions.generate-insight-pdf]
 verify_jwt = true
