@@ -7,6 +7,7 @@ import { Lock, Crown, User } from 'lucide-react';
 import { useI18n } from '@/i18n/I18nProvider';
 import { AuthModals } from '@/components/AuthModals';
 import { Link } from 'react-router-dom';
+import { trackPaywallHit } from '@/lib/tracker';
 
 interface PaywallGuardProps {
   accessLevel: AccessLevel;
@@ -38,6 +39,13 @@ export const PaywallGuard: React.FC<PaywallGuardProps> = ({
       recordArticleView(articleId);
     }
   }, [articleId, loading, recordArticleView]);
+
+  // Track paywall hit when paywall is displayed
+  React.useEffect(() => {
+    if (!loading && !access.canViewFull) {
+      trackPaywallHit(articleId);
+    }
+  }, [loading, access.canViewFull, articleId]);
 
   // Loading state
   if (loading) {

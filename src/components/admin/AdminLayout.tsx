@@ -24,6 +24,7 @@ const adminNavItems = [
   { href: '/admin/access-matrix', label: 'Access Matrix', icon: Shield },
   { href: '/admin/subscriptions', label: 'Subscriptions', icon: CreditCard },
   { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
+  { href: '/admin/event-analytics', label: 'Event Analytics', icon: BarChart3 },
 ];
 
 interface AdminLayoutProps {

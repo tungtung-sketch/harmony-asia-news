@@ -53,3 +53,6 @@ verify_jwt = false
 
 [functions.generate-insight-pdf]
 verify_jwt = true
+
+[functions.track]
+verify_jwt = false

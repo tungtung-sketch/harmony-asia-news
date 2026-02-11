@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Link } from 'react-router-dom';
 import { PasswordValidation, validatePassword, isPasswordValid } from '@/components/PasswordValidation';
+import { trackSignupStart, trackSignupComplete } from '@/lib/tracker';
 
 interface AuthModalsProps {
   isSignUpOpen: boolean;
@@ -108,6 +109,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
     }
 
     setIsLoading(true);
+    trackSignupStart();
 
     try {
       const { error } = await signUp(signUpData.email, signUpData.password, {
@@ -125,6 +127,7 @@ export const AuthModals: React.FC<AuthModalsProps> = ({
           variant: "destructive"
         });
       } else {
+        trackSignupComplete();
         toast({
           title: t("auth.checkEmail"),
           description: t("auth.verificationSent")

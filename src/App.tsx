@@ -52,6 +52,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
 import PremiumAnalyticsPage from "./pages/admin/PremiumAnalyticsPage";
+import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
+import { PageTracker } from "./components/PageTracker";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,7 @@ const App = () => (
         <AuthProvider>
           <ThemeProvider>
           <BrowserRouter>
+            <PageTracker>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
@@ -113,9 +116,11 @@ const App = () => (
               <Route path="/faq" element={<FAQ />} />
               {/* Admin Routes */}
               <Route path="/admin/premium-analytics" element={<PremiumAnalyticsPage />} />
+              <Route path="/admin/event-analytics" element={<AdminAnalyticsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </PageTracker>
           </BrowserRouter>
           </ThemeProvider>
         </AuthProvider>

@@ -10,6 +10,7 @@ import { Check, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from '@/components/AuthModals';
+import { trackCheckoutStart } from '@/lib/tracker';
 
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
@@ -84,6 +85,7 @@ const Subscribe = () => {
 
     setIsProcessing(true);
     try {
+      trackCheckoutStart(planType);
       const url = paymentLinks[planType];
       if (!url) {
         throw new Error('Missing Stripe Payment Link URL');
