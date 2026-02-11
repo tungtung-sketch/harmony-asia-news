@@ -23,10 +23,16 @@ export const SavedArticles: React.FC<SavedArticlesProps> = ({ className }) => {
     });
   }, []);
 
-  // Only show bookmarks whose articles still exist in the sheet
+  // Only show bookmarks whose articles still exist in the sheet.
+  // Insight report bookmarks (URLs starting with /insights/) are always kept.
   const filteredBookmarks = useMemo(() => {
     if (!liveSlugs) return bookmarks; // Still loading sheet data, show all
-    return bookmarks.filter(b => liveSlugs.has(b.article_slug));
+    return bookmarks.filter(b => {
+      // Preserve insight report bookmarks
+      if (b.article_url?.startsWith('/insights/')) return true;
+      // Check news articles against live sheet data
+      return liveSlugs.has(b.article_slug);
+    });
   }, [bookmarks, liveSlugs]);
 
   const formatDateTime = (dateString: string) => {
