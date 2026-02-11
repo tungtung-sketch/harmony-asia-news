@@ -19,6 +19,25 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               {t('footer.tagline')}
             </p>
+            <div className="mt-4 pt-4 border-t border-border/50">
+              <div className="flex items-start gap-3">
+                <img
+                  src="/assets/LINE_OA_QR_code.png"
+                  alt="LINE Official Account QR Code"
+                  className="w-20 h-20 rounded-md border border-border/50"
+                />
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold text-foreground">LINE公式アカウント</p>
+                  <p className="text-xs text-muted-foreground">ID: @644qbjjv</p>
+                  <p className="text-xs text-muted-foreground leading-snug">
+                    QRコードをスキャンして<br />無料デイリーニュースレター<br />を購読
+                  </p>
+                  <p className="text-[10px] text-muted-foreground/70 leading-snug">
+                    Scan for free trial Daily Newsletter
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Business Intelligence */}
