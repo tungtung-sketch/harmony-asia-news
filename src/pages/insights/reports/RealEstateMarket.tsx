@@ -33,6 +33,8 @@ import {
   Building2
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -61,6 +63,8 @@ const RealEstateMarket = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('real-estate-market', 'Thailand Real Estate Market 2026 Report', 'タイ不動産市場2026レポート', 'Real Estate', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -456,15 +460,18 @@ Note: Avoid new entry into mass-market housing. The sub-฿3M segment faces 70% 
               {isJapanese ? content.subheadline.ja : content.subheadline.en}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1">
-                <FileText className="h-4 w-4" />
-                {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
-              </span>
-              <span className="flex items-center gap-1">
-                <BookOpen className="h-4 w-4" />
-                {isJapanese ? "読了時間：10分" : "10 min read"}
-              </span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <FileText className="h-4 w-4" />
+                  {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
+                </span>
+                <span className="flex items-center gap-1">
+                  <BookOpen className="h-4 w-4" />
+                  {isJapanese ? "読了時間：10分" : "10 min read"}
+                </span>
+              </div>
+              <BookmarkButton article={{ slug: 'real-estate-market', title: isJapanese ? 'タイ不動産市場2026レポート' : 'Thailand Real Estate Market 2026 Report', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/real-estate-market', category: 'Real Estate' }} variant="button" />
             </div>
           </section>
 

@@ -36,6 +36,8 @@ import {
   Users
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -64,6 +66,8 @@ const WellnessHealthcareReport = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('wellness-healthcare', 'Thailand Wellness & Healthcare Industry Report', 'タイ・ウェルネス＆ヘルスケア産業レポート', 'Healthcare', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -510,15 +514,18 @@ The window for establishing market leadership is open but closing. As Thailand a
               {isJapanese ? content.subheadline.ja : content.subheadline.en}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1">
-                <FileText className="h-4 w-4" />
-                {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
-              </span>
-              <span className="flex items-center gap-1">
-                <BookOpen className="h-4 w-4" />
-                {isJapanese ? "読了時間：15分" : "15 min read"}
-              </span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <FileText className="h-4 w-4" />
+                  {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
+                </span>
+                <span className="flex items-center gap-1">
+                  <BookOpen className="h-4 w-4" />
+                  {isJapanese ? "読了時間：15分" : "15 min read"}
+                </span>
+              </div>
+              <BookmarkButton article={{ slug: 'wellness-healthcare', title: isJapanese ? 'タイ・ウェルネス＆ヘルスケア産業レポート' : 'Thailand Wellness & Healthcare Industry Report', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/wellness-healthcare', category: 'Healthcare' }} variant="button" />
             </div>
           </section>
 

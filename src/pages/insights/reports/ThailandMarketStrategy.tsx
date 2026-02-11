@@ -37,6 +37,8 @@ import {
   Users
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 
@@ -68,6 +70,8 @@ const ThailandMarketStrategy = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('thailand-market-strategy', 'Thailand Market Development: New Strategies for Japanese Companies', 'タイ市場開拓：日本企業の新戦略', 'Strategy', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -524,15 +528,18 @@ The most dangerous path is continuing to treat Thailand as a legacy manufacturin
               {isJapanese ? content.subheadline.ja : content.subheadline.en}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1">
-                <FileText className="h-4 w-4" />
-                {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
-              </span>
-              <span className="flex items-center gap-1">
-                <BookOpen className="h-4 w-4" />
-                {isJapanese ? "読了時間：15分" : "15 min read"}
-              </span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <FileText className="h-4 w-4" />
+                  {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
+                </span>
+                <span className="flex items-center gap-1">
+                  <BookOpen className="h-4 w-4" />
+                  {isJapanese ? "読了時間：15分" : "15 min read"}
+                </span>
+              </div>
+              <BookmarkButton article={{ slug: 'thailand-market-strategy', title: isJapanese ? 'タイ市場開拓：日本企業の新戦略' : 'Thailand Market Development: New Strategies', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/thailand-market-strategy', category: 'Strategy' }} variant="button" />
             </div>
           </section>
 

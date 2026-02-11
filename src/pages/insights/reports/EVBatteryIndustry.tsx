@@ -34,6 +34,8 @@ import { AuthModals } from '@/components/AuthModals';
 
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 
 // Hero image import
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -63,6 +65,14 @@ const EVBatteryIndustry = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker(
+    'ev-battery-industry',
+    'Thailand EV & Battery Industry Report',
+    'タイEV・バッテリー産業レポート',
+    'Manufacturing',
+    hasFullAccess
+  );
 
   // Handler for data appendix access logging
   const handleDataAppendixAccess = () => {
@@ -478,15 +488,27 @@ Whatever path is chosen, the timeline for decision is compressed. The structural
               {isJapanese ? content.subheadline.ja : content.subheadline.en}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1">
-                <FileText className="h-4 w-4" />
-                {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
-              </span>
-              <span className="flex items-center gap-1">
-                <BookOpen className="h-4 w-4" />
-                {isJapanese ? "読了時間：10分" : "10 min read"}
-              </span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <FileText className="h-4 w-4" />
+                  {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
+                </span>
+                <span className="flex items-center gap-1">
+                  <BookOpen className="h-4 w-4" />
+                  {isJapanese ? "読了時間：10分" : "10 min read"}
+                </span>
+              </div>
+              <BookmarkButton
+                article={{
+                  slug: 'ev-battery-industry',
+                  title: isJapanese ? 'タイEV・バッテリー産業レポート' : 'Thailand EV & Battery Industry Report',
+                  language: lang === 'ja' ? 'JP' : 'EN',
+                  url: '/insights/manufacturing/ev-battery',
+                  category: 'Manufacturing',
+                }}
+                variant="button"
+              />
             </div>
 
           </section>
