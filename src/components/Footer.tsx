@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <footer className="bg-muted/30 border-t">
       <div className="container mx-auto py-8 md:py-12">
@@ -19,24 +19,18 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               {t('footer.tagline')}
             </p>
-            <div className="mt-4 pt-4 border-t border-border/50">
-              <div className="flex items-start gap-3">
-                <img
-                  src="/assets/LINE_OA_QR_code.png"
-                  alt="LINE Official Account QR Code"
-                  className="w-20 h-20 rounded-md border border-border/50"
-                />
-                <div className="space-y-1">
-                  <p className="text-xs font-semibold text-foreground">LINE公式アカウント</p>
-                  <p className="text-xs text-muted-foreground">ID: @644qbjjv</p>
-                  <p className="text-xs text-muted-foreground leading-snug">
-                    QRコードをスキャンして<br />無料デイリーニュースレター<br />を購読
-                  </p>
-                  <p className="text-[10px] text-muted-foreground/70 leading-snug">
-                    Scan for free trial Daily Newsletter
-                  </p>
-                </div>
-              </div>
+            <div className="mt-4 pt-4 border-t border-border/50 space-y-2">
+              <p className="text-xs font-semibold text-foreground">
+                {lang === 'ja'
+                  ? 'LINE公式アカウントをスキャンして無料デイリーニュースレターを購読'
+                  : 'Scan to subscribe to our free Daily Newsletter'}
+              </p>
+              <p className="text-xs text-muted-foreground">LINE ID: @644qbjjv</p>
+              <img
+                src="/assets/LINE_OA_QR_code.png"
+                alt="LINE Official Account QR Code"
+                className="w-20 h-20 rounded-md border border-border/50"
+              />
             </div>
           </div>
 
