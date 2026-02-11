@@ -425,7 +425,7 @@ const EnergyIndustry = () => {
               <BookmarkButton
                 article={{ slug: 'energy-industry', title: isJapanese ? 'タイ・エネルギー産業変革レポート' : 'Thailand Energy Transformation Report', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/energy-industry', category: 'Services' }}
                 variant="button"
-                className="text-white border-white/30 hover:bg-white/10"
+                className="text-white border-white/50 hover:bg-white/20 bg-white/10"
               />
             </div>
           </div>

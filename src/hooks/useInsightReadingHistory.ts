@@ -36,28 +36,28 @@ export const useInsightReadingHistory = (): InsightReadingHistoryResult => {
       setLoading(true);
       setError(null);
 
-      // Fetch from premium_action_logs (views only)
+      // Fetch from reading_history where URL starts with /insights/
       const { data, error: fetchError } = await supabase
-        .from('premium_action_logs')
-        .select('id, report_slug, report_title, industry_category, logged_at')
+        .from('reading_history')
+        .select('id, article_slug, article_title, category, read_at, article_url')
         .eq('user_id', user.id)
-        .eq('action_type', 'view')
-        .order('logged_at', { ascending: false })
+        .like('article_url', '/insights/%')
+        .order('read_at', { ascending: false })
         .limit(50);
 
       if (fetchError) throw fetchError;
 
-      // Deduplicate by report_slug, keeping most recent
+      // Deduplicate by article_slug, keeping most recent
       const uniqueReports = new Map<string, InsightReadingEntry>();
       (data || []).forEach(item => {
-        if (!uniqueReports.has(item.report_slug)) {
-          uniqueReports.set(item.report_slug, {
+        if (!uniqueReports.has(item.article_slug)) {
+          uniqueReports.set(item.article_slug, {
             id: item.id,
-            report_slug: item.report_slug,
-            report_title: item.report_title,
-            industry_category: item.industry_category || 'General',
-            read_at: item.logged_at,
-            report_url: getReportUrl(item.report_slug)
+            report_slug: item.article_slug,
+            report_title: item.article_title,
+            industry_category: item.category || 'General',
+            read_at: item.read_at,
+            report_url: item.article_url || getReportUrl(item.article_slug)
           });
         }
       });
@@ -77,12 +77,11 @@ export const useInsightReadingHistory = (): InsightReadingHistoryResult => {
     try {
       // Get the last read time for this report
       const { data: lastRead } = await supabase
-        .from('premium_action_logs')
-        .select('logged_at')
+        .from('reading_history')
+        .select('read_at')
         .eq('user_id', user.id)
-        .eq('report_slug', reportSlug)
-        .eq('action_type', 'view')
-        .order('logged_at', { ascending: false })
+        .eq('article_slug', reportSlug)
+        .order('read_at', { ascending: false })
         .limit(1)
         .maybeSingle();
 
@@ -94,7 +93,7 @@ export const useInsightReadingHistory = (): InsightReadingHistoryResult => {
         .select('id')
         .eq('report_slug', reportSlug)
         .eq('is_published', true)
-        .gt('update_date', lastRead.logged_at.split('T')[0])
+        .gt('update_date', lastRead.read_at.split('T')[0])
         .limit(1);
 
       return (updates?.length || 0) > 0;

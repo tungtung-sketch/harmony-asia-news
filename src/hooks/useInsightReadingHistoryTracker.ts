@@ -6,20 +6,21 @@ import { useI18n } from '@/i18n/I18nProvider';
 /**
  * Records an insight report view into the general reading_history table.
  * Uses 12-hour deduplication to avoid duplicates.
+ * Records for all logged-in users (not just premium) since they can view the page.
  */
 export const useInsightReadingHistoryTracker = (
   reportSlug: string,
   titleEn: string,
   titleJa: string,
   category: string,
-  hasFullAccess: boolean
+  _hasFullAccess?: boolean // kept for backward compatibility but no longer used as gate
 ) => {
   const { user } = useAuth();
   const { lang } = useI18n();
   const recorded = useRef(false);
 
   useEffect(() => {
-    if (!user || !hasFullAccess || recorded.current) return;
+    if (!user || recorded.current) return;
     recorded.current = true;
 
     const title = lang === 'ja' ? titleJa : titleEn;
@@ -61,5 +62,5 @@ export const useInsightReadingHistoryTracker = (
     };
 
     record();
-  }, [user, hasFullAccess, reportSlug, titleEn, titleJa, category, lang]);
+  }, [user, reportSlug, titleEn, titleJa, category, lang]);
 };
