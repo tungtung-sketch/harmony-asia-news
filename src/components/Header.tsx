@@ -341,7 +341,7 @@ const Header = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-80 p-0">
+              <SheetContent side="left" className="w-80 p-0" onOpenAutoFocus={(e) => e.preventDefault()}>
                 <div className="flex flex-col h-full">
                   <div className="flex flex-col p-4 border-b">
                     <div className="flex items-center space-x-2">
