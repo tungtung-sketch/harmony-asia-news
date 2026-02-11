@@ -17,11 +17,9 @@ const BRAND = {
   name: "WaLens",
   siteUrl: "https://walensnews.com",
   supportEmail: "contact@walensnews.com",
-  senderName: "WaLen - editor team",
+  senderName: "WaLens Editorial Team",
   senderEmail: "contact@walensnews.com",
-  logoUrl: "https://walensnews.com/assets/logo-email.png",
-  tagline: "Executive News & Decision-Ready Insights",
-  subTagline: "For Japanese & global executives in Thailand",
+  logoUrl: "https://walensnews.com/assets/walens-magnifier.png",
 };
 
 interface ConfirmRequest {
@@ -57,20 +55,15 @@ const handler = async (req: Request): Promise<Response> => {
     const signupResult = await supabaseAdmin.auth.admin.generateLink({
       type: "signup",
       email,
-      options: {
-        redirectTo: BRAND.siteUrl,
-      },
+      options: { redirectTo: BRAND.siteUrl },
     });
 
     if (signupResult.error?.code === "email_exists") {
-      // User already exists (re-signup) — use magiclink instead
       console.log("User already exists, generating magiclink for confirmation");
       const magicResult = await supabaseAdmin.auth.admin.generateLink({
         type: "magiclink",
         email,
-        options: {
-          redirectTo: BRAND.siteUrl,
-        },
+        options: { redirectTo: BRAND.siteUrl },
       });
       linkData = magicResult.data;
       linkError = magicResult.error;
@@ -102,19 +95,19 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Generated confirmation URL (sanitized):", confirmUrl.substring(0, 100) + "...");
 
     const userName = fullName || null;
-    const greetingJa = userName ? `${userName} 様` : "お客様";
-    const greetingEn = userName ? `Dear ${userName},` : "Hello,";
+    const greetingLine = userName ? `Dear ${userName},` : "Hello,";
 
-    const subject = `${BRAND.name} | メールアドレス確認のお願い / Confirm Your Email Address`;
+    const subject = "WaLens \u2013 Please confirm your email address";
 
-    const emailHtml = buildEmailHtml({ confirmUrl, greetingJa, greetingEn });
+    const emailHtml = buildEmailHtml({ confirmUrl, greetingLine, email });
+    const emailText = buildPlainText({ confirmUrl, greetingLine, email });
 
     const emailResponse = await resend.emails.send({
       from: `${BRAND.senderName} <${BRAND.senderEmail}>`,
       to: [email],
       subject,
       html: emailHtml,
-      text: buildPlainText({ confirmUrl, greetingJa, greetingEn }),
+      text: emailText,
     });
 
     console.log("Confirmation email sent successfully:", emailResponse);
@@ -134,124 +127,58 @@ const handler = async (req: Request): Promise<Response> => {
 
 function buildEmailHtml({
   confirmUrl,
-  greetingJa,
-  greetingEn,
+  greetingLine,
+  email,
 }: {
   confirmUrl: string;
-  greetingJa: string;
-  greetingEn: string;
+  greetingLine: string;
+  email: string;
 }) {
   const year = new Date().getFullYear();
 
   return `<!DOCTYPE html>
-<html lang="ja" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>メールアドレス確認 / Confirm Email — ${BRAND.name}</title>
-  <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
+  <title>Confirm Your Email \u2013 ${BRAND.name}</title>
 </head>
-<body style="margin:0;padding:0;background-color:#f0f2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans JP',Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f2f5;">
+<body style="margin:0;padding:0;background-color:#f4f4f4;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f4;">
     <tr>
       <td align="center" style="padding:40px 16px;">
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
 
-          <!-- HEADER — dark navy -->
+          <!-- HEADER -->
           <tr>
-            <td style="background-color:#0f172a;padding:28px 32px 24px 32px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td>
-                    <a href="${BRAND.siteUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-                      <img src="${BRAND.logoUrl}" alt="${BRAND.name}" width="44" height="44" style="display:inline-block;height:44px;width:44px;border:0;filter:invert(1);" />
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding-top:14px;">
-                    <p style="margin:0;font-size:20px;font-weight:700;color:#ffffff;line-height:1.3;">${BRAND.name} – ${BRAND.tagline}</p>
-                    <p style="margin:6px 0 0 0;font-size:13px;color:#94a3b8;line-height:1.4;">${BRAND.subTagline}</p>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:28px 32px 20px 32px;border-bottom:1px solid #eeeeee;">
+              <img src="${BRAND.logoUrl}" alt="${BRAND.name} Logo" width="36" height="36" style="display:block;width:36px;height:36px;border:0;object-fit:contain;" />
             </td>
           </tr>
 
-          <!-- ==================== JAPANESE SECTION ==================== -->
+          <!-- CONTENT -->
           <tr>
-            <td style="background-color:#ffffff;padding:36px 32px 0 32px;">
-              <p style="margin:0 0 6px 0;font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;">日本語</p>
-              <h1 style="margin:0 0 22px 0;font-size:20px;font-weight:700;color:#0f172a;line-height:1.4;">メールアドレス確認のお願い</h1>
-              <p style="margin:0 0 16px 0;font-size:15px;line-height:1.6;color:#1e293b;">${greetingJa}</p>
-              <p style="margin:0 0 8px 0;font-size:15px;line-height:1.7;color:#475569;">
-                WaLensへのご登録ありがとうございます。
+            <td style="padding:36px 32px;">
+              <p style="margin:0 0 16px 0;font-size:15px;line-height:1.6;color:#333333;">${greetingLine}</p>
+              <p style="margin:0 0 8px 0;font-size:15px;line-height:1.7;color:#555555;">
+                Thank you for signing up with ${BRAND.name}. Please confirm your email address to activate your account.
               </p>
-              <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:#475569;">
-                下記のボタンをクリックして、メールアドレスの確認を完了してください。<br>
-                本メールは、お客様のアカウントの安全性を確保するためにお送りしています。
+              <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:#555555;">
+                WaLens\u3078\u306E\u3054\u767B\u9332\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\u3002\u4E0B\u8A18\u306E\u30DC\u30BF\u30F3\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u78BA\u8A8D\u3092\u5B8C\u4E86\u3057\u3066\u304F\u3060\u3055\u3044\u3002
               </p>
 
-              <!-- CTA JP -->
+              <!-- CTA BUTTON -->
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td align="center" style="padding:4px 0 24px 0;">
+                  <td align="center" style="padding:4px 0 28px 0;">
                     <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${confirmUrl}" style="height:48px;v-text-anchor:middle;width:280px;" arcsize="13%" fillcolor="#0f172a" stroke="false">
-                    <w:anchorlock/>
-                    <center style="font-size:15px;font-weight:600;color:#ffffff;">メールアドレスを確認する</center>
-                    </v:roundrect>
-                    <![endif]-->
-                    <!--[if !mso]><!-->
-                    <a href="${confirmUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background-color:#0f172a;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 40px;border-radius:6px;line-height:1;mso-hide:all;">
-                      メールアドレスを確認する
-                    </a>
-                    <!--<![endif]-->
-                  </td>
-                </tr>
-              </table>
-
-              <p style="margin:0 0 6px 0;font-size:13px;color:#94a3b8;">ボタンが表示されない場合は、以下のリンクをブラウザにコピー＆ペーストしてください：</p>
-              <p style="margin:0 0 20px 0;font-size:12px;word-break:break-all;"><a href="${confirmUrl}" style="color:#3b82f6;text-decoration:underline;">${confirmUrl}</a></p>
-
-              <p style="margin:0 0 0 0;font-size:13px;color:#94a3b8;">本メールに心当たりがない場合は、操作は不要です。</p>
-            </td>
-          </tr>
-
-          <!-- DIVIDER -->
-          <tr>
-            <td style="background-color:#ffffff;padding:24px 32px;">
-              <hr style="border:none;border-top:1px solid #e2e8f0;margin:0;" />
-            </td>
-          </tr>
-
-          <!-- ==================== ENGLISH SECTION ==================== -->
-          <tr>
-            <td style="background-color:#ffffff;padding:0 32px 36px 32px;">
-              <p style="margin:0 0 6px 0;font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;">English</p>
-              <h2 style="margin:0 0 22px 0;font-size:20px;font-weight:700;color:#0f172a;line-height:1.4;">Confirm Your Email Address</h2>
-              <p style="margin:0 0 16px 0;font-size:15px;line-height:1.6;color:#1e293b;">${greetingEn}</p>
-              <p style="margin:0 0 8px 0;font-size:15px;line-height:1.7;color:#475569;">
-                Thank you for signing up for WaLens.
-              </p>
-              <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:#475569;">
-                Please confirm your email address by clicking the button below.<br>
-                This step helps us ensure account security and deliver trusted executive-level insights.
-              </p>
-
-              <!-- CTA EN -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" style="padding:4px 0 24px 0;">
-                    <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${confirmUrl}" style="height:48px;v-text-anchor:middle;width:280px;" arcsize="13%" fillcolor="#0f172a" stroke="false">
-                    <w:anchorlock/>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="${confirmUrl}" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="13%" fillcolor="#1a1a2e" stroke="false">
                     <center style="font-size:15px;font-weight:600;color:#ffffff;">Confirm Email Address</center>
                     </v:roundrect>
                     <![endif]-->
                     <!--[if !mso]><!-->
-                    <a href="${confirmUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background-color:#0f172a;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 40px;border-radius:6px;line-height:1;mso-hide:all;">
+                    <a href="${confirmUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background-color:#1a1a2e;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:14px 40px;border-radius:6px;line-height:1;">
                       Confirm Email Address
                     </a>
                     <!--<![endif]-->
@@ -259,37 +186,23 @@ function buildEmailHtml({
                 </tr>
               </table>
 
-              <p style="margin:0 0 6px 0;font-size:13px;color:#94a3b8;">If the button above does not work, copy and paste this link into your browser:</p>
-              <p style="margin:0 0 20px 0;font-size:12px;word-break:break-all;"><a href="${confirmUrl}" style="color:#3b82f6;text-decoration:underline;">${confirmUrl}</a></p>
+              <p style="margin:0 0 20px 0;font-size:13px;color:#999999;">
+                If the button does not work, copy and paste this link into your browser:<br>
+                <a href="${confirmUrl}" style="color:#3b82f6;text-decoration:underline;word-break:break-all;font-size:12px;">${confirmUrl}</a>
+              </p>
 
-              <p style="margin:0;font-size:13px;color:#94a3b8;">If you did not request this signup, no action is required.</p>
+              <p style="margin:0;font-size:13px;color:#999999;">
+                If you did not sign up for ${BRAND.name}, no action is required.<br>
+                \u672C\u30E1\u30FC\u30EB\u306B\u5FC3\u5F53\u305F\u308A\u304C\u306A\u3044\u5834\u5408\u306F\u3001\u64CD\u4F5C\u306F\u4E0D\u8981\u3067\u3059\u3002
+              </p>
             </td>
           </tr>
 
           <!-- FOOTER -->
           <tr>
-            <td style="background-color:#f8fafc;padding:20px 32px;border-top:1px solid #e2e8f0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td>
-                    <p style="margin:0 0 6px 0;font-size:13px;font-weight:600;color:#64748b;">${BRAND.name} Editorial Team</p>
-                    <p style="margin:0 0 4px 0;font-size:12px;color:#94a3b8;line-height:1.5;">
-                      WaLens delivers curated business news and insights for decision-makers in Thailand.
-                    </p>
-                    <p style="margin:0 0 2px 0;font-size:12px;color:#94a3b8;">
-                      <a href="${BRAND.siteUrl}" style="color:#94a3b8;text-decoration:none;">walensnews.com</a>
-                    </p>
-                    <p style="margin:0;font-size:12px;color:#94a3b8;">
-                      <a href="mailto:${BRAND.supportEmail}" style="color:#94a3b8;text-decoration:none;">${BRAND.supportEmail}</a>
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding-top:12px;">
-                    <p style="margin:0;font-size:11px;color:#cbd5e1;">&copy; ${year} ${BRAND.name}. All rights reserved.</p>
-                  </td>
-                </tr>
-              </table>
+            <td style="background-color:#f8f9fa;padding:20px 32px;border-top:1px solid #eeeeee;">
+              <p style="margin:0 0 4px 0;font-size:12px;color:#999999;">This email was sent to ${email}.</p>
+              <p style="margin:0;font-size:12px;color:#999999;">&copy; ${year} ${BRAND.name} Editorial Team &middot; <a href="${BRAND.siteUrl}" style="color:#999999;text-decoration:none;">walensnews.com</a></p>
             </td>
           </tr>
 
@@ -303,44 +216,30 @@ function buildEmailHtml({
 
 function buildPlainText({
   confirmUrl,
-  greetingJa,
-  greetingEn,
+  greetingLine,
+  email,
 }: {
   confirmUrl: string;
-  greetingJa: string;
-  greetingEn: string;
+  greetingLine: string;
+  email: string;
 }) {
   const year = new Date().getFullYear();
 
-  return `[日本語]
+  return `${greetingLine}
 
-${greetingJa}
+Thank you for signing up with ${BRAND.name}. Please confirm your email address to activate your account.
 
-WaLensへのご登録ありがとうございます。
+WaLensへのご登録ありがとうございます。以下のリンクをクリックして、メールアドレスの確認を完了してください。
 
-以下のリンクをクリックして、メールアドレスの確認を完了してください：
-${confirmUrl}
+Confirm Email Address: ${confirmUrl}
 
+If you did not sign up for ${BRAND.name}, no action is required.
 本メールに心当たりがない場合は、操作は不要です。
 
 --------------------------------------
-
-[English]
-
-${greetingEn}
-
-Thank you for signing up for WaLens.
-
-Please confirm your email address by clicking the link below:
-${confirmUrl}
-
-If you did not request this signup, no action is required.
-
---------------------------------------
-${BRAND.name} Editorial Team
-${BRAND.siteUrl}
-${BRAND.supportEmail}
-© ${year} ${BRAND.name}`;
+This email was sent to ${email}.
+© ${year} ${BRAND.name} Editorial Team
+${BRAND.siteUrl}`;
 }
 
 serve(handler);
