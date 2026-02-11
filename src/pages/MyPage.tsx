@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
-import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe } from 'lucide-react';
+import { CalendarDays, CreditCard, User, Briefcase, Building, Eye, Pencil, X, Save, Info, Key, Receipt, Globe, Trash2 } from 'lucide-react';
 import SavedArticles from '@/components/SavedArticles';
 import { InsightReadingHistory } from '@/components/InsightReadingHistory';
 import { useSubscription } from '@/hooks/useSubscription';
@@ -721,11 +721,24 @@ const MyPage = () => {
 
             {/* Reading History */}
             <Card>
-              <CardHeader>
+              <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="flex items-center gap-2">
                   <Eye className="h-5 w-5" />
                   {t('mypage.readingHistory')}
                 </CardTitle>
+                {readingHistory.length > 0 && (
+                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-destructive" onClick={async () => {
+                    if (!user || !confirm(lang === 'ja' ? '閲覧履歴をすべて削除しますか？' : 'Delete all reading history?')) return;
+                    try {
+                      await supabase.from('reading_history').delete().eq('user_id', user.id);
+                      setReadingHistory([]);
+                      toast({ title: lang === 'ja' ? '削除しました' : 'Cleared', description: lang === 'ja' ? '閲覧履歴を削除しました' : 'Reading history cleared.' });
+                    } catch (err) { console.error(err); }
+                  }}>
+                    <Trash2 className="h-4 w-4 mr-1" />
+                    {lang === 'ja' ? '全削除' : 'Clear All'}
+                  </Button>
+                )}
               </CardHeader>
               <CardContent>
                 {historyLoading ? (
