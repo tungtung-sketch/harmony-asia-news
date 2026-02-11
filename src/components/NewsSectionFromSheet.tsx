@@ -39,7 +39,14 @@ const NewsSectionFromSheet = () => {
       setLoading(true);
       const data = await fetchWalensNews();
       if (!cancelled) {
-        setArticles(data.filter((n) => n.approved));
+        const approved = data.filter((n) => n.approved);
+        // Sort by date+time descending (latest first)
+        approved.sort((a, b) => {
+          const tsA = Date.parse((a.date || '').trim() + 'T' + ((a.time || '00:00').trim().length === 5 ? (a.time || '00:00').trim() : '00:00') + ':00');
+          const tsB = Date.parse((b.date || '').trim() + 'T' + ((b.time || '00:00').trim().length === 5 ? (b.time || '00:00').trim() : '00:00') + ':00');
+          return (Number.isFinite(tsB) ? tsB : 0) - (Number.isFinite(tsA) ? tsA : 0);
+        });
+        setArticles(approved);
         setLoading(false);
       }
     })();
