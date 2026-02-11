@@ -35,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to WaLens admin
     const emailResponse = await resend.emails.send({
-      from: "WaLens Contact <onboarding@resend.dev>",
+      from: "WaLens Contact <contact@walensnews.com>",
       to: ["contact@walensnews.com"],
       subject: `[WaLens Contact Form] New message from ${email}`,
       html: `
@@ -49,6 +49,11 @@ const handler = async (req: Request): Promise<Response> => {
       `,
       replyTo: email,
     });
+
+    if (emailResponse.error) {
+      console.error("Resend API error:", emailResponse.error);
+      throw new Error(emailResponse.error.message);
+    }
 
     console.log("Contact email sent successfully:", emailResponse);
 
