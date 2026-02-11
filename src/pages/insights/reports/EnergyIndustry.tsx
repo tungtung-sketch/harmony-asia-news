@@ -40,6 +40,8 @@ import {
   Battery
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -68,6 +70,8 @@ const EnergyIndustry = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('energy-industry', 'Thailand Energy Transformation Report', 'タイ・エネルギー産業変革レポート', 'Services', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -418,6 +422,11 @@ const EnergyIndustry = () => {
                 Premium
               </Badge>
               <span>{isJapanese ? '最終更新' : 'Updated'}: {content.lastUpdated}</span>
+              <BookmarkButton
+                article={{ slug: 'energy-industry', title: isJapanese ? 'タイ・エネルギー産業変革レポート' : 'Thailand Energy Transformation Report', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/energy-industry', category: 'Services' }}
+                variant="button"
+                className="text-white border-white/30 hover:bg-white/10"
+              />
             </div>
           </div>
         </section>

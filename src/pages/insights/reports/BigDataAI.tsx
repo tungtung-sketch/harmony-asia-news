@@ -34,6 +34,8 @@ import {
   Server
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -62,6 +64,8 @@ const BigDataAI = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('big-data-ai', 'Big Data & AI Trends in Thailand 2026', 'タイのビッグデータ＆AI動向 2026', 'Technology', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -454,9 +458,12 @@ UNESCOのAI倫理フォーラム、ETDAのガバナンスセンター、タイ�
             </div>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3">{isJapanese ? content.headline.ja : content.headline.en}</h1>
             <p className="text-lg text-muted-foreground mb-4">{isJapanese ? content.subheadline.ja : content.subheadline.en}</p>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1"><FileText className="h-4 w-4" />{isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}</span>
-              <span className="flex items-center gap-1"><BookOpen className="h-4 w-4" />{isJapanese ? "読了時間：15分" : "15 min read"}</span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1"><FileText className="h-4 w-4" />{isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}</span>
+                <span className="flex items-center gap-1"><BookOpen className="h-4 w-4" />{isJapanese ? "読了時間：15分" : "15 min read"}</span>
+              </div>
+              <BookmarkButton article={{ slug: 'big-data-ai', title: isJapanese ? 'タイのビッグデータ＆AI動向 2026' : 'Big Data & AI Trends in Thailand 2026', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/big-data-ai', category: 'Technology' }} variant="button" />
             </div>
           </section>
 

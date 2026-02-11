@@ -33,6 +33,8 @@ import {
   Wheat
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -61,6 +63,8 @@ const AgricultureIndustry = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('agriculture-industry', 'Thailand Agriculture Industry Trends Report', 'タイ農業産業トレンドレポート', 'Agriculture', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -458,15 +462,18 @@ Finally, exploit the policy window: capability-building support is expanding. Wi
               {isJapanese ? content.subheadline.ja : content.subheadline.en}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1">
-                <FileText className="h-4 w-4" />
-                {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
-              </span>
-              <span className="flex items-center gap-1">
-                <BookOpen className="h-4 w-4" />
-                {isJapanese ? "読了時間：12分" : "12 min read"}
-              </span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <FileText className="h-4 w-4" />
+                  {isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}
+                </span>
+                <span className="flex items-center gap-1">
+                  <BookOpen className="h-4 w-4" />
+                  {isJapanese ? "読了時間：12分" : "12 min read"}
+                </span>
+              </div>
+              <BookmarkButton article={{ slug: 'agriculture-industry', title: isJapanese ? 'タイ農業産業トレンドレポート' : 'Thailand Agriculture Industry Trends Report', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/agriculture-industry', category: 'Agriculture' }} variant="button" />
             </div>
           </section>
 

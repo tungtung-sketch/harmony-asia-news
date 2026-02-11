@@ -32,6 +32,8 @@ import {
   Cpu
 } from 'lucide-react';
 import { AuthModals } from '@/components/AuthModals';
+import { BookmarkButton } from '@/components/BookmarkButton';
+import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
@@ -60,6 +62,8 @@ const ElectronicsSemiconductor = () => {
       setHasLoggedView(true);
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
+
+  useInsightReadingHistoryTracker('electronics-semiconductor', 'Thailand Electronics & Semiconductor Industry 2026', 'タイ電子機器・半導体産業 2026', 'Manufacturing', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
@@ -422,9 +426,12 @@ The overarching strategic frame: Thailand in 2026 is no longer a 'low-cost assem
             </div>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3">{isJapanese ? content.headline.ja : content.headline.en}</h1>
             <p className="text-lg text-muted-foreground mb-4">{isJapanese ? content.subheadline.ja : content.subheadline.en}</p>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="flex items-center gap-1"><FileText className="h-4 w-4" />{isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}</span>
-              <span className="flex items-center gap-1"><BookOpen className="h-4 w-4" />{isJapanese ? "読了時間：12分" : "12 min read"}</span>
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <span className="flex items-center gap-1"><FileText className="h-4 w-4" />{isJapanese ? "最終更新" : "Last Updated"}: {content.lastUpdated}</span>
+                <span className="flex items-center gap-1"><BookOpen className="h-4 w-4" />{isJapanese ? "読了時間：12分" : "12 min read"}</span>
+              </div>
+              <BookmarkButton article={{ slug: 'electronics-semiconductor', title: isJapanese ? 'タイ電子機器・半導体産業 2026' : 'Thailand Electronics & Semiconductor Industry 2026', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/reports/electronics-semiconductor', category: 'Manufacturing' }} variant="button" />
             </div>
           </section>
 
