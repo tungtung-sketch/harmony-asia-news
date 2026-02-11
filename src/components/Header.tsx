@@ -343,16 +343,21 @@ const Header = () => {
               </SheetTrigger>
               <SheetContent side="left" className="w-80 p-0">
                 <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-between p-4 border-b">
+                  <div className="flex flex-col p-4 border-b">
                     <div className="flex items-center space-x-2">
                       <Logo size="sm" />
                       <span className="text-lg font-bold text-foreground">{t('brand.name')}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground ml-10 -mt-1">
+                      {t('brand.tagline')}
                     </div>
                   </div>
                   
                   {/* Mobile Search */}
                   <div className="px-4 py-4 border-b">
-                    <SearchBox />
+                    <div className="w-full max-w-full">
+                      <SearchBox mobile />
+                    </div>
                   </div>
                   
                   {/* Auth Buttons, Language Toggle, Theme Toggle - Right under search */}
@@ -403,8 +408,8 @@ const Header = () => {
                     </div>
                   </div>
                   
-                  <ScrollArea className="flex-1">
-                    <nav className="py-4" aria-label="Mobile navigation">
+                  <ScrollArea className="flex-1 min-h-0">
+                    <nav className="py-4 pb-24" aria-label="Mobile navigation">
                       <NavLinks mobile closeMenu={() => setMobileMenuOpen(false)} />
                     </nav>
                   </ScrollArea>

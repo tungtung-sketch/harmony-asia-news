@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { useI18n } from '@/i18n/I18nProvider';
 
-const SearchBox = () => {
+const SearchBox = ({ mobile = false }: { mobile?: boolean }) => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
   const { t } = useI18n();
@@ -19,7 +19,7 @@ const SearchBox = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center w-full min-w-[280px] max-w-[400px]">
+    <form onSubmit={handleSearch} className={`flex items-center w-full ${mobile ? 'min-w-0 max-w-full' : 'min-w-[280px] max-w-[400px]'}`}>
       <div className="relative flex-1">
         <Input
           type="text"
