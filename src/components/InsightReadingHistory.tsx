@@ -4,9 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Eye, FileText, RefreshCw, Crown, Clock, ChevronRight } from 'lucide-react';
+import { Eye, FileText, RefreshCw, Crown, Clock, ChevronRight, Trash2 } from 'lucide-react';
 import { useI18n } from '@/i18n/I18nProvider';
 import { useInsightReadingHistory } from '@/hooks/useInsightReadingHistory';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
 import { ja } from 'date-fns/locale';
 
@@ -22,11 +25,32 @@ interface ReportWithUpdate {
 
 export const InsightReadingHistory = () => {
   const { lang } = useI18n();
-  const { entries, loading, error, checkForUpdates } = useInsightReadingHistory();
+  const { user } = useAuth();
+  const { toast } = useToast();
+  const { entries, loading, error, checkForUpdates, refetch } = useInsightReadingHistory();
   const [entriesWithUpdates, setEntriesWithUpdates] = useState<ReportWithUpdate[]>([]);
   const [checking, setChecking] = useState(false);
+  const [clearing, setClearing] = useState(false);
 
   const isJapanese = lang === 'ja';
+
+  const handleClearAll = async () => {
+    if (!user || !confirm(isJapanese ? '閲覧履歴をすべて削除しますか？' : 'Delete all report history?')) return;
+    setClearing(true);
+    try {
+      await supabase
+        .from('reading_history')
+        .delete()
+        .eq('user_id', user.id)
+        .like('article_url', '/insights/%');
+      toast({ title: isJapanese ? '削除しました' : 'Cleared', description: isJapanese ? '閲覧履歴を削除しました' : 'Report history cleared.' });
+      await refetch();
+    } catch (err) {
+      console.error('Error clearing history:', err);
+    } finally {
+      setClearing(false);
+    }
+  };
 
   // Check for updates on each entry
   useEffect(() => {
@@ -112,7 +136,7 @@ export const InsightReadingHistory = () => {
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <FileText className="h-5 w-5" />
           {isJapanese ? 'インサイトレポート閲覧履歴' : 'Insight Report History'}
@@ -121,6 +145,10 @@ export const InsightReadingHistory = () => {
             Premium
           </Badge>
         </CardTitle>
+        <Button variant="ghost" size="sm" onClick={handleClearAll} disabled={clearing} className="text-muted-foreground hover:text-destructive">
+          <Trash2 className="h-4 w-4 mr-1" />
+          {isJapanese ? '全削除' : 'Clear All'}
+        </Button>
       </CardHeader>
       <CardContent>
         <div className="space-y-3">

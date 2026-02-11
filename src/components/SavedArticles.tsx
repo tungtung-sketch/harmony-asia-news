@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Trash2, Image } from 'lucide-react';
+import { Star, Trash2, FileText, Newspaper } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -132,33 +132,31 @@ const BookmarkItem: React.FC<BookmarkItemProps> = ({
   lang 
 }) => {
   const articleUrl = bookmark.article_url || `/news/sheet/${bookmark.article_slug}`;
+  const isInsightReport = bookmark.article_url?.startsWith('/insights/');
 
   return (
     <Link 
       to={articleUrl}
       className="flex gap-3 p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors group"
     >
-      {/* Thumbnail */}
-      <div className="w-16 h-16 flex-shrink-0 rounded overflow-hidden bg-muted">
-        {bookmark.thumbnail_url ? (
-          <img 
-            src={bookmark.thumbnail_url} 
-            alt={bookmark.article_title}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <Image className="w-6 h-6 text-muted-foreground/40" />
-          </div>
-        )}
-      </div>
-
       {/* Content */}
       <div className="flex-1 min-w-0">
         <h4 className="font-medium text-sm line-clamp-2 group-hover:text-primary transition-colors">
           {bookmark.article_title}
         </h4>
         <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground flex-wrap">
+          {/* News vs Insight Report label */}
+          {isInsightReport ? (
+            <Badge variant="default" className="text-xs px-1.5 py-0 gap-1">
+              <FileText className="w-3 h-3" />
+              {lang === 'ja' ? 'レポート' : 'Insight Report'}
+            </Badge>
+          ) : (
+            <Badge variant="outline" className="text-xs px-1.5 py-0 gap-1">
+              <Newspaper className="w-3 h-3" />
+              {lang === 'ja' ? 'ニュース' : 'News'}
+            </Badge>
+          )}
           {bookmark.category && (
             <Badge variant="outline" className="text-xs px-1.5 py-0">
               {bookmark.category}
