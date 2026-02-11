@@ -162,10 +162,10 @@ function buildEmailHtml({
             <td style="padding:36px 32px;">
               <p style="margin:0 0 16px 0;font-size:15px;line-height:1.6;color:#333333;">${greetingLine}</p>
               <p style="margin:0 0 8px 0;font-size:15px;line-height:1.7;color:#555555;">
-                Thank you for signing up with ${BRAND.name}. Please confirm your email address to activate your account.
+                WaLensへのご登録ありがとうございます。下記のボタンをクリックして、メールアドレスの確認を完了してください。
               </p>
               <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:#555555;">
-                WaLens\u3078\u306E\u3054\u767B\u9332\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\u3002\u4E0B\u8A18\u306E\u30DC\u30BF\u30F3\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u3001\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306E\u78BA\u8A8D\u3092\u5B8C\u4E86\u3057\u3066\u304F\u3060\u3055\u3044\u3002
+                Thank you for signing up with ${BRAND.name}. Please confirm your email address to activate your account.
               </p>
 
               <!-- CTA BUTTON -->
@@ -192,8 +192,8 @@ function buildEmailHtml({
               </p>
 
               <p style="margin:0;font-size:13px;color:#999999;">
-                If you did not sign up for ${BRAND.name}, no action is required.<br>
-                \u672C\u30E1\u30FC\u30EB\u306B\u5FC3\u5F53\u305F\u308A\u304C\u306A\u3044\u5834\u5408\u306F\u3001\u64CD\u4F5C\u306F\u4E0D\u8981\u3067\u3059\u3002
+                本メールに心当たりがない場合は、操作は不要です。<br>
+                If you did not sign up for ${BRAND.name}, no action is required.
               </p>
             </td>
           </tr>
@@ -227,14 +227,14 @@ function buildPlainText({
 
   return `${greetingLine}
 
-Thank you for signing up with ${BRAND.name}. Please confirm your email address to activate your account.
-
 WaLensへのご登録ありがとうございます。以下のリンクをクリックして、メールアドレスの確認を完了してください。
 
-Confirm Email Address: ${confirmUrl}
+Thank you for signing up with ${BRAND.name}. Please confirm your email address to activate your account.
 
-If you did not sign up for ${BRAND.name}, no action is required.
+Confirm Email Address / メール確認: ${confirmUrl}
+
 本メールに心当たりがない場合は、操作は不要です。
+If you did not sign up for ${BRAND.name}, no action is required.
 
 --------------------------------------
 This email was sent to ${email}.
