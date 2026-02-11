@@ -268,17 +268,18 @@ const NewsDetailFromSheet = () => {
       {/* Source Link */}
       {article.url && (
         <div className="mt-8 pt-6 border-t not-prose">
-          <p className="text-sm text-muted-foreground mb-2">
-            {lang === 'ja' ? '情報源:' : 'Source:'}
+          <p className="text-sm text-muted-foreground">
+            {lang === 'ja' ? '出典: ' : 'Source: '}
+            <a 
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              {getSourceName(article.url)}
+            </a>
+            {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
           </p>
-          <a 
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline text-sm"
-          >
-            {getSourceName(article.url)}
-          </a>
         </div>
       )}
     </div>
