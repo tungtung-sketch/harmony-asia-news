@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <url><loc>https://walensnews.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://walensnews.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/contact</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://walensnews.com/faq</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://walensnews.com/terms-of-service</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://walensnews.com/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- News -->
+  <url><loc>https://walensnews.com/news</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+
+  <!-- Insights -->
+  <url><loc>https://walensnews.com/insights</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://walensnews.com/insights/services</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/manufacturing</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/wellness-healthcare</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/agriculture</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/real-estate</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Insight Reports -->
+  <url><loc>https://walensnews.com/insights/reports/thailand-market-strategy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/manufacturing/ev-battery</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/manufacturing/electronics-semiconductor</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/manufacturing/chemical-industry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/manufacturing/automotive-industry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/wellness-healthcare/wellness-report</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/agriculture/industry-trends</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/agriculture/food-industry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/real-estate/market-2026</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/services/big-data-ai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/services/decarbonization</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/services/energy-industry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Business Intelligence -->
+  <url><loc>https://walensnews.com/business-intelligence</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://walensnews.com/business-intelligence/economy</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/business-intelligence/trade</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/business-intelligence/regulation</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/business-intelligence/workforce</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/business-intelligence/infrastructure</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/business-intelligence/key-indicators</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+</urlset>
