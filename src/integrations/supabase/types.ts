@@ -266,6 +266,72 @@ export type Database = {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          anon_id: string | null
+          category: string | null
+          content_id: string | null
+          country: string | null
+          device: string | null
+          event_name: string
+          id: string
+          language: string | null
+          meta: Json
+          path: string
+          plan: string | null
+          referrer: string | null
+          session_id: string
+          step: string | null
+          ts: string
+          user_id: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          anon_id?: string | null
+          category?: string | null
+          content_id?: string | null
+          country?: string | null
+          device?: string | null
+          event_name: string
+          id?: string
+          language?: string | null
+          meta?: Json
+          path: string
+          plan?: string | null
+          referrer?: string | null
+          session_id: string
+          step?: string | null
+          ts?: string
+          user_id?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          anon_id?: string | null
+          category?: string | null
+          content_id?: string | null
+          country?: string | null
+          device?: string | null
+          event_name?: string
+          id?: string
+          language?: string | null
+          meta?: Json
+          path?: string
+          plan?: string | null
+          referrer?: string | null
+          session_id?: string
+          step?: string | null
+          ts?: string
+          user_id?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       insight_reports: {
         Row: {
           base_report_updated_at: string | null
@@ -837,7 +903,50 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      v_content_performance_7d: {
+        Row: {
+          category: string | null
+          content_id: string | null
+          event_name: string | null
+          unique_viewers: number | null
+          view_count: number | null
+        }
+        Relationships: []
+      }
+      v_funnel_30d: {
+        Row: {
+          conversion_from_start_pct: number | null
+          step: string | null
+          step_count: number | null
+          unique_users: number | null
+        }
+        Relationships: []
+      }
+      v_plan_conversion_30d: {
+        Row: {
+          checkout_starts: number | null
+          conversion_rate_pct: number | null
+          plan: string | null
+          subscribe_successes: number | null
+        }
+        Relationships: []
+      }
+      v_top_categories_7d: {
+        Row: {
+          category: string | null
+          unique_viewers: number | null
+          view_count: number | null
+        }
+        Relationships: []
+      }
+      v_top_pages_7d: {
+        Row: {
+          path: string | null
+          unique_viewers: number | null
+          view_count: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       can_view_full_article: {
