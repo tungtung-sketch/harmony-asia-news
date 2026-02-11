@@ -50,13 +50,34 @@ const handler = async (req: Request): Promise<Response> => {
       auth: { autoRefreshToken: false, persistSession: false },
     });
 
-    const { data: linkData, error: linkError } = await supabaseAdmin.auth.admin.generateLink({
+    let linkData;
+    let linkError;
+
+    // Try signup link first
+    const signupResult = await supabaseAdmin.auth.admin.generateLink({
       type: "signup",
       email,
       options: {
         redirectTo: BRAND.siteUrl,
       },
     });
+
+    if (signupResult.error?.code === "email_exists") {
+      // User already exists (re-signup) — use magiclink instead
+      console.log("User already exists, generating magiclink for confirmation");
+      const magicResult = await supabaseAdmin.auth.admin.generateLink({
+        type: "magiclink",
+        email,
+        options: {
+          redirectTo: BRAND.siteUrl,
+        },
+      });
+      linkData = magicResult.data;
+      linkError = magicResult.error;
+    } else {
+      linkData = signupResult.data;
+      linkError = signupResult.error;
+    }
 
     if (linkError) {
       console.error("Failed to generate confirmation link:", linkError);
