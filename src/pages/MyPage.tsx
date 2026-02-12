@@ -600,11 +600,13 @@ const MyPage = () => {
                     <p className="text-lg font-semibold">
                       {isAdmin 
                         ? (lang === 'ja' ? '管理者' : 'Admin')
-                        : subscription?.tier === 'free_trial' 
-                          ? t('mypage.freeTrial') 
-                          : profile?.subscription_plan 
-                            ? t(`subscribe.plans.${profile.subscription_plan}.title`) 
-                            : t('mypage.basicPlan')
+                        : subStatus.plan === 'premium' && subStatus.isActive
+                          ? (lang === 'ja' ? 'プレミアムプラン' : 'Premium Plan')
+                          : subStatus.plan === 'basic' && subStatus.isActive
+                            ? (lang === 'ja' ? 'ベーシックプラン' : 'Basic Plan')
+                            : subscription?.tier === 'free_trial' && isTrialActive()
+                              ? t('mypage.freeTrial')
+                              : t('mypage.noSubscription')
                       }
                     </p>
                   </div>
@@ -614,10 +616,10 @@ const MyPage = () => {
                 </div>
 
                 {/* Only show subscription dates for non-admin users */}
-                {!isAdmin && subscription && (
+                {!isAdmin && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Free Trial End Date - Only show if trial is active */}
-                    {subscription.tier === 'free_trial' && isTrialActive() && subscription.trial_end_date && (
+                    {/* Free Trial End Date - Only show if trial is active and no paid plan */}
+                    {subscription?.tier === 'free_trial' && isTrialActive() && !subStatus.isActive && subscription.trial_end_date && (
                       <div className="p-3 bg-primary/10 rounded-lg">
                         <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                           <CalendarDays className="h-4 w-4" />
@@ -627,8 +629,19 @@ const MyPage = () => {
                       </div>
                     )}
 
-                    {/* Trial Expired Notice */}
-                    {subscription.tier === 'free_trial' && !isTrialActive() && (
+                    {/* Free trial active (no Stripe subscription yet) */}
+                    {subscription?.tier === 'free_trial' && isTrialActive() && !(subStatus.plan === 'premium' || subStatus.plan === 'basic') && subscription.trial_end_date && (
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                          <CalendarDays className="h-4 w-4" />
+                          {t('mypage.freeTrialUntil')}
+                        </label>
+                        <p className="text-base font-semibold text-primary">{formatDate(subscription.trial_end_date)}</p>
+                      </div>
+                    )}
+
+                    {/* Trial Expired Notice - only if no active paid plan */}
+                    {subscription?.tier === 'free_trial' && !isTrialActive() && !(subStatus.plan === 'premium' || subStatus.plan === 'basic') && (
                       <div className="p-3 bg-destructive/10 rounded-lg col-span-full">
                         <p className="text-sm font-medium text-destructive">
                           {lang === 'ja' 
@@ -639,28 +652,28 @@ const MyPage = () => {
                       </div>
                     )}
                     
-                    {/* Next Billing Date for paid subscriptions */}
-                    {subscription.tier !== 'free_trial' && subscription.is_active && !isCancelledButActive() && (subscription.subscription_end_date || subscription.current_period_end) && (
+                    {/* Next Billing Date for paid subscriptions (from Stripe via subStatus) */}
+                    {(subStatus.plan === 'premium' || subStatus.plan === 'basic') && subStatus.isActive && subStatus.subscriptionEndDate && (
                       <div>
                         <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                           <CalendarDays className="h-4 w-4" />
                           {t('mypage.nextBilling')}
                         </label>
                         <p className="text-base">
-                          {formatDate(subscription.current_period_end || subscription.subscription_end_date)}
+                          {formatDate(subStatus.subscriptionEndDate)}
                         </p>
                       </div>
                     )}
 
                     {/* Subscription ends on date for cancelled subscriptions */}
-                    {isCancelledButActive() && (subscription.subscription_end_date || subscription.current_period_end) && (
+                    {isCancelledButActive() && (subscription?.subscription_end_date || subscription?.current_period_end) && (
                       <div className="p-3 bg-muted rounded-lg">
                         <label className="text-sm font-medium text-muted-foreground flex items-center gap-1">
                           <CalendarDays className="h-4 w-4" />
                           {lang === 'ja' ? 'サブスクリプション終了日' : 'Subscription Ends On'}
                         </label>
                         <p className="text-base">
-                          {formatDate(subscription.current_period_end || subscription.subscription_end_date)}
+                          {formatDate(subscription?.current_period_end || subscription?.subscription_end_date || '')}
                         </p>
                       </div>
                     )}
