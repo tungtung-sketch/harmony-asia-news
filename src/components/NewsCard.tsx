@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import type { WalensNews } from "@/sheetNews";
 import { useI18n } from "@/i18n/I18nProvider";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { formatNewsContent } from "@/lib/formatNewsContent";
 
 type Props = {
   article: WalensNews;
@@ -89,7 +90,7 @@ const NewsCard = ({ article, showBookmark = true }: Props) => {
 
       {/* excerpt */}
       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-        {content || article.content_raw || ""}
+        {formatNewsContent(content || article.content_raw || "")}
       </p>
 
       {/* source */}

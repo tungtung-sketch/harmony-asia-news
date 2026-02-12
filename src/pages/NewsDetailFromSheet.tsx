@@ -14,6 +14,7 @@ import { AccessLevel } from '@/types/paywall';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { BookmarkButton } from '@/components/BookmarkButton';
+import { formatNewsContent } from '@/lib/formatNewsContent';
 
 /**
  * Records reading history for a logged-in user.
@@ -250,7 +251,7 @@ const NewsDetailFromSheet = () => {
     <div className="prose prose-gray dark:prose-invert max-w-none">
       {previewParagraphs.map((paragraph, index) => (
         <p key={index} className="mb-4 text-base leading-relaxed">
-          {paragraph}
+          {formatNewsContent(paragraph)}
         </p>
       ))}
       {/* Fade effect at the end of preview */}
@@ -263,7 +264,7 @@ const NewsDetailFromSheet = () => {
     <div className="prose prose-gray dark:prose-invert max-w-none">
       {paragraphs.map((paragraph, index) => (
         <p key={index} className="mb-4 text-base leading-relaxed">
-          {paragraph}
+          {formatNewsContent(paragraph)}
         </p>
       ))}
 
