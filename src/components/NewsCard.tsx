@@ -10,6 +10,24 @@ type Props = {
   showBookmark?: boolean;
 };
 
+const getSourceName = (url: string): string => {
+  try {
+    const hostname = new URL(url).hostname.replace('www.', '');
+    const sourceMap: Record<string, string> = {
+      'bangkokpost.com': 'Bangkok Post',
+      'thestandard.co': 'The Standard',
+      'thaipbsworld.com': 'Thai PBS',
+      'thaipbs.or.th': 'Thai PBS',
+      'bangkokbiznews.com': 'Bangkok Biz',
+      'prachachat.net': 'Prachachat',
+      'nationthailand.com': 'Nation Thailand',
+    };
+    return sourceMap[hostname] || hostname.split('.')[0].charAt(0).toUpperCase() + hostname.split('.')[0].slice(1);
+  } catch {
+    return '';
+  }
+};
+
 const NewsCard = ({ article, showBookmark = true }: Props) => {
   const { lang } = useI18n();
 
@@ -73,6 +91,15 @@ const NewsCard = ({ article, showBookmark = true }: Props) => {
       <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
         {content || article.content_raw || ""}
       </p>
+
+      {/* source */}
+      {article.url && (
+        <p className="text-xs text-muted-foreground mb-2">
+          {lang === 'ja' ? '出典: ' : 'Source: '}
+          <span className="font-medium">{getSourceName(article.url)}</span>
+          {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
+        </p>
+      )}
 
       {/* link */}
       {article.slug && (

@@ -220,12 +220,14 @@ const NewsDetailFromSheet = () => {
       // Map common domains to proper names
       const sourceMap: Record<string, string> = {
         'bangkokpost.com': 'Bangkok Post',
-        'thaipbsworld.com': 'Thai PBS World',
-        'nationthailand.com': 'The Nation Thailand',
+        'thestandard.co': 'The Standard',
+        'thaipbsworld.com': 'Thai PBS',
+        'thaipbs.or.th': 'Thai PBS',
+        'nationthailand.com': 'Nation Thailand',
         'thaiexaminer.com': 'Thai Examiner',
         'prachachat.net': 'Prachachat',
+        'bangkokbiznews.com': 'Bangkok Biz',
         'reuters.com': 'Reuters',
-        'bangkokbiznews.com': 'Bangkok Biz News'
       };
       
       return sourceMap[hostname] || hostname
@@ -270,14 +272,7 @@ const NewsDetailFromSheet = () => {
         <div className="mt-8 pt-6 border-t not-prose">
           <p className="text-sm text-muted-foreground">
             {lang === 'ja' ? '出典: ' : 'Source: '}
-            <a 
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              {getSourceName(article.url)}
-            </a>
+            <span className="font-medium">{getSourceName(article.url)}</span>
             {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
           </p>
         </div>
