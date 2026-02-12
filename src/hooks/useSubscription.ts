@@ -65,13 +65,31 @@ export const useSubscription = () => {
       let isSubscribed = false;
 
       // Check Stripe subscription first
-      if (data?.subscribed && (data?.plan === 'basic' || data?.plan === 'premium' || data?.product_id)) {
+      if (data?.subscribed && (data?.plan === 'basic' || data?.plan === 'premium' || data?.plan === 'free_trial' || data?.product_id)) {
         isSubscribed = true;
         isActive = true;
         if (data.plan === 'premium' || (data.product_id && data.product_id.includes('premium'))) {
           plan = 'premium';
+        } else if (data.plan === 'free_trial') {
+          plan = 'free_trial';
         } else {
           plan = 'basic';
+        }
+      }
+      // Check local subscription table for paid tiers (manually granted or synced)
+      else if (localSub?.is_active && localSub?.tier && localSub.tier !== 'free_trial') {
+        const endDate = localSub.subscription_end_date || localSub.current_period_end;
+        if (!endDate || new Date(endDate) > now) {
+          isSubscribed = true;
+          isActive = true;
+          // Map DB tiers to plan names
+          if (['business', 'enterprise'].includes(localSub.tier)) {
+            plan = 'premium';
+          } else if (localSub.tier === 'starter') {
+            plan = 'basic';
+          } else {
+            plan = 'basic';
+          }
         }
       }
       // Check local free trial
