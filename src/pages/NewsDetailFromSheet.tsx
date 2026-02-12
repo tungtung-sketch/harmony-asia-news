@@ -267,16 +267,14 @@ const NewsDetailFromSheet = () => {
         </p>
       ))}
 
-      {/* Source Link */}
-      {article.url && (
-        <div className="mt-8 pt-6 border-t not-prose">
-          <p className="text-sm text-muted-foreground">
-            {lang === 'ja' ? '出典: ' : 'Source: '}
-            <span className="font-medium">{getSourceName(article.url)}</span>
-            {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
-          </p>
-        </div>
-      )}
+      {/* Source Attribution */}
+      <div className="mt-8 pt-6 border-t not-prose">
+        <p className="text-sm text-muted-foreground">
+          {lang === 'ja' ? '出典: ' : 'Source: '}
+          <span className="font-medium">Bangkok Post, The Standard, ThaiPBS, Bangkokbiz, Prachachat, Nation Thailand</span>
+          {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
+        </p>
+      </div>
     </div>
   );
 
