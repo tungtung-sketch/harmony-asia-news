@@ -93,13 +93,11 @@ const NewsCard = ({ article, showBookmark = true }: Props) => {
       </p>
 
       {/* source */}
-      {article.url && (
-        <p className="text-xs text-muted-foreground mb-2">
-          {lang === 'ja' ? '出典: ' : 'Source: '}
-          <span className="font-medium">{getSourceName(article.url)}</span>
-          {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
-        </p>
-      )}
+      <p className="text-xs text-muted-foreground mb-2">
+        {lang === 'ja' ? '出典: ' : 'Source: '}
+        <span className="font-medium">Bangkok Post, The Standard, ThaiPBS, Bangkokbiz, Prachachat, Nation Thailand</span>
+        {lang === 'ja' ? ' (要約・編集：WaLens)' : ' (summarized by WaLens)'}
+      </p>
 
       {/* link */}
       {article.slug && (
