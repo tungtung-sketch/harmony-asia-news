@@ -65,11 +65,10 @@ export const useSubscription = () => {
       let isSubscribed = false;
 
       // Check Stripe subscription first
-      if (data?.subscribed && data?.product_id) {
+      if (data?.subscribed && (data?.plan === 'basic' || data?.plan === 'premium' || data?.product_id)) {
         isSubscribed = true;
         isActive = true;
-        // Map product ID to plan type - you'll need to update these with actual Stripe product IDs
-        if (data.product_id.includes('premium')) {
+        if (data.plan === 'premium' || (data.product_id && data.product_id.includes('premium'))) {
           plan = 'premium';
         } else {
           plan = 'basic';

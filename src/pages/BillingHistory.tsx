@@ -45,17 +45,26 @@ const BillingHistory = () => {
     try {
       setHistoryLoading(true);
       
-      // Get subscription info to check if user has Stripe customer
+      // First, call check-subscription to sync Stripe data to local DB
+      try {
+        await supabase.functions.invoke('check-subscription', {
+          headers: {
+            Authorization: `Bearer ${session?.access_token}`
+          }
+        });
+      } catch (syncErr) {
+        console.error('Error syncing subscription:', syncErr);
+      }
+
+      // Now fetch the (potentially updated) subscription from local DB
       const { data: subscription } = await supabase
         .from('subscriptions')
-        .select('stripe_customer_id, tier, created_at, trial_end_date')
+        .select('stripe_customer_id, tier, created_at, trial_end_date, stripe_subscription_id, subscription_end_date, current_period_end, status')
         .eq('user_id', user?.id)
         .maybeSingle();
 
       if (subscription?.stripe_customer_id) {
         setHasStripeCustomer(true);
-        // TODO: In future, fetch actual billing history from Stripe via edge function
-        // For now, show placeholder based on subscription data
         const records: BillingRecord[] = [];
         
         if (subscription.tier && subscription.tier !== 'free_trial') {
@@ -71,7 +80,6 @@ const BillingHistory = () => {
         
         setBillingHistory(records);
       } else {
-        // User only has free trial, no billing history
         setHasStripeCustomer(false);
         setBillingHistory([]);
       }
@@ -161,9 +169,11 @@ const BillingHistory = () => {
                         : (lang === 'ja' ? '有料プランにアップグレードすると請求履歴が表示されます' : 'Upgrade to a paid plan to see billing history')
                       }
                     </p>
-                    <Button onClick={() => navigate('/subscribe')}>
-                      {lang === 'ja' ? 'プランを見る' : 'View Plans'}
-                    </Button>
+                    {!hasStripeCustomer && (
+                      <Button onClick={() => navigate('/subscribe')}>
+                        {lang === 'ja' ? 'プランを見る' : 'View Plans'}
+                      </Button>
+                    )}
                   </div>
                 ) : (
                   <div className="space-y-3">
