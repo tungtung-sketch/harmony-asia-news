@@ -53,6 +53,7 @@ import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
 import PremiumAnalyticsPage from "./pages/admin/PremiumAnalyticsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
+import VisitorAnalyticsPage from "./pages/admin/VisitorAnalyticsPage";
 import { PageTracker } from "./components/PageTracker";
 
 const queryClient = new QueryClient();
@@ -117,6 +118,7 @@ const App = () => (
               {/* Admin Routes */}
               <Route path="/admin/premium-analytics" element={<PremiumAnalyticsPage />} />
               <Route path="/admin/event-analytics" element={<AdminAnalyticsPage />} />
+              <Route path="/admin/analytics" element={<VisitorAnalyticsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
