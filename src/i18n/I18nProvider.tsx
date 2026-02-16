@@ -315,14 +315,23 @@ const translations: Record<Lang, Translations> = {
     
     // Features
     "subscribe.features.title": "Compare Plans",
+    "subscribe.features.featureLabel": "Features",
     "subscribe.features.dailyNews": "Daily News Access",
+    "subscribe.features.dailyNews.basicDesc": "Access to curated daily business news in Thailand.",
+    "subscribe.features.dailyNews.premiumDesc": "Full access to daily news with deeper context and executive summary.",
     "subscribe.features.premiumInsights": "Premium Insights",
+    "subscribe.features.premiumInsights.basicDesc": "Not included.",
+    "subscribe.features.premiumInsights.premiumDesc": "In-depth analysis with implications for Japanese companies in Thailand. Includes strategic interpretation and industry impact.",
     "subscribe.features.executiveReports": "Executive Reports",
+    "subscribe.features.executiveReports.basicDesc": "Not included.",
+    "subscribe.features.executiveReports.premiumDesc": "Structured, decision-ready reports designed for management discussions, internal circulation, and board-level understanding.",
     "subscribe.features.pdfDownloads": "PDF Downloads",
     "subscribe.features.multiSeat": "Multi-seat License",
     "subscribe.features.customServices": "Customized Services",
     "subscribe.features.included": "Included",
     "subscribe.features.notIncluded": "Not Included",
+    "subscribe.features.positioning.line1": "Choose the plan that matches your level of strategic engagement. Basic is designed for daily awareness. Premium is built for executive decision-making.",
+    "subscribe.features.positioning.line2": "Both plans include a 30-day free trial.",
     
     // Final CTA
     "subscribe.finalCta.title": "Join hundreds of executives already staying ahead with WaLens Asia News",
@@ -944,14 +953,23 @@ const translations: Record<Lang, Translations> = {
     
     // Features
     "subscribe.features.title": "プラン比較",
+    "subscribe.features.featureLabel": "機能",
     "subscribe.features.dailyNews": "日次ニュースアクセス",
+    "subscribe.features.dailyNews.basicDesc": "タイのビジネスニュースを厳選して毎日配信。",
+    "subscribe.features.dailyNews.premiumDesc": "日次ニュースに加え、背景分析とエグゼクティブサマリーを提供。",
     "subscribe.features.premiumInsights": "プレミアムインサイト",
+    "subscribe.features.premiumInsights.basicDesc": "含まれません。",
+    "subscribe.features.premiumInsights.premiumDesc": "タイ進出日系企業への影響分析。戦略的解釈と業界インパクトを含む。",
     "subscribe.features.executiveReports": "エグゼクティブレポート",
+    "subscribe.features.executiveReports.basicDesc": "含まれません。",
+    "subscribe.features.executiveReports.premiumDesc": "経営会議・社内回覧・取締役レベルの意思決定に対応した、構造化されたレポート。",
     "subscribe.features.pdfDownloads": "PDFダウンロード",
     "subscribe.features.multiSeat": "マルチシートライセンス",
     "subscribe.features.customServices": "カスタマイズサービス",
     "subscribe.features.included": "含む",
     "subscribe.features.notIncluded": "含まない",
+    "subscribe.features.positioning.line1": "戦略的な関与のレベルに合ったプランをお選びください。ベーシックは日常の情報収集に。プレミアムはエグゼクティブの意思決定のために。",
+    "subscribe.features.positioning.line2": "両プランとも30日間の無料トライアル付き。",
     
     // Final CTA
     "subscribe.finalCta.title": "WaLens Asia Newsで既に先を行く数百人のエグゼクティブに参加しましょう",

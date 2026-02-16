@@ -44,7 +44,6 @@ const Subscribe = () => {
         dailyNews: true,
         premiumInsights: false,
         executiveReports: false,
-        pdfDownloads: false,
       }
     },
     {
@@ -59,16 +58,29 @@ const Subscribe = () => {
         dailyNews: true,
         premiumInsights: true,
         executiveReports: true,
-        pdfDownloads: true,
       }
     }
   ];
 
   const features = [
-    { key: "dailyNews", label: t("subscribe.features.dailyNews") },
-    { key: "premiumInsights", label: t("subscribe.features.premiumInsights") },
-    { key: "executiveReports", label: t("subscribe.features.executiveReports") },
-    { key: "pdfDownloads", label: t("subscribe.features.pdfDownloads") },
+    { 
+      key: "dailyNews", 
+      label: t("subscribe.features.dailyNews"),
+      basicDesc: t("subscribe.features.dailyNews.basicDesc"),
+      premiumDesc: t("subscribe.features.dailyNews.premiumDesc"),
+    },
+    { 
+      key: "premiumInsights", 
+      label: t("subscribe.features.premiumInsights"),
+      basicDesc: t("subscribe.features.premiumInsights.basicDesc"),
+      premiumDesc: t("subscribe.features.premiumInsights.premiumDesc"),
+    },
+    { 
+      key: "executiveReports", 
+      label: t("subscribe.features.executiveReports"),
+      basicDesc: t("subscribe.features.executiveReports.basicDesc"),
+      premiumDesc: t("subscribe.features.executiveReports.premiumDesc"),
+    },
   ];
 
   const scrollToPricing = () => {
@@ -195,15 +207,28 @@ const Subscribe = () => {
         {/* Features Comparison */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">{t("subscribe.features.title")}</h2>
-            <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8">{t("subscribe.features.title")}</h2>
+            
+            {/* Positioning Statement */}
+            <div className="max-w-2xl mx-auto text-center mb-12">
+              <p className="text-muted-foreground leading-relaxed text-base">
+                {t("subscribe.features.positioning.line1")}
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-sm mt-2">
+                {t("subscribe.features.positioning.line2")}
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-4 px-4 font-semibold">Features</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-4 px-6 font-semibold text-foreground w-1/3">
+                        {t("subscribe.features.featureLabel")}
+                      </th>
                       {plans.map((plan, index) => (
-                        <th key={index} className="text-center py-4 px-4 font-semibold min-w-[120px]">
+                        <th key={index} className="text-center py-4 px-6 font-semibold text-foreground w-1/3">
                           {plan.name}
                         </th>
                       ))}
@@ -211,15 +236,30 @@ const Subscribe = () => {
                   </thead>
                   <tbody>
                     {features.map((feature, featureIndex) => (
-                      <tr key={featureIndex} className="border-b border-border/50">
-                        <td className="py-4 px-4 font-medium">{feature.label}</td>
-                         {plans.map((plan, planIndex) => (
-                           <td key={planIndex} className="text-center py-4 px-4">
-                             <div className="flex justify-center">
-                               <FeatureIcon included={plan.features[feature.key as keyof typeof plan.features]} />
-                             </div>
-                           </td>
-                         ))}
+                      <tr key={featureIndex} className="border-b border-border/30">
+                        <td className="py-5 px-6 align-top">
+                          <span className="font-medium text-foreground">{feature.label}</span>
+                        </td>
+                        <td className="py-5 px-6 align-top">
+                          <div className="flex items-start gap-2">
+                            <div className="mt-0.5 shrink-0">
+                              <FeatureIcon included={plans[0].features[feature.key as keyof typeof plans[0]['features']]} />
+                            </div>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              {feature.basicDesc}
+                            </p>
+                          </div>
+                        </td>
+                        <td className="py-5 px-6 align-top">
+                          <div className="flex items-start gap-2">
+                            <div className="mt-0.5 shrink-0">
+                              <FeatureIcon included={plans[1].features[feature.key as keyof typeof plans[1]['features']]} />
+                            </div>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              {feature.premiumDesc}
+                            </p>
+                          </div>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
