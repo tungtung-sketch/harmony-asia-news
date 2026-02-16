@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics_exclusions: {
+        Row: {
+          created_at: string
+          exclusion_type: string
+          exclusion_value: string
+          id: string
+          note: string | null
+        }
+        Insert: {
+          created_at?: string
+          exclusion_type: string
+          exclusion_value: string
+          id?: string
+          note?: string | null
+        }
+        Update: {
+          created_at?: string
+          exclusion_type?: string
+          exclusion_value?: string
+          id?: string
+          note?: string | null
+        }
+        Relationships: []
+      }
       anomaly_flags: {
         Row: {
           created_at: string | null
@@ -898,6 +922,57 @@ export type Database = {
           trial_start_date?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      visitor_logs: {
+        Row: {
+          browser: string
+          cookie_id: string
+          created_at: string
+          device_type: string
+          id: string
+          ip_hash: string
+          is_test: boolean
+          language: string | null
+          os: string
+          page_path: string
+          referrer: string | null
+          user_agent: string
+          viewport_h: number | null
+          viewport_w: number | null
+        }
+        Insert: {
+          browser?: string
+          cookie_id?: string
+          created_at?: string
+          device_type?: string
+          id?: string
+          ip_hash?: string
+          is_test?: boolean
+          language?: string | null
+          os?: string
+          page_path: string
+          referrer?: string | null
+          user_agent?: string
+          viewport_h?: number | null
+          viewport_w?: number | null
+        }
+        Update: {
+          browser?: string
+          cookie_id?: string
+          created_at?: string
+          device_type?: string
+          id?: string
+          ip_hash?: string
+          is_test?: boolean
+          language?: string | null
+          os?: string
+          page_path?: string
+          referrer?: string | null
+          user_agent?: string
+          viewport_h?: number | null
+          viewport_w?: number | null
         }
         Relationships: []
       }
