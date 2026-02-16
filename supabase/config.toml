@@ -56,3 +56,6 @@ verify_jwt = true
 
 [functions.track]
 verify_jwt = false
+
+[functions.log-visitor]
+verify_jwt = false
