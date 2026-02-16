@@ -75,7 +75,7 @@ const DataCard = ({ data, compact = false, timePeriod = 'quarterly' }: DataCardP
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between">
             <CardTitle className={`${compact ? 'text-lg' : 'text-xl'} font-semibold leading-tight`}>
-              {data.title[lang]}
+              {data.title[lang]} <span className="text-muted-foreground font-normal">({data.year})</span>
             </CardTitle>
             <Badge variant="secondary" className="ml-2 flex-shrink-0">
               {data.category}

@@ -13,7 +13,7 @@ import { BarChart3, TrendingUp, Database } from 'lucide-react';
 const BusinessIntelligence = () => {
   const { t, lang } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedYear, setSelectedYear] = useState('all');
+  const [selectedYear, setSelectedYear] = useState('2025');
   const [searchQuery, setSearchQuery] = useState('');
   const [timePeriod, setTimePeriod] = useState<TimePeriod>('quarterly');
 
