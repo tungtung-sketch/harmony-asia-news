@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-6 md:mt-8 pt-6 md:pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 {t('brand.name')}. {t('footer.copyright')}</p>
+          <p>&copy; 2025–2026 {t('brand.name')}. {t('footer.copyright')}</p>
         </div>
       </div>
     </footer>
