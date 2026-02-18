@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Filter, Target, Lightbulb, Shield } from 'lucide-react';
+import CompanyProfileDownload from '@/components/CompanyProfileDownload';
 
 const About = () => {
   const { t } = useI18n();
@@ -156,6 +157,9 @@ const About = () => {
               </div>
             </div>
           </section>
+
+          {/* Company Profile Download */}
+          <CompanyProfileDownload variant="banner" />
 
           {/* Final CTA Section */}
           <section className="container mx-auto py-16 md:py-20 text-center px-4">
