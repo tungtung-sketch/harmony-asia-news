@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from '@/components/AuthModals';
 import { trackCheckoutStart } from '@/lib/tracker';
+import CompanyProfileDownload from '@/components/CompanyProfileDownload';
 
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
@@ -266,6 +267,13 @@ const Subscribe = () => {
                 </table>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Company Profile Download */}
+        <section className="py-10">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <CompanyProfileDownload variant="card" />
           </div>
         </section>
 

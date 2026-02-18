@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
+import CompanyProfileDownload from '@/components/CompanyProfileDownload';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -397,6 +398,13 @@ const FAQ = () => {
                 ))}
               </Tabs>
             )}
+          </div>
+        </section>
+
+        {/* Company Profile Download */}
+        <section className="container mx-auto px-4 pb-10">
+          <div className="max-w-4xl mx-auto">
+            <CompanyProfileDownload variant="card" />
           </div>
         </section>
 
