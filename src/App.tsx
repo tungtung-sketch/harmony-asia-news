@@ -37,6 +37,7 @@ import ChemicalIndustry from "./pages/insights/reports/ChemicalIndustry";
 import FoodIndustry from "./pages/insights/reports/FoodIndustry";
 import EnergyIndustry from "./pages/insights/reports/EnergyIndustry";
 import AutomotiveIndustry from "./pages/insights/reports/AutomotiveIndustry";
+import HormuzCrisisImpact from "./pages/insights/reports/HormuzCrisisImpact";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
