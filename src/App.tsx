@@ -112,6 +112,7 @@ const App = () => (
               <Route path="/insights/agriculture/food-industry" element={<FoodIndustry />} />
               <Route path="/insights/services/energy-industry" element={<EnergyIndustry />} />
               <Route path="/insights/manufacturing/automotive-industry" element={<AutomotiveIndustry />} />
+              <Route path="/insights/services/hormuz-crisis-impact" element={<HormuzCrisisImpact />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

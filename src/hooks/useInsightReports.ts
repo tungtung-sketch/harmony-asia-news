@@ -116,6 +116,13 @@ const reportMetadata: Record<string, {
     description: "Thailand's automotive strategic realignment 2026: from 'Detroit of Asia' to 'Social Issue Solution Market.' Chinese EV surge (>80% BEV share), Multi-Pathway defense, 5 interconnected industries (Elderly Care, Food, Electronics, Education), Tier-2/3 supply chain crisis, and hydrogen logistics pivot for Japanese executives.",
     descriptionJa: 'タイ自動車産業の構造転換2026：「アジアのデトロイト」から「社会課題解決型市場」へ。中国EVの台頭（BEVシェア80%超）、マルチパスウェイ防衛、5つの連関産業（高齢者ケア・食品・電子機器・教育）、Tier-2/3サプライチェーン危機、水素ロジスティクスピボット。',
     link: '/insights/manufacturing/automotive-industry'
+  },
+  'hormuz-crisis-impact': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: "2026 Hormuz Strait Crisis: Multi-dimensional impact on Thai industry. Energy security vulnerabilities, manufacturing cost explosions, fertilizer shock, Climate Change Act enforcement acceleration, and strategic opportunities in digital GHG management and decarbonization for Japanese enterprises.",
+    descriptionJa: '2026年ホルムズ海峡危機：タイ産業への多角的影響分析。エネルギー安全保障の脆弱性、製造コスト爆発、肥料ショック、気候変動法施行加速、デジタルGHG管理・脱炭素化における日系企業の戦略的機会。',
+    link: '/insights/services/hormuz-crisis-impact'
   }
 };
 
