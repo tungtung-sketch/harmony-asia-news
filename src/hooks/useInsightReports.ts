@@ -123,6 +123,13 @@ const reportMetadata: Record<string, {
     description: "2026 Hormuz Strait Crisis: Multi-dimensional impact on Thai industry. Energy security vulnerabilities, manufacturing cost explosions, fertilizer shock, Climate Change Act enforcement acceleration, and strategic opportunities in digital GHG management and decarbonization for Japanese enterprises.",
     descriptionJa: '2026年ホルムズ海峡危機：タイ産業への多角的影響分析。エネルギー安全保障の脆弱性、製造コスト爆発、肥料ショック、気候変動法施行加速、デジタルGHG管理・脱炭素化における日系企業の戦略的機会。',
     link: '/insights/services/hormuz-crisis-impact'
+  },
+  'oil-crisis-thai-industry': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: "2026 US-Iran conflict energy crisis: structural impact on Thai manufacturing and advanced decarbonization management strategy. Coal reversion paradox, grid emission factor volatility, and explosive demand for real-time digital GHG management platforms.",
+    descriptionJa: '2026年米イラン紛争に伴うタイのエネルギー危機：製造業および環境関連企業への構造的影響と高度な脱炭素管理戦略。石炭回帰のパラドックス、グリッド排出係数の変動、リアルタイムGHG管理プラットフォームへの爆発的需要。',
+    link: '/insights/services/oil-crisis-thai-industry'
   }
 };
 
