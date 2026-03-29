@@ -38,6 +38,7 @@ import FoodIndustry from "./pages/insights/reports/FoodIndustry";
 import EnergyIndustry from "./pages/insights/reports/EnergyIndustry";
 import AutomotiveIndustry from "./pages/insights/reports/AutomotiveIndustry";
 import HormuzCrisisImpact from "./pages/insights/reports/HormuzCrisisImpact";
+import OilCrisisThaiIndustry from "./pages/insights/reports/OilCrisisThaiIndustry";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
@@ -113,6 +114,7 @@ const App = () => (
               <Route path="/insights/services/energy-industry" element={<EnergyIndustry />} />
               <Route path="/insights/manufacturing/automotive-industry" element={<AutomotiveIndustry />} />
               <Route path="/insights/services/hormuz-crisis-impact" element={<HormuzCrisisImpact />} />
+              <Route path="/insights/services/oil-crisis-thai-industry" element={<OilCrisisThaiIndustry />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
