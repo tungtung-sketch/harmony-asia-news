@@ -81,6 +81,9 @@ const Contact = () => {
               </div>
               <h1 className="text-3xl font-bold mb-4">{t("contact.h1")}</h1>
               <p className="text-muted-foreground text-lg">{t("contact.metaDescription")}</p>
+              <p className="text-muted-foreground text-sm mt-3">
+                📞 <a href="tel:+66953256631" className="hover:text-primary transition-colors">(+66) 95-325-6631</a>
+              </p>
             </div>
 
             <div className="bg-card rounded-lg border p-8 shadow-sm">
