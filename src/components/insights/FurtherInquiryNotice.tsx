@@ -37,8 +37,11 @@ export const FurtherInquiryNotice: React.FC<FurtherInquiryNoticeProps> = ({
         <h3 className="text-lg font-semibold mb-3">
           {isJapanese ? content.title.ja : content.title.en}
         </h3>
-        <p className="text-muted-foreground text-sm max-w-2xl mx-auto mb-6">
+        <p className="text-muted-foreground text-sm max-w-2xl mx-auto mb-4">
           {isJapanese ? content.description.ja : content.description.en}
+        </p>
+        <p className="text-muted-foreground text-sm mb-6">
+          📞 <a href="tel:+66953256631" className="hover:text-primary transition-colors">(+66) 95-325-6631</a>
         </p>
         <Button asChild>
           <Link to="/contact">
