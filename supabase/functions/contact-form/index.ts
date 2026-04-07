@@ -47,17 +47,22 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
+    // Sanitize inputs for HTML email
+    const escapeHtml = (str: string) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message).replace(/\n/g, '<br />');
+
     // Send email to WaLens admin
     const emailResponse = await resend.emails.send({
       from: "WaLens Contact <contact@walensnews.com>",
       to: ["contact@walensnews.com"],
-      subject: `[WaLens Contact Form] New message from ${email}`,
+      subject: `[WaLens Contact Form] New message from ${safeEmail}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${email}</p>
+        <p><strong>From:</strong> ${safeEmail}</p>
         <hr />
         <h3>Message:</h3>
-        <p>${message.replace(/\n/g, '<br />')}</p>
+        <p>${safeMessage}</p>
         <hr />
         <p><em>This message was sent via the WaLens contact form.</em></p>
       `,
