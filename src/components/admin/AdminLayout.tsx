@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ADMIN_EMAIL } from '@/types/paywall';
+
 
 const adminNavItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
@@ -43,8 +43,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   useEffect(() => {
     if (!isLoading) {
       // Check if user is admin
-      const isAdmin = userContext.isAdmin || user?.email === ADMIN_EMAIL;
-      if (!user || !isAdmin) {
+      if (!user || !userContext.isAdmin) {
         navigate('/');
       }
     }
@@ -58,8 +57,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     );
   }
 
-  const isAdmin = userContext.isAdmin || user?.email === ADMIN_EMAIL;
-  if (!user || !isAdmin) {
+  if (!user || !userContext.isAdmin) {
     return null;
   }
 

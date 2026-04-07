@@ -65,5 +65,3 @@ export interface SheetArticleAccess {
   previewParagraphs: number;
 }
 
-// Admin email constant
-export const ADMIN_EMAIL = 'tungtungtutungtung@gmail.com';

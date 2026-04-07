@@ -21,7 +21,7 @@ import { useSubscription } from '@/hooks/useSubscription';
 import { useToast } from '@/hooks/use-toast';
 import { CancellationModal } from '@/components/CancellationModal';
 import { PasswordChangeModal } from '@/components/PasswordChangeModal';
-import { ADMIN_EMAIL } from '@/types/paywall';
+import { usePaywall } from '@/hooks/usePaywall';
 
 interface UserProfile {
   full_name: string;
@@ -66,8 +66,8 @@ const MyPage = () => {
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const { subscriptionStatus: subStatus, refreshSubscription } = useSubscription();
   
-  // Check if user is admin
-  const isAdmin = user?.email === ADMIN_EMAIL;
+  const { userContext } = usePaywall();
+  const isAdmin = userContext.isAdmin;
   
   // Edit mode state
   const [isEditing, setIsEditing] = useState(false);
