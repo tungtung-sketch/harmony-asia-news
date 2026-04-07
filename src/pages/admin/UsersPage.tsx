@@ -14,7 +14,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { PlanBadge } from '@/components/paywall';
 import { Search, RefreshCw } from 'lucide-react';
-import { ADMIN_EMAIL } from '@/types/paywall';
+
 
 interface UserWithSubscription {
   id: string;
@@ -103,7 +103,7 @@ export const UsersPage: React.FC = () => {
   };
 
   const getUserTier = (user: UserWithSubscription): string => {
-    if (user.email === ADMIN_EMAIL) return 'ADMIN';
+    if (user.role === 'admin') return 'ADMIN';
     if (!user.subscription) return 'GUEST';
     
     const tier = user.subscription.tier;
@@ -177,8 +177,8 @@ export const UsersPage: React.FC = () => {
                       <div>
                         <div className="font-medium flex items-center gap-2">
                           {user.full_name || 'No name'}
-                          {user.email === ADMIN_EMAIL && (
-                            <Badge variant="destructive" className="text-xs">Super Admin</Badge>
+                          {user.role === 'admin' && (
+                            <Badge variant="destructive" className="text-xs">Admin</Badge>
                           )}
                         </div>
                         <div className="text-sm text-muted-foreground">{user.email}</div>
@@ -196,7 +196,7 @@ export const UsersPage: React.FC = () => {
                       <Select 
                         value={user.role} 
                         onValueChange={(value) => updateUserRole(user.user_id, value as 'reader' | 'editor' | 'admin')}
-                        disabled={user.email === ADMIN_EMAIL}
+                        disabled={user.role === 'admin'}
                       >
                         <SelectTrigger className="w-32">
                           <SelectValue />

@@ -9,7 +9,6 @@ import {
   UserAccessContext,
   Role,
   RoleArticleRule,
-  ADMIN_EMAIL
 } from '@/types/paywall';
 
 // Cache for role rules to avoid repeated fetches
@@ -58,11 +57,6 @@ export const usePaywall = () => {
   const determineRole = useCallback(async (): Promise<RoleName> => {
     if (!user?.email) return 'GUEST';
     
-    // Admin override for special email
-    if (user.email === ADMIN_EMAIL) {
-      return 'ADMIN';
-    }
-
     try {
       // Check subscription status
       const { data } = await supabase.functions.invoke('check-subscription', {
@@ -147,7 +141,7 @@ export const usePaywall = () => {
       }
 
       const role = await determineRole();
-      const isAdmin = role === 'ADMIN' || user.email === ADMIN_EMAIL;
+      const isAdmin = role === 'ADMIN';
 
       setUserContext({
         isLoggedIn: true,
@@ -167,7 +161,7 @@ export const usePaywall = () => {
     const { role, isAdmin, email } = userContext;
 
     // Admin override
-    if (isAdmin || email === ADMIN_EMAIL) {
+    if (isAdmin) {
       return {
         canViewPreview: true,
         canViewFull: true,

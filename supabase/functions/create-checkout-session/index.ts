@@ -41,9 +41,17 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
-    // Get request body
+    // Get and validate request body
     const requestBody = await req.json();
     const { planType } = requestBody;
+    
+    // Validate planType against allowlist
+    if (!planType || !['basic', 'premium'].includes(planType)) {
+      return new Response(JSON.stringify({ error: "Invalid plan type. Must be 'basic' or 'premium'." }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 400,
+      });
+    }
     logStep("Request data received", { planType });
 
     // Get price ID based on plan type

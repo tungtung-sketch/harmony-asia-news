@@ -42,8 +42,9 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
-    const { reason } = await req.json();
-    logStep("Cancellation reason received", { reason });
+    const body = await req.json();
+    const reason = typeof body.reason === 'string' ? body.reason.substring(0, 500) : '';
+    logStep("Cancellation reason received", { reason: reason.substring(0, 50) });
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
     const resend = new Resend(resendKey);
