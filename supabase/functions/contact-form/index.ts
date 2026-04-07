@@ -21,11 +21,25 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email, message }: ContactFormRequest = await req.json();
+    const body = await req.json();
+    const email = typeof body.email === 'string' ? body.email.trim() : '';
+    const message = typeof body.message === 'string' ? body.message.trim() : '';
 
-    if (!email || !message) {
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email) || email.length > 255) {
       return new Response(
-        JSON.stringify({ error: "Email and message are required" }),
+        JSON.stringify({ error: "A valid email address is required" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    if (!message || message.length > 5000) {
+      return new Response(
+        JSON.stringify({ error: "Message is required and must be under 5000 characters" }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },

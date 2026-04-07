@@ -34,10 +34,14 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email, language }: ResetRequest = await req.json();
+    const body = await req.json();
+    const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+    const language = typeof body.language === 'string' ? body.language : 'en';
 
-    if (!email) {
-      return new Response(JSON.stringify({ error: "Email is required" }), {
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email) || email.length > 255) {
+      return new Response(JSON.stringify({ error: "Valid email is required" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
