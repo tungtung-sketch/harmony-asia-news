@@ -116,6 +116,7 @@ const App = () => (
               <Route path="/insights/manufacturing/automotive-industry" element={<AutomotiveIndustry />} />
               <Route path="/insights/services/hormuz-crisis-impact" element={<HormuzCrisisImpact />} />
               <Route path="/insights/services/oil-crisis-thai-industry" element={<OilCrisisThaiIndustry />} />
+              <Route path="/insights/services/thai-gov-policy-japanese" element={<ThaiGovPolicyJapanese />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
