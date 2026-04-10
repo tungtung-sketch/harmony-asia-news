@@ -92,7 +92,7 @@ const AutomotiveIndustry = () => {
 
   const tocSections = [
     { id: 'executive-summary', label: isJapanese ? 'エグゼクティブサマリー' : 'Executive Summary' },
-    { id: 'facts', label: isJapanese ? 'ファクト（市場・政策・動向）' : 'Facts (Market, Policy & Trends)' },
+    { id: 'facts', label: isJapanese ? '市場・政策・動向に関する情報' : 'Facts (Market, Policy & Trends)' },
     { id: 'opinion', label: isJapanese ? 'WaLensの見解と示唆' : 'Opinion & Implication from WaLens' },
     { id: 'recommendation', label: isJapanese ? '日本企業経営者への提言' : 'Recommendation for Japanese Executives' },
     { id: 'data-appendix', label: isJapanese ? 'データ付録' : 'Data Appendix' },
