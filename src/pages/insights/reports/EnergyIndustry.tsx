@@ -100,7 +100,7 @@ const EnergyIndustry = () => {
 
   const tocSections = [
     { id: 'executive-summary', label: isJapanese ? 'エグゼクティブサマリー' : 'Executive Summary' },
-    { id: 'facts', label: isJapanese ? '市場・政策・動向に関する情報' : 'Facts (Market, Policy & Trends)' },
+    { id: 'facts', label: isJapanese ? '市場・政策・動向に関する情報' : 'Market, Policy & Trends Information' },
     { id: 'opinion', label: isJapanese ? 'WaLensの見解と示唆' : 'Opinion & Implication from WaLens' },
     { id: 'recommendation', label: isJapanese ? '日本企業経営者への提言' : 'Recommendation for Japanese Executives' },
     { id: 'data-appendix', label: isJapanese ? 'データ付録' : 'Data Appendix' },
@@ -495,8 +495,8 @@ const EnergyIndustry = () => {
                 <Database className="h-6 w-6 text-blue-500" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">{isJapanese ? '市場・政策・動向に関する情報' : 'Facts (Market, Policy & Trends)'}</h2>
-                <p className="text-sm text-muted-foreground">{isJapanese ? 'データベース' : 'Objective data only'}</p>
+                <h2 className="text-2xl font-bold">{isJapanese ? '市場・政策・動向に関する情報' : 'Market, Policy & Trends Information'}</h2>
+                <p className="text-sm text-muted-foreground">{isJapanese ? 'データベース' : 'Database'}</p>
               </div>
             </div>
 
