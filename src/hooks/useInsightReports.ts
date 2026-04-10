@@ -130,6 +130,13 @@ const reportMetadata: Record<string, {
     description: "2026 US-Iran conflict energy crisis: structural impact on Thai manufacturing and advanced decarbonization management strategy. Coal reversion paradox, grid emission factor volatility, and explosive demand for real-time digital GHG management platforms.",
     descriptionJa: '2026年米イラン紛争に伴うタイのエネルギー危機：製造業および環境関連企業への構造的影響と高度な脱炭素管理戦略。石炭回帰のパラドックス、グリッド排出係数の変動、リアルタイムGHG管理プラットフォームへの爆発的需要。',
     link: '/insights/services/oil-crisis-thai-industry'
+  },
+  'thai-gov-policy-japanese': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: "Anutin 2 government policy analysis (April 2026): Super License reform, Semiconductor Roadmap 2050, nominee crackdown, Made in Thailand procurement, and green energy transition — strategic implications for Japanese enterprises in Thailand.",
+    descriptionJa: 'อนุทิน2政策分析（2026年4月）：Super License改革、半導体ロードマップ2050、ノミニー取締強化、Made in Thailand調達、グリーンエネルギー転換——タイにおける日系企業への戦略的影響。',
+    link: '/insights/services/thai-gov-policy-japanese'
   }
 };
 
