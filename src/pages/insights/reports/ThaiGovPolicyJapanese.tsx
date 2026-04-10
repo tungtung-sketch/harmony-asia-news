@@ -77,7 +77,7 @@ const ThaiGovPolicyJapanese = () => {
 
   const tocSections = [
     { id: 'executive-summary', label: isJapanese ? 'エグゼクティブサマリー' : 'Executive Summary' },
-    { id: 'facts', label: isJapanese ? 'ファクト（政策・規制・動向）' : 'Facts (Policy, Regulation & Trends)' },
+    { id: 'facts', label: isJapanese ? '市場・政策・動向に関する情報' : 'Facts (Policy, Regulation & Trends)' },
     { id: 'opinion', label: isJapanese ? 'WaLensの見解と示唆' : 'Opinion & Implication from WaLens' },
     { id: 'recommendation', label: isJapanese ? '日本企業経営者への提言' : 'Recommendation for Japanese Executives' },
     { id: 'data-appendix', label: isJapanese ? 'データ付録' : 'Data Appendix' },
@@ -523,8 +523,8 @@ const ThaiGovPolicyJapanese = () => {
                 <Database className="h-6 w-6 text-blue-500" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">{isJapanese ? 'ファクト（政策・規制・動向）' : 'Facts (Policy, Regulation & Trends)'}</h2>
-                <p className="text-sm text-muted-foreground">{isJapanese ? '客観的データのみ' : 'Objective data only'}</p>
+                <h2 className="text-2xl font-bold">{isJapanese ? '市場・政策・動向に関する情報' : 'Facts (Policy, Regulation & Trends)'}</h2>
+                <p className="text-sm text-muted-foreground">{isJapanese ? 'データベース' : 'Objective data only'}</p>
               </div>
             </div>
 
