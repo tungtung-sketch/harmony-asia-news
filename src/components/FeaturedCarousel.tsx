@@ -5,7 +5,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { fetchWalensNews, WalensNews } from "@/sheetNews";
 import NewsCard from "@/components/NewsCard";
 
-// helper: แปลงวันที่+เวลาเป็น timestamp สำหรับ sort
+// helper: convert date+time to timestamp for sorting
 function toTs(n: WalensNews): number {
   const iso =
     (n.date || "").trim() +
@@ -31,7 +31,7 @@ const FeaturedCarousel = () => {
       if (!cancelled) {
         const approved = data.filter((n) => n.approved);
         const sorted = [...approved].sort((a, b) => toTs(b) - toTs(a));
-        // เลือกมา 3 ข่าวล่าสุด
+        // pick top 3 latest news
         setItems(sorted.slice(0, 3));
         setLoading(false);
       }
@@ -70,7 +70,7 @@ const FeaturedCarousel = () => {
         </h2>
       </div>
 
-      {/* layout 3 การ์ดแนวนอนเหมือน section แรกของเว็บเดิม */}
+      {/* 3-card horizontal layout */}
       <div className="grid gap-4 md:grid-cols-3">
         {items.map((article) => (
           <NewsCard key={article.slug || article.url} article={article} />

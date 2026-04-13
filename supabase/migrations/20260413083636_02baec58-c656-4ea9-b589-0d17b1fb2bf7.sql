@@ -1,0 +1,1 @@
+UPDATE public.insight_reports SET title_ja = 'アヌティン2政権の政策分析：タイにおける日系企業への戦略的影響（2026年4月）' WHERE report_slug = 'thai-gov-policy-japanese' AND title_ja LIKE '%อนุทิน%';

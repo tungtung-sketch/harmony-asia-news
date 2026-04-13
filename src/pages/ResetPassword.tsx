@@ -14,7 +14,7 @@ type PageState = 'loading' | 'ready' | 'success' | 'error';
 
 const i18n: Record<string, Record<Lang, string>> = {
   pageTitle: { ja: 'パスワードリセット', en: 'Password Reset' },
-  tagline: { ja: '日本語とグローバル視点のASEANビジネス情報', en: 'For Japanese & global executives in Thailand' },
+  tagline: { ja: '日本語とグローバル視点のビジネスインテリジェンス', en: 'Business intelligence for Japanese & global executives' },
   verifying: { ja: 'リンクを確認しています...', en: 'Verifying your reset link...' },
   invalidLink: { ja: 'リンクが無効です', en: 'Invalid Reset Link' },
   returnHome: { ja: 'ホームに戻る', en: 'Return to Home' },

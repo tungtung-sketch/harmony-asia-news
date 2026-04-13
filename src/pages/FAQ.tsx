@@ -33,8 +33,8 @@ const faqData: FAQItem[] = [
       ja: 'WaLensとは何ですか？',
     },
     answer: {
-      en: 'WaLens is an information platform that provides curated business news and intelligence for executives and decision-makers operating in Thailand and ASEAN.',
-      ja: 'WaLensは、タイおよびASEANで事業を展開する経営者・意思決定者向けに、厳選されたビジネスニュースおよびインテリジェンスを提供する情報プラットフォームです。',
+      en: 'WaLens is a business intelligence platform that provides curated news and strategic insights for executives and decision-makers operating globally, with deep expertise in Thailand and emerging markets.',
+      ja: 'WaLensは、タイおよび新興市場に深い専門性を持ち、グローバルに事業を展開する経営者・意思決定者向けに、厳選されたビジネスニュースおよび戦略的インテリジェンスを提供するプラットフォームです。',
     },
     tags: ['walens', 'about', 'platform', 'service', 'what is', 'プラットフォーム', 'サービス', 'について'],
     category: 'general',
