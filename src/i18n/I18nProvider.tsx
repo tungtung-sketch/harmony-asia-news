@@ -1187,7 +1187,7 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.description": "グローバル市場におけるダイナミックな不動産市場の商業用不動産、REIT、都市開発トレンドを探索します。",
     "insights.realestate.category": "不動産部門",
 
-    // Why WaLens Section (Landing Page) - Japanese
+    // Why WaLens Section (Landing Page) - Japanese (legacy)
     "whyWaLens.title": "なぜWaLensか？",
     "whyWaLens.chatgpt": "情報はどこにでもあります。しかし、本当に必要な情報は限られています。",
     "whyWaLens.walens": "WaLensは、グローバル市場をナビゲートする日本人経営者にとって本当に重要なことだけをお届けします。",
@@ -1199,6 +1199,69 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point3.description": "事実を報告するだけでなく、ビジネス上の意思決定にとって何を意味するかを解釈。",
     "whyWaLens.point4.title": "信頼できる判断",
     "whyWaLens.point4.description": "新興市場で日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
+
+    // NEW Homepage Hero (Japanese)
+    "hero.badge": "エグゼクティブ・インテリジェンス・プラットフォーム",
+    "hero.headline": "グローバル市場を読み解き、\n的確に動く。",
+    "hero.subheadline": "ニュースを翻訳するのではなく、政策・リスク・市場変動を解読し、経営者に「何を意味し、次に何をすべきか」をお届けします。",
+    "hero.cta.primary": "1ヶ月無料トライアルを開始",
+    "hero.cta.secondary": "サンプルインサイトを見る",
+    "hero.trust": "地域統括拠点の経営者・グローバル意思決定者に信頼されています",
+
+    // Signal Over Noise (Japanese)
+    "signal.label": "WaLensの価値",
+    "signal.title": "ノイズではなく、シグナルを",
+    "signal.subtitle": "すべてのインサイトはひとつの問いに答えます：これは私のビジネスにとって何を意味するのか？",
+    "signal.pillar1.title": "クロスボーダー政策分析",
+    "signal.pillar1.desc": "規制変更をビジネスインパクトとして解読 — 見出しだけではなく。",
+    "signal.pillar2.title": "市場コンテキストの提供",
+    "signal.pillar2.desc": "現地市場と本社取締役会の間のコンテキストギャップを橋渡しします。",
+    "signal.pillar3.title": "地政学・サプライチェーンアラート",
+    "signal.pillar3.desc": "事業運営に影響を及ぼすリスクの早期警告シグナル。",
+    "signal.pillar4.title": "エグゼクティブ提言",
+    "signal.pillar4.desc": "データの羅列ではなく、取締役会レベルの議論に使える実行可能な次のステップ。",
+
+    // Intelligence Proof (Japanese)
+    "proof.label": "インテリジェンスの実例",
+    "proof.title": "シグナルから戦略的意思決定へ",
+    "proof.subtitle": "WaLensが生の情報をエグゼクティブ向けインテリジェンスにどう変換するかをご覧ください。",
+    "proof.signal": "シグナル",
+    "proof.impact": "ビジネスインパクト",
+    "proof.readMore": "詳細分析を読む",
+
+    // Lead Magnet (Japanese)
+    "leadMagnet.badge": "無料レポート",
+    "leadMagnet.title": "2026年 グローバルサプライチェーンリスク＆政策レポート",
+    "leadMagnet.description": "WaLensアナリストによる無料インテリジェンスブリーフ — クロスボーダー規制変動、サプライチェーンの脆弱性、多国籍企業経営者向けの戦略的提言を収録。",
+    "leadMagnet.namePlaceholder": "お名前",
+    "leadMagnet.emailPlaceholder": "業務用メールアドレス",
+    "leadMagnet.cta": "無料レポートをダウンロード",
+    "leadMagnet.privacy": "プライバシーを尊重します。いつでも配信停止可能です。",
+    "leadMagnet.success.title": "レポートをメールに送信しました！",
+    "leadMagnet.success.desc": "ダウンロードリンクをメールでご確認ください。",
+
+    // Pricing Preview (Japanese)
+    "pricing.label": "プラン",
+    "pricing.title": "事業運営に合わせたインテリジェンス",
+    "pricing.free.label": "はじめる",
+    "pricing.free.name": "エグゼクティブ無料トライアル",
+    "pricing.free.desc": "1ヶ月間フルアクセス — クレジットカード不要。",
+    "pricing.free.f1": "日次キュレーション・インテリジェンスブリーフィング",
+    "pricing.free.f2": "クロスボーダー政策インパクトサマリー",
+    "pricing.free.f3": "サンプル・プレミアムレポートへのアクセス",
+    "pricing.free.cta": "無料トライアルを開始",
+    "pricing.corp.badge": "人気プラン",
+    "pricing.corp.label": "チーム・本社向け",
+    "pricing.corp.name": "コーポレートサブスクリプション",
+    "pricing.corp.desc": "グローバル市場をナビゲートするエグゼクティブチーム向けフルアクセス。",
+    "pricing.corp.f1": "全プレミアムインサイトレポート＆分析",
+    "pricing.corp.f2": "地政学・サプライチェーンリスクアラート",
+    "pricing.corp.f3": "エグゼクティブ提言＆アクションブリーフ",
+    "pricing.corp.f4": "アドバイザリー相談への優先アクセス",
+    "pricing.corp.cta": "今すぐ購読",
+    "pricing.advisory.title": "カスタマイズされたクロスボーダー戦略が必要ですか？",
+    "pricing.advisory.desc": "当社アドバイザリーチームが多国籍企業向けに、市場参入・事業運営のインテリジェンスをオーダーメイドで提供します。",
+    "pricing.advisory.cta": "チームに相談する",
 
     // About page (Japanese)
     "about.title": "WaLensについて - グローバル・エグゼクティブインテリジェンス",
