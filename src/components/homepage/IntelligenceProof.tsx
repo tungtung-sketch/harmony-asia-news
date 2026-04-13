@@ -2,7 +2,7 @@ import { useI18n } from '@/i18n/I18nProvider';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import tradeImage from '@/assets/intelligence-global-trade.jpg';
+import reportImage from '@/assets/executive-reports-dashboard.jpg';
 
 interface InsightCard {
   signal: string;
@@ -68,7 +68,7 @@ const IntelligenceProof = () => {
           <div className="w-full lg:w-5/12 flex-shrink-0">
             <div className="rounded-xl overflow-hidden shadow-lg aspect-[3/2]">
               <img
-                src={tradeImage}
+                src={reportImage}
                 alt="Global trade intelligence visualization"
                 className="w-full h-full object-cover"
                 loading="lazy"

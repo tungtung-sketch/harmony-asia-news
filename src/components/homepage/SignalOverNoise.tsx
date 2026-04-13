@@ -77,17 +77,12 @@ const SignalOverNoise = () => {
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-8">
+            {/* CTA */}
+            <div className="mt-8">
               <Button asChild size="lg" className="font-semibold">
-                <Link to="/subscribe">
+                <Link to="/signup">
                   {t('signal.cta.trial')}
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="font-medium">
-                <Link to="/insights">
-                  {t('signal.cta.sample')}
                 </Link>
               </Button>
             </div>
