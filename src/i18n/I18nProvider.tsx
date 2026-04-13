@@ -652,15 +652,15 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives across emerging markets.",
 
     // NEW Homepage Hero
-    "hero.badge": "Executive Intelligence Platform",
-    "hero.headline": "Decode Global Markets.\nMake Decisive Moves.",
-    "hero.subheadline": "Traditional media tells you what happened. WaLens tells you what it means for your business — and what to do next.",
-    "hero.cta.primary": "Start 1-Month Free Trial",
-    "hero.cta.secondary": "See Sample Insights",
+    "hero.badge": "For Japanese Executives",
+    "hero.headline": "Daily Local Business News & Reports\nfor Global Decision-Makers.",
+    "hero.subheadline": "A curated daily newsletter and executive reports — delivering the local intelligence you need to make confident cross-border decisions.",
+    "hero.cta.primary": "Start Free Trial →",
+    "hero.cta.secondary": "See Sample Reports",
     "hero.trust": "Trusted by regional HQ executives and global decision-makers",
-    "hero.deliver1": "Weekly executive intelligence newsletter — curated, not automated",
-    "hero.deliver2": "Premium industry reports with strategic recommendations",
-    "hero.deliver3": "Geopolitical & supply chain risk alerts you can act on",
+    "hero.deliver1": "Daily curated local business newsletter — not AI-generated, expert-selected",
+    "hero.deliver2": "Executive industry reports with actionable recommendations",
+    "hero.deliver3": "Cross-border regulatory & supply chain risk alerts",
 
     // Intelligence for Decision-Making
     "signal.label": "What You Get",
@@ -1212,15 +1212,15 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.description": "新興市場で日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
 
     // NEW Homepage Hero (Japanese)
-    "hero.badge": "エグゼクティブ・インテリジェンス・プラットフォーム",
-    "hero.headline": "グローバル市場を読み解き、的確に動く。",
-    "hero.subheadline": "従来メディアは「何が起きたか」を伝えます。WaLensは「それがあなたのビジネスに何を意味し、次に何をすべきか」をお届けします。",
-    "hero.cta.primary": "1ヶ月無料トライアルを開始",
-    "hero.cta.secondary": "サンプルインサイトを見る",
+    "hero.badge": "日本人経営者のための現地ビジネス情報",
+    "hero.headline": "現地ビジネスニュース＆レポートを毎日お届け。",
+    "hero.subheadline": "キュレーションされた日刊ニュースレターとエグゼクティブレポートで、クロスボーダー経営に必要な現地インテリジェンスをお届けします。",
+    "hero.cta.primary": "無料トライアルを開始 →",
+    "hero.cta.secondary": "サンプルレポートを見る",
     "hero.trust": "地域統括拠点の経営者・グローバル意思決定者に信頼されています",
-    "hero.deliver1": "週刊エグゼクティブ・インテリジェンス・ニュースレター — AIではなく専門家がキュレーション",
-    "hero.deliver2": "戦略的提言付きプレミアム業界レポート",
-    "hero.deliver3": "即座にアクション可能な地政学・サプライチェーンリスクアラート",
+    "hero.deliver1": "日刊キュレーション・ビジネスニュースレター — AI生成ではなく、専門家が厳選",
+    "hero.deliver2": "実行可能な提言付きエグゼクティブ業界レポート",
+    "hero.deliver3": "クロスボーダー規制・サプライチェーンリスクアラート",
 
     // 意思決定のためのインテリジェンス (Japanese)
     "signal.label": "WaLensの価値",
