@@ -110,12 +110,16 @@ const App = () => (
               <Route path="/insights/manufacturing/electronics-semiconductor" element={<ElectronicsSemiconductor />} />
               <Route path="/insights/services/big-data-ai" element={<BigDataAI />} />
               <Route path="/insights/services/decarbonization" element={<Decarbonization />} />
+              <Route path="/insights/manufacturing/decarbonization" element={<Decarbonization />} />
               <Route path="/insights/manufacturing/chemical-industry" element={<ChemicalIndustry />} />
               <Route path="/insights/agriculture/food-industry" element={<FoodIndustry />} />
               <Route path="/insights/services/energy-industry" element={<EnergyIndustry />} />
+              <Route path="/insights/manufacturing/energy-industry" element={<EnergyIndustry />} />
               <Route path="/insights/manufacturing/automotive-industry" element={<AutomotiveIndustry />} />
               <Route path="/insights/services/hormuz-crisis-impact" element={<HormuzCrisisImpact />} />
+              <Route path="/insights/manufacturing/hormuz-crisis-impact" element={<HormuzCrisisImpact />} />
               <Route path="/insights/services/oil-crisis-thai-industry" element={<OilCrisisThaiIndustry />} />
+              <Route path="/insights/manufacturing/oil-crisis-thai-industry" element={<OilCrisisThaiIndustry />} />
               <Route path="/insights/services/thai-gov-policy-japanese" element={<ThaiGovPolicyJapanese />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
