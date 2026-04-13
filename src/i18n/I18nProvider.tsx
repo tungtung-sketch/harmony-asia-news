@@ -662,9 +662,9 @@ const translations: Record<Lang, Translations> = {
     "about.definition.title": "What WaLens Is — and Is Not",
     "about.definition.is.title": "WaLens provides:",
     "about.definition.is.point1": "A judgment layer that filters and prioritizes information for Japanese executives",
-    "about.definition.is.point2": "Context-aware intelligence rooted in Thailand's regulatory, economic, and industry landscape",
+    "about.definition.is.point2": "Context-aware intelligence rooted in local regulatory, economic, and industry landscapes across key markets",
     "about.definition.is.point3": "Executive-level interpretation — not just summaries, but what information means for your decisions",
-    "about.definition.is.point4": "Insights shaped by Japanese business governance perspectives and local Thailand expertise",
+    "about.definition.is.point4": "Insights shaped by Japanese business governance perspectives and deep local market expertise",
     "about.definition.isNot.title": "WaLens is not:",
     "about.definition.isNot.point1": "A general news media or information aggregation platform",
     "about.definition.isNot.point2": "A substitute for professional advisory — we complement, not replace, your existing counsel",
@@ -675,11 +675,11 @@ const translations: Record<Lang, Translations> = {
     "about.value.filter.title": "Noise Reduction",
     "about.value.filter.description": "We surface only what is decision-relevant, saving executives from information overload across multiple sources.",
     "about.value.interpretation.title": "Contextual Interpretation",
-    "about.value.interpretation.description": "Every insight is interpreted through the lens of Japanese business operations and governance in Thailand.",
+    "about.value.interpretation.description": "Every insight is interpreted through the lens of Japanese business operations and governance across global markets.",
     "about.value.prioritization.title": "Strategic Prioritization",
     "about.value.prioritization.description": "We prioritize based on impact to investment decisions, regulatory exposure, and operational risk.",
     "about.value.judgment.title": "Trusted Judgment",
-    "about.value.judgment.description": "Our editorial team combines deep Thailand expertise with over a decade of experience advising Japanese executives.",
+    "about.value.judgment.description": "Our editorial team combines deep market expertise with over a decade of experience advising Japanese executives globally.",
     
     // Company Profile Table
     "about.profile.title": "Company Profile",
@@ -691,11 +691,11 @@ const translations: Record<Lang, Translations> = {
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025",
     "about.profile.headquarters.value": "Bangkok, Thailand",
-    "about.profile.business.value": "A decision-support platform providing strategic intelligence and executive-level judgment for Japanese businesses operating in Thailand.",
-    "about.profile.team.value": "Experienced business consultants with over 10 years advising Japanese executives across diverse industries in Thailand.",
+    "about.profile.business.value": "A decision-support platform providing strategic intelligence and executive-level judgment for Japanese businesses operating globally.",
+    "about.profile.team.value": "Experienced business consultants with over 10 years advising Japanese executives across diverse industries and global markets.",
     
     // CTA Section
-    "about.cta.title": "Your Trusted Decision Partner in Thailand",
+    "about.cta.title": "Your Trusted Global Decision Partner",
     "about.cta.content": "WaLens helps you spend less time gathering information and more time making confident, well-informed decisions.",
     "about.cta.button": "Start Your Trial",
 
