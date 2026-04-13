@@ -636,7 +636,7 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.description": "Explore commercial property, REITs, and urban development trends across dynamic global real estate markets.",
     "insights.realestate.category": "Real Estate Sector",
 
-    // Why WaLens Section (Landing Page)
+    // Why WaLens Section (Landing Page) — legacy keys kept
     "whyWaLens.title": "Why WaLens?",
     "whyWaLens.chatgpt": "Information is everywhere. But relevance is rare.",
     "whyWaLens.walens": "WaLens delivers what actually matters for Japanese executives navigating global markets.",
@@ -648,6 +648,69 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point3.description": "We don't just report facts—we interpret what they mean for your business decisions.",
     "whyWaLens.point4.title": "Trusted Judgment",
     "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives across emerging markets.",
+
+    // NEW Homepage Hero
+    "hero.badge": "Executive Intelligence Platform",
+    "hero.headline": "Decode Global Markets.\nMake Decisive Moves.",
+    "hero.subheadline": "We don't translate news — we decode policy, risk, and market shifts so executives know what it means and what to do next.",
+    "hero.cta.primary": "Start 1-Month Free Trial",
+    "hero.cta.secondary": "See Sample Insights",
+    "hero.trust": "Trusted by regional HQ executives and global decision-makers",
+
+    // Signal Over Noise
+    "signal.label": "What You Get",
+    "signal.title": "Signal Over Noise",
+    "signal.subtitle": "Every insight answers one question: what does this mean for my business?",
+    "signal.pillar1.title": "Cross-Border Policy Analysis",
+    "signal.pillar1.desc": "Regulatory changes decoded into business impact — not just headlines.",
+    "signal.pillar2.title": "Market Context, Not Translation",
+    "signal.pillar2.desc": "We bridge the context gap between local markets and HQ boardrooms.",
+    "signal.pillar3.title": "Geopolitical & Supply Chain Alerts",
+    "signal.pillar3.desc": "Early-warning signals on risks that affect your operations.",
+    "signal.pillar4.title": "Executive Recommendations",
+    "signal.pillar4.desc": "Actionable next-steps for board-level discussion — not data dumps.",
+
+    // Intelligence Proof
+    "proof.label": "Intelligence in Action",
+    "proof.title": "From Signal to Strategic Decision",
+    "proof.subtitle": "See how WaLens transforms raw information into executive-ready intelligence.",
+    "proof.signal": "The Signal",
+    "proof.impact": "Business Impact",
+    "proof.readMore": "Read Full Analysis",
+
+    // Lead Magnet
+    "leadMagnet.badge": "Complimentary Report",
+    "leadMagnet.title": "2026 Global Supply Chain Risk & Policy Report",
+    "leadMagnet.description": "A complimentary intelligence brief from WaLens analysts — covering cross-border regulatory shifts, supply chain vulnerabilities, and strategic recommendations for multinational executives.",
+    "leadMagnet.namePlaceholder": "Your name",
+    "leadMagnet.emailPlaceholder": "Work email address",
+    "leadMagnet.cta": "Download Free Report",
+    "leadMagnet.privacy": "We respect your privacy. Unsubscribe anytime.",
+    "leadMagnet.success.title": "Report sent to your inbox!",
+    "leadMagnet.success.desc": "Check your email for the download link.",
+
+    // Pricing Preview
+    "pricing.label": "Plans",
+    "pricing.title": "Intelligence That Fits Your Operations",
+    "pricing.free.label": "Get Started",
+    "pricing.free.name": "Executive Free Trial",
+    "pricing.free.desc": "1 month of full access — no credit card required.",
+    "pricing.free.f1": "Daily curated intelligence briefings",
+    "pricing.free.f2": "Cross-border policy impact summaries",
+    "pricing.free.f3": "Access to sample premium reports",
+    "pricing.free.cta": "Start Free Trial",
+    "pricing.corp.badge": "Most Popular",
+    "pricing.corp.label": "For Teams & HQ",
+    "pricing.corp.name": "Corporate Subscription",
+    "pricing.corp.desc": "Full access for executive teams navigating global markets.",
+    "pricing.corp.f1": "All premium insight reports & analysis",
+    "pricing.corp.f2": "Geopolitical & supply chain risk alerts",
+    "pricing.corp.f3": "Executive recommendations & action briefs",
+    "pricing.corp.f4": "Priority access to advisory consultations",
+    "pricing.corp.cta": "Subscribe Now",
+    "pricing.advisory.title": "Need a tailored cross-border strategy?",
+    "pricing.advisory.desc": "Our advisory team provides bespoke market-entry and operational intelligence for multinational enterprises.",
+    "pricing.advisory.cta": "Speak With Our Team",
 
     // About page
     "about.title": "About WaLens - Global Executive Intelligence",
