@@ -62,15 +62,21 @@ const IntelligenceProof = () => {
             }`}>
               {t('proof.title')}
             </h2>
-            <p className="text-muted-foreground text-base sm:text-lg">
+            <p className="text-muted-foreground text-base sm:text-lg mb-6">
               {t('proof.subtitle')}
             </p>
+            <Button asChild size="lg" className="font-semibold">
+              <Link to="/signup">
+                {lang === 'ja' ? '30日間無料トライアルを開始' : 'Start 30-Day Free Trial'}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
           <div className="w-full lg:w-5/12 flex-shrink-0">
             <div className="rounded-xl overflow-hidden shadow-lg aspect-[3/2]">
               <img
                 src={reportImage}
-                alt="Global trade intelligence visualization"
+                alt="Executive reports dashboard"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 width={1200}

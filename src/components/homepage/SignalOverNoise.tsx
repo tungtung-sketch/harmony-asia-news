@@ -2,7 +2,7 @@ import { useI18n } from '@/i18n/I18nProvider';
 import { Mail, BarChart3, ShieldAlert, FileText, Zap, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import newsletterImg from '@/assets/newsletter-multidevice.jpg';
+import newsletterImg from '@/assets/executive-reading-briefing.jpg';
 
 const SignalOverNoise = () => {
   const { t, lang } = useI18n();
