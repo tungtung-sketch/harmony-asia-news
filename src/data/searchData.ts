@@ -30,7 +30,7 @@ const businessIntelligenceResults: SearchResult[] = [
     type: 'bi',
     category: 'Business Intelligence',
     categoryJa: 'ビジネスインテリジェンス',
-    url: '/business-intelligence/economy-investment',
+    url: '/business-intelligence/economy',
     keywords: ['GDP', 'FDI', 'BOI', 'investment', 'economy', 'finance', 'capital', 'stock', 'bond', 'inflation', 'interest rate', 'monetary policy', 'fiscal', 'budget'],
   },
   {
@@ -42,7 +42,7 @@ const businessIntelligenceResults: SearchResult[] = [
     type: 'bi',
     category: 'Business Intelligence',
     categoryJa: 'ビジネスインテリジェンス',
-    url: '/business-intelligence/trade-industry',
+    url: '/business-intelligence/trade',
     keywords: ['trade', 'export', 'import', 'tariff', 'FTA', 'RCEP', 'supply chain', 'logistics', 'manufacturing', 'industrial estate'],
   },
   {
@@ -54,7 +54,7 @@ const businessIntelligenceResults: SearchResult[] = [
     type: 'bi',
     category: 'Business Intelligence',
     categoryJa: 'ビジネスインテリジェンス',
-    url: '/business-intelligence/regulation-tax',
+    url: '/business-intelligence/regulation',
     keywords: ['tax', 'regulation', 'compliance', 'CIT', 'VAT', 'BOI incentive', 'license', 'law', 'legal', 'policy'],
   },
   {
@@ -66,7 +66,7 @@ const businessIntelligenceResults: SearchResult[] = [
     type: 'bi',
     category: 'Business Intelligence',
     categoryJa: 'ビジネスインテリジェンス',
-    url: '/business-intelligence/infrastructure-innovation',
+    url: '/business-intelligence/infrastructure',
     keywords: ['infrastructure', 'EEC', 'rail', 'airport', '5G', 'smart city', 'digital', 'innovation', 'R&D', 'technology'],
   },
   {
@@ -78,7 +78,7 @@ const businessIntelligenceResults: SearchResult[] = [
     type: 'bi',
     category: 'Business Intelligence',
     categoryJa: 'ビジネスインテリジェンス',
-    url: '/business-intelligence/workforce-society',
+    url: '/business-intelligence/workforce',
     keywords: ['labor', 'workforce', 'employment', 'HR', 'talent', 'wage', 'aging', 'population', 'education', 'skill'],
   },
 ];
