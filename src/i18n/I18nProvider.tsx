@@ -17,7 +17,7 @@ const translations: Record<Lang, Translations> = {
   en: {
     // Common
     "brand.name": "WaLens",
-    "brand.tagline": "Your Japanese lens into ASEAN business",
+    "brand.tagline": "Your Japanese lens into global business",
     "cta.membership": "Membership",
     "search.placeholder": "Search news, tips, insights...",
     "search.submit": "Search",
@@ -772,7 +772,7 @@ const translations: Record<Lang, Translations> = {
     "nav.languages.en": "English",
 
     // Brand
-    "brand.tagline": "ASEANビジネスを解き明かす日本の視座",
+    "brand.tagline": "グローバルビジネスを解き明かす日本の視座",
 
     // Banner
     "banner.text": "WaLens へようこそ — 洞察に満ちたニュース、レポート、Thailand 101 をお届けします。",

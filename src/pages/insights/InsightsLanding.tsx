@@ -46,8 +46,8 @@ const InsightsLanding = () => {
   const isJapanese = lang === 'ja';
   const title = isJapanese ? 'インサイトレポート一覧 | WaLens' : 'Insight Reports Directory | WaLens';
   const description = isJapanese 
-    ? 'WaLensのプレミアムインサイトレポート一覧。日系企業幹部向けのタイ・ASEAN市場インテリジェンス。'
-    : 'Directory of WaLens premium insight reports. Thailand and ASEAN market intelligence for Japanese executives.';
+    ? 'WaLensのプレミアムインサイトレポート一覧。日系企業幹部向けのグローバル市場インテリジェンス。'
+    : 'Directory of WaLens premium insight reports. Global market intelligence for Japanese executives.';
 
   // Industry categories with icons
   const industries = [
@@ -86,8 +86,8 @@ const InsightsLanding = () => {
         <InsightHero 
           title={isJapanese ? 'インサイトレポート' : 'Insight Reports'}
           description={isJapanese 
-            ? 'タイ・ASEANビジネスの深層分析。日系企業経営層のための戦略的インテリジェンス。'
-            : 'In-depth analysis of Thailand & ASEAN business. Strategic intelligence for Japanese executives.'
+            ? 'グローバルビジネスの深層分析。日系企業経営層のための戦略的インテリジェンス。'
+            : 'In-depth global business analysis. Strategic intelligence for Japanese executives.'
           }
           category={isJapanese ? 'プレミアムインテリジェンス' : 'Premium Intelligence'}
           backgroundImage={heroImage}

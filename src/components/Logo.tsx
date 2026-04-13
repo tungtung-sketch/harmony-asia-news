@@ -13,7 +13,7 @@ const Logo = ({ className = '', size = 'md' }: LogoProps) => {
   return (
     <img
       src="/lovable-uploads/WaLen_Logo_magnifier.png"
-      alt="WaLens – Business Intelligence for Executives in Thailand"
+      alt="WaLens – Business Intelligence for Global Executives"
       className={`${sizeClasses[size]} w-auto transition-transform dark:invert ${className}`}
       loading="eager"
     />

@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const recentArticles = [
     { title: "Thailand Economic Outlook 2024", date: "2024-02-01", category: "Economy" },
-    { title: "Japanese Investment Trends in ASEAN", date: "2024-01-28", category: "Business Intelligence" },
+    { title: "Japanese Investment Trends in Emerging Markets", date: "2024-01-28", category: "Business Intelligence" },
     { title: "Thai Policy Updates - February", date: "2024-01-25", category: "Policy" }
   ];
 
