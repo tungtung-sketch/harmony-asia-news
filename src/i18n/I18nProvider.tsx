@@ -636,7 +636,7 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.description": "Explore commercial property, REITs, and urban development trends across dynamic global real estate markets.",
     "insights.realestate.category": "Real Estate Sector",
 
-    // Why WaLens Section (Landing Page)
+    // Why WaLens Section (Landing Page) — legacy keys kept
     "whyWaLens.title": "Why WaLens?",
     "whyWaLens.chatgpt": "Information is everywhere. But relevance is rare.",
     "whyWaLens.walens": "WaLens delivers what actually matters for Japanese executives navigating global markets.",
@@ -648,6 +648,69 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point3.description": "We don't just report facts—we interpret what they mean for your business decisions.",
     "whyWaLens.point4.title": "Trusted Judgment",
     "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives across emerging markets.",
+
+    // NEW Homepage Hero
+    "hero.badge": "Executive Intelligence Platform",
+    "hero.headline": "Decode Global Markets.\nMake Decisive Moves.",
+    "hero.subheadline": "We don't translate news — we decode policy, risk, and market shifts so executives know what it means and what to do next.",
+    "hero.cta.primary": "Start 1-Month Free Trial",
+    "hero.cta.secondary": "See Sample Insights",
+    "hero.trust": "Trusted by regional HQ executives and global decision-makers",
+
+    // Signal Over Noise
+    "signal.label": "What You Get",
+    "signal.title": "Signal Over Noise",
+    "signal.subtitle": "Every insight answers one question: what does this mean for my business?",
+    "signal.pillar1.title": "Cross-Border Policy Analysis",
+    "signal.pillar1.desc": "Regulatory changes decoded into business impact — not just headlines.",
+    "signal.pillar2.title": "Market Context, Not Translation",
+    "signal.pillar2.desc": "We bridge the context gap between local markets and HQ boardrooms.",
+    "signal.pillar3.title": "Geopolitical & Supply Chain Alerts",
+    "signal.pillar3.desc": "Early-warning signals on risks that affect your operations.",
+    "signal.pillar4.title": "Executive Recommendations",
+    "signal.pillar4.desc": "Actionable next-steps for board-level discussion — not data dumps.",
+
+    // Intelligence Proof
+    "proof.label": "Intelligence in Action",
+    "proof.title": "From Signal to Strategic Decision",
+    "proof.subtitle": "See how WaLens transforms raw information into executive-ready intelligence.",
+    "proof.signal": "The Signal",
+    "proof.impact": "Business Impact",
+    "proof.readMore": "Read Full Analysis",
+
+    // Lead Magnet
+    "leadMagnet.badge": "Complimentary Report",
+    "leadMagnet.title": "2026 Global Supply Chain Risk & Policy Report",
+    "leadMagnet.description": "A complimentary intelligence brief from WaLens analysts — covering cross-border regulatory shifts, supply chain vulnerabilities, and strategic recommendations for multinational executives.",
+    "leadMagnet.namePlaceholder": "Your name",
+    "leadMagnet.emailPlaceholder": "Work email address",
+    "leadMagnet.cta": "Download Free Report",
+    "leadMagnet.privacy": "We respect your privacy. Unsubscribe anytime.",
+    "leadMagnet.success.title": "Report sent to your inbox!",
+    "leadMagnet.success.desc": "Check your email for the download link.",
+
+    // Pricing Preview
+    "pricing.label": "Plans",
+    "pricing.title": "Intelligence That Fits Your Operations",
+    "pricing.free.label": "Get Started",
+    "pricing.free.name": "Executive Free Trial",
+    "pricing.free.desc": "1 month of full access — no credit card required.",
+    "pricing.free.f1": "Daily curated intelligence briefings",
+    "pricing.free.f2": "Cross-border policy impact summaries",
+    "pricing.free.f3": "Access to sample premium reports",
+    "pricing.free.cta": "Start Free Trial",
+    "pricing.corp.badge": "Most Popular",
+    "pricing.corp.label": "For Teams & HQ",
+    "pricing.corp.name": "Corporate Subscription",
+    "pricing.corp.desc": "Full access for executive teams navigating global markets.",
+    "pricing.corp.f1": "All premium insight reports & analysis",
+    "pricing.corp.f2": "Geopolitical & supply chain risk alerts",
+    "pricing.corp.f3": "Executive recommendations & action briefs",
+    "pricing.corp.f4": "Priority access to advisory consultations",
+    "pricing.corp.cta": "Subscribe Now",
+    "pricing.advisory.title": "Need a tailored cross-border strategy?",
+    "pricing.advisory.desc": "Our advisory team provides bespoke market-entry and operational intelligence for multinational enterprises.",
+    "pricing.advisory.cta": "Speak With Our Team",
 
     // About page
     "about.title": "About WaLens - Global Executive Intelligence",
@@ -1124,7 +1187,7 @@ const translations: Record<Lang, Translations> = {
     "insights.realestate.description": "グローバル市場におけるダイナミックな不動産市場の商業用不動産、REIT、都市開発トレンドを探索します。",
     "insights.realestate.category": "不動産部門",
 
-    // Why WaLens Section (Landing Page) - Japanese
+    // Why WaLens Section (Landing Page) - Japanese (legacy)
     "whyWaLens.title": "なぜWaLensか？",
     "whyWaLens.chatgpt": "情報はどこにでもあります。しかし、本当に必要な情報は限られています。",
     "whyWaLens.walens": "WaLensは、グローバル市場をナビゲートする日本人経営者にとって本当に重要なことだけをお届けします。",
@@ -1136,6 +1199,69 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point3.description": "事実を報告するだけでなく、ビジネス上の意思決定にとって何を意味するかを解釈。",
     "whyWaLens.point4.title": "信頼できる判断",
     "whyWaLens.point4.description": "新興市場で日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
+
+    // NEW Homepage Hero (Japanese)
+    "hero.badge": "エグゼクティブ・インテリジェンス・プラットフォーム",
+    "hero.headline": "グローバル市場を読み解き、\n的確に動く。",
+    "hero.subheadline": "ニュースを翻訳するのではなく、政策・リスク・市場変動を解読し、経営者に「何を意味し、次に何をすべきか」をお届けします。",
+    "hero.cta.primary": "1ヶ月無料トライアルを開始",
+    "hero.cta.secondary": "サンプルインサイトを見る",
+    "hero.trust": "地域統括拠点の経営者・グローバル意思決定者に信頼されています",
+
+    // Signal Over Noise (Japanese)
+    "signal.label": "WaLensの価値",
+    "signal.title": "ノイズではなく、シグナルを",
+    "signal.subtitle": "すべてのインサイトはひとつの問いに答えます：これは私のビジネスにとって何を意味するのか？",
+    "signal.pillar1.title": "クロスボーダー政策分析",
+    "signal.pillar1.desc": "規制変更をビジネスインパクトとして解読 — 見出しだけではなく。",
+    "signal.pillar2.title": "市場コンテキストの提供",
+    "signal.pillar2.desc": "現地市場と本社取締役会の間のコンテキストギャップを橋渡しします。",
+    "signal.pillar3.title": "地政学・サプライチェーンアラート",
+    "signal.pillar3.desc": "事業運営に影響を及ぼすリスクの早期警告シグナル。",
+    "signal.pillar4.title": "エグゼクティブ提言",
+    "signal.pillar4.desc": "データの羅列ではなく、取締役会レベルの議論に使える実行可能な次のステップ。",
+
+    // Intelligence Proof (Japanese)
+    "proof.label": "インテリジェンスの実例",
+    "proof.title": "シグナルから戦略的意思決定へ",
+    "proof.subtitle": "WaLensが生の情報をエグゼクティブ向けインテリジェンスにどう変換するかをご覧ください。",
+    "proof.signal": "シグナル",
+    "proof.impact": "ビジネスインパクト",
+    "proof.readMore": "詳細分析を読む",
+
+    // Lead Magnet (Japanese)
+    "leadMagnet.badge": "無料レポート",
+    "leadMagnet.title": "2026年 グローバルサプライチェーンリスク＆政策レポート",
+    "leadMagnet.description": "WaLensアナリストによる無料インテリジェンスブリーフ — クロスボーダー規制変動、サプライチェーンの脆弱性、多国籍企業経営者向けの戦略的提言を収録。",
+    "leadMagnet.namePlaceholder": "お名前",
+    "leadMagnet.emailPlaceholder": "業務用メールアドレス",
+    "leadMagnet.cta": "無料レポートをダウンロード",
+    "leadMagnet.privacy": "プライバシーを尊重します。いつでも配信停止可能です。",
+    "leadMagnet.success.title": "レポートをメールに送信しました！",
+    "leadMagnet.success.desc": "ダウンロードリンクをメールでご確認ください。",
+
+    // Pricing Preview (Japanese)
+    "pricing.label": "プラン",
+    "pricing.title": "事業運営に合わせたインテリジェンス",
+    "pricing.free.label": "はじめる",
+    "pricing.free.name": "エグゼクティブ無料トライアル",
+    "pricing.free.desc": "1ヶ月間フルアクセス — クレジットカード不要。",
+    "pricing.free.f1": "日次キュレーション・インテリジェンスブリーフィング",
+    "pricing.free.f2": "クロスボーダー政策インパクトサマリー",
+    "pricing.free.f3": "サンプル・プレミアムレポートへのアクセス",
+    "pricing.free.cta": "無料トライアルを開始",
+    "pricing.corp.badge": "人気プラン",
+    "pricing.corp.label": "チーム・本社向け",
+    "pricing.corp.name": "コーポレートサブスクリプション",
+    "pricing.corp.desc": "グローバル市場をナビゲートするエグゼクティブチーム向けフルアクセス。",
+    "pricing.corp.f1": "全プレミアムインサイトレポート＆分析",
+    "pricing.corp.f2": "地政学・サプライチェーンリスクアラート",
+    "pricing.corp.f3": "エグゼクティブ提言＆アクションブリーフ",
+    "pricing.corp.f4": "アドバイザリー相談への優先アクセス",
+    "pricing.corp.cta": "今すぐ購読",
+    "pricing.advisory.title": "カスタマイズされたクロスボーダー戦略が必要ですか？",
+    "pricing.advisory.desc": "当社アドバイザリーチームが多国籍企業向けに、市場参入・事業運営のインテリジェンスをオーダーメイドで提供します。",
+    "pricing.advisory.cta": "チームに相談する",
 
     // About page (Japanese)
     "about.title": "WaLensについて - グローバル・エグゼクティブインテリジェンス",
