@@ -1212,7 +1212,6 @@ const translations: Record<Lang, Translations> = {
     "whyWaLens.point4.description": "新興市場で日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
 
     // NEW Homepage Hero (Japanese)
-    "hero.badge": "エグゼクティブ・インテリジェンス・プラットフォーム",
     "hero.badge": "日本人経営者のための現地ビジネス情報",
     "hero.headline": "現地ビジネスニュース＆レポートを毎日お届け。",
     "hero.subheadline": "キュレーションされた日刊ニュースレターとエグゼクティブレポートで、クロスボーダー経営に必要な現地インテリジェンスをお届けします。",
