@@ -38,7 +38,7 @@ const SignalOverNoise = () => {
             </p>
             <h2 className={`font-bold text-foreground mb-4 ${
               lang === 'ja' ? 'text-xl sm:text-2xl md:text-3xl' : 'text-2xl sm:text-3xl md:text-4xl'
-            }`}>
+            }`} style={{ wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
               {t('signal.title')}
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-6">
