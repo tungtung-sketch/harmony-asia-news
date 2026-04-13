@@ -652,10 +652,13 @@ const translations: Record<Lang, Translations> = {
     // NEW Homepage Hero
     "hero.badge": "Executive Intelligence Platform",
     "hero.headline": "Decode Global Markets.\nMake Decisive Moves.",
-    "hero.subheadline": "We don't translate news — we decode policy, risk, and market shifts so executives know what it means and what to do next.",
+    "hero.subheadline": "Traditional media tells you what happened. WaLens tells you what it means for your business — and what to do next.",
     "hero.cta.primary": "Start 1-Month Free Trial",
     "hero.cta.secondary": "See Sample Insights",
     "hero.trust": "Trusted by regional HQ executives and global decision-makers",
+    "hero.deliver1": "Weekly executive intelligence newsletter — curated, not automated",
+    "hero.deliver2": "Premium industry reports with strategic recommendations",
+    "hero.deliver3": "Geopolitical & supply chain risk alerts you can act on",
 
     // Signal Over Noise
     "signal.label": "What You Get",
