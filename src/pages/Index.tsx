@@ -6,7 +6,6 @@ import HeroSection from '@/components/homepage/HeroSection';
 import SignalOverNoise from '@/components/homepage/SignalOverNoise';
 import IntelligenceProof from '@/components/homepage/IntelligenceProof';
 import LeadMagnet from '@/components/homepage/LeadMagnet';
-import PricingPreview from '@/components/homepage/PricingPreview';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -27,7 +26,6 @@ const Index = () => {
       <SignalOverNoise />
       <IntelligenceProof />
       <LeadMagnet />
-      <PricingPreview />
       <Footer />
     </div>
   );
