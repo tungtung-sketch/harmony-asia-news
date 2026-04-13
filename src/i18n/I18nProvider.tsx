@@ -102,7 +102,7 @@ const translations: Record<Lang, Translations> = {
     "home.insightHighlight.exampleTitle": "5 Global Trends Japanese Businesses Should Know (2025)",
 
     // Newsletter
-    "home.newsletter.title": "Get weekly insights in your inbox — free for your first month",
+    "home.newsletter.title": "Get daily insights in your inbox — free for your first month",
     "home.newsletter.cta": "Subscribe",
     "home.newsletter.placeholder": "Your email",
 
@@ -685,10 +685,10 @@ const translations: Record<Lang, Translations> = {
     "proof.readMore": "Read Full Analysis",
 
     // Lead Magnet (Newsletter)
-    "leadMagnet.badge": "Weekly Newsletter",
+    "leadMagnet.badge": "Daily Newsletter",
     "leadMagnet.title": "The Executive Intelligence Newsletter",
-    "leadMagnet.description": "A curated weekly briefing delivered to your inbox — policy shifts, risk alerts, and strategic recommendations that matter for cross-border operations.",
-    "leadMagnet.formTitle": "Subscribe to our free weekly newsletter",
+    "leadMagnet.description": "A curated daily briefing delivered to your inbox — policy shifts, risk alerts, and strategic recommendations that matter for cross-border operations.",
+    "leadMagnet.formTitle": "Subscribe to our free daily newsletter",
     "leadMagnet.emailPlaceholder": "Work email address",
     "leadMagnet.cta": "Subscribe Free",
     "leadMagnet.privacy": "We respect your privacy. Unsubscribe anytime.",
@@ -868,7 +868,7 @@ const translations: Record<Lang, Translations> = {
     "home.insightHighlight.exampleTitle": "2025年、日本企業がタイで知っておくべき5つのトレンド",
 
     // Newsletter
-    "home.newsletter.title": "毎週のインサイトをメールで — 初月無料",
+    "home.newsletter.title": "毎日のインサイトをメールで — 初月無料",
     "home.newsletter.cta": "購読する",
     "home.newsletter.placeholder": "あなたのメールアドレス",
 
@@ -1245,10 +1245,10 @@ const translations: Record<Lang, Translations> = {
     "proof.readMore": "詳細分析を読む",
 
     // Lead Magnet — Newsletter (Japanese)
-    "leadMagnet.badge": "週刊ニュースレター",
+    "leadMagnet.badge": "日刊ニュースレター",
     "leadMagnet.title": "エグゼクティブ・インテリジェンス・ニュースレター",
-    "leadMagnet.description": "毎週お届けするキュレーション・ブリーフィング — クロスボーダー事業運営に重要な政策変動、リスクアラート、戦略的提言を厳選。",
-    "leadMagnet.formTitle": "無料週刊ニュースレターに登録",
+    "leadMagnet.description": "毎日お届けするキュレーション・ブリーフィング — クロスボーダー事業運営に重要な政策変動、リスクアラート、戦略的提言を厳選。",
+    "leadMagnet.formTitle": "無料日刊ニュースレターに登録",
     "leadMagnet.emailPlaceholder": "業務用メールアドレス",
     "leadMagnet.cta": "無料で登録する",
     "leadMagnet.privacy": "プライバシーを尊重します。いつでも配信停止可能です。",

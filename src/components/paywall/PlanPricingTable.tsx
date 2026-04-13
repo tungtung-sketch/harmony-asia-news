@@ -17,7 +17,7 @@ const features: Feature[] = [
   { name: 'Free articles', nameJa: '無料記事の閲覧', guest: true, basic: true, premium: true },
   { name: 'Preview of premium content', nameJa: 'プレミアム記事のプレビュー', guest: true, basic: true, premium: true },
   { name: 'Basic analysis articles', nameJa: '基本分析記事', guest: false, basic: true, premium: true },
-  { name: 'Weekly newsletter', nameJa: '週刊ニュースレター', guest: false, basic: true, premium: true },
+  { name: 'Daily newsletter', nameJa: '日刊ニュースレター', guest: false, basic: true, premium: true },
   { name: 'Email support', nameJa: 'メールサポート', guest: false, basic: true, premium: true },
   { name: 'In-depth premium analysis', nameJa: '詳細なプレミアム分析', guest: false, basic: false, premium: true },
   { name: 'Industry reports', nameJa: '業界レポート', guest: false, basic: false, premium: true },

@@ -21,7 +21,7 @@ const LeadMagnet = () => {
       const { error } = await supabase.from('newsletter_subscribers').insert({
         email: email.trim(),
         preferred_language: lang === 'ja' ? 'ja' : 'en',
-        segment: 'weekly-newsletter',
+        segment: 'daily-newsletter',
       });
 
       if (error && !error.message.includes('duplicate')) {
