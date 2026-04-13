@@ -8,17 +8,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { PasswordValidation, validatePassword, isPasswordValid } from "@/components/PasswordValidation";
 import { useToast } from "@/hooks/use-toast";
 
 const SignUp = () => {
   const { t } = useI18n();
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    email: searchParams.get('email') || "",
     password: "",
     position: "",
     industry: "",
