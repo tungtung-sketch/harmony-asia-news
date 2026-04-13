@@ -2,6 +2,7 @@ import { useI18n } from '@/i18n/I18nProvider';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import reportImage from '@/assets/executive-reports-dashboard.jpg';
 
 interface InsightCard {
@@ -136,6 +137,21 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Free Trial CTA */}
+        <div className="mt-12 text-center">
+          <p className="text-muted-foreground mb-4">
+            {lang === 'ja' 
+              ? 'これらのレポートを毎日受け取りませんか？' 
+              : 'Want to receive reports like these every day?'}
+          </p>
+          <Button asChild size="lg" className="font-semibold">
+            <Link to="/signup">
+              {lang === 'ja' ? '30日間無料トライアルを開始' : 'Start 30-Day Free Trial'}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

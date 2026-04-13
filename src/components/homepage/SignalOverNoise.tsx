@@ -2,7 +2,7 @@ import { useI18n } from '@/i18n/I18nProvider';
 import { Mail, BarChart3, ShieldAlert, FileText, Zap, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import executiveImg from '@/assets/executive-analysis.jpg';
+import newsletterImg from '@/assets/newsletter-multidevice.jpg';
 
 const SignalOverNoise = () => {
   const { t, lang } = useI18n();
@@ -39,12 +39,12 @@ const SignalOverNoise = () => {
           <div className="w-full lg:w-5/12 flex-shrink-0">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img
-                src={executiveImg}
-                alt="Executive reviewing intelligence report on tablet"
+                src={newsletterImg}
+                alt="Executive briefing accessible on smartphone, tablet and laptop"
                 className="w-full h-auto object-cover"
                 loading="lazy"
-                width={800}
-                height={600}
+                width={1200}
+                height={800}
               />
             </div>
           </div>
