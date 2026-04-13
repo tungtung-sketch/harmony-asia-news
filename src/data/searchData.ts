@@ -360,10 +360,9 @@ const businessTipResults: SearchResult[] = businessTips.map(tip => ({
   readTime: tip.readTime
 }));
 
-// Static search data (BI + Insights + Tips + Premium Reports)
+// Static search data (BI + Tips + Premium Reports — excludes category landing pages)
 const staticSearchData: SearchResult[] = [
   ...businessIntelligenceResults,
-  ...insightsResults,
   ...premiumInsightResults,
   ...businessTipResults
 ];
