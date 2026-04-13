@@ -1210,15 +1210,19 @@ const translations: Record<Lang, Translations> = {
     // NEW Homepage Hero (Japanese)
     "hero.badge": "エグゼクティブ・インテリジェンス・プラットフォーム",
     "hero.headline": "グローバル市場を読み解き、\n的確に動く。",
-    "hero.subheadline": "ニュースを翻訳するのではなく、政策・リスク・市場変動を解読し、経営者に「何を意味し、次に何をすべきか」をお届けします。",
+    "hero.subheadline": "従来メディアは「何が起きたか」を伝えます。WaLensは「それがあなたのビジネスに何を意味し、次に何をすべきか」をお届けします。",
     "hero.cta.primary": "1ヶ月無料トライアルを開始",
     "hero.cta.secondary": "サンプルインサイトを見る",
     "hero.trust": "地域統括拠点の経営者・グローバル意思決定者に信頼されています",
+    "hero.deliver1": "週刊エグゼクティブ・インテリジェンス・ニュースレター — AIではなく専門家がキュレーション",
+    "hero.deliver2": "戦略的提言付きプレミアム業界レポート",
+    "hero.deliver3": "即座にアクション可能な地政学・サプライチェーンリスクアラート",
 
     // Signal Over Noise (Japanese)
     "signal.label": "WaLensの価値",
     "signal.title": "ノイズではなく、シグナルを",
     "signal.subtitle": "すべてのインサイトはひとつの問いに答えます：これは私のビジネスにとって何を意味するのか？",
+    "signal.body": "NNAや日経は「何が起きたか」を伝えます。WaLensは隠れた含意 — 規制変動、サプライチェーンリスク、市場機会 — を解説し、競合より先にチームが行動できるようにします。",
     "signal.pillar1.title": "クロスボーダー政策分析",
     "signal.pillar1.desc": "規制変更をビジネスインパクトとして解読 — 見出しだけではなく。",
     "signal.pillar2.title": "市場コンテキストの提供",
@@ -1236,16 +1240,19 @@ const translations: Record<Lang, Translations> = {
     "proof.impact": "ビジネスインパクト",
     "proof.readMore": "詳細分析を読む",
 
-    // Lead Magnet (Japanese)
-    "leadMagnet.badge": "無料レポート",
-    "leadMagnet.title": "2026年 グローバルサプライチェーンリスク＆政策レポート",
-    "leadMagnet.description": "WaLensアナリストによる無料インテリジェンスブリーフ — クロスボーダー規制変動、サプライチェーンの脆弱性、多国籍企業経営者向けの戦略的提言を収録。",
-    "leadMagnet.namePlaceholder": "お名前",
+    // Lead Magnet — Newsletter (Japanese)
+    "leadMagnet.badge": "週刊ニュースレター",
+    "leadMagnet.title": "エグゼクティブ・インテリジェンス・ニュースレター",
+    "leadMagnet.description": "毎週お届けするキュレーション・ブリーフィング — クロスボーダー事業運営に重要な政策変動、リスクアラート、戦略的提言を厳選。",
+    "leadMagnet.formTitle": "無料週刊ニュースレターに登録",
     "leadMagnet.emailPlaceholder": "業務用メールアドレス",
-    "leadMagnet.cta": "無料レポートをダウンロード",
+    "leadMagnet.cta": "無料で登録する",
     "leadMagnet.privacy": "プライバシーを尊重します。いつでも配信停止可能です。",
-    "leadMagnet.success.title": "レポートをメールに送信しました！",
-    "leadMagnet.success.desc": "ダウンロードリンクをメールでご確認ください。",
+    "leadMagnet.success.title": "登録完了しました！",
+    "leadMagnet.success.desc": "最初のブリーフィングは来週中にお届けします。",
+    "leadMagnet.item1": "厳選されたクロスボーダー政策インパクトサマリー",
+    "leadMagnet.item2": "業界に関連する地政学リスクハイライト",
+    "leadMagnet.item3": "プレミアムレポートのプレビューへの先行アクセス",
 
     // Pricing Preview (Japanese)
     "pricing.label": "プラン",
