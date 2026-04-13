@@ -240,15 +240,38 @@ const Header = () => {
         {t('nav.tips')}
       </NavLink>
       */}
-      <NavLink 
-        to="/subscribe" 
-        className={({ isActive }) => 
-          `${isActive ? 'text-primary font-medium' : 'hover:text-primary'} ${mobile ? 'block py-3 px-4 text-lg' : ''}`
-        }
-        onClick={closeMenu}
-      >
-        {t('nav.subscribe')}
-      </NavLink>
+      {mobile ? (
+        <div className="py-3 px-4">
+          <div className="text-lg font-medium mb-2">{t('nav.subscribe')}</div>
+          <div className="ml-4 space-y-2">
+            <Link to="/subscribe" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('subscribe.nav.individual')}
+            </Link>
+            <Link to="/contact" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('subscribe.nav.corporate')}
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <DropdownMenu>
+          <DropdownMenuTrigger className="inline-flex items-center hover:text-primary focus:outline-none">
+            <span>{t('nav.subscribe')}</span>
+            <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent 
+            align="start" 
+            className="z-50 bg-background border shadow-lg mt-2 min-w-[200px] py-2"
+            sideOffset={8}
+          >
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/subscribe">{t('subscribe.nav.individual')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/contact">{t('subscribe.nav.corporate')}</Link>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
       <NavLink 
         to="/contact" 
         className={({ isActive }) => 

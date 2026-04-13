@@ -85,7 +85,7 @@ const Subscribe = () => {
   ];
 
   const scrollToPricing = () => {
-    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubscribe = async (planType: 'basic' | 'premium') => {
