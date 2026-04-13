@@ -109,11 +109,8 @@ const IntelligenceProof = () => {
                   )}
                 </div>
 
-                {/* Signal */}
+                {/* Headline */}
                 <div className="mb-4">
-                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.15em] mb-1.5">
-                    {t('proof.signal')}
-                  </p>
                   <p className={`font-semibold text-foreground leading-snug ${
                     lang === 'ja' ? 'text-sm sm:text-base' : 'text-base'
                   }`}>

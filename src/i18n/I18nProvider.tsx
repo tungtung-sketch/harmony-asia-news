@@ -680,13 +680,13 @@ const translations: Record<Lang, Translations> = {
     "signal.cta.trial": "Start 30-Day Free Trial",
     "signal.cta.sample": "View Sample Reports",
 
-    // Intelligence Proof
-    "proof.label": "Intelligence in Action",
-    "proof.title": "From Signal to Strategic Decision",
-    "proof.subtitle": "See how WaLens transforms raw information into executive-ready intelligence.",
-    "proof.signal": "The Signal",
-    "proof.impact": "Business Impact",
-    "proof.readMore": "Read Full Analysis",
+    // Sample Reports
+    "proof.label": "Sample Reports",
+    "proof.title": "Recent Executive Reports",
+    "proof.subtitle": "Real examples of the daily intelligence reports our subscribers receive.",
+    "proof.headline": "Headline",
+    "proof.impact": "Executive Summary",
+    "proof.readMore": "Read Full Report",
 
     // Lead Magnet (Newsletter)
     "leadMagnet.badge": "Daily Newsletter",
@@ -1244,13 +1244,13 @@ const translations: Record<Lang, Translations> = {
     "signal.cta.trial": "30日間無料トライアルを開始",
     "signal.cta.sample": "サンプルレポートを見る",
 
-    // Intelligence Proof (Japanese)
-    "proof.label": "インテリジェンスの実例",
-    "proof.title": "シグナルから戦略的意思決定へ",
-    "proof.subtitle": "WaLensが生の情報をエグゼクティブ向けインテリジェンスにどう変換するかをご覧ください。",
-    "proof.signal": "シグナル",
-    "proof.impact": "ビジネスインパクト",
-    "proof.readMore": "詳細分析を読む",
+    // サンプルレポート (Japanese)
+    "proof.label": "レポートサンプル",
+    "proof.title": "最新のエグゼクティブレポート",
+    "proof.subtitle": "購読者に毎日届くインテリジェンスレポートの実例をご覧ください。",
+    "proof.headline": "ヘッドライン",
+    "proof.impact": "エグゼクティブサマリー",
+    "proof.readMore": "レポート全文を読む",
 
     // Lead Magnet — Newsletter (Japanese)
     "leadMagnet.badge": "日刊ニュースレター",
