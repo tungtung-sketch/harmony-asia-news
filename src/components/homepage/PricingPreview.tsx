@@ -29,7 +29,7 @@ const PricingPreview = () => {
           </p>
           <h2 className={`font-bold text-foreground mb-4 ${
             lang === 'ja' ? 'text-xl sm:text-2xl md:text-3xl' : 'text-2xl sm:text-3xl md:text-4xl'
-          }`}>
+          }`} style={{ wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
             {t('pricing.title')}
           </h2>
         </div>
