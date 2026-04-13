@@ -63,8 +63,8 @@ const translations: Record<Lang, Translations> = {
     "nav.languages.en": "English",
 
     // Business Tips
-    "tips.subtitle": "Practical insights and strategies for international business leaders operating in Thailand and the Asia-Pacific region.",
-    "tips.description": "Business tips and insights for Thailand-Japan business professionals",
+    "tips.subtitle": "Practical insights and strategies for international business leaders navigating global markets.",
+    "tips.description": "Business tips and insights for global business professionals",
     "tips.backToTips": "Back to Business Tips",
 
     // News
@@ -86,8 +86,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.title": "Subscribe - WaLens Asia News",
 
     // Home hero
-    "home.hero.title": "Future Thailand: Executive Business & Market Insights",
-    "home.hero.subtext": "Connecting Japan and Thailand for business success",
+    "home.hero.title": "Global Executive Business & Market Insights",
+    "home.hero.subtext": "Your Japanese lens into global business — intelligence for decision-makers",
     "home.hero.cta": "Start Free 1-Month Trial",
 
     // Tags
@@ -99,7 +99,7 @@ const translations: Record<Lang, Translations> = {
     "home.featured": "Featured News",
     "home.latest": "Latest Articles",
     "home.insightHighlight.title": "Insight Highlight",
-    "home.insightHighlight.exampleTitle": "5 Trends Japanese Businesses Should Know in Thailand (2025)",
+    "home.insightHighlight.exampleTitle": "5 Global Trends Japanese Businesses Should Know (2025)",
 
     // Newsletter
     "home.newsletter.title": "Get weekly insights in your inbox — free for your first month",
@@ -281,9 +281,9 @@ const translations: Record<Lang, Translations> = {
     "contact.submit": "Send",
     "contact.success": "Thanks! We'll be in touch soon.",
 
-    "subscribe.metaDescription": "Choose the right plan for your business insights in Thailand",
-    "subscribe.hero.title": "Stay Ahead with WaLens Asia News",
-    "subscribe.hero.subtitle": "Choose the right plan for your business insights in Thailand",
+    "subscribe.metaDescription": "Choose the right plan for your global business intelligence needs",
+    "subscribe.hero.title": "Stay Ahead with WaLens",
+    "subscribe.hero.subtitle": "Choose the right plan for your global business intelligence needs",
     "subscribe.hero.cta": "Subscribe Now",
     
     // Pricing plans
@@ -317,11 +317,11 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.title": "Compare Plans",
     "subscribe.features.featureLabel": "Features",
     "subscribe.features.dailyNews": "Daily News Access",
-    "subscribe.features.dailyNews.basicDesc": "Access to curated daily business news in Thailand.",
+    "subscribe.features.dailyNews.basicDesc": "Access to curated daily global business news and market updates.",
     "subscribe.features.dailyNews.premiumDesc": "Full access to daily news with deeper context and executive summary.",
     "subscribe.features.premiumInsights": "Premium Insights",
     "subscribe.features.premiumInsights.basicDesc": "Not included.",
-    "subscribe.features.premiumInsights.premiumDesc": "In-depth analysis with implications for Japanese companies in Thailand. Includes strategic interpretation and industry impact.",
+    "subscribe.features.premiumInsights.premiumDesc": "In-depth analysis with implications for Japanese companies operating globally. Includes strategic interpretation and industry impact.",
     "subscribe.features.executiveReports": "Executive Reports",
     "subscribe.features.executiveReports.basicDesc": "Not included.",
     "subscribe.features.executiveReports.premiumDesc": "Structured, decision-ready reports designed for management discussions, internal circulation, and board-level understanding.",
@@ -386,7 +386,7 @@ const translations: Record<Lang, Translations> = {
     "signup.industries.other": "Other",
 
     // Purpose options
-    "signup.purposes.business_news": "To stay updated with Thailand's business news",
+    "signup.purposes.business_news": "To stay updated with global business news",
     "signup.purposes.market_research": "For market/industry research",
     "signup.purposes.strategic_decisions": "For strategic decision-making",
     "signup.purposes.team_insights": "To share insights with my team",
@@ -557,7 +557,7 @@ const translations: Record<Lang, Translations> = {
     "terms.section1.content": "Welcome to WaLens Asia News. By accessing or using our website and subscription services, you agree to these Terms of Service. Please read them carefully before subscribing.",
     
     "terms.section2.title": "2. Services",
-    "terms.section2.content": "WaLens Asia News provides business news, market insights, analysis reports, and resources to support international executives and companies operating in Thailand and Southeast Asia. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
+    "terms.section2.content": "WaLens provides business news, market insights, analysis reports, and resources to support international executives and companies operating globally. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
     
     "terms.section3.title": "3. Subscription & Payment",
     "terms.section3.trial": "Users may start with a 30-day free trial under the Basic Plan. No charges will apply during the trial period.",
@@ -600,8 +600,8 @@ const translations: Record<Lang, Translations> = {
     "insights.dropdown.agriculture": "Agriculture",
     "insights.dropdown.realestate": "Real Estate",
     "insights.reports.evBattery": "EV & Battery Industry Report",
-    "insights.landing.title": "Thailand-Japan Business Intelligence",
-    "insights.landing.description": "Curated industry insights, market analysis, and strategic intelligence for executives navigating Thailand-Japan business opportunities.",
+    "insights.landing.title": "Global Business Intelligence",
+    "insights.landing.description": "Curated industry insights, market analysis, and strategic intelligence for executives navigating global business opportunities.",
     "insights.landing.category": "Business Intelligence Hub",
     "insights.landing.industryFocus": "Industry Focus Areas",
     "insights.landing.exploreInsights": "Explore Insights →",
@@ -609,7 +609,7 @@ const translations: Record<Lang, Translations> = {
 
     // Insights Services
     "insights.services.title": "Services Industry Intelligence",
-    "insights.services.description": "Navigate digital transformation, fintech innovation, and professional services expansion across Thailand and Japan markets.",
+    "insights.services.description": "Navigate digital transformation, fintech innovation, and professional services expansion across global markets.",
     "insights.services.category": "Services Sector",
     "insights.services.latestIntelligence": "Latest Services Intelligence",
     "insights.services.keyGrowthAreas": "Key Growth Areas",
@@ -618,53 +618,53 @@ const translations: Record<Lang, Translations> = {
 
     // Insights Manufacturing
     "insights.manufacturing.title": "Manufacturing Industry Intelligence",
-    "insights.manufacturing.description": "Navigate Industry 4.0, supply chain innovation, and automation opportunities across Thailand and Japan markets.",
+    "insights.manufacturing.description": "Navigate Industry 4.0, supply chain innovation, and automation opportunities across global markets.",
     "insights.manufacturing.category": "Manufacturing Sector",
 
     // Insights Wellness Healthcare
     "insights.wellness.title": "Wellness & Healthcare Intelligence",
-    "insights.wellness.description": "Explore medical technology, telemedicine, and wellness tourism opportunities in the Thailand-Japan corridor.",
+    "insights.wellness.description": "Explore medical technology, telemedicine, and wellness tourism opportunities across global markets.",
     "insights.wellness.category": "Healthcare Sector",
 
     // Insights Agriculture
     "insights.agriculture.title": "Agriculture Industry Intelligence", 
-    "insights.agriculture.description": "Navigate agri-tech innovation, sustainable farming, and food processing opportunities across Thailand and Japan.",
+    "insights.agriculture.description": "Navigate agri-tech innovation, sustainable farming, and food processing opportunities across global markets.",
     "insights.agriculture.category": "Agriculture Sector",
 
     // Insights Real Estate
     "insights.realestate.title": "Real Estate Market Intelligence",
-    "insights.realestate.description": "Explore commercial property, REITs, and urban development trends in Thailand's dynamic real estate market.",
+    "insights.realestate.description": "Explore commercial property, REITs, and urban development trends across dynamic global real estate markets.",
     "insights.realestate.category": "Real Estate Sector",
 
     // Why WaLens Section (Landing Page)
     "whyWaLens.title": "Why WaLens?",
     "whyWaLens.chatgpt": "Information is everywhere. But relevance is rare.",
-    "whyWaLens.walens": "WaLens delivers what actually matters for Japanese executives in Thailand.",
+    "whyWaLens.walens": "WaLens delivers what actually matters for Japanese executives navigating global markets.",
     "whyWaLens.point1.title": "Decision Filter",
-    "whyWaLens.point1.description": "We filter information through the lens of Japanese executive decision-making in Thailand.",
+    "whyWaLens.point1.description": "We filter information through the lens of Japanese executive decision-making across global markets.",
     "whyWaLens.point2.title": "Context-Aware",
-    "whyWaLens.point2.description": "Every insight is tailored to the unique challenges facing Japanese businesses in Thailand.",
+    "whyWaLens.point2.description": "Every insight is tailored to the unique challenges facing Japanese businesses operating globally.",
     "whyWaLens.point3.title": "Actionable Interpretation",
     "whyWaLens.point3.description": "We don't just report facts—we interpret what they mean for your business decisions.",
     "whyWaLens.point4.title": "Trusted Judgment",
-    "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives in Thailand.",
+    "whyWaLens.point4.description": "Built by consultants with 10+ years advising Japanese executives across emerging markets.",
 
     // About page
-    "about.title": "About WaLens - Executive Intelligence for Thailand",
-    "about.description": "WaLens is a premium decision-support platform for Japanese executives in Thailand. We filter, interpret, and prioritize information for executive-level judgment.",
+    "about.title": "About WaLens - Global Executive Intelligence",
+    "about.description": "WaLens is a premium decision-support platform for Japanese executives operating globally. We filter, interpret, and prioritize information for executive-level judgment.",
     "about.hero.title": "Intelligence That Serves Decision-Makers",
-    "about.hero.subtitle": "WaLens is a premium decision-support platform designed for Japanese executives investing in or operating businesses in Thailand.",
+    "about.hero.subtitle": "WaLens is a premium decision-support platform designed for Japanese executives investing in or operating businesses across global markets.",
     
     // Mission
-    "about.mission.paragraph1": "In today's information environment, the challenge is not access—it is relevance. Japanese executives in Thailand need more than news feeds and generic summaries. They need intelligence that reflects the local regulatory landscape, the nuances of Thai-Japanese business relations, and the priorities of executive-level decision-making. WaLens exists to provide that layer of judgment.",
+    "about.mission.paragraph1": "In today's information environment, the challenge is not access—it is relevance. Japanese executives operating globally need more than news feeds and generic summaries. They need intelligence that reflects local regulatory landscapes, the nuances of cross-border business relations, and the priorities of executive-level decision-making. WaLens exists to provide that layer of judgment.",
     
     // Definition Section
     "about.definition.title": "What WaLens Is — and Is Not",
     "about.definition.is.title": "WaLens provides:",
     "about.definition.is.point1": "A judgment layer that filters and prioritizes information for Japanese executives",
-    "about.definition.is.point2": "Context-aware intelligence rooted in Thailand's regulatory, economic, and industry landscape",
+    "about.definition.is.point2": "Context-aware intelligence rooted in local regulatory, economic, and industry landscapes across key markets",
     "about.definition.is.point3": "Executive-level interpretation — not just summaries, but what information means for your decisions",
-    "about.definition.is.point4": "Insights shaped by Japanese business governance perspectives and local Thailand expertise",
+    "about.definition.is.point4": "Insights shaped by Japanese business governance perspectives and deep local market expertise",
     "about.definition.isNot.title": "WaLens is not:",
     "about.definition.isNot.point1": "A general news media or information aggregation platform",
     "about.definition.isNot.point2": "A substitute for professional advisory — we complement, not replace, your existing counsel",
@@ -675,11 +675,11 @@ const translations: Record<Lang, Translations> = {
     "about.value.filter.title": "Noise Reduction",
     "about.value.filter.description": "We surface only what is decision-relevant, saving executives from information overload across multiple sources.",
     "about.value.interpretation.title": "Contextual Interpretation",
-    "about.value.interpretation.description": "Every insight is interpreted through the lens of Japanese business operations and governance in Thailand.",
+    "about.value.interpretation.description": "Every insight is interpreted through the lens of Japanese business operations and governance across global markets.",
     "about.value.prioritization.title": "Strategic Prioritization",
     "about.value.prioritization.description": "We prioritize based on impact to investment decisions, regulatory exposure, and operational risk.",
     "about.value.judgment.title": "Trusted Judgment",
-    "about.value.judgment.description": "Our editorial team combines deep Thailand expertise with over a decade of experience advising Japanese executives.",
+    "about.value.judgment.description": "Our editorial team combines deep market expertise with over a decade of experience advising Japanese executives globally.",
     
     // Company Profile Table
     "about.profile.title": "Company Profile",
@@ -691,11 +691,11 @@ const translations: Record<Lang, Translations> = {
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025",
     "about.profile.headquarters.value": "Bangkok, Thailand",
-    "about.profile.business.value": "A decision-support platform providing strategic intelligence and executive-level judgment for Japanese businesses operating in Thailand.",
-    "about.profile.team.value": "Experienced business consultants with over 10 years advising Japanese executives across diverse industries in Thailand.",
+    "about.profile.business.value": "A decision-support platform providing strategic intelligence and executive-level judgment for Japanese businesses operating globally.",
+    "about.profile.team.value": "Experienced business consultants with over 10 years advising Japanese executives across diverse industries and global markets.",
     
     // CTA Section
-    "about.cta.title": "Your Trusted Decision Partner in Thailand",
+    "about.cta.title": "Your Trusted Global Decision Partner",
     "about.cta.content": "WaLens helps you spend less time gathering information and more time making confident, well-informed decisions.",
     "about.cta.button": "Start Your Trial",
 
@@ -779,8 +779,8 @@ const translations: Record<Lang, Translations> = {
     "banner.subscribeLink": "全ての機能を利用するには購読",
 
     // Hero (home)
-    "home.hero.title": "タイの未来：ビジネスと市場の深層分析",
-    "home.hero.subtext": "日本とタイをつなぎ、ビジネス成功へ",
+    "home.hero.title": "グローバル・エグゼクティブ向けビジネス＆マーケットインサイト",
+    "home.hero.subtext": "グローバルビジネスを解き明かす日本の視座 — 意思決定者のためのインテリジェンス",
     "home.hero.cta": "無料トライアルを開始 (1か月)",
     "hero.featuredImageLabel": "特集画像",
 
@@ -919,9 +919,9 @@ const translations: Record<Lang, Translations> = {
     "insights.title": "インサイト - WaLens",
     "tips.title": "ビジネスチップス - WaLens",
     "subscribe.title": "購読 - WaLens Asia News",
-    "subscribe.metaDescription": "タイでのビジネスインサイトに適したプランを選択してください",
-    "subscribe.hero.title": "WaLens Asia Newsで先を行く",
-    "subscribe.hero.subtitle": "タイでのビジネスインサイトに適したプランを選択してください",
+    "subscribe.metaDescription": "グローバルビジネスインテリジェンスに適したプランを選択してください",
+    "subscribe.hero.title": "WaLensで先を行く",
+    "subscribe.hero.subtitle": "グローバルビジネスインテリジェンスに適したプランを選択してください",
     "subscribe.hero.cta": "今すぐ購読",
     
     // Pricing plans
@@ -955,11 +955,11 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.title": "プラン比較",
     "subscribe.features.featureLabel": "機能",
     "subscribe.features.dailyNews": "日次ニュースアクセス",
-    "subscribe.features.dailyNews.basicDesc": "タイのビジネスニュースを厳選して毎日配信。",
+    "subscribe.features.dailyNews.basicDesc": "厳選されたグローバルビジネスニュースを毎日配信。",
     "subscribe.features.dailyNews.premiumDesc": "日次ニュースに加え、背景分析とエグゼクティブサマリーを提供。",
     "subscribe.features.premiumInsights": "プレミアムインサイト",
     "subscribe.features.premiumInsights.basicDesc": "含まれません。",
-    "subscribe.features.premiumInsights.premiumDesc": "タイ進出日系企業への影響分析。戦略的解釈と業界インパクトを含む。",
+    "subscribe.features.premiumInsights.premiumDesc": "グローバルに事業展開する日系企業への影響分析。戦略的解釈と業界インパクトを含む。",
     "subscribe.features.executiveReports": "エグゼクティブレポート",
     "subscribe.features.executiveReports.basicDesc": "含まれません。",
     "subscribe.features.executiveReports.premiumDesc": "経営会議・社内回覧・取締役レベルの意思決定に対応した、構造化されたレポート。",
@@ -1088,8 +1088,8 @@ const translations: Record<Lang, Translations> = {
     "insights.dropdown.agriculture": "農業",
     "insights.dropdown.realestate": "不動産",
     "insights.reports.evBattery": "EV・バッテリー産業レポート",
-    "insights.landing.title": "タイ・日本ビジネスインテリジェンス",
-    "insights.landing.description": "タイ・日本のビジネス機会をナビゲートする経営者向けの業界洞察、市場分析、戦略情報をお届けします。",
+    "insights.landing.title": "グローバル・ビジネスインテリジェンス",
+    "insights.landing.description": "グローバルなビジネス機会をナビゲートする経営者向けの業界洞察、市場分析、戦略情報をお届けします。",
     "insights.landing.category": "ビジネスインテリジェンスハブ",
     "insights.landing.industryFocus": "業界重点領域",
     "insights.landing.exploreInsights": "インサイトを探索 →",
@@ -1097,7 +1097,7 @@ const translations: Record<Lang, Translations> = {
 
     // Insights Services
     "insights.services.title": "サービス業界インテリジェンス",
-    "insights.services.description": "タイと日本市場におけるデジタル変革、フィンテックイノベーション、プロフェッショナルサービス展開をナビゲートします。",
+    "insights.services.description": "グローバル市場におけるデジタル変革、フィンテックイノベーション、プロフェッショナルサービス展開をナビゲートします。",
     "insights.services.category": "サービス部門",
     "insights.services.latestIntelligence": "最新サービスインテリジェンス",
     "insights.services.keyGrowthAreas": "主要成長分野",
@@ -1106,53 +1106,53 @@ const translations: Record<Lang, Translations> = {
 
     // Insights Manufacturing
     "insights.manufacturing.title": "製造業界インテリジェンス",
-    "insights.manufacturing.description": "タイと日本市場におけるインダストリー4.0、サプライチェーン革新、自動化機会をナビゲートします。",
+    "insights.manufacturing.description": "グローバル市場におけるインダストリー4.0、サプライチェーン革新、自動化機会をナビゲートします。",
     "insights.manufacturing.category": "製造業部門",
 
     // Insights Wellness Healthcare
     "insights.wellness.title": "ウェルネス・ヘルスケアインテリジェンス",
-    "insights.wellness.description": "タイ・日本回廊における医療技術、遠隔医療、ウェルネス観光の機会を探索します。",
+    "insights.wellness.description": "グローバル市場における医療技術、遠隔医療、ウェルネス観光の機会を探索します。",
     "insights.wellness.category": "ヘルスケア部門",
 
     // Insights Agriculture
     "insights.agriculture.title": "農業界インテリジェンス",
-    "insights.agriculture.description": "タイと日本におけるアグリテックイノベーション、持続可能農業、食品加工機会をナビゲートします。",
+    "insights.agriculture.description": "グローバル市場におけるアグリテックイノベーション、持続可能農業、食品加工機会をナビゲートします。",
     "insights.agriculture.category": "農業部門",
 
     // Insights Real Estate
     "insights.realestate.title": "不動産市場インテリジェンス",
-    "insights.realestate.description": "タイのダイナミックな不動産市場における商業用不動産、REIT、都市開発トレンドを探索します。",
+    "insights.realestate.description": "グローバル市場におけるダイナミックな不動産市場の商業用不動産、REIT、都市開発トレンドを探索します。",
     "insights.realestate.category": "不動産部門",
 
     // Why WaLens Section (Landing Page) - Japanese
     "whyWaLens.title": "なぜWaLensか？",
     "whyWaLens.chatgpt": "情報はどこにでもあります。しかし、本当に必要な情報は限られています。",
-    "whyWaLens.walens": "WaLensは、タイにおける日本人経営者にとって本当に重要なことだけをお届けします。",
+    "whyWaLens.walens": "WaLensは、グローバル市場をナビゲートする日本人経営者にとって本当に重要なことだけをお届けします。",
     "whyWaLens.point1.title": "意思決定フィルター",
-    "whyWaLens.point1.description": "タイにおける日本人経営者の意思決定の視点から情報をフィルタリング。",
+    "whyWaLens.point1.description": "グローバル市場における日本人経営者の意思決定の視点から情報をフィルタリング。",
     "whyWaLens.point2.title": "コンテキスト対応",
-    "whyWaLens.point2.description": "タイで日本企業が直面する固有の課題に合わせたインサイトを提供。",
+    "whyWaLens.point2.description": "グローバルに事業展開する日本企業が直面する固有の課題に合わせたインサイトを提供。",
     "whyWaLens.point3.title": "実行可能な解釈",
     "whyWaLens.point3.description": "事実を報告するだけでなく、ビジネス上の意思決定にとって何を意味するかを解釈。",
     "whyWaLens.point4.title": "信頼できる判断",
-    "whyWaLens.point4.description": "タイで日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
+    "whyWaLens.point4.description": "新興市場で日本人経営者を10年以上アドバイスしてきたコンサルタントが構築。",
 
     // About page (Japanese)
-    "about.title": "WaLensについて - 経営判断のためのインテリジェンス",
-    "about.description": "WaLensは、タイで事業を展開する日本人経営者のためのプレミアム意思決定支援プラットフォームです。情報のフィルタリング、解釈、優先順位付けを通じて、経営レベルの判断を支援します。",
+    "about.title": "WaLensについて - グローバル・エグゼクティブインテリジェンス",
+    "about.description": "WaLensは、グローバルに事業を展開する日本人経営者のためのプレミアム意思決定支援プラットフォームです。情報のフィルタリング、解釈、優先順位付けを通じて、経営レベルの判断を支援します。",
     "about.hero.title": "意思決定者のためのインテリジェンス",
-    "about.hero.subtitle": "WaLensは、タイへの投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォームです。",
+    "about.hero.subtitle": "WaLensは、グローバル市場への投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォームです。",
     
     // Mission (Japanese)
-    "about.mission.paragraph1": "今日の情報環境における課題は、情報へのアクセスではなく、その「関連性」にあります。タイで活動する日本人経営者には、ニュースフィードや汎用的な要約以上のものが必要です。現地の規制環境、日タイビジネス関係の機微、そして経営レベルの意思決定の優先順位を反映したインテリジェンスが求められます。WaLensは、その判断のレイヤーを提供するために存在しています。",
+    "about.mission.paragraph1": "今日の情報環境における課題は、情報へのアクセスではなく、その「関連性」にあります。グローバルに活動する日本人経営者には、ニュースフィードや汎用的な要約以上のものが必要です。現地の規制環境、国際ビジネス関係の機微、そして経営レベルの意思決定の優先順位を反映したインテリジェンスが求められます。WaLensは、その判断のレイヤーを提供するために存在しています。",
     
     // Definition Section (Japanese)
     "about.definition.title": "WaLensとは — そうでないもの",
     "about.definition.is.title": "WaLensが提供するもの：",
     "about.definition.is.point1": "日本人経営者のために情報をフィルタリングし、優先順位をつける判断レイヤー",
-    "about.definition.is.point2": "タイの規制・経済・産業環境に根ざしたコンテキスト対応型インテリジェンス",
+    "about.definition.is.point2": "主要市場における規制・経済・産業環境に根ざしたコンテキスト対応型インテリジェンス",
     "about.definition.is.point3": "単なる要約ではなく、情報が意思決定に何を意味するかを示す経営レベルの解釈",
-    "about.definition.is.point4": "日本のビジネスガバナンスの視点とタイ現地の専門知識に基づくインサイト",
+    "about.definition.is.point4": "日本のビジネスガバナンスの視点と深い現地市場の専門知識に基づくインサイト",
     "about.definition.isNot.title": "WaLensが提供しないもの：",
     "about.definition.isNot.point1": "一般的なニュースメディアや情報集約プラットフォーム",
     "about.definition.isNot.point2": "専門的なアドバイザリーの代替 — 既存の助言機能を補完するものです",
@@ -1163,11 +1163,11 @@ const translations: Record<Lang, Translations> = {
     "about.value.filter.title": "ノイズの削減",
     "about.value.filter.description": "意思決定に関連する情報のみを抽出し、複数の情報源からの情報過多を解消します。",
     "about.value.interpretation.title": "コンテキストに基づく解釈",
-    "about.value.interpretation.description": "タイにおける日本企業の事業運営とガバナンスの視点から、すべてのインサイトを解釈します。",
+    "about.value.interpretation.description": "グローバル市場における日本企業の事業運営とガバナンスの視点から、すべてのインサイトを解釈します。",
     "about.value.prioritization.title": "戦略的優先順位付け",
     "about.value.prioritization.description": "投資判断、規制リスク、事業運営への影響に基づいてインサイトを優先順位付けします。",
     "about.value.judgment.title": "信頼できる判断",
-    "about.value.judgment.description": "編集チームは、タイの深い専門知識と10年以上にわたる日本人経営者へのアドバイス経験を兼ね備えています。",
+    "about.value.judgment.description": "編集チームは、深い市場専門知識と10年以上にわたる日本人経営者へのグローバルなアドバイス経験を兼ね備えています。",
     
     // Company Profile Table (Japanese)
     "about.profile.title": "会社概要",
@@ -1179,11 +1179,11 @@ const translations: Record<Lang, Translations> = {
     "about.profile.company.value": "WaLens",
     "about.profile.founded.value": "2025年",
     "about.profile.headquarters.value": "タイ・バンコク",
-    "about.profile.business.value": "タイで事業を展開する日本人経営者向けに、戦略的インテリジェンスと経営レベルの判断を提供する意思決定支援プラットフォーム。",
-    "about.profile.team.value": "タイで多様な業界の日本人経営者に10年以上アドバイスしてきた経験豊富な経営コンサルタントで構成。",
+    "about.profile.business.value": "グローバルに事業を展開する日本人経営者向けに、戦略的インテリジェンスと経営レベルの判断を提供する意思決定支援プラットフォーム。",
+    "about.profile.team.value": "多様な業界とグローバル市場で日本人経営者に10年以上アドバイスしてきた経験豊富な経営コンサルタントで構成。",
     
     // CTA Section (Japanese)
-    "about.cta.title": "タイにおける信頼の意思決定パートナー",
+    "about.cta.title": "信頼のグローバル意思決定パートナー",
     "about.cta.content": "WaLensは、情報収集に費やす時間を減らし、確信を持った的確な意思決定に集中するための支援を提供します。",
     "about.cta.button": "無料トライアルを開始",
 
@@ -1232,8 +1232,8 @@ const translations: Record<Lang, Translations> = {
     "terms.section10.suffix": "よりご連絡ください。",
 
     // Business Tips
-    "tips.subtitle": "タイおよびアジア太平洋地域で事業を展開する国際的なビジネスリーダーのための実践的な洞察と戦略。",
-    "tips.description": "タイ・日本のビジネス専門家のためのビジネスチップスとインサイト",
+    "tips.subtitle": "グローバル市場で事業を展開する国際的なビジネスリーダーのための実践的な洞察と戦略。",
+    "tips.description": "グローバルビジネス専門家のためのビジネスチップスとインサイト",
     "tips.backToTips": "ビジネスチップスに戻る",
     
     // Business Intelligence (Japanese)
