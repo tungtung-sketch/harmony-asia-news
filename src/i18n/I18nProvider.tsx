@@ -664,6 +664,7 @@ const translations: Record<Lang, Translations> = {
     "signal.label": "What You Get",
     "signal.title": "Signal Over Noise",
     "signal.subtitle": "Every insight answers one question: what does this mean for my business?",
+    "signal.body": "NNA and Nikkei tell you what happened. WaLens explains the hidden implications — regulatory shifts, supply chain risks, and market opportunities — so your team can act before competitors do.",
     "signal.pillar1.title": "Cross-Border Policy Analysis",
     "signal.pillar1.desc": "Regulatory changes decoded into business impact — not just headlines.",
     "signal.pillar2.title": "Market Context, Not Translation",
@@ -681,16 +682,19 @@ const translations: Record<Lang, Translations> = {
     "proof.impact": "Business Impact",
     "proof.readMore": "Read Full Analysis",
 
-    // Lead Magnet
-    "leadMagnet.badge": "Complimentary Report",
-    "leadMagnet.title": "2026 Global Supply Chain Risk & Policy Report",
-    "leadMagnet.description": "A complimentary intelligence brief from WaLens analysts — covering cross-border regulatory shifts, supply chain vulnerabilities, and strategic recommendations for multinational executives.",
-    "leadMagnet.namePlaceholder": "Your name",
+    // Lead Magnet (Newsletter)
+    "leadMagnet.badge": "Weekly Newsletter",
+    "leadMagnet.title": "The Executive Intelligence Newsletter",
+    "leadMagnet.description": "A curated weekly briefing delivered to your inbox — policy shifts, risk alerts, and strategic recommendations that matter for cross-border operations.",
+    "leadMagnet.formTitle": "Subscribe to our free weekly newsletter",
     "leadMagnet.emailPlaceholder": "Work email address",
-    "leadMagnet.cta": "Download Free Report",
+    "leadMagnet.cta": "Subscribe Free",
     "leadMagnet.privacy": "We respect your privacy. Unsubscribe anytime.",
-    "leadMagnet.success.title": "Report sent to your inbox!",
-    "leadMagnet.success.desc": "Check your email for the download link.",
+    "leadMagnet.success.title": "You're subscribed!",
+    "leadMagnet.success.desc": "Your first briefing will arrive within the next week.",
+    "leadMagnet.item1": "Curated cross-border policy impact summaries",
+    "leadMagnet.item2": "Geopolitical risk highlights relevant to your industry",
+    "leadMagnet.item3": "Early access to premium report previews",
 
     // Pricing Preview
     "pricing.label": "Plans",
