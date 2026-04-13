@@ -40,7 +40,7 @@ const ThaiGovPolicyJapanese = () => {
     if (hasFullAccess && !hasLoggedView) {
       logView(
         'thai-gov-policy-japanese',
-        isJapanese ? 'นโยบายรัฐบาลอนุทิน2：日系企業への影響分析' : 'Anutin 2 Government Policy: Strategic Implications for Japanese Companies in Thailand',
+        isJapanese ? 'アヌティン政権政策2：日系企業への影響分析' : 'Anutin 2 Government Policy: Strategic Implications for Japanese Companies in Thailand',
         'services',
         lang
       );
@@ -48,13 +48,13 @@ const ThaiGovPolicyJapanese = () => {
     }
   }, [hasFullAccess, hasLoggedView, logView, isJapanese, lang]);
 
-  useInsightReadingHistoryTracker('thai-gov-policy-japanese', 'Anutin 2 Policy: Implications for Japanese Companies', 'อนุทิน2政策：日系企業への影響', 'Services', hasFullAccess);
+  useInsightReadingHistoryTracker('thai-gov-policy-japanese', 'Anutin 2 Policy: Implications for Japanese Companies', 'アヌティン2政策：日系企業への影響', 'Services', hasFullAccess);
 
   const handleDataAppendixAccess = () => {
     if (hasFullAccess) {
       logDataAccess(
         'thai-gov-policy-japanese',
-        isJapanese ? 'อนุทิน2政策：日系企業への影響' : 'Anutin 2 Policy: Implications for Japanese Companies',
+        isJapanese ? 'アヌティン2政策：日系企業への影響' : 'Anutin 2 Policy: Implications for Japanese Companies',
         'services',
         lang
       );
@@ -87,7 +87,7 @@ const ThaiGovPolicyJapanese = () => {
   const content = {
     headline: {
       en: "Anutin 2 Government Policy (April 2026): Strategic Implications for Japanese Companies in Thailand",
-      ja: "อนุทิน2政策分析（2026年4月）：タイにおける日系企業の事業戦略への影響"
+      ja: "アヌティン2政策分析（2026年4月）：タイにおける日系企業の事業戦略への影響"
     },
     subheadline: {
       en: "How Super License reform, Semiconductor Roadmap 2050, nominee crackdown, and green energy transition are reshaping the business landscape for Japanese enterprises",
@@ -110,11 +110,11 @@ const ThaiGovPolicyJapanese = () => {
         "'Made in Thailand' procurement policy and de minimis threshold elimination create dual impact: opportunities for Japanese companies with local production, pressure to localize supply chains."
       ],
       ja: [
-        "อนุทิน・チャンウィーラクン首相がภูมิใจไทย党主導の16党連立政権を2026年初頭に樹立。中東航路途絶による深刻な世界的エネルギー危機と重なり、2026年4月9-10日の政策声明は大規模な構造的再編を意味する。",
+        "アヌティン・チャンウィーラクン首相がプームジャイタイ党主導の16党連立政権を2026年初頭に樹立。中東航路途絶による深刻な世界的エネルギー危機と重なり、2026年4月9-10日の政策声明は大規模な構造的再編を意味する。",
         "緊急エネルギー対策として燃料油基金向けの1,500億バーツ緊急借入法令と、影響を受けた企業向けの1,000億バーツ低利融資を実施。ディーゼル価格は補助金により50.54バーツ/リットルに上限設定。",
         "180日以内に導入される「Super License」制度は、複数の許認可要件を単一の主要ライセンスに統合し、工場設立・拡張における官僚的負担を劇的に削減する。",
         "国家半導体ロードマップ2050は投資額2.5兆バーツ、高技能労働者23万人を目標とし、タイをパワー半導体・センサー・フォトニクス分野で受託組立業者からテクノロジーオーナーへ格上げする。",
-        "กรมพัฒนาธุรกิจ命令1/2569号（2026年4月1日施行）がノミニー株主の取締りを強化——タイ人株主は真正な資金源を証明する3ヶ月分の財務諸表を提出義務、違反には最大3年の禁固刑。",
+        "商務省事業開発局（DBD）命令1/2569号（2026年4月1日施行）がノミニー株主の取締りを強化——タイ人株主は真正な資金源を証明する3ヶ月分の財務諸表を提出義務、違反には最大3年の禁固刑。",
         "「Made in Thailand」調達政策とDe Minimis Threshold撤廃が二重の影響を生む：現地生産を持つ日系企業にとってのチャンスと、サプライチェーン現地化への圧力。"
       ]
     },
@@ -182,7 +182,7 @@ const ThaiGovPolicyJapanese = () => {
 
     // ── Nominee Crackdown ──
     nomineeCrackdown: {
-      title: { en: "Nominee Shareholder Crackdown (DBD Order 1/2569)", ja: "ノミニー株主取締強化（กรมพัฒนาธุรกิจ命令1/2569号）" },
+      title: { en: "Nominee Shareholder Crackdown (DBD Order 1/2569)", ja: "ノミニー株主取締強化（商務省事業開発局（DBD）命令1/2569号）" },
       items: {
         en: [
           { topic: "Financial Proof Requirement", detail: "Thai shareholders in companies with foreign co-investors must provide 3-month financial statements proving genuine capital sources." },
@@ -333,7 +333,7 @@ const ThaiGovPolicyJapanese = () => {
       ja: [
         {
           title: "株主構成コンプライアンス監査を即時実施せよ",
-          content: "กรมพัฒนาธุรกิจ命令1/2569号の施行により、タイ人株主が個人またはシェルカンパニーである51/49構造の日系企業は株主の正当性を即座に監査すべき。リスクが特定された場合、BOI特権（外資100%保有）や条約ベースの免除を用いて再編せよ。積極的な再編コストは刑事訴追リスク（最大3年禁固、100万バーツ罰金）と比較して些少。",
+          content: "商務省事業開発局（DBD）命令1/2569号の施行により、タイ人株主が個人またはシェルカンパニーである51/49構造の日系企業は株主の正当性を即座に監査すべき。リスクが特定された場合、BOI特権（外資100%保有）や条約ベースの免除を用いて再編せよ。積極的な再編コストは刑事訴追リスク（最大3年禁固、100万バーツ罰金）と比較して些少。",
           priority: "即座"
         },
         {
@@ -417,11 +417,11 @@ const ThaiGovPolicyJapanese = () => {
     <>
       <SEO 
         title={isJapanese 
-          ? "อนุทิน2政策分析：日系企業への戦略的影響 | WaLens" 
+          ? "アヌティン2政策分析：日系企業への戦略的影響 | WaLens" 
           : "Anutin 2 Policy: Strategic Implications for Japanese Companies | WaLens"
         }
         description={isJapanese
-          ? "2026年4月อนุทิน政権の政策声明が日系企業に与える影響を分析。Super License、半導体ロードマップ2050、ノミニー取締り、グリーンエネルギー転換。"
+          ? "2026年4月アヌティン政権の政策声明が日系企業に与える影響を分析。Super License、半導体ロードマップ2050、ノミニー取締り、グリーンエネルギー転換。"
           : "Analysis of Thailand's Anutin 2 government policy impact on Japanese companies: Super License reform, Semiconductor Roadmap 2050, nominee crackdown, and green energy transition."
         }
         canonicalPath="/insights/services/thai-gov-policy-japanese"
@@ -451,7 +451,7 @@ const ThaiGovPolicyJapanese = () => {
               </Badge>
               <span>{isJapanese ? '最終更新' : 'Updated'}: {content.lastUpdated}</span>
               <BookmarkButton
-                article={{ slug: 'thai-gov-policy-japanese', title: isJapanese ? 'อนุทิน2政策：日系企業への影響' : 'Anutin 2 Policy: Implications for Japanese Companies', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/services/thai-gov-policy-japanese', category: 'Services' }}
+                article={{ slug: 'thai-gov-policy-japanese', title: isJapanese ? 'アヌティン2政策：日系企業への影響' : 'Anutin 2 Policy: Implications for Japanese Companies', language: lang === 'ja' ? 'JP' : 'EN', url: '/insights/services/thai-gov-policy-japanese', category: 'Services' }}
                 variant="button"
                 className="text-white border-white/50 hover:bg-white/20 bg-white/10"
               />

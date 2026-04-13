@@ -135,7 +135,7 @@ const reportMetadata: Record<string, {
     industry: 'Services',
     industryJa: 'サービス',
     description: "Anutin 2 government policy analysis (April 2026): Super License reform, Semiconductor Roadmap 2050, nominee crackdown, Made in Thailand procurement, and green energy transition — strategic implications for Japanese enterprises in Thailand.",
-    descriptionJa: 'อนุทิน2政策分析（2026年4月）：Super License改革、半導体ロードマップ2050、ノミニー取締強化、Made in Thailand調達、グリーンエネルギー転換——タイにおける日系企業への戦略的影響。',
+    descriptionJa: 'アヌティン2政策分析（2026年4月）：Super License改革、半導体ロードマップ2050、ノミニー取締強化、Made in Thailand調達、グリーンエネルギー転換——タイにおける日系企業への戦略的影響。',
     link: '/insights/services/thai-gov-policy-japanese'
   }
 };
