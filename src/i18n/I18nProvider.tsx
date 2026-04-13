@@ -281,6 +281,8 @@ const translations: Record<Lang, Translations> = {
     "contact.submit": "Send",
     "contact.success": "Thanks! We'll be in touch soon.",
 
+    "subscribe.nav.individual": "Individual Plans",
+    "subscribe.nav.corporate": "Corporate / Enterprise",
     "subscribe.metaDescription": "Choose the right plan for your global business intelligence needs",
     "subscribe.hero.title": "Stay Ahead with WaLens",
     "subscribe.hero.subtitle": "Choose the right plan for your global business intelligence needs",
@@ -660,11 +662,11 @@ const translations: Record<Lang, Translations> = {
     "hero.deliver2": "Premium industry reports with strategic recommendations",
     "hero.deliver3": "Geopolitical & supply chain risk alerts you can act on",
 
-    // Signal Over Noise
+    // Intelligence for Decision-Making
     "signal.label": "What You Get",
-    "signal.title": "Signal Over Noise",
+    "signal.title": "Intelligence for Decision-Making",
     "signal.subtitle": "Every insight answers one question: what does this mean for my business?",
-    "signal.body": "NNA and Nikkei tell you what happened. WaLens explains the hidden implications — regulatory shifts, supply chain risks, and market opportunities — so your team can act before competitors do.",
+    "signal.body": "General media tells you what happened. WaLens explains the hidden implications — regulatory shifts, supply chain risks, and market opportunities — so your team can act before competitors do.",
     "signal.pillar1.title": "Cross-Border Policy Analysis",
     "signal.pillar1.desc": "Regulatory changes decoded into business impact — not just headlines.",
     "signal.pillar2.title": "Market Context, Not Translation",
@@ -989,6 +991,8 @@ const translations: Record<Lang, Translations> = {
     "insights.title": "インサイト - WaLens",
     "tips.title": "ビジネスチップス - WaLens",
     "subscribe.title": "購読 - WaLens Asia News",
+    "subscribe.nav.individual": "個人プラン",
+    "subscribe.nav.corporate": "法人・エンタープライズ",
     "subscribe.metaDescription": "グローバルビジネスインテリジェンスに適したプランを選択してください",
     "subscribe.hero.title": "WaLensで先を行く",
     "subscribe.hero.subtitle": "グローバルビジネスインテリジェンスに適したプランを選択してください",
@@ -1209,7 +1213,7 @@ const translations: Record<Lang, Translations> = {
 
     // NEW Homepage Hero (Japanese)
     "hero.badge": "エグゼクティブ・インテリジェンス・プラットフォーム",
-    "hero.headline": "グローバル市場を読み解き、\n的確に動く。",
+    "hero.headline": "グローバル市場を読み解き、的確に動く。",
     "hero.subheadline": "従来メディアは「何が起きたか」を伝えます。WaLensは「それがあなたのビジネスに何を意味し、次に何をすべきか」をお届けします。",
     "hero.cta.primary": "1ヶ月無料トライアルを開始",
     "hero.cta.secondary": "サンプルインサイトを見る",
@@ -1218,11 +1222,11 @@ const translations: Record<Lang, Translations> = {
     "hero.deliver2": "戦略的提言付きプレミアム業界レポート",
     "hero.deliver3": "即座にアクション可能な地政学・サプライチェーンリスクアラート",
 
-    // Signal Over Noise (Japanese)
+    // 意思決定のためのインテリジェンス (Japanese)
     "signal.label": "WaLensの価値",
-    "signal.title": "ノイズではなく、シグナルを",
+    "signal.title": "意思決定のためのインテリジェンス",
     "signal.subtitle": "すべてのインサイトはひとつの問いに答えます：これは私のビジネスにとって何を意味するのか？",
-    "signal.body": "NNAや日経は「何が起きたか」を伝えます。WaLensは隠れた含意 — 規制変動、サプライチェーンリスク、市場機会 — を解説し、競合より先にチームが行動できるようにします。",
+    "signal.body": "一般メディアは「何が起きたか」を伝えます。WaLensは隠れた含意 — 規制変動、サプライチェーンリスク、市場機会 — を解説し、競合より先にチームが行動できるようにします。",
     "signal.pillar1.title": "クロスボーダー政策分析",
     "signal.pillar1.desc": "規制変更をビジネスインパクトとして解読 — 見出しだけではなく。",
     "signal.pillar2.title": "市場コンテキストの提供",

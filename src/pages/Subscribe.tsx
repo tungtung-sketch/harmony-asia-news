@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from "@/components/SEO";
@@ -25,6 +25,10 @@ const Subscribe = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'basic' | 'premium'>('basic');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Stripe Payment Links (provided by the client)
   const paymentLinks: Record<'basic' | 'premium', string> = {
@@ -85,7 +89,7 @@ const Subscribe = () => {
   ];
 
   const scrollToPricing = () => {
-    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubscribe = async (planType: 'basic' | 'premium') => {

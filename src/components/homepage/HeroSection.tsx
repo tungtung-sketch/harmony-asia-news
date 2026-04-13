@@ -37,7 +37,7 @@ const HeroSection = () => {
             lang === 'ja'
               ? 'text-2xl sm:text-3xl md:text-4xl lg:text-[3rem]'
               : 'text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem]'
-          }`}>
+          }`} style={{ wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
             {t('hero.headline')}
           </h1>
 
