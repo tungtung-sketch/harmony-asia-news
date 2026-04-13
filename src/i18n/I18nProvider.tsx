@@ -281,6 +281,8 @@ const translations: Record<Lang, Translations> = {
     "contact.submit": "Send",
     "contact.success": "Thanks! We'll be in touch soon.",
 
+    "subscribe.nav.individual": "Individual Plans",
+    "subscribe.nav.corporate": "Corporate / Enterprise",
     "subscribe.metaDescription": "Choose the right plan for your global business intelligence needs",
     "subscribe.hero.title": "Stay Ahead with WaLens",
     "subscribe.hero.subtitle": "Choose the right plan for your global business intelligence needs",
@@ -989,6 +991,8 @@ const translations: Record<Lang, Translations> = {
     "insights.title": "インサイト - WaLens",
     "tips.title": "ビジネスチップス - WaLens",
     "subscribe.title": "購読 - WaLens Asia News",
+    "subscribe.nav.individual": "個人プラン",
+    "subscribe.nav.corporate": "法人・エンタープライズ",
     "subscribe.metaDescription": "グローバルビジネスインテリジェンスに適したプランを選択してください",
     "subscribe.hero.title": "WaLensで先を行く",
     "subscribe.hero.subtitle": "グローバルビジネスインテリジェンスに適したプランを選択してください",
