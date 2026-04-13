@@ -28,6 +28,10 @@ const SignUp = () => {
     plan: "basic"
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const positions = [
     "ceo", "executive", "manager", "analyst", "consultant", "entrepreneur", "investor", "other"
   ];
