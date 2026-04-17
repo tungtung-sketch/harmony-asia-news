@@ -137,6 +137,13 @@ const reportMetadata: Record<string, {
     description: "Anutin 2 government policy analysis (April 2026): Super License reform, Semiconductor Roadmap 2050, nominee crackdown, Made in Thailand procurement, and green energy transition — strategic implications for Japanese enterprises in Thailand.",
     descriptionJa: 'アヌティン2政策分析（2026年4月）：Super License改革、半導体ロードマップ2050、ノミニー取締強化、Made in Thailand調達、グリーンエネルギー転換——タイにおける日系企業への戦略的影響。',
     link: '/insights/services/thai-gov-policy-japanese'
+  },
+  'songkran-japanese-business': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: "Songkran 2026 strategic playbook: macroeconomic indicators (THB 30.4 Bn revenue, +6% YoY), JCCB business sentiment rebound (+1 DI), at-home premiumization (69%), Daikin Amata lockout case study, Seven Dangerous Days BCP, and Toyota/Sumitomo CSR blueprints for Japanese enterprises in Thailand.",
+    descriptionJa: 'ソンクラン2026戦略プレイブック：マクロ経済指標（観光収入304億バーツ、前年比+6%）、JCCB景況感回復（DI +1）、自宅プレミアム化（69%）、Daikin Amataロックアウト事例、セブン・デンジャラス・デイズBCP、トヨタ・住友のCSR青写真——タイにおける日系企業向け。',
+    link: '/insights/services/songkran-japanese-business'
   }
 };
 

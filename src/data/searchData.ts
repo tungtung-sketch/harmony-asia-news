@@ -344,6 +344,19 @@ const premiumInsightResults: SearchResult[] = [
     isPremium: true,
     keywords: ['Anutin', 'government', 'policy', 'Super License', 'semiconductor', 'nominee', 'Made in Thailand', 'procurement', 'green energy', 'Bhumjaithai', 'アヌティン', '政策'],
   },
+  {
+    id: 'premium-songkran-japanese-business',
+    title: 'Songkran Festival: Strategic Imperatives for Japanese Enterprises in Thailand',
+    titleJa: 'ソンクラン祭：タイにおける日系企業の戦略的必須事項',
+    description: 'Comprehensive analysis of Songkran 2026 macroeconomic, supply chain, marketing, workforce, and cross-cultural impacts on Japanese enterprises in Thailand. Includes JCCB sentiment, at-home premiumization, Daikin Amata lockout case study, BCP for the Seven Dangerous Days, and CSR playbooks (Toyota Mobility, Sumitomo Mitsui).',
+    descriptionJa: '2026年ソンクラン祭がタイの日系企業に与えるマクロ経済・サプライチェーン・マーケティング・労務・異文化への影響を包括的に分析。JCCB景況感、自宅プレミアム化、Daikin Amataロックアウト事例、セブン・デンジャラス・デイズのBCP、CSR戦略（トヨタモビリティ、住友三井オートリース）を網羅。',
+    type: 'premium-report',
+    category: 'Premium Report - Services',
+    categoryJa: 'プレミアムレポート - サービス',
+    url: '/insights/services/songkran-japanese-business',
+    isPremium: true,
+    keywords: ['Songkran', 'festival', 'Thai New Year', 'water festival', 'April', 'Japanese business', 'JCCB', 'Don Don Donki', 'Aeon', 'Daiso', 'Uniqlo', 'Loewe', 'Daikin', 'lockout', 'bonus', 'Kreng-jai', 'Kaizen', 'Nemawashi', 'JIT', 'Just-In-Time', 'Thailand Plus One', 'Cambodia', 'Seven Dangerous Days', 'Wan Lai', 'Samut Prakan', 'BCP', 'business continuity', 'turnover', 'attrition', 'Gen Z', 'CSR', 'Toyota Mobility', 'Sumitomo Mitsui', 'Moo Kata', 'Shabu', 'workforce', 'cross-cultural', 'ソンクラン', '水掛け祭り', 'タイ正月', '日系企業', '労務', '異文化', '自宅プレミアム化', 'ロックアウト', 'ボーナス'],
+  },
 ];
 
 // Convert business tips to search results format
