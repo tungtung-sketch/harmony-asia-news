@@ -62,7 +62,7 @@ const Header = () => {
             <Link to="/news?category=politics" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('news.dropdown.politics')}
             </Link>
-            <Link to="/news?category=economic" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+            <Link to="/news?category=economy" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('news.dropdown.economic')}
             </Link>
             <Link to="/news?category=business" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
@@ -94,7 +94,7 @@ const Header = () => {
               <Link to="/news?category=politics">{t('news.dropdown.politics')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
-              <Link to="/news?category=economic">{t('news.dropdown.economic')}</Link>
+              <Link to="/news?category=economy">{t('news.dropdown.economic')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/news?category=business">{t('news.dropdown.business')}</Link>

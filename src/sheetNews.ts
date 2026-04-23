@@ -55,6 +55,51 @@ function toBool(v: any): boolean {
   return String(v).toLowerCase() === "true" || v === "✔";
 }
 
+function getCellValue(cell: any, useFormatted: boolean = false) {
+  if (!cell) return "";
+  return useFormatted && cell.f ? cell.f : (cell.v ?? "");
+}
+
+function buildHeaders(table: any): { headers: string[]; dataRows: any[] } {
+  const fallbackHeaders = [
+    "date",
+    "time",
+    "title_raw",
+    "content_raw",
+    "title_en",
+    "content_en",
+    "title_jp",
+    "content_jp",
+    "url",
+    "category",
+    "approved",
+    "published",
+    "image",
+    "slug",
+    "url_published",
+    "schema_version",
+  ];
+
+  const columnHeaders = table.cols.map((c: any) => c.label || c.id || "");
+  const hasNamedHeaders = columnHeaders.some((header: string) => fallbackHeaders.includes(header));
+
+  if (hasNamedHeaders) {
+    return { headers: columnHeaders, dataRows: table.rows };
+  }
+
+  const firstRow = table.rows?.[0]?.c ?? [];
+  const firstRowValues = firstRow.map((cell: any) => clean(getCellValue(cell)));
+  const headerMatches = firstRowValues.filter((value: string) => fallbackHeaders.includes(value)).length;
+
+  if (headerMatches >= 6) {
+    const headers = columnHeaders.map((_, index: number) => firstRowValues[index] || fallbackHeaders[index] || `col_${index}`);
+    return { headers, dataRows: table.rows.slice(1) };
+  }
+
+  const headers = columnHeaders.map((_, index: number) => fallbackHeaders[index] || `col_${index}`);
+  return { headers, dataRows: table.rows };
+}
+
 // โหลดข้อมูลข่าว
 export async function fetchWalensNews(): Promise<WalensNews[]> {
   try {
@@ -62,14 +107,9 @@ export async function fetchWalensNews(): Promise<WalensNews[]> {
     const text = await res.text();
     const table = parseGVizJSON(text);
 
-    const headers = table.cols.map((c: any) => c.label || c.id || "");
+    const { headers, dataRows } = buildHeaders(table);
 
-    const rows = table.rows.map((row: any, index: number) => {
-      // Helper to get cell value - use 'f' (formatted) for dates, 'v' for others
-      const getCellValue = (cell: any, useFormatted: boolean = false) => {
-        if (!cell) return "";
-        return useFormatted && cell.f ? cell.f : (cell.v ?? "");
-      };
+    const rows = dataRows.map((row: any) => {
 
       const cells = row.c;
       const getValueByHeader = (header: string, useFormatted: boolean = false) => {
@@ -95,7 +135,7 @@ export async function fetchWalensNews(): Promise<WalensNews[]> {
         url_published: clean(getValueByHeader("url_published")),
         schema_version: clean(getValueByHeader("schema_version")),
       } as WalensNews;
-    });
+    }).filter((row) => row.slug || row.title_en || row.title_jp || row.title_raw);
 
     // Filter ข่าวที่ “approved”
     const approvedNews = rows.filter((r) => r.approved);
