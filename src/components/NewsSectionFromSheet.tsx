@@ -7,6 +7,12 @@ import NewsCard from './NewsCard';
 import { useI18n } from '@/i18n/I18nProvider';
 import { fetchWalensNews, WalensNews } from '@/sheetNews';
 
+const CATEGORY_ALIASES: Record<string, string> = {
+  economic: 'economy',
+};
+
+const normalizeCategory = (value: string) => CATEGORY_ALIASES[value] || value;
+
 const NewsSectionFromSheet = () => {
   const { t, lang } = useI18n();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,7 +20,7 @@ const NewsSectionFromSheet = () => {
   const [loading, setLoading] = useState(true);
   
   // Get category from URL, default to 'all'
-  const categoryFromUrl = searchParams.get('category') || 'all';
+   const categoryFromUrl = normalizeCategory(searchParams.get('category') || 'all');
   const [activeCategory, setActiveCategory] = useState<string>(categoryFromUrl);
 
   // Sync activeCategory with URL changes
@@ -24,11 +30,12 @@ const NewsSectionFromSheet = () => {
 
   // Update URL when category changes via button click
   const handleCategoryChange = (cat: string) => {
-    setActiveCategory(cat);
-    if (cat === 'all') {
+    const normalized = normalizeCategory(cat);
+    setActiveCategory(normalized);
+    if (normalized === 'all') {
       setSearchParams({});
     } else {
-      setSearchParams({ category: cat });
+      setSearchParams({ category: normalized });
     }
   };
 
@@ -58,11 +65,19 @@ const NewsSectionFromSheet = () => {
 
   // Get unique categories
   const categories = ['all', ...Array.from(new Set(articles.map(a => a.category).filter(Boolean)))];
+  const hasActiveCategory = activeCategory === 'all' || categories.includes(activeCategory);
 
   // Filter articles by category
-  const filteredArticles = activeCategory === 'all' 
+   const filteredArticles = !hasActiveCategory || activeCategory === 'all' 
     ? articles 
     : articles.filter(a => a.category === activeCategory);
+
+  useEffect(() => {
+    if (!loading && activeCategory !== 'all' && !categories.includes(activeCategory)) {
+      setActiveCategory('all');
+      setSearchParams({});
+    }
+  }, [activeCategory, categories, loading, setSearchParams]);
 
   return (
     <div className="container mx-auto px-4 py-12">
