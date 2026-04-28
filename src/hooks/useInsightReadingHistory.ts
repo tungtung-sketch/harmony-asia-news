@@ -58,7 +58,7 @@ export const useInsightReadingHistory = (): InsightReadingHistoryResult => {
             report_title: item.article_title,
             industry_category: item.category || 'General',
             read_at: item.read_at,
-            report_url: item.article_url || getReportUrl(item.article_slug)
+            report_url: getReportUrl(item.article_slug)
           });
         }
       });
