@@ -144,6 +144,13 @@ const reportMetadata: Record<string, {
     description: "Songkran 2026 strategic playbook: macroeconomic indicators (THB 30.4 Bn revenue, +6% YoY), JCCB business sentiment rebound (+1 DI), at-home premiumization (69%), Daikin Amata lockout case study, Seven Dangerous Days BCP, and Toyota/Sumitomo CSR blueprints for Japanese enterprises in Thailand.",
     descriptionJa: 'ソンクラン2026戦略プレイブック：マクロ経済指標（観光収入304億バーツ、前年比+6%）、JCCB景況感回復（DI +1）、自宅プレミアム化（69%）、Daikin Amataロックアウト事例、セブン・デンジャラス・デイズBCP、トヨタ・住友のCSR青写真——タイにおける日系企業向け。',
     link: '/insights/services/songkran-japanese-business'
+  },
+  'energy-crisis-baht-strategy-2026': {
+    industry: 'Services',
+    industryJa: 'サービス',
+    description: "April 2026 strategic briefing for Japanese executives in Thailand: May–Aug electricity tariff at 3.95 THB/kWh, Hormuz LNG shock, baht at 32.38 THB/USD, the 28–30 April BoT/FOMC central-bank week, JPY/THB repatriation window, and recommended actions across 6 sectors (manufacturing, electronics, retail, real estate, financial services, logistics).",
+    descriptionJa: '2026年4月の在タイ日系企業経営層向け戦略ブリーフィング：5〜8月電力料金3.95 THB/kWh、ホルムズLNGショック、バーツ32.38 THB/USD、4月28〜30日BoT／FOMC中央銀行週間、JPY/THB本国還流ウィンドウ、6セクター（製造、電子機器、小売、不動産、金融、物流）別推奨アクション。',
+    link: '/insights/services/energy-crisis-baht-strategy-2026'
   }
 };
 
