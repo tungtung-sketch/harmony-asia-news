@@ -357,6 +357,19 @@ const premiumInsightResults: SearchResult[] = [
     isPremium: true,
     keywords: ['Songkran', 'festival', 'Thai New Year', 'water festival', 'April', 'Japanese business', 'JCCB', 'Don Don Donki', 'Aeon', 'Daiso', 'Uniqlo', 'Loewe', 'Daikin', 'lockout', 'bonus', 'Kreng-jai', 'Kaizen', 'Nemawashi', 'JIT', 'Just-In-Time', 'Thailand Plus One', 'Cambodia', 'Seven Dangerous Days', 'Wan Lai', 'Samut Prakan', 'BCP', 'business continuity', 'turnover', 'attrition', 'Gen Z', 'CSR', 'Toyota Mobility', 'Sumitomo Mitsui', 'Moo Kata', 'Shabu', 'workforce', 'cross-cultural', 'ソンクラン', '水掛け祭り', 'タイ正月', '日系企業', '労務', '異文化', '自宅プレミアム化', 'ロックアウト', 'ボーナス'],
   },
+  {
+    id: 'premium-energy-crisis-baht-strategy-2026',
+    title: 'Strategic Briefing for Japanese Executives in Thailand: Energy Crisis, Baht Depreciation & Sector Recommendations (April 2026)',
+    titleJa: '在タイ日系企業経営層向け戦略ブリーフィング：エネルギー危機・バーツ安・セクター別推奨アクション（2026年4月）',
+    description: 'Strategic briefing as of 28 April 2026 for Japanese executives in Thailand. Covers May–Aug electricity tariff (3.95 THB/kWh, Ft 16.23 satang), Hormuz Strait closure & LNG supply shock, baht at 32.38 THB/USD, JPY/THB at 100/20.3 repatriation window, BoT/FOMC 28–30 April central-bank week, and sector-specific recommendations for Manufacturing, Electronics, Retail, Real Estate, Financial Services, and Logistics.',
+    descriptionJa: '2026年4月28日時点の在タイ日系企業経営層向け戦略ブリーフィング。5〜8月電力料金（3.95 THB/kWh、Ft 16.23サタン）、ホルムズ海峡閉鎖とLNG供給ショック、バーツ32.38 THB/USD、JPY/THB 100/20.3の本国還流ウィンドウ、4月28〜30日BoT／FOMC中央銀行週間、製造業・電子機器・小売・不動産・金融サービス・物流の各セクター別推奨アクションを網羅。',
+    type: 'premium-report',
+    category: 'Premium Report - Services',
+    categoryJa: 'プレミアムレポート - サービス',
+    url: '/insights/services/energy-crisis-baht-strategy-2026',
+    isPremium: true,
+    keywords: ['energy crisis', 'baht depreciation', 'Brent', 'crude oil', 'LNG', 'Hormuz', 'Strait of Hormuz', 'Iran', 'electricity tariff', 'Ft', 'fuel tariff', 'ERC', 'EGAT', 'PTT', '3.95 THB/kWh', 'Anutin', 'Bhumjaithai', 'fuel fund', 'rooftop solar', 'PPA', 'UGT', 'Direct PPA', 'BoT', 'MPC', 'กนง', 'FOMC', 'Fed', 'Powell', 'Warsh', 'JPY/THB', 'THB/USD', 'repatriation', 'hedging', 'Section 301', 'IEEPA', 'EV 3.5', 'BEV', 'HEV', 'JETRO', 'BOI', 'manufacturing', 'electronics', 'retail', 'real estate', 'financial services', 'logistics', 'Japanese executives', 'エネルギー危機', 'バーツ安', '電力料金', 'ホルムズ海峡', 'LNG', '原油', 'ブレント', '燃料調整費', 'アヌティン', '日銀', 'FOMC', '中央銀行', '本国還流', 'ヘッジ', '製造業', '電子機器', '小売', '不動産', '金融', '物流', '日系企業', '経営層'],
+  },
 ];
 
 // Convert business tips to search results format

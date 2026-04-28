@@ -41,6 +41,7 @@ import HormuzCrisisImpact from "./pages/insights/reports/HormuzCrisisImpact";
 import OilCrisisThaiIndustry from "./pages/insights/reports/OilCrisisThaiIndustry";
 import ThaiGovPolicyJapanese from "./pages/insights/reports/ThaiGovPolicyJapanese";
 import SongkranJapaneseBusiness from "./pages/insights/reports/SongkranJapaneseBusiness";
+import EnergyCrisisBahtStrategy from "./pages/insights/reports/EnergyCrisisBahtStrategy";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
@@ -123,6 +124,7 @@ const App = () => (
               <Route path="/insights/manufacturing/oil-crisis-thai-industry" element={<OilCrisisThaiIndustry />} />
               <Route path="/insights/services/thai-gov-policy-japanese" element={<ThaiGovPolicyJapanese />} />
               <Route path="/insights/services/songkran-japanese-business" element={<SongkranJapaneseBusiness />} />
+              <Route path="/insights/services/energy-crisis-baht-strategy-2026" element={<EnergyCrisisBahtStrategy />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
