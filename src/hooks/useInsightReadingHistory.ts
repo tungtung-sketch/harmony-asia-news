@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
+import { reportMetadata } from '@/hooks/useInsightReports';
 
 interface InsightReadingEntry {
   id: string;
@@ -116,10 +117,7 @@ export const useInsightReadingHistory = (): InsightReadingHistoryResult => {
   };
 };
 
-// Helper to map report slugs to URLs
+// Helper to map report slugs to canonical URLs (uses shared metadata)
 function getReportUrl(slug: string): string {
-  const urlMap: Record<string, string> = {
-    'ev-battery-industry': '/insights/manufacturing/ev-battery'
-  };
-  return urlMap[slug] || `/insights/reports/${slug}`;
+  return reportMetadata[slug]?.link || `/insights/reports/${slug}`;
 }

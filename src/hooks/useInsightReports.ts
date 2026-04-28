@@ -26,7 +26,7 @@ interface InsightReportWithMeta extends InsightReport {
 }
 
 // Static mapping of report metadata (can be moved to DB later)
-const reportMetadata: Record<string, {
+export const reportMetadata: Record<string, {
   industry: string;
   industryJa: string;
   description: string;
