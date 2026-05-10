@@ -42,6 +42,7 @@ import OilCrisisThaiIndustry from "./pages/insights/reports/OilCrisisThaiIndustr
 import ThaiGovPolicyJapanese from "./pages/insights/reports/ThaiGovPolicyJapanese";
 import SongkranJapaneseBusiness from "./pages/insights/reports/SongkranJapaneseBusiness";
 import EnergyCrisisBahtStrategy from "./pages/insights/reports/EnergyCrisisBahtStrategy";
+import SEAAutomotiveAftermarket from "./pages/insights/reports/SEAAutomotiveAftermarket";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
 import InsightRealEstate from "./pages/insights/RealEstate";
