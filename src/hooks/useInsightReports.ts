@@ -151,6 +151,13 @@ export const reportMetadata: Record<string, {
     description: "April 2026 strategic briefing for Japanese executives in Thailand: May–Aug electricity tariff at 3.95 THB/kWh, Hormuz LNG shock, baht at 32.38 THB/USD, the 28–30 April BoT/FOMC central-bank week, JPY/THB repatriation window, and recommended actions across 6 sectors (manufacturing, electronics, retail, real estate, financial services, logistics).",
     descriptionJa: '2026年4月の在タイ日系企業経営層向け戦略ブリーフィング：5〜8月電力料金3.95 THB/kWh、ホルムズLNGショック、バーツ32.38 THB/USD、4月28〜30日BoT／FOMC中央銀行週間、JPY/THB本国還流ウィンドウ、6セクター（製造、電子機器、小売、不動産、金融、物流）別推奨アクション。',
     link: '/insights/services/energy-crisis-baht-strategy-2026'
+  },
+  'sea-automotive-aftermarket-2026': {
+    industry: 'Manufacturing',
+    industryJa: '製造業',
+    description: "Strategic transformation of Southeast Asia's automotive aftermarket 2026: 10% CAGR market outlook, Chinese OEM competitive surge, EV battery logistics, ASEAN supply-chain realignment, and strategic recommendations for Japanese executives.",
+    descriptionJa: '東南アジア自動車アフターマーケットの戦略的変革2026：年平均成長率10％の市場展望、中国OEMの競争激化、EVバッテリー物流、ASEANサプライチェーン再編、日系企業経営層への戦略提言。',
+    link: '/insights/manufacturing/sea-automotive-aftermarket-2026'
   }
 };
 

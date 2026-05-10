@@ -370,6 +370,19 @@ const premiumInsightResults: SearchResult[] = [
     isPremium: true,
     keywords: ['energy crisis', 'baht depreciation', 'Brent', 'crude oil', 'LNG', 'Hormuz', 'Strait of Hormuz', 'Iran', 'electricity tariff', 'Ft', 'fuel tariff', 'ERC', 'EGAT', 'PTT', '3.95 THB/kWh', 'Anutin', 'Bhumjaithai', 'fuel fund', 'rooftop solar', 'PPA', 'UGT', 'Direct PPA', 'BoT', 'MPC', 'กนง', 'FOMC', 'Fed', 'Powell', 'Warsh', 'JPY/THB', 'THB/USD', 'repatriation', 'hedging', 'Section 301', 'IEEPA', 'EV 3.5', 'BEV', 'HEV', 'JETRO', 'BOI', 'manufacturing', 'electronics', 'retail', 'real estate', 'financial services', 'logistics', 'Japanese executives', 'エネルギー危機', 'バーツ安', '電力料金', 'ホルムズ海峡', 'LNG', '原油', 'ブレント', '燃料調整費', 'アヌティン', '日銀', 'FOMC', '中央銀行', '本国還流', 'ヘッジ', '製造業', '電子機器', '小売', '不動産', '金融', '物流', '日系企業', '経営層'],
   },
+  {
+    id: 'premium-sea-automotive-aftermarket-2026',
+    title: "Strategic Transformation of Southeast Asia's Automotive Aftermarket (2026)",
+    titleJa: '東南アジア自動車アフターマーケットの戦略的変革（2026年）',
+    description: "Strategic outlook on Southeast Asia's automotive aftermarket: 10% CAGR growth, Chinese OEM competitive surge, EV battery logistics, ASEAN supply-chain realignment, and recommendations for Japanese executives and WaLens leadership.",
+    descriptionJa: '東南アジア自動車アフターマーケットの戦略展望：年平均成長率10％、中国OEMの競争激化、EVバッテリー物流、ASEANサプライチェーン再編、日系企業経営層およびWaLensリーダーシップへの提言。',
+    type: 'premium-report',
+    category: 'Premium Report - Manufacturing',
+    categoryJa: 'プレミアムレポート - 製造業',
+    url: '/insights/manufacturing/sea-automotive-aftermarket-2026',
+    isPremium: true,
+    keywords: ['SEA', 'Southeast Asia', 'ASEAN', 'automotive', 'aftermarket', 'EV', 'battery', 'logistics', 'Chinese OEM', 'BYD', 'Geely', 'supply chain', 'Thailand', 'Indonesia', 'Vietnam', 'Malaysia', 'Japanese executives', 'CAGR', 'parts', 'service', '東南アジア', '自動車', 'アフターマーケット', '中国OEM', 'EV', 'バッテリー', '物流', 'サプライチェーン', '日系企業', '経営層'],
+  },
 ];
 
 // Convert business tips to search results format
