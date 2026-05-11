@@ -33,10 +33,10 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className={`font-bold leading-[1.12] tracking-tight text-[hsl(0,0%,100%)] mb-5 md:mb-6 ${
+          <h1 className={`font-bold tracking-tight text-[hsl(0,0%,100%)] mb-5 md:mb-6 ${
             lang === 'ja'
-              ? 'text-2xl sm:text-3xl md:text-4xl lg:text-[3rem]'
-              : 'text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem]'
+              ? 'text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] leading-[1.45]'
+              : 'text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12]'
           }`} style={{ wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
             {t('hero.headline')}
           </h1>
