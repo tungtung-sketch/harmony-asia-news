@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n/I18nProvider';
 import { ArrowRight } from 'lucide-react';
-import heroImage from '@/assets/hero-bkk-tokyo.webp';
+import heroImage from '@/assets/hero-executive.jpg';
 
 const HeroSection = () => {
   const { t, lang } = useI18n();
