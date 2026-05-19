@@ -44,10 +44,12 @@ const InsightsLanding = () => {
   };
 
   const isJapanese = lang === 'ja';
-  const title = isJapanese ? 'インサイトレポート一覧 | WaLens' : 'Insight Reports Directory | WaLens';
-  const description = isJapanese 
-    ? 'WaLensのプレミアムインサイトレポート一覧。日系企業幹部向けのグローバル市場インテリジェンス。'
-    : 'Directory of WaLens premium insight reports. Global market intelligence for Japanese executives.';
+  const title = isJapanese
+    ? 'プレミアムインサイトレポート一覧 | WaLens'
+    : 'Premium Insight Reports — Asia Market Intelligence | WaLens';
+  const description = isJapanese
+    ? 'タイ・アジアに進出する日系企業向けのプレミアムインサイトレポート。製造業・サービス・ヘルスケア・農業・不動産の戦略的市場インテリジェンス。'
+    : 'Premium industry reports and strategic market intelligence for Japanese companies expanding in Asia. Covering manufacturing, services, healthcare, agriculture, and real estate.';
 
   // Industry categories with icons
   const industries = [
@@ -95,6 +97,14 @@ const InsightsLanding = () => {
 
         <main className="container mx-auto px-4 py-12">
           <Breadcrumb items={[{ label: t('insights.breadcrumb') }]} />
+
+          {/* Static intro for SEO */}
+          <p className="text-muted-foreground max-w-3xl mb-10 leading-relaxed">
+            {isJapanese
+              ? 'WaLensインサイトレポートは、アジアで事業拡大を目指す日系企業向けの深層市場分析と戦略的インテリジェンスを提供します。各レポートは業界トレンド、規制環境、競争環境、実践的な提言を網羅しています。以下から業種別にプレミアムレポートをご覧ください。'
+              : 'WaLens Insight Reports provide in-depth market analysis and strategic intelligence for Japanese companies exploring opportunities in Asia. Each report covers industry trends, regulatory environment, competitive landscape, and actionable recommendations. Browse our premium reports by industry sector below.'
+            }
+          </p>
 
           {/* Premium Reports Directory */}
           <section className="mb-12">

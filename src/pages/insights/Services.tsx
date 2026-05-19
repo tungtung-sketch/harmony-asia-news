@@ -8,8 +8,11 @@ import { useI18n } from "@/i18n/I18nProvider";
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 const Services = () => {
-  const { t } = useI18n();
-  const title = t("insights.title");
+  const { t, lang } = useI18n();
+  const isJapanese = lang === 'ja';
+  const title = isJapanese
+    ? 'サービス業界インテリジェンス | WaLens'
+    : 'Services Sector Intelligence — Fintech & Digital Transformation | WaLens';
   const description = t("insights.services.description");
 
   return (

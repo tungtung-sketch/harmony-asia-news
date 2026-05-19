@@ -68,8 +68,8 @@ const translations: Record<Lang, Translations> = {
     "tips.backToTips": "Back to Business Tips",
 
     // News
-    "news.title": "Latest News - WaLens Asia",
-    "news.description": "Stay updated with the latest business news and insights from across Asia",
+    "news.title": "Thailand & Asia Business News | WaLens",
+    "news.description": "Breaking business news, market analysis, and policy updates from Thailand and Asia. Daily intelligence for Japanese executives and business leaders navigating global markets.",
     "news.heroTitle": "Latest News & Updates",
     "news.heroSubtitle": "Stay informed with breaking news, market analysis, and expert insights from across Asia's dynamic business landscape.",
     "news.backToNews": "Back to News",
@@ -115,8 +115,8 @@ const translations: Record<Lang, Translations> = {
 
     // Business Intelligence translations
     "nav.businessIntelligence": "Business Intelligence",
-    "bi.title": "Business Intelligence - WaLens",
-    "bi.metaDescription": "Access real-time Thai business data, economic indicators, and market insights from official government sources.",
+    "bi.title": "Thailand Business Intelligence Dashboard | WaLens",
+    "bi.metaDescription": "Real-time Thailand economic indicators, trade statistics, and regulatory data from official government sources — BOT, NESDC, BOI, and more. Updated regularly for strategic decision-making.",
     "bi.hero.title": "Business Intelligence",
     "bi.hero.subtitle": "Real-time insights from official Thai government data sources, presented in professional business intelligence format.",
     "bi.stats.dataPoints": "Data Points",
@@ -979,8 +979,8 @@ const translations: Record<Lang, Translations> = {
     "contact.success": "ありがとうございます。追ってご連絡いたします。",
 
     // News
-    "news.title": "最新ニュース - WaLens Asia",
-    "news.description": "アジア全域の最新ビジネスニュースと洞察で最新情報をキャッチアップ",
+    "news.title": "タイ・アジアビジネスニュース | WaLens",
+    "news.description": "タイおよびアジア全域からの速報・市場分析・政策動向。グローバル市場を航行する日系経営幹部向けのデイリーインテリジェンス。",
     "news.heroTitle": "最新ニュース & アップデート",
     "news.heroSubtitle": "アジアのダイナミックなビジネス環境からの速報、市場分析、専門家の洞察で情報を入手しましょう。",
     "news.backToNews": "ニュース一覧に戻る",
@@ -1390,8 +1390,8 @@ const translations: Record<Lang, Translations> = {
     
     // Business Intelligence (Japanese)
     "nav.businessIntelligence": "ビジネスインテリジェンス",
-    "bi.title": "ビジネスインテリジェンス - WaLens",
-    "bi.metaDescription": "タイ政府公式データソースからのリアルタイムビジネスデータ、経済指標、市場洞察にアクセス。",
+    "bi.title": "タイビジネスインテリジェンスダッシュボード | WaLens",
+    "bi.metaDescription": "BOT・NESDC・BOIなどタイ政府公式データソースからのリアルタイム経済指標・貿易統計・規制情報。戦略的意思決定のために定期更新。",
     "bi.hero.title": "ビジネスインテリジェンス",
     "bi.hero.subtitle": "タイ政府公式データソースからのリアルタイム洞察をプロフェッショナルなビジネスインテリジェンス形式で提供。",
     "bi.stats.dataPoints": "データポイント",

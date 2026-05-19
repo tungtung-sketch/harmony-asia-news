@@ -171,16 +171,24 @@ const NewsDetailFromSheet = () => {
     return (
       <>
         <SEO
-          title="Article Not Found"
-          description="The requested article could not be found"
+          title="Article Not Found | WaLens"
+          description="The article you are looking for could not be found. Browse our latest business news from Thailand and Asia."
           canonicalPath={`/news/sheet/${slug}`}
+          noIndex={true}
         />
         <div className="min-h-screen bg-background">
           <Header />
-          <main className="container mx-auto px-4 py-16 text-center">
-            <h1 className="text-2xl font-bold mb-4">Article Not Found</h1>
+          <main className="container mx-auto px-4 py-24 text-center max-w-lg mx-auto">
+            <h1 className="text-3xl font-bold mb-4">Article Not Found</h1>
+            <p className="text-muted-foreground mb-8">
+              The article you&apos;re looking for doesn&apos;t exist or may have been removed.
+              Browse our latest news from Thailand and Asia below.
+            </p>
             <Link to="/news">
-              <Button>Back to News</Button>
+              <Button>
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to News
+              </Button>
             </Link>
           </main>
           <Footer />

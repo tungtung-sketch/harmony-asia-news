@@ -4,9 +4,10 @@ interface SEOProps {
   title: string;
   description?: string;
   canonicalPath?: string;
+  noIndex?: boolean;
 }
 
-const SEO = ({ title, description, canonicalPath }: SEOProps) => {
+const SEO = ({ title, description, canonicalPath, noIndex }: SEOProps) => {
   useEffect(() => {
     // Title
     document.title = title;
@@ -20,6 +21,19 @@ const SEO = ({ title, description, canonicalPath }: SEOProps) => {
     }
     if (description) descTag.setAttribute('content', description);
 
+    // Robots (noindex for 404 and other non-indexable pages)
+    let robotsTag = document.querySelector('meta[name="robots"]');
+    if (noIndex) {
+      if (!robotsTag) {
+        robotsTag = document.createElement('meta');
+        robotsTag.setAttribute('name', 'robots');
+        document.head.appendChild(robotsTag);
+      }
+      robotsTag.setAttribute('content', 'noindex, nofollow');
+    } else if (robotsTag) {
+      robotsTag.remove();
+    }
+
     // Canonical
     const href = canonicalPath
       ? `${window.location.origin}${canonicalPath}`
@@ -31,7 +45,7 @@ const SEO = ({ title, description, canonicalPath }: SEOProps) => {
       document.head.appendChild(linkTag);
     }
     linkTag.setAttribute('href', href);
-  }, [title, description, canonicalPath]);
+  }, [title, description, canonicalPath, noIndex]);
 
   return null;
 };

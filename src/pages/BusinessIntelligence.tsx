@@ -40,9 +40,10 @@ const BusinessIntelligence = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={t('bi.title')}
         description={t('bi.metaDescription')}
+        canonicalPath="/business-intelligence"
       />
       <div className="min-h-screen bg-background">
         <Header />
@@ -99,6 +100,14 @@ const BusinessIntelligence = () => {
               </div>
             </div>
           </div>
+
+          {/* Static intro for SEO */}
+          <p className="text-muted-foreground max-w-3xl mx-auto text-center mb-10 leading-relaxed">
+            {lang === 'ja'
+              ? 'WaLensビジネスインテリジェンスは、タイ中央銀行・NESDC・商務省など公式タイ政府機関のリアルタイム経済データを集約します。ダッシュボードでは、経済指標・貿易統計・規制動向を明確かつ実用的な形式で提供します。戦略的意思決定のために公式データで定期更新。'
+              : 'WaLens Business Intelligence aggregates real-time economic data from official Thai government sources, including the Bank of Thailand, NESDC, and Ministry of Commerce. Our dashboard presents key economic indicators, trade statistics, and regulatory updates in a clear, actionable format. Updated regularly with official data for strategic decision-making.'
+            }
+          </p>
 
           {/* Filter Section */}
           <div className="space-y-4">

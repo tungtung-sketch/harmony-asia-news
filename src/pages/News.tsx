@@ -30,6 +30,16 @@ const News = () => {
             </div>
           </section>
 
+          {/* Static intro for SEO */}
+          <section className="container mx-auto px-4 py-8 max-w-3xl text-center">
+            <p className="text-muted-foreground leading-relaxed">
+              WaLens delivers daily business news from Thailand, Japan, and across Asia, curated
+              for Japanese executives navigating global markets. Our editorial team translates and
+              summarizes key developments in politics, economics, industry, and policy. Stay ahead
+              with concise, bilingual coverage updated every business day.
+            </p>
+          </section>
+
           {/* News Content */}
           <NewsSectionFromSheet />
         </main>
