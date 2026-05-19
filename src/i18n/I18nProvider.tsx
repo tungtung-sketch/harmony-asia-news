@@ -68,8 +68,8 @@ const translations: Record<Lang, Translations> = {
     "tips.backToTips": "Back to Business Tips",
 
     // News
-    "news.title": "Thailand & Asia Business News | WaLens",
-    "news.description": "Breaking business news, market analysis, and policy updates from Thailand and Asia. Daily intelligence for Japanese executives and business leaders navigating global markets.",
+    "news.title": "Latest News | WaLens Thailand & Asia Business Intelligence",
+    "news.description": "Curated daily business news from Thailand and Asia for Japanese executives. Policy updates, market shifts, and strategic intelligence.",
     "news.heroTitle": "Latest News & Updates",
     "news.heroSubtitle": "Stay informed with breaking news, market analysis, and expert insights from across Asia's dynamic business landscape.",
     "news.backToNews": "Back to News",
@@ -115,8 +115,8 @@ const translations: Record<Lang, Translations> = {
 
     // Business Intelligence translations
     "nav.businessIntelligence": "Business Intelligence",
-    "bi.title": "Thailand Business Intelligence Dashboard | WaLens",
-    "bi.metaDescription": "Real-time Thailand economic indicators, trade statistics, and regulatory data from official government sources — BOT, NESDC, BOI, and more. Updated regularly for strategic decision-making.",
+    "bi.title": "Business Intelligence | WaLens Thailand",
+    "bi.metaDescription": "Strategic business intelligence on Thailand economy, regulations, trade and investment for Japanese executives operating in Asia.",
     "bi.hero.title": "Business Intelligence",
     "bi.hero.subtitle": "Real-time insights from official Thai government data sources, presented in professional business intelligence format.",
     "bi.stats.dataPoints": "Data Points",

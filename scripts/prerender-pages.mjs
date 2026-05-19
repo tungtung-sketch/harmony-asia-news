@@ -30,39 +30,39 @@ try {
 const pages = [
   {
     route: 'news',
-    title: 'Thailand & Asia Business News | WaLens',
+    title: 'Latest News | WaLens Thailand & Asia Business Intelligence',
     description:
-      'Breaking business news, market analysis, and policy updates from Thailand and Asia. Daily intelligence for Japanese executives and business leaders navigating global markets.',
-    h1: 'Thailand & Asia Business News',
+      'Curated daily business news from Thailand and Asia for Japanese executives. Policy updates, market shifts, and strategic intelligence.',
+    h1: 'Latest News',
     intro:
-      'WaLens delivers daily business news from Thailand, Japan, and across Asia, curated for Japanese executives navigating global markets. Our editorial team translates and summarizes key developments in politics, economics, industry, and policy. Stay ahead with concise, bilingual coverage updated every business day.',
+      'WaLens delivers curated daily business news from Thailand and Asia for Japanese executives navigating global markets. Our editorial team covers policy updates, market shifts, and strategic intelligence every business day.',
   },
   {
     route: 'insights',
-    title: 'Premium Insight Reports — Asia Market Intelligence | WaLens',
+    title: 'Insights & Reports | WaLens Executive Intelligence',
     description:
-      'Premium industry reports and strategic market intelligence for Japanese companies expanding in Asia. Covering manufacturing, services, healthcare, agriculture, and real estate.',
-    h1: 'Insight Reports',
+      'In-depth insights and executive reports on Thailand and Asia markets. Business intelligence for cross-border decision makers.',
+    h1: 'Insights & Reports',
     intro:
-      'WaLens Insight Reports provide in-depth market analysis and strategic intelligence for Japanese companies exploring opportunities in Asia. Each report covers industry trends, regulatory environment, competitive landscape, and actionable recommendations. Browse our premium reports by industry sector below.',
+      'WaLens publishes in-depth insights and executive reports on Thailand and Asia markets. Each report is designed to support cross-border decision makers with actionable business intelligence.',
   },
   {
     route: 'business-intelligence',
-    title: 'Thailand Business Intelligence Dashboard | WaLens',
+    title: 'Business Intelligence | WaLens Thailand',
     description:
-      'Real-time Thailand economic indicators, trade statistics, and regulatory data from official government sources — BOT, NESDC, BOI, and more. Updated regularly for strategic decision-making.',
+      'Strategic business intelligence on Thailand economy, regulations, trade and investment for Japanese executives operating in Asia.',
     h1: 'Business Intelligence',
     intro:
-      'WaLens Business Intelligence aggregates real-time economic data from official Thai government sources, including the Bank of Thailand, NESDC, and Ministry of Commerce. Our dashboard presents key economic indicators, trade statistics, and regulatory updates in a clear, actionable format. Updated regularly with official data for strategic decision-making.',
+      'WaLens Business Intelligence delivers strategic intelligence on the Thailand economy, regulations, trade, and investment — curated for Japanese executives operating in Asia.',
   },
   {
     route: 'insights/services',
-    title: 'Services Sector Intelligence — Fintech & Digital Transformation | WaLens',
+    title: 'Services | WaLens Executive Intelligence Platform',
     description:
-      'Strategic intelligence on digital transformation, fintech, and professional services expansion across Thailand and Asia for Japanese companies.',
-    h1: 'Services Sector Intelligence',
+      'WaLens intelligence services for Japanese executives in Thailand. Market analysis, risk alerts, and decision-ready reports.',
+    h1: 'Services',
     intro:
-      'WaLens Services Intelligence covers digital transformation, cross-border fintech, and professional services expansion across Thailand and Asia. Our analysis helps Japanese executives identify opportunities in cloud infrastructure, digital banking, and business process outsourcing. Updated regularly with market intelligence for the services sector.',
+      'WaLens intelligence services support Japanese executives in Thailand with market analysis, risk alerts, and decision-ready reports across the services sector.',
   },
 ];
 

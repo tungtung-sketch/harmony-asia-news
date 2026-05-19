@@ -45,11 +45,11 @@ const InsightsLanding = () => {
 
   const isJapanese = lang === 'ja';
   const title = isJapanese
-    ? 'プレミアムインサイトレポート一覧 | WaLens'
-    : 'Premium Insight Reports — Asia Market Intelligence | WaLens';
+    ? 'インサイト＆レポート | WaLens エグゼクティブインテリジェンス'
+    : 'Insights & Reports | WaLens Executive Intelligence';
   const description = isJapanese
-    ? 'タイ・アジアに進出する日系企業向けのプレミアムインサイトレポート。製造業・サービス・ヘルスケア・農業・不動産の戦略的市場インテリジェンス。'
-    : 'Premium industry reports and strategic market intelligence for Japanese companies expanding in Asia. Covering manufacturing, services, healthcare, agriculture, and real estate.';
+    ? 'タイ・アジア市場の詳細なインサイトとエグゼクティブレポート。クロスボーダーの意思決定者向けビジネスインテリジェンス。'
+    : 'In-depth insights and executive reports on Thailand and Asia markets. Business intelligence for cross-border decision makers.';
 
   // Industry categories with icons
   const industries = [

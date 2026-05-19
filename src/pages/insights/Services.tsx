@@ -11,8 +11,8 @@ const Services = () => {
   const { t, lang } = useI18n();
   const isJapanese = lang === 'ja';
   const title = isJapanese
-    ? 'サービス業界インテリジェンス | WaLens'
-    : 'Services Sector Intelligence — Fintech & Digital Transformation | WaLens';
+    ? 'サービス | WaLens エグゼクティブインテリジェンスプラットフォーム'
+    : 'Services | WaLens Executive Intelligence Platform';
   const description = t("insights.services.description");
 
   return (
