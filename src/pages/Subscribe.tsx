@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, X, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from '@/components/AuthModals';
 import { trackCheckoutStart } from '@/lib/tracker';
@@ -182,8 +181,8 @@ const Subscribe = () => {
           </div>
         </div>
 
-        {/* What You Get Section */}
-        <section className="py-16 bg-background">
+        {/* Unified Plans Section */}
+        <section id="pricing" className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -193,16 +192,21 @@ const Subscribe = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {/* Basic Plan Column */}
-              <div className="rounded-xl border border-border bg-card p-6 space-y-4">
-                <div className="mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-start">
+              {/* Basic Plan Card */}
+              <div className="rounded-xl border border-border bg-card p-6 flex flex-col">
+                <div className="mb-5">
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">
                     {lang === 'ja' ? 'ベーシックプラン' : 'Basic Plan'}
                   </p>
-                  <p className="text-2xl font-bold text-foreground">฿599<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                  <p className="text-3xl font-bold text-foreground">
+                    ฿599<span className="text-sm font-normal text-muted-foreground">/month</span>
+                  </p>
+                  <p className="text-xs text-emerald-500 font-medium mt-1">
+                    {lang === 'ja' ? '最初の30日間無料' : 'First 30 days free'}
+                  </p>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1 mb-6">
                   {[
                     { icon: '📰', ja: '毎朝の厳選ニュース5〜7本', en: '5–7 curated news stories every morning' },
                     { icon: '🌏', ja: 'タイ・アジア市場の最新動向', en: 'Thailand & Asia market updates' },
@@ -215,23 +219,41 @@ const Subscribe = () => {
                     </li>
                   ))}
                 </ul>
+                <Button
+                  onClick={() => handleSubscribe('basic')}
+                  variant="outline"
+                  className="w-full font-semibold"
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? t('common.loading') : (lang === 'ja' ? 'ベーシックプランに登録' : 'Start Basic Plan')}
+                </Button>
               </div>
 
-              {/* Premium Plan Column */}
-              <div className="rounded-xl border border-[#00BCD4]/40 bg-card p-6 space-y-4 shadow-[0_0_0_1px_rgba(0,188,212,0.2)]">
-                <div className="mb-2">
+              {/* Premium Plan Card */}
+              <div className="relative rounded-xl border border-[#00BCD4]/50 bg-card p-6 flex flex-col shadow-[0_0_0_1px_rgba(0,188,212,0.15),0_4px_24px_rgba(0,188,212,0.08)]">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                  <span className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full text-white" style={{ background: '#00BCD4' }}>
+                    {lang === 'ja' ? '最も人気' : 'Most Popular'}
+                  </span>
+                </div>
+                <div className="mb-5 mt-3">
                   <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: '#00BCD4' }}>
                     {lang === 'ja' ? 'プレミアムプラン' : 'Premium Plan'}
                   </p>
-                  <p className="text-2xl font-bold text-foreground">฿1,299<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                  <p className="text-3xl font-bold text-foreground">
+                    ฿1,299<span className="text-sm font-normal text-muted-foreground">/month</span>
+                  </p>
+                  <p className="text-xs text-emerald-500 font-medium mt-1">
+                    {lang === 'ja' ? '最初の30日間無料' : 'First 30 days free'}
+                  </p>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1 mb-6">
                   {[
                     { icon: '✅', ja: 'ベーシックプランの全機能', en: 'Everything in Basic, PLUS:' },
                     { icon: '📊', ja: '週次エグゼクティブレポート', en: 'Weekly executive intelligence report' },
                     { icon: '🔴', ja: '規制・リスクアラート', en: 'Real-time regulatory & risk alerts' },
                     { icon: '📄', ja: 'PDFレポートダウンロード', en: 'Downloadable PDF reports' },
-                    { icon: '💡', ja: '日系企業向け戦略的提言', en: 'Strategic recommendations for Japanese businesses in Thailand' },
+                    { icon: '💡', ja: '日系企業向け戦略的提言', en: 'Strategic recommendations for Japanese businesses' },
                   ].map((item) => (
                     <li key={item.en} className="flex items-start gap-3 text-sm text-foreground">
                       <span className="text-base leading-5 flex-shrink-0">{item.icon}</span>
@@ -239,45 +261,15 @@ const Subscribe = () => {
                     </li>
                   ))}
                 </ul>
+                <Button
+                  onClick={() => handleSubscribe('premium')}
+                  className="w-full font-semibold text-white border-0"
+                  style={{ background: 'linear-gradient(to right, #00BCD4, #26C6DA)' }}
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? t('common.loading') : (lang === 'ja' ? 'プレミアムプランに登録' : 'Start Premium Plan')}
+                </Button>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section id="pricing" className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {plans.map((plan, index) => (
-                <Card key={index} className={`relative ${plan.isPopular ? 'border-primary shadow-lg scale-105' : 'border-border'}`}>
-                  {plan.isPopular && (
-                    <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
-                      {t("subscribe.plans.premium.popular")}
-                    </Badge>
-                  )}
-                   <CardHeader className="text-center">
-                     <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
-                     <div className="text-3xl font-bold text-primary">{plan.price}</div>
-                     <CardDescription className="text-sm mb-2">{plan.billingInfo}</CardDescription>
-                     <CardDescription className="text-sm">{plan.description}</CardDescription>
-                   </CardHeader>
-                   <CardContent className="px-6 pb-4">
-                     <p className="text-sm text-muted-foreground">
-                       {t(`subscribe.plans.${index === 0 ? 'basic' : 'premium'}.detailedDescription`)}
-                     </p>
-                   </CardContent>
-                   <CardFooter>
-                     <Button 
-                       onClick={() => handleSubscribe(plan.id)}
-                       className="w-full" 
-                       variant={plan.isPopular ? "default" : "outline"}
-                       disabled={isProcessing}
-                     >
-                       {isProcessing ? t("common.loading") : plan.cta}
-                     </Button>
-                   </CardFooter>
-                </Card>
-              ))}
             </div>
           </div>
         </section>
