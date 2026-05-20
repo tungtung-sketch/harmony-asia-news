@@ -336,8 +336,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.positioning.line2": "Both plans include a 30-day free trial.",
     
     // Final CTA
-    "subscribe.finalCta.title": "Join hundreds of executives already staying ahead with WaLens Asia News",
-    "subscribe.finalCta.button": "Subscribe Now",
+    "subscribe.finalCta.title": "Start making confident cross-border decisions with WaLens",
+    "subscribe.finalCta.button": "Start Free Trial",
 
     // Expanded subscription plan descriptions - see above in plans section
 
@@ -657,7 +657,7 @@ const translations: Record<Lang, Translations> = {
     "hero.subheadline": "A curated daily newsletter and executive reports — delivering the local intelligence you need to make confident cross-border decisions.",
     "hero.cta.primary": "Start Free Trial →",
     "hero.cta.secondary": "See Sample Reports",
-    "hero.trust": "Trusted by regional HQ executives and global decision-makers",
+    "hero.trust": "Try free for 30 days. No credit card required.",
     "hero.deliver1": "Daily curated local business newsletter — not AI-generated, expert-selected",
     "hero.deliver2": "Executive industry reports with actionable recommendations",
     "hero.deliver3": "Cross-border regulatory & supply chain risk alerts",
@@ -1050,8 +1050,8 @@ const translations: Record<Lang, Translations> = {
     "subscribe.features.positioning.line2": "両プランとも30日間の無料トライアル付き。",
     
     // Final CTA
-    "subscribe.finalCta.title": "WaLens Asia Newsで既に先を行く数百人のエグゼクティブに参加しましょう",
-    "subscribe.finalCta.button": "今すぐ購読",
+    "subscribe.finalCta.title": "WaLens Asiaで自信を持ったクロスボーダー意思決定を始めましょう",
+    "subscribe.finalCta.button": "無料トライアルを開始",
 
     // Expanded subscription plan descriptions - see above in plans section
 
@@ -1221,7 +1221,7 @@ const translations: Record<Lang, Translations> = {
     "hero.subheadline": "キュレーションされた日刊ニュースレターとエグゼクティブレポートで、クロスボーダー経営に必要な現地インテリジェンスをお届けします。",
     "hero.cta.primary": "無料トライアルを開始 →",
     "hero.cta.secondary": "サンプルレポートを見る",
-    "hero.trust": "地域統括拠点の経営者・グローバル意思決定者に信頼されています",
+    "hero.trust": "30日間無料でお試しください。クレジットカード不要。",
     "hero.deliver1": "日刊キュレーション・ビジネスニュースレター — AI生成ではなく、専門家が厳選",
     "hero.deliver2": "実行可能な提言付きエグゼクティブ業界レポート",
     "hero.deliver3": "クロスボーダー規制・サプライチェーンリスクアラート",

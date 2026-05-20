@@ -6,7 +6,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, X } from "lucide-react";
+import { Check, X, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from '@/components/AuthModals';
@@ -17,7 +17,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
 
 const Subscribe = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { user, session } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -171,6 +171,17 @@ const Subscribe = () => {
           </div>
         </section>
 
+        {/* Free Trial Banner */}
+        <div className="bg-gradient-to-r from-cyan-500 to-emerald-500 py-5 px-4">
+          <div className="container mx-auto text-center">
+            <p className="text-xl md:text-2xl font-bold text-white tracking-wide">
+              {lang === 'ja'
+                ? '30日間無料トライアル — クレジットカード不要'
+                : '30-Day Free Trial — No Credit Card Required'}
+            </p>
+          </div>
+        </div>
+
         {/* Pricing Section */}
         <section id="pricing" className="py-20">
           <div className="container mx-auto px-4">
@@ -205,6 +216,81 @@ const Subscribe = () => {
                    </CardFooter>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Sample Report Preview */}
+        <section className="py-20 bg-muted/20">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-3xl font-bold mb-3">
+                {lang === 'ja' ? 'サンプルレポートをご覧ください' : 'See a Sample Report'}
+              </h2>
+              <p className="text-muted-foreground text-base">
+                {lang === 'ja'
+                  ? 'プレミアム購読者が毎週受け取るレポートの例をご覧ください。'
+                  : 'Preview the kind of executive intelligence premium subscribers receive every week.'}
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto">
+              {/* Blurred/locked report card */}
+              <div className="relative rounded-2xl border border-border overflow-hidden shadow-xl">
+                {/* Preview content (blurred) */}
+                <div className="blur-sm pointer-events-none select-none p-8 bg-card">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">Premium Report</span>
+                    <span className="text-xs text-muted-foreground">May 2025</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">
+                    {lang === 'ja'
+                      ? 'タイ製造業エグゼクティブ戦略レポート Q2 2025'
+                      : 'Thailand Manufacturing Executive Strategy Report Q2 2025'}
+                  </h3>
+                  <div className="space-y-3 mb-6">
+                    <div className="h-3 bg-muted-foreground/20 rounded w-full" />
+                    <div className="h-3 bg-muted-foreground/20 rounded w-5/6" />
+                    <div className="h-3 bg-muted-foreground/20 rounded w-4/5" />
+                  </div>
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="bg-muted rounded-lg p-4">
+                        <div className="h-2 bg-muted-foreground/20 rounded mb-2 w-2/3" />
+                        <div className="h-6 bg-muted-foreground/30 rounded w-1/2" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-3 bg-muted-foreground/20 rounded w-full" />
+                    <div className="h-3 bg-muted-foreground/20 rounded w-11/12" />
+                    <div className="h-3 bg-muted-foreground/20 rounded w-4/6" />
+                  </div>
+                </div>
+
+                {/* Lock overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/60 backdrop-blur-[2px]">
+                  <div className="bg-background border border-border rounded-2xl px-8 py-8 text-center shadow-2xl max-w-xs mx-4">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <Lock className="w-7 h-7 text-primary" />
+                    </div>
+                    <p className="font-bold text-lg text-foreground mb-1">
+                      {lang === 'ja' ? 'プレミアムコンテンツ' : 'Premium Content'}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      {lang === 'ja'
+                        ? '30日間の無料トライアルで全レポートにアクセス'
+                        : 'Access all reports with a 30-day free trial'}
+                    </p>
+                    <Button
+                      onClick={() => handleSubscribe('premium')}
+                      className="w-full font-semibold bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-600 hover:to-emerald-600 text-white border-0"
+                    >
+                      {lang === 'ja' ? '無料トライアルでアクセス' : 'Access with Free Trial'}
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

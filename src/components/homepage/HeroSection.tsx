@@ -78,8 +78,8 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust bar */}
-          <p className="mt-10 text-xs sm:text-sm text-[hsl(210,40%,55%)] tracking-wide">
+          {/* Free trial callout */}
+          <p className="mt-10 text-base sm:text-lg md:text-xl font-semibold text-[hsl(142,76%,55%)] tracking-wide">
             {t('hero.trust')}
           </p>
         </div>
