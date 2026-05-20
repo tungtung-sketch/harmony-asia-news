@@ -182,6 +182,68 @@ const Subscribe = () => {
           </div>
         </div>
 
+        {/* What You Get Section */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                {lang === 'ja'
+                  ? '30日間の無料トライアルで体験できること'
+                  : 'What you experience in your 30-day free trial'}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* Basic Plan Column */}
+              <div className="rounded-xl border border-border bg-card p-6 space-y-4">
+                <div className="mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                    {lang === 'ja' ? 'ベーシックプラン' : 'Basic Plan'}
+                  </p>
+                  <p className="text-2xl font-bold text-foreground">฿599<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    { icon: '📰', ja: '毎朝の厳選ニュース5〜7本', en: '5–7 curated news stories every morning' },
+                    { icon: '🌏', ja: 'タイ・アジア市場の最新動向', en: 'Thailand & Asia market updates' },
+                    { icon: '📧', ja: '毎日メールでお届け', en: 'Daily newsletter to your inbox' },
+                    { icon: '🔍', ja: 'ニュースアーカイブ検索', en: 'Searchable news archive' },
+                  ].map((item) => (
+                    <li key={item.en} className="flex items-start gap-3 text-sm text-foreground">
+                      <span className="text-base leading-5 flex-shrink-0">{item.icon}</span>
+                      <span>{lang === 'ja' ? item.ja : item.en}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Premium Plan Column */}
+              <div className="rounded-xl border border-[#00BCD4]/40 bg-card p-6 space-y-4 shadow-[0_0_0_1px_rgba(0,188,212,0.2)]">
+                <div className="mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: '#00BCD4' }}>
+                    {lang === 'ja' ? 'プレミアムプラン' : 'Premium Plan'}
+                  </p>
+                  <p className="text-2xl font-bold text-foreground">฿1,299<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    { icon: '✅', ja: 'ベーシックプランの全機能', en: 'Everything in Basic, PLUS:' },
+                    { icon: '📊', ja: '週次エグゼクティブレポート', en: 'Weekly executive intelligence report' },
+                    { icon: '🔴', ja: '規制・リスクアラート', en: 'Real-time regulatory & risk alerts' },
+                    { icon: '📄', ja: 'PDFレポートダウンロード', en: 'Downloadable PDF reports' },
+                    { icon: '💡', ja: '日系企業向け戦略的提言', en: 'Strategic recommendations for Japanese businesses in Thailand' },
+                  ].map((item) => (
+                    <li key={item.en} className="flex items-start gap-3 text-sm text-foreground">
+                      <span className="text-base leading-5 flex-shrink-0">{item.icon}</span>
+                      <span>{lang === 'ja' ? item.ja : item.en}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Pricing Section */}
         <section id="pricing" className="py-20">
           <div className="container mx-auto px-4">
