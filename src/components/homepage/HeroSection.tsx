@@ -41,9 +41,9 @@ const HeroSection = () => {
             {t('hero.home.headline')}
           </h1>
 
-          {/* Subtitle — EN, smaller */}
-          <p className="text-[hsl(210,40%,72%)] text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
-            Strategic intelligence for Japanese executives<br className="hidden sm:block" /> managing operations in Thailand.
+          {/* Subtitle */}
+          <p className="text-[hsl(210,40%,72%)] text-base sm:text-lg md:text-xl mb-4 leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+            {t('hero.home.subtitle')}
           </p>
 
           {/* Sub-copy */}

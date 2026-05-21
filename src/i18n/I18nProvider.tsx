@@ -37,7 +37,7 @@ const translations: Record<Lang, Translations> = {
     "nav.news": "News",
     "nav.insights": "Insights",
     "nav.tips": "Business Tips",
-    "nav.subscribe": "Subscribe",
+    "nav.subscribe": "Individual Plan",
     "nav.signup": "Sign Up",
     "nav.contact": "Contact",
     "nav.corporate": "Corporate Plan",
@@ -93,6 +93,7 @@ const translations: Record<Lang, Translations> = {
 
     // Homepage hero section (HeroSection.tsx)
     "hero.home.headline": "Strategic Intelligence for Japanese Executives Managing Operations in Thailand, Delivered Every Morning.",
+    "hero.home.subtitle": "Strategic intelligence for Japanese executives managing operations in Thailand.",
     "hero.home.subcopy": "FX, regulations, energy, supply chain — Thailand's strategic developments, delivered daily.",
     "hero.home.emailPlaceholder": "Enter your email address",
     "hero.home.emailSubmit": "Subscribe for free",
@@ -839,7 +840,7 @@ const translations: Record<Lang, Translations> = {
     "nav.news": "ニュース",
     "nav.insights": "インサイト",
     "nav.tips": "ビジネスTips",
-    "nav.subscribe": "購読",
+    "nav.subscribe": "個人プラン",
     "nav.signup": "サインアップ",
     "nav.contact": "お問い合わせ",
     "nav.corporate": "法人プラン",
@@ -878,6 +879,7 @@ const translations: Record<Lang, Translations> = {
 
     // Homepage hero section (HeroSection.tsx)
     "hero.home.headline": "タイで経営する日本人エグゼクティブのための、毎朝届く戦略インテリジェンス。",
+    "hero.home.subtitle": "タイで事業を展開する日本人エグゼクティブのための、戦略インテリジェンスプラットフォーム。",
     "hero.home.subcopy": "為替・規制・エネルギー・サプライチェーン——タイ現地の動向を、日本語で、毎日お届けします。",
     "hero.home.emailPlaceholder": "メールアドレスを入力",
     "hero.home.emailSubmit": "無料で購読する",
