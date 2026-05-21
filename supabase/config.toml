@@ -59,3 +59,9 @@ verify_jwt = false
 
 [functions.log-visitor]
 verify_jwt = false
+
+[functions.contact-form]
+verify_jwt = false
+
+[functions.corporate-inquiry]
+verify_jwt = false

@@ -32,8 +32,25 @@ const Corporate = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke('corporate-inquiry', {
-        body: form,
+      const timestamp = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Bangkok' });
+      const messageBody = [
+        '【WaLens 法人プラン お問い合わせ】',
+        '',
+        `会社名: ${form.company_name}`,
+        `担当者名: ${form.contact_name}`,
+        `メールアドレス: ${form.contact_email}`,
+        `業種: ${form.industry}`,
+        `チーム人数: ${form.team_size}`,
+        `メッセージ: ${form.message}`,
+        '',
+        `送信日時: ${timestamp} (ICT)`,
+      ].join('\n');
+
+      const { error } = await supabase.functions.invoke('contact-form', {
+        body: {
+          email: form.contact_email,
+          message: messageBody,
+        },
       });
       if (error) throw error;
       setSubmitted(true);
