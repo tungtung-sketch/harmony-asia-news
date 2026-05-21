@@ -23,8 +23,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="WaLens — Decode Global Markets | Executive Intelligence Platform"
-        description="WaLens decodes policy, risk, and market shifts for executives. Not news translation — strategic intelligence for decisive action."
+        title="WaLens — タイ駐在日本人エグゼクティブのための戦略インテリジェンス"
+        description="為替・規制・エネルギー・サプライチェーン——タイ現地の動向を、日本語で、毎日お届けします。Japanese executives managing operations in Thailand."
         canonicalPath="/"
       />
       <Header />

@@ -13,7 +13,7 @@ import { trackCheckoutStart } from '@/lib/tracker';
 import CompanyProfileDownload from '@/components/CompanyProfileDownload';
 
 import { useToast } from '@/hooks/use-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Subscribe = () => {
   const { t, lang } = useI18n();
@@ -192,7 +192,7 @@ const Subscribe = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto items-start">
               {/* Basic Plan Card */}
               <div className="rounded-xl border border-border bg-card p-6 flex flex-col">
                 <div className="mb-5">
@@ -268,6 +268,39 @@ const Subscribe = () => {
                   disabled={isProcessing}
                 >
                   {isProcessing ? t('common.loading') : (lang === 'ja' ? 'プレミアムプランに登録' : 'Start Premium Plan')}
+                </Button>
+              </div>
+
+              {/* Corporate Plan Card */}
+              <div className="rounded-xl border border-border bg-card p-6 flex flex-col">
+                <div className="mb-5">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                    {lang === 'ja' ? '法人プラン' : 'Corporate Plan'}
+                  </p>
+                  <p className="text-3xl font-bold text-foreground">
+                    ฿500<span className="text-sm font-normal text-muted-foreground">{lang === 'ja' ? '/席/月' : '/seat/month'}</span>
+                  </p>
+                  <p className="text-xs text-muted-foreground font-medium mt-1">
+                    {lang === 'ja' ? '5席 = ฿2,500/月（฿150,000/年）' : '5 seats = ฿2,500/month (฿150,000/year)'}
+                  </p>
+                </div>
+                <ul className="space-y-3 flex-1 mb-6">
+                  {[
+                    { icon: '📧', ja: '毎朝JP+ENニュースレター（全員）', en: 'Daily JP+EN newsletter for all seats' },
+                    { icon: '📞', ja: '月次ブリーフィングコール（日本語・30分）', en: 'Monthly strategy briefing call (JP, 30 min)' },
+                    { icon: '📚', ja: '過去レポート全アーカイブ', en: 'Full report archive access' },
+                    { icon: '⚡', ja: 'メール優先サポート', en: 'Priority email support' },
+                  ].map((item) => (
+                    <li key={item.en} className="flex items-start gap-3 text-sm text-foreground">
+                      <span className="text-base leading-5 flex-shrink-0">{item.icon}</span>
+                      <span>{lang === 'ja' ? item.ja : item.en}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild variant="outline" className="w-full font-semibold">
+                  <Link to="/corporate">
+                    {lang === 'ja' ? '詳細を見る' : 'Learn more'}
+                  </Link>
                 </Button>
               </div>
             </div>

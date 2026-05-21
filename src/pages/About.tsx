@@ -9,7 +9,7 @@ import { CheckCircle, Filter, Target, Lightbulb, Shield } from 'lucide-react';
 import CompanyProfileDownload from '@/components/CompanyProfileDownload';
 
 const About = () => {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <>
@@ -31,6 +31,21 @@ const About = () => {
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 {t('about.hero.subtitle')}
               </p>
+            </div>
+          </section>
+
+          {/* Intro — platform description */}
+          <section className="container mx-auto pt-10 pb-2 px-4">
+            <div className="max-w-3xl mx-auto">
+              {lang === 'ja' ? (
+                <p className="text-base md:text-lg text-foreground leading-relaxed" style={{ wordBreak: 'keep-all' }}>
+                  WaLensは、タイで働く日本人エグゼクティブのために、<strong className="font-semibold text-foreground">現地の経営コンサルタントが厳選した</strong>戦略情報をお届けするプラットフォームです。自動車・エネルギー・金融・物流など、日系企業が関わる業界に特化した独自の視点で、<strong className="font-semibold text-foreground">ChatGPTでは得られない</strong><strong className="font-semibold text-foreground">実務的なインサイト</strong>を提供します。
+                </p>
+              ) : (
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
+                  WaLens delivers curated strategic intelligence for Japanese executives working in Thailand — selected by a <strong className="font-semibold text-foreground">Thailand-based management consultant</strong> with <strong className="font-semibold text-foreground">5+ years of on-the-ground experience</strong> across <strong className="font-semibold text-foreground">automotive, energy, finance, and logistics</strong>.
+                </p>
+              )}
             </div>
           </section>
 

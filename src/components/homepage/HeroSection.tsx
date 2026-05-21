@@ -1,18 +1,24 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { useI18n } from '@/i18n/I18nProvider';
+import { Input } from '@/components/ui/input';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-executive.jpg';
+import { useI18n } from '@/i18n/I18nProvider';
 
 const HeroSection = () => {
-  const { t, lang } = useI18n();
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+  const { t } = useI18n();
 
-  const scrollToInsights = () => {
-    document.getElementById('intelligence-proof')?.scrollIntoView({ behavior: 'smooth' });
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    navigate(`/signup?email=${encodeURIComponent(email.trim())}`);
   };
 
   return (
-    <section className="relative overflow-hidden min-h-[600px] md:min-h-[680px] flex items-center">
+    <section className="relative overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
       {/* Background image with dark overlay */}
       <img
         src={heroImage}
@@ -26,62 +32,86 @@ const HeroSection = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="max-w-2xl py-16 sm:py-20 md:py-28">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[hsl(210,100%,60%,0.3)] bg-[hsl(210,100%,60%,0.1)] text-xs sm:text-sm text-[hsl(210,40%,90%)] mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142,76%,50%)] animate-pulse" />
-            {t('hero.badge')}
-          </div>
 
-          {/* Headline */}
-          <h1 className={`font-bold tracking-tight text-[hsl(0,0%,100%)] mb-5 md:mb-6 ${
-            lang === 'ja'
-              ? 'text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] leading-[1.45]'
-              : 'text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12]'
-          }`} style={{ wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
-            {t('hero.headline')}
+          {/* Main Headline */}
+          <h1
+            className="font-bold tracking-tight text-[hsl(0,0%,100%)] mb-4 text-xl sm:text-2xl md:text-3xl leading-[1.45]"
+            style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+          >
+            {t('hero.home.headline')}
           </h1>
 
-          {/* Sub-headline */}
-          <p className={`text-[hsl(210,40%,80%)] leading-relaxed max-w-xl mb-8 md:mb-10 ${
-            lang === 'ja'
-              ? 'text-base sm:text-lg md:text-xl'
-              : 'text-lg sm:text-xl md:text-[1.3rem]'
-          }`}>
-            {t('hero.subheadline')}
+          {/* Subtitle — EN, smaller */}
+          <p className="text-[hsl(210,40%,72%)] text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
+            Strategic intelligence for Japanese executives<br className="hidden sm:block" /> managing operations in Thailand.
           </p>
 
-          {/* Deliverables list */}
-          <ul className="space-y-2 mb-8 md:mb-10">
-            {['hero.deliver1', 'hero.deliver2', 'hero.deliver3'].map((key) => (
-              <li key={key} className="flex items-center gap-2.5 text-sm sm:text-base text-[hsl(210,40%,85%)]">
-                <span className="w-1 h-1 rounded-full bg-[hsl(210,100%,60%)] flex-shrink-0" />
-                {t(key)}
-              </li>
-            ))}
-          </ul>
+          {/* Sub-copy */}
+          <p
+            className="text-[hsl(210,40%,80%)] text-sm sm:text-base leading-relaxed mb-8"
+            style={{ wordBreak: 'keep-all' }}
+          >
+            {t('hero.home.subcopy')}
+          </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+          {/* Email Signup Form */}
+          <form onSubmit={handleEmailSubmit} className="mb-4">
+            <div className="flex flex-col sm:flex-row gap-2 mb-2">
+              <Input
+                type="email"
+                required
+                placeholder={t('hero.home.emailPlaceholder')}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 text-base flex-1 focus-visible:ring-[hsl(210,100%,60%)]"
+              />
+              <Button
+                type="submit"
+                size="lg"
+                className="h-12 px-6 bg-[hsl(210,100%,60%)] hover:bg-[hsl(210,100%,55%)] text-[hsl(222,47%,6%)] font-semibold whitespace-nowrap text-base"
+              >
+                {t('hero.home.emailSubmit')}
+              </Button>
+            </div>
+            <p className="text-xs text-[hsl(210,40%,58%)]">
+              {t('hero.home.emailDisclaimer')}
+            </p>
+          </form>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-10">
             <Button asChild size="lg" className="w-full sm:w-auto text-base px-8 py-6 font-semibold bg-[hsl(210,100%,60%)] hover:bg-[hsl(210,100%,55%)] text-[hsl(222,47%,6%)]">
               <Link to="/subscribe">
-                {t('hero.cta.primary')}
+                {t('hero.home.cta.primary')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
-              onClick={scrollToInsights}
               className="w-full sm:w-auto text-base px-8 py-6 font-medium border-[hsl(210,40%,40%)] text-[hsl(210,40%,90%)] bg-transparent hover:bg-[hsl(210,40%,20%,0.3)]"
             >
-              {t('hero.cta.secondary')}
+              <Link to="/corporate">{t('hero.home.cta.corporate')}</Link>
             </Button>
           </div>
 
-          {/* Free trial callout */}
-          <p className="mt-10 text-base sm:text-lg md:text-xl font-semibold text-[hsl(142,76%,55%)] tracking-wide">
-            {t('hero.trust')}
-          </p>
+          {/* Trust Signals */}
+          <div className="flex flex-wrap gap-5 sm:gap-8">
+            <div className="flex items-center gap-2 text-sm text-[hsl(210,40%,80%)]">
+              <span className="text-base">📧</span>
+              <span>{t('hero.home.trust.delivery')}</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-[hsl(210,40%,80%)]">
+              <span className="text-base">🌐</span>
+              <span>{t('hero.home.trust.bilingual')}</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-[hsl(210,40%,80%)]">
+              <span className="text-base">👤</span>
+              <span>{t('hero.home.trust.advisor')}</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

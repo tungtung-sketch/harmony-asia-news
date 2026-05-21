@@ -40,6 +40,7 @@ const translations: Record<Lang, Translations> = {
     "nav.subscribe": "Subscribe",
     "nav.signup": "Sign Up",
     "nav.contact": "Contact",
+    "nav.corporate": "Corporate Plan",
     "nav.faq": "FAQ",
 
     // Header
@@ -89,6 +90,18 @@ const translations: Record<Lang, Translations> = {
     "home.hero.title": "Global Executive Business & Market Insights",
     "home.hero.subtext": "Your Japanese lens into global business — intelligence for decision-makers",
     "home.hero.cta": "Start Free 1-Month Trial",
+
+    // Homepage hero section (HeroSection.tsx)
+    "hero.home.headline": "Strategic Intelligence for Japanese Executives Managing Operations in Thailand, Delivered Every Morning.",
+    "hero.home.subcopy": "FX, regulations, energy, supply chain — Thailand's strategic developments, delivered daily.",
+    "hero.home.emailPlaceholder": "Enter your email address",
+    "hero.home.emailSubmit": "Subscribe for free",
+    "hero.home.emailDisclaimer": "No credit card required • Cancel anytime",
+    "hero.home.cta.primary": "Subscribe for free",
+    "hero.home.cta.corporate": "View Corporate Plan",
+    "hero.home.trust.delivery": "Delivered every morning at 7am",
+    "hero.home.trust.bilingual": "Bilingual JP + EN",
+    "hero.home.trust.advisor": "Curated by a 5-year Thailand-based advisor",
 
     // Tags
     "tags.breaking": "Breaking",
@@ -227,6 +240,8 @@ const translations: Record<Lang, Translations> = {
     "footer.about.contact": "Contact",
     "footer.about.privacy": "Privacy Policy",
     "footer.about.terms": "Terms of Service",
+    "footer.about.corporate": "Corporate Plan",
+    "footer.about.coaching": "Coaching",
     
 
     "footer.copyright": "All rights reserved. | Connecting Asia through trusted journalism.",
@@ -730,6 +745,7 @@ const translations: Record<Lang, Translations> = {
     "about.description": "WaLens is a premium decision-support platform for Japanese executives operating globally. We filter, interpret, and prioritize information for executive-level judgment.",
     "about.hero.title": "Intelligence That Serves Decision-Makers",
     "about.hero.subtitle": "WaLens is a premium decision-support platform designed for Japanese executives investing in or operating businesses across global markets.",
+    "about.intro": "WaLens delivers curated strategic intelligence for Japanese executives working in Thailand — selected by a Thailand-based management consultant with 5+ years of on-the-ground experience across automotive, energy, finance, and logistics.",
     
     // Mission
     "about.mission.paragraph1": "In today's information environment, the challenge is not access—it is relevance. Japanese executives operating globally need more than news feeds and generic summaries. They need intelligence that reflects local regulatory landscapes, the nuances of cross-border business relations, and the priorities of executive-level decision-making. WaLens exists to provide that layer of judgment.",
@@ -826,6 +842,7 @@ const translations: Record<Lang, Translations> = {
     "nav.subscribe": "購読",
     "nav.signup": "サインアップ",
     "nav.contact": "お問い合わせ",
+    "nav.corporate": "法人プラン",
     "nav.faq": "FAQ",
 
     // Header
@@ -858,6 +875,19 @@ const translations: Record<Lang, Translations> = {
     "home.hero.title": "グローバル・エグゼクティブ向けビジネス＆マーケットインサイト",
     "home.hero.subtext": "グローバルビジネスを解き明かす日本の視座 — 意思決定者のためのインテリジェンス",
     "home.hero.cta": "無料トライアルを開始 (1か月)",
+
+    // Homepage hero section (HeroSection.tsx)
+    "hero.home.headline": "タイで経営する日本人エグゼクティブのための、毎朝届く戦略インテリジェンス。",
+    "hero.home.subcopy": "為替・規制・エネルギー・サプライチェーン——タイ現地の動向を、日本語で、毎日お届けします。",
+    "hero.home.emailPlaceholder": "メールアドレスを入力",
+    "hero.home.emailSubmit": "無料で購読する",
+    "hero.home.emailDisclaimer": "クレジットカード不要 • いつでも退会可能",
+    "hero.home.cta.primary": "無料で購読する",
+    "hero.home.cta.corporate": "法人プランを見る",
+    "hero.home.trust.delivery": "毎朝7時配信",
+    "hero.home.trust.bilingual": "日英バイリンガル",
+    "hero.home.trust.advisor": "タイ駐在5年のアドバイザーが監修",
+
     "hero.featuredImageLabel": "特集画像",
 
     // Tags
@@ -924,6 +954,8 @@ const translations: Record<Lang, Translations> = {
     "footer.about.contact": "お問い合わせ",
     "footer.about.privacy": "プライバシーポリシー",
     "footer.about.terms": "利用規約",
+    "footer.about.corporate": "法人プラン",
+    "footer.about.coaching": "コーチング",
     "footer.about.careers": "採用情報",
 
     "footer.copyright": "All rights reserved. | 信頼できる報道でアジアをつなぐ。",
@@ -1294,6 +1326,7 @@ const translations: Record<Lang, Translations> = {
     "about.description": "WaLensは、グローバルに事業を展開する日本人経営者のためのプレミアム意思決定支援プラットフォームです。情報のフィルタリング、解釈、優先順位付けを通じて、経営レベルの判断を支援します。",
     "about.hero.title": "意思決定者のためのインテリジェンス",
     "about.hero.subtitle": "WaLensは、グローバル市場への投資または事業運営を行う日本人経営者のために設計されたプレミアム意思決定支援プラットフォームです。",
+    "about.intro": "WaLensは、タイで働く日本人エグゼクティブのために、現地の経営コンサルタントが厳選した戦略情報をお届けするプラットフォームです。自動車・エネルギー・金融・物流など、日系企業が関わる業界に特化した独自の視点で、ChatGPTでは得られない実務的なインサイトを提供します。",
     
     // Mission (Japanese)
     "about.mission.paragraph1": "今日の情報環境における課題は、情報へのアクセスではなく、その「関連性」にあります。グローバルに活動する日本人経営者には、ニュースフィードや汎用的な要約以上のものが必要です。現地の規制環境、国際ビジネス関係の機微、そして経営レベルの意思決定の優先順位を反映したインテリジェンスが求められます。WaLensは、その判断のレイヤーを提供するために存在しています。",

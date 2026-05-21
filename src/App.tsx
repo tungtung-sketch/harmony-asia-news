@@ -57,6 +57,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
+import Corporate from "./pages/Corporate";
 import PremiumAnalyticsPage from "./pages/admin/PremiumAnalyticsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
 import VisitorAnalyticsPage from "./pages/admin/VisitorAnalyticsPage";
@@ -87,6 +88,7 @@ const App = () => (
               */}
               <Route path="/search" element={<SearchResults />} />
               <Route path="/subscribe" element={<Subscribe />} />
+              <Route path="/corporate" element={<Corporate />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/mypage" element={<MyPage />} />
               <Route path="/billing-history" element={<BillingHistory />} />
