@@ -78,26 +78,36 @@ const Corporate = () => {
       icon: '📧',
       ja: '毎朝JP+ENニュースレター（全員）',
       en: 'Daily JP+EN newsletter for all seats',
+      descJa: '毎朝7時配信 — 日系子会社のGMに必要な情報だけを厳選してお届けします',
+      descEn: 'Every morning at 7am — Thailand\'s key business developments filtered for Japanese subsidiaries',
     },
     {
       icon: '📞',
       ja: '月次戦略ブリーフィングコール（日本語・30分）',
       en: 'Monthly JP strategy briefing call (30 min)',
+      descJa: 'WaLens編集者との直接対話 — 貴社の業界や事業に特化した質問ができます',
+      descEn: 'Direct conversation with the WaLens editor — ask questions specific to your industry and operations',
     },
     {
       icon: '📚',
       ja: '過去レポート全アーカイブアクセス',
       en: 'Full archive access',
+      descJa: '過去の全レポート・ニュースブリーフを検索可能 — 新たな規制やリスクが突発した際に即座に参照できます',
+      descEn: 'Search all past reports and news briefs — useful when a new regulation or risk suddenly affects your team',
     },
     {
       icon: '⚡',
       ja: 'メール優先サポート（2営業日以内）',
       en: 'Priority email support (within 2 business days)',
+      descJa: 'タイ市場動向に関する個別の質問を貴社のビジネスに即した形で回答します',
+      descEn: 'Ask specific questions about Thai market developments relevant to your business',
     },
     {
       icon: '➕',
       ja: 'オプション：コーチングプラン追加可',
       en: 'Optional coaching add-on available',
+      descJa: 'タイ人スタッフ向けビジネス英語コーチングをセット価格で追加可能',
+      descEn: 'Add business English coaching seats for your Thai-facing team members — sold as bundle',
     },
   ];
 
@@ -200,15 +210,17 @@ const Corporate = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
                 {lang === 'ja' ? '法人プランに含まれるもの' : "What's included"}
               </h2>
-              <ul className="space-y-5">
+              <ul className="space-y-6">
                 {included.map((item) => (
                   <li key={item.en} className="flex items-start gap-4">
                     <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
-                    <span
-                      className="text-base font-medium text-foreground"
-                      style={{ wordBreak: 'keep-all' }}
-                    >
-                      {lang === 'ja' ? item.ja : item.en}
+                    <span style={{ wordBreak: 'keep-all' }}>
+                      <span className="block text-base font-semibold text-foreground">
+                        {lang === 'ja' ? item.ja : item.en}
+                      </span>
+                      <span className="block text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                        {lang === 'ja' ? item.descJa : item.descEn}
+                      </span>
                     </span>
                   </li>
                 ))}
@@ -254,16 +266,33 @@ const Corporate = () => {
                       {lang === 'ja' ? '約62%お得' : 'save ~62%'}
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-6">
+                  <p className="text-xs text-muted-foreground mb-5">
                     {lang === 'ja'
                       ? '฿150,000/年（5席）— 合計 ฿2,500/月'
                       : '฿150,000/year (5 seats) — ฿2,500/month total'}
                   </p>
 
+                  <ul className="space-y-2 mb-6 border-t border-border pt-5">
+                    {[
+                      { included: true,  ja: '毎日JP+ENニュースレター',         en: 'Daily JP+EN newsletter' },
+                      { included: true,  ja: '過去レポート全アーカイブ',         en: 'Full archive access' },
+                      { included: true,  ja: 'メール優先サポート',              en: 'Priority email support' },
+                      { included: false, ja: '月次戦略ブリーフィングコール',      en: 'Monthly strategy briefing call' },
+                      { included: false, ja: 'コーチング席',                   en: 'Coaching seats' },
+                    ].map((f) => (
+                      <li key={f.en} className={`flex items-center gap-2 text-sm ${f.included ? 'text-foreground' : 'text-muted-foreground/40'}`}>
+                        <span className="flex-shrink-0 w-4 text-center font-bold">
+                          {f.included ? '✓' : '✗'}
+                        </span>
+                        {lang === 'ja' ? f.ja : f.en}
+                      </li>
+                    ))}
+                  </ul>
+
                   <div className="flex-1" />
                   <Button
                     variant="outline"
-                    className="w-full font-semibold mt-6"
+                    className="w-full font-semibold mt-2"
                     onClick={scrollToInquiry}
                   >
                     {lang === 'ja' ? 'お問い合わせ' : 'Contact us'}
@@ -319,15 +348,30 @@ const Corporate = () => {
                         ? '฿60,000/年（5席）— 合計 ฿5,000/月'
                         : '฿60,000/year (5 seats) — ฿5,000/month total'}
                     </p>
-                    <p className="text-sm text-muted-foreground mb-6">
+                    <p className="text-sm text-muted-foreground mb-5">
                       {lang === 'ja'
                         ? '稟議不要。GM決裁枠内でご導入いただけます。'
                         : 'No HQ approval needed — fits within GM discretionary authority.'}
                     </p>
 
+                    <ul className="space-y-2 mb-6 border-t border-border pt-5">
+                      {[
+                        { ja: '毎日JP+ENニュースレター',              en: 'Daily JP+EN newsletter' },
+                        { ja: '過去レポート全アーカイブ',              en: 'Full archive access' },
+                        { ja: 'メール優先サポート',                   en: 'Priority email support' },
+                        { ja: '月次戦略ブリーフィングコール（30分・日本語）', en: 'Monthly strategy briefing call (30 min, JP)' },
+                        { ja: 'コーチング席 × 5席付き',              en: '5 coaching seats included' },
+                      ].map((f) => (
+                        <li key={f.en} className="flex items-center gap-2 text-sm text-foreground">
+                          <span className="flex-shrink-0 w-4 text-center font-bold" style={{ color: '#00BCD4' }}>✓</span>
+                          {lang === 'ja' ? f.ja : f.en}
+                        </li>
+                      ))}
+                    </ul>
+
                     <div className="flex-1" />
                     <Button
-                      className="w-full font-semibold text-white border-0 mt-6"
+                      className="w-full font-semibold text-white border-0 mt-2"
                       style={{ background: 'linear-gradient(to right, #00BCD4, #26C6DA)' }}
                       onClick={scrollToInquiry}
                     >
