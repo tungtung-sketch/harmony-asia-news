@@ -1,9 +1,10 @@
 import { useI18n } from '@/i18n/I18nProvider';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Crown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import reportImage from '@/assets/executive-reports-dashboard.jpg';
+import thaiChuayImage from '@/assets/thai-chuay-thai-anutin.jpg';
 
 interface InsightCard {
   signal: string;
@@ -143,6 +144,53 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/economic-policy/thai-chuay-thai-plus-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={thaiChuayImage}
+                alt="PM Anutin Charnvirakul at Thai Chuay Thai Plus press conference"
+                className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+              <p className="px-2 py-1.5 text-[10px] text-gray-400 leading-snug">
+                Photo: The Standard (thestandard.co), May 2026
+              </p>
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Economic Policy</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Consumer Markets</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">China Competition</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイ「タイ・チュワイ・タイ・プラス」政策の全解剖 ── 中国企業の次の一手と、日系エグゼクティブが今知るべき戦略的含意'
+                    : "Thailand's 'Thais Help Thais Plus' Stimulus: Strategic Implications for Japanese Executives"}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? '1,757億バーツが4ヵ月間で4,318万人の消費者に流れる——中国ブランドがタイ自動車市場の46.8%を占有する中、日系企業が今すべきことをWaLensが解説する。'
+                    : '฿175.7 billion targeting 43 million consumers over four months. With Chinese brands holding 46.8% of the Thai auto market, WaLens breaks down what Japanese executives must do now.'}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
       </div>

@@ -32,6 +32,9 @@ export const reportMetadata: Record<string, {
   description: string;
   descriptionJa: string;
   link: string;
+  titleEn?: string;
+  titleJa?: string;
+  lastUpdated?: string;
 }> = {
   'ev-battery-industry': {
     industry: 'Manufacturing',
@@ -41,8 +44,8 @@ export const reportMetadata: Record<string, {
     link: '/insights/manufacturing/ev-battery'
   },
   'thailand-market-strategy': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
     description: 'Strategic report redefining Thailand as a third-country market hub and social-issue-solving market. Covers 5 key industries: elderly care, smart home, future food, electronics, and education.',
     descriptionJa: 'タイを第三国市場ハブ・社会課題解決型市場として再定義する戦略レポート。高齢者ケア、スマートホーム、次世代食品、エレクトロニクス、教育の5産業を詳説。',
     link: '/insights/reports/thailand-market-strategy'
@@ -76,15 +79,15 @@ export const reportMetadata: Record<string, {
     link: '/insights/manufacturing/electronics-semiconductor'
   },
   'big-data-ai': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Technology',
+    industryJa: 'テクノロジー',
     description: 'Big Data & AI trends in Thailand 2026: Hyperscale cloud regions, risk-tiered AI governance, PDPA enforcement reality, 80,000-person talent gap, and strategic plays for Japanese executives.',
     descriptionJa: 'タイのビッグデータ＆AI動向2026：ハイパースケールクラウドリージョン、リスク階層型AIガバナンス、PDPA執行の実態、8万人の人材ギャップ、日本企業経営者の戦略的打ち手。',
     link: '/insights/services/big-data-ai'
   },
   'decarbonization': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Energy',
+    industryJa: 'エネルギー',
     description: 'Thailand decarbonization 2026: NDC 3.0 net-zero by 2050, carbon tax THB 200/tCO₂e, Climate Change Act with ETS/CBAM, green electricity procurement (UGT/Direct PPA), and carbon credit market architecture for Japanese operations.',
     descriptionJa: 'タイ脱炭素化2026：NDC 3.0で2050年ネットゼロ、炭素税THB 200/tCO₂e、ETS/CBAM付き気候変動法、グリーン電力調達（UGT/Direct PPA）、日系企業向けカーボンクレジット市場構造。',
     link: '/insights/services/decarbonization'
@@ -104,8 +107,8 @@ export const reportMetadata: Record<string, {
     link: '/insights/agriculture/food-industry'
   },
   'energy-industry': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Energy',
+    industryJa: 'エネルギー',
     description: "Thailand's energy transformation 2025–2030: PDP 2024 mandating 51% RE, Direct PPA liberalization, hydrogen/ammonia co-firing via AZEC, data center cooling, V2G ecosystem, and Eastern CCS Hub — strategic blueprint for Japanese executives.",
     descriptionJa: 'タイのエネルギー変革2025–2030：PDP 2024でRE 51%義務化、Direct PPA自由化、AZECを通じた水素/アンモニア混焼、データセンター冷却、V2Gエコシステム、東部CCSハブ——日系企業経営者のための戦略青写真。',
     link: '/insights/services/energy-industry'
@@ -118,22 +121,22 @@ export const reportMetadata: Record<string, {
     link: '/insights/manufacturing/automotive-industry'
   },
   'hormuz-crisis-impact': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Energy',
+    industryJa: 'エネルギー',
     description: "2026 Hormuz Strait Crisis: Multi-dimensional impact on Thai industry. Energy security vulnerabilities, manufacturing cost explosions, fertilizer shock, Climate Change Act enforcement acceleration, and strategic opportunities in digital GHG management and decarbonization for Japanese enterprises.",
     descriptionJa: '2026年ホルムズ海峡危機：タイ産業への多角的影響分析。エネルギー安全保障の脆弱性、製造コスト爆発、肥料ショック、気候変動法施行加速、デジタルGHG管理・脱炭素化における日系企業の戦略的機会。',
     link: '/insights/services/hormuz-crisis-impact'
   },
   'oil-crisis-thai-industry': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Energy',
+    industryJa: 'エネルギー',
     description: "2026 US-Iran conflict energy crisis: structural impact on Thai manufacturing and advanced decarbonization management strategy. Coal reversion paradox, grid emission factor volatility, and explosive demand for real-time digital GHG management platforms.",
     descriptionJa: '2026年米イラン紛争に伴うタイのエネルギー危機：製造業および環境関連企業への構造的影響と高度な脱炭素管理戦略。石炭回帰のパラドックス、グリッド排出係数の変動、リアルタイムGHG管理プラットフォームへの爆発的需要。',
     link: '/insights/services/oil-crisis-thai-industry'
   },
   'thai-gov-policy-japanese': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
     description: "Anutin 2 government policy analysis (April 2026): Super License reform, Semiconductor Roadmap 2050, nominee crackdown, Made in Thailand procurement, and green energy transition — strategic implications for Japanese enterprises in Thailand.",
     descriptionJa: 'アヌティン2政策分析（2026年4月）：Super License改革、半導体ロードマップ2050、ノミニー取締強化、Made in Thailand調達、グリーンエネルギー転換——タイにおける日系企業への戦略的影響。',
     link: '/insights/services/thai-gov-policy-japanese'
@@ -146,8 +149,8 @@ export const reportMetadata: Record<string, {
     link: '/insights/services/songkran-japanese-business'
   },
   'energy-crisis-baht-strategy-2026': {
-    industry: 'Services',
-    industryJa: 'サービス',
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
     description: "April 2026 strategic briefing for Japanese executives in Thailand: May–Aug electricity tariff at 3.95 THB/kWh, Hormuz LNG shock, baht at 32.38 THB/USD, the 28–30 April BoT/FOMC central-bank week, JPY/THB repatriation window, and recommended actions across 6 sectors (manufacturing, electronics, retail, real estate, financial services, logistics).",
     descriptionJa: '2026年4月の在タイ日系企業経営層向け戦略ブリーフィング：5〜8月電力料金3.95 THB/kWh、ホルムズLNGショック、バーツ32.38 THB/USD、4月28〜30日BoT／FOMC中央銀行週間、JPY/THB本国還流ウィンドウ、6セクター（製造、電子機器、小売、不動産、金融、物流）別推奨アクション。',
     link: '/insights/services/energy-crisis-baht-strategy-2026'
@@ -158,6 +161,16 @@ export const reportMetadata: Record<string, {
     description: "Strategic transformation of Southeast Asia's automotive aftermarket 2026: 10% CAGR market outlook, Chinese OEM competitive surge, EV battery logistics, ASEAN supply-chain realignment, and strategic recommendations for Japanese executives.",
     descriptionJa: '東南アジア自動車アフターマーケットの戦略的変革2026：年平均成長率10％の市場展望、中国OEMの競争激化、EVバッテリー物流、ASEANサプライチェーン再編、日系企業経営層への戦略提言。',
     link: '/insights/manufacturing/sea-automotive-aftermarket-2026'
+  },
+  'thai-chuay-thai-plus-2026': {
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
+    description: "Thailand's Thai Chuay Thai Plus stimulus 2026: ฿175.7 billion 60/40 co-payment program targeting 43 million consumers, channel dynamics, Chinese competitive moves, sector decision guide, and next actions for Japanese executives.",
+    descriptionJa: 'タイ「タイ・チュワイ・タイ・プラス（Thai Chuay Thai Plus）」刺激策2026：1,757億バーツの60/40コペイメント、4,318万人対象、チャネル動向、中国系競合の戦略分析、セクター別優先度評価と日系エグゼクティブへの次のアクション。',
+    link: '/insights/economic-policy/thai-chuay-thai-plus-2026',
+    titleEn: "Thailand's 'Thais Help Thais Plus' Stimulus: Strategic Implications for Japanese Executives",
+    titleJa: 'タイ「タイ・チュワイ・タイ・プラス（Thai Chuay Thai Plus）」政策の全解剖 ── 中国企業の次の一手と、日系エグゼクティブが今知るべき戦略的含意',
+    lastUpdated: '2026-06-01'
   }
 };
 
@@ -207,7 +220,32 @@ export const useInsightReports = () => {
         })
       );
 
-      setReports(reportsWithMeta);
+      // Synthesize cards for any reportMetadata entries that have no matching DB row
+      const dbSlugs = new Set(reportsWithMeta.map(r => r.report_slug));
+      const staticReports: InsightReportWithMeta[] = Object.entries(reportMetadata)
+        .filter(([slug, meta]) => !dbSlugs.has(slug) && meta.titleEn)
+        .map(([slug, meta]) => ({
+          id: `static-${slug}`,
+          report_slug: slug,
+          title_en: meta.titleEn!,
+          title_ja: meta.titleJa || '',
+          base_report_version: null,
+          base_report_updated_at: null,
+          last_content_update: meta.lastUpdated || null,
+          pdf_enabled: null,
+          watermark_text: null,
+          created_at: meta.lastUpdated || null,
+          updated_at: meta.lastUpdated || null,
+          updateCount30Days: 0,
+          ...meta
+        }));
+
+      const allReports = [...reportsWithMeta, ...staticReports].sort((a, b) => {
+        const dateA = a.last_content_update || a.updated_at || a.created_at || '';
+        const dateB = b.last_content_update || b.updated_at || b.created_at || '';
+        return dateB.localeCompare(dateA);
+      });
+      setReports(allReports);
     } catch (err) {
       console.error('Error fetching insight reports:', err);
       setError(err instanceof Error ? err.message : 'Failed to fetch reports');

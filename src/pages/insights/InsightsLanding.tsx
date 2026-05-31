@@ -13,19 +13,22 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Skeleton } from '@/components/ui/skeleton';
-import { 
-  Filter, 
-  Clock, 
-  Factory, 
-  Building2, 
-  Leaf, 
-  Heart, 
+import {
+  Filter,
+  Clock,
+  Factory,
+  Building2,
+  Leaf,
+  Heart,
   Home,
-  RefreshCw
+  RefreshCw,
+  Landmark,
+  Zap,
+  Cpu
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
-const VALID_FILTERS = ['all', 'manufacturing', 'services', 'agriculture', 'healthcare', 'real-estate'];
+const VALID_FILTERS = ['all', 'manufacturing', 'services', 'agriculture', 'healthcare', 'real-estate', 'economic-policy', 'energy', 'technology'];
 
 const InsightsLanding = () => {
   const { t, lang } = useI18n();
@@ -56,6 +59,9 @@ const InsightsLanding = () => {
     { id: 'all', label: isJapanese ? 'すべて' : 'All', labelEn: 'All', icon: Filter },
     { id: 'manufacturing', label: isJapanese ? '製造業' : 'Manufacturing', labelEn: 'Manufacturing', icon: Factory },
     { id: 'services', label: isJapanese ? 'サービス' : 'Services', labelEn: 'Services', icon: Building2 },
+    { id: 'economic-policy', label: isJapanese ? '経済政策' : 'Economic Policy', labelEn: 'Economic Policy', icon: Landmark },
+    { id: 'energy', label: isJapanese ? 'エネルギー' : 'Energy', labelEn: 'Energy', icon: Zap },
+    { id: 'technology', label: isJapanese ? 'テクノロジー' : 'Technology', labelEn: 'Technology', icon: Cpu },
     { id: 'agriculture', label: isJapanese ? '農業' : 'Agriculture', labelEn: 'Agriculture', icon: Leaf },
     { id: 'healthcare', label: isJapanese ? 'ヘルスケア' : 'Healthcare', labelEn: 'Healthcare', icon: Heart },
     { id: 'real-estate', label: isJapanese ? '不動産' : 'Real Estate', labelEn: 'Real Estate', icon: Home },
