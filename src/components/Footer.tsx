@@ -52,10 +52,13 @@ const Footer = () => {
             <h3 className="font-semibold text-base">{t('nav.insights')}</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.overview')}</Link></li>
-              <li><Link to="/insights?filter=services" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.services')}</Link></li>
               <li><Link to="/insights?filter=manufacturing" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.manufacturing')}</Link></li>
-              <li><Link to="/insights?filter=wellness-healthcare" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.wellness')}</Link></li>
+              <li><Link to="/insights?filter=services" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.services')}</Link></li>
+              <li><Link to="/insights?filter=economic-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.economicPolicy')}</Link></li>
+              <li><Link to="/insights?filter=energy" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.energy')}</Link></li>
+              <li><Link to="/insights?filter=technology" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.technology')}</Link></li>
               <li><Link to="/insights?filter=agriculture" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.agriculture')}</Link></li>
+              <li><Link to="/insights?filter=healthcare" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.wellness')}</Link></li>
               <li><Link to="/insights?filter=real-estate" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.realestate')}</Link></li>
             </ul>
           </div>

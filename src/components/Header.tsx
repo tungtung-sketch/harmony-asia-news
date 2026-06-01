@@ -179,17 +179,26 @@ const Header = () => {
             <Link to="/insights" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.overview')}
             </Link>
-            <Link to="/insights?filter=services" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
-              {t('insights.dropdown.services')}
-            </Link>
             <Link to="/insights?filter=manufacturing" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.manufacturing')}
             </Link>
-            <Link to="/insights?filter=healthcare" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
-              {t('insights.dropdown.wellness')}
+            <Link to="/insights?filter=services" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('insights.dropdown.services')}
+            </Link>
+            <Link to="/insights?filter=economic-policy" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('insights.dropdown.economicPolicy')}
+            </Link>
+            <Link to="/insights?filter=energy" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('insights.dropdown.energy')}
+            </Link>
+            <Link to="/insights?filter=technology" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('insights.dropdown.technology')}
             </Link>
             <Link to="/insights?filter=agriculture" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.agriculture')}
+            </Link>
+            <Link to="/insights?filter=healthcare" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('insights.dropdown.wellness')}
             </Link>
             <Link to="/insights?filter=real-estate" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.realestate')}
@@ -211,16 +220,25 @@ const Header = () => {
               <Link to="/insights">{t('insights.dropdown.overview')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
-              <Link to="/insights?filter=services">{t('insights.dropdown.services')}</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights?filter=manufacturing">{t('insights.dropdown.manufacturing')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
-              <Link to="/insights?filter=healthcare">{t('insights.dropdown.wellness')}</Link>
+              <Link to="/insights?filter=services">{t('insights.dropdown.services')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/insights?filter=economic-policy">{t('insights.dropdown.economicPolicy')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/insights?filter=energy">{t('insights.dropdown.energy')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/insights?filter=technology">{t('insights.dropdown.technology')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights?filter=agriculture">{t('insights.dropdown.agriculture')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/insights?filter=healthcare">{t('insights.dropdown.wellness')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights?filter=real-estate">{t('insights.dropdown.realestate')}</Link>

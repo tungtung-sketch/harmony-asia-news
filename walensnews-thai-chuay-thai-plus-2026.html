@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>タイ「ไทยช่วยไทยพลัส」政策 ─ 日系企業への戦略的含意 | WaLens Intelligence</title>
+  <meta name="description" content="タイ政府の消費刺激策「คนละครึ่งพลัส」の全解剖。中国企業の動向、セクター別戦略判断、そして日系エグゼクティブの次の一手を解説するWaLensプレミアムレポート。" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── DESIGN TOKENS ─── */
+    :root {
+      --navy:        #0B1D3A;
+      --navy-mid:    #152F5C;
+      --navy-light:  #1E4080;
+      --gold:        #B8872A;
+      --gold-light:  #D4A85C;
+      --gold-pale:   #F6EDDA;
+      --cream:       #F8F5EF;
+      --white:       #FFFFFF;
+      --ink:         #1A1A22;
+      --text:        #3A3A45;
+      --meta:        #80808C;
+      --border:      #E6E0D5;
+      --ruby:        #8B1F2E;
+      --green:       #1A6B3C;
+      --amber:       #9B5A00;
+
+      --f-display: 'Cormorant Garamond', 'Noto Serif JP', Georgia, serif;
+      --f-jp:      'Noto Serif JP', serif;
+      --f-body:    'DM Sans', -apple-system, sans-serif;
+
+      --col-content: 820px;
+      --col-wide:    1120px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--f-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAVIGATION ─── */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--col-wide);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      font-family: var(--f-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .nav-logo em { color: var(--gold); font-style: normal; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background .2s;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { background: var(--navy-mid); }
+
+    /* ─── REPORT HEADER ─── */
+    .rh {
+      background: var(--navy);
+      color: white;
+      padding: 72px 32px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rh::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(184,135,42,.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 5%  85%, rgba(21,47,92,.7)   0%, transparent 50%);
+      pointer-events: none;
+    }
+    /* Faint diagonal rule — purely decorative */
+    .rh::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 420px; height: 100%;
+      background: repeating-linear-gradient(
+        -55deg,
+        rgba(255,255,255,.018) 0px,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px,
+        transparent 28px
+      );
+      pointer-events: none;
+    }
+    .rh-inner {
+      max-width: var(--col-content);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* breadcrumb */
+    .breadcrumb {
+      font-size: 11px;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.38);
+      margin-bottom: 22px;
+    }
+    .breadcrumb a { color: rgba(255,255,255,.38); text-decoration: none; }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* tags */
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .tag-premium { background: var(--gold); color: var(--navy); }
+    .tag-cat {
+      background: rgba(255,255,255,.1);
+      color: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    /* titles */
+    .rh-jp {
+      font-family: var(--f-jp);
+      font-size: clamp(15px, 2.4vw, 19px);
+      font-weight: 600;
+      color: rgba(255,255,255,.78);
+      line-height: 1.65;
+      margin-bottom: 14px;
+      letter-spacing: .03em;
+    }
+    .rh-en {
+      font-family: var(--f-display);
+      font-size: clamp(30px, 5.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .rh-en em { font-style: italic; font-weight: 400; color: rgba(255,255,255,.85); }
+    .rh-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.65;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    /* urgency strip */
+    .urgency {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 18px;
+      border: 1px solid rgba(184,135,42,.35);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 5px 5px 0;
+      background: rgba(184,135,42,.1);
+      margin-bottom: 34px;
+      max-width: 640px;
+    }
+    .urgency .pulse-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      flex-shrink: 0;
+      margin-top: 6px;
+      animation: blink 2.2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 55%{opacity:.3} }
+    .urgency p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,.75);
+    }
+    .urgency strong { color: var(--gold-light); }
+
+    /* meta row */
+    .rh-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .rh-meta span {
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: rgba(255,255,255,.38);
+    }
+    .rh-meta .sep {
+      width: 1px; height: 12px;
+      background: rgba(255,255,255,.18);
+    }
+
+    /* ─── ARTICLE ─── */
+    .article {
+      max-width: var(--col-content);
+      margin: 0 auto;
+      padding: 52px 32px 0;
+    }
+
+    /* section labeling */
+    .s-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--meta);
+      margin-bottom: 10px;
+    }
+    .s-jp {
+      font-family: var(--f-jp);
+      font-size: 13px;
+      color: var(--meta);
+      margin-bottom: 6px;
+    }
+    .s-h2 {
+      font-family: var(--f-display);
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 22px;
+    }
+    .body-p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .body-p em { font-style: italic; }
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 44px 0;
+    }
+
+    /* ─── EXECUTIVE BRIEF BOX ─── */
+    .exec-brief {
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 32px 36px;
+      margin-bottom: 52px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.04);
+    }
+    .eb-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eb-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-pale); }
+    .eb-title {
+      font-family: var(--f-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+    .eb-points { display: flex; flex-direction: column; gap: 16px; }
+    .eb-point { display: flex; gap: 14px; align-items: flex-start; }
+    .eb-num {
+      width: 24px; height: 24px;
+      background: var(--navy);
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .eb-point p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .eb-point strong { color: var(--ink); }
+
+    /* ─── KEY NUMBERS GRID ─── */
+    .nums-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin: 32px 0 36px;
+    }
+    .num-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 14px;
+      text-align: center;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .num-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,.07);
+      transform: translateY(-2px);
+    }
+    .num-val {
+      font-family: var(--f-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .num-val small { font-size: 15px; }
+    .num-unit { font-size: 11px; color: var(--meta); margin-bottom: 7px; }
+    .num-lbl { font-size: 11px; color: var(--text); font-weight: 500; line-height: 1.4; }
+
+    /* ─── SIGNAL CARDS ─── */
+    .signals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .sig-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 20px;
+    }
+    .sig-type {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sig-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .sig-txt {
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .sig-txt strong { color: var(--ink); display: block; margin-bottom: 6px; }
+
+    /* ─── FREE BADGE ─── */
+    .free-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(26,107,60,.08);
+      border: 1px solid rgba(26,107,60,.2);
+      padding: 4px 10px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+    }
+
+    /* ─── PAYWALL AREA ─── */
+    .paywall-wrap {
+      position: relative;
+      margin-top: 52px;
+    }
+
+    /* blurred premium preview */
+    .pw-preview {
+      filter: blur(3.5px);
+      pointer-events: none;
+      user-select: none;
+      overflow: hidden;
+      max-height: 380px;
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+      mask-image: linear-gradient(to bottom, black 0%, transparent 75%);
+      padding: 0 0 80px;
+    }
+    .pw-preview-block {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 30px 32px;
+      margin-bottom: 20px;
+    }
+    .pw-preview-block .s-label { color: var(--gold); }
+    .pw-preview-block .s-h2 { font-size: 24px; margin-bottom: 14px; }
+    .pw-preview-block .body-p { font-size: 14px; }
+
+    /* ── sector table stub ── */
+    .sector-table-stub {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+    .sector-table-stub th {
+      background: var(--navy);
+      color: white;
+      padding: 10px 14px;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: left;
+      font-weight: 600;
+    }
+    .sector-table-stub td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .sector-table-stub tr:nth-child(even) td { background: var(--cream); }
+    .pill {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: 3px 9px;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+    .pill-h { background: rgba(26,107,60,.12); color: var(--green); }
+    .pill-m { background: rgba(155,90,0,.1); color: var(--amber); }
+    .pill-l { background: rgba(26,31,60,.08); color: var(--navy); }
+
+    /* ── Next Action stub ── */
+    .nai-stub {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 10px;
+      padding: 28px 30px;
+      color: white;
+      margin-top: 20px;
+    }
+    .nai-stub-title {
+      font-family: var(--f-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .nai-stub-title small {
+      display: block;
+      font-family: var(--f-jp);
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .nai-horizons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .nai-h {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-top: 2px solid var(--gold);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .nai-h-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .nai-h-jp {
+      font-family: var(--f-jp);
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 8px;
+    }
+    .nai-h-text {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.55;
+    }
+
+    /* ─── PAYWALL GATE CARD ─── */
+    .pw-gate {
+      position: relative;
+      z-index: 10;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 44px 40px;
+      text-align: center;
+      box-shadow: 0 12px 60px rgba(11,29,58,.1);
+      margin-top: -60px;
+    }
+    .pw-icon {
+      width: 52px; height: 52px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .pw-gate h3 {
+      font-family: var(--f-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .pw-gate h3 small {
+      display: block;
+      font-family: var(--f-jp);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--meta);
+      margin-bottom: 6px;
+    }
+    .pw-desc {
+      font-size: 14px;
+      color: var(--meta);
+      max-width: 400px;
+      margin: 0 auto 26px;
+      line-height: 1.65;
+    }
+    .pw-value {
+      max-width: 380px;
+      margin: 0 auto 28px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pw-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .pw-check { color: var(--gold); font-size: 14px; font-weight: 700; flex-shrink: 0; }
+    .btn-unlock {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      padding: 15px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-unlock:hover { background: var(--navy-mid); transform: translateY(-1px); }
+    .pw-note {
+      font-size: 12px;
+      color: var(--meta);
+      margin-top: 14px;
+    }
+    .pw-note a { color: var(--gold); text-decoration: none; }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--navy);
+      color: white;
+      padding: 60px 32px 0;
+      margin-top: 88px;
+    }
+    .footer-grid {
+      max-width: var(--col-wide);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: var(--f-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: .06em;
+      margin-bottom: 14px;
+    }
+    .footer-logo em { color: var(--gold-light); font-style: normal; }
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+      line-height: 1.7;
+      max-width: 300px;
+    }
+    .footer-h {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      max-width: var(--col-wide);
+      margin: 0 auto;
+      padding: 22px 0;
+      font-size: 12px;
+      color: rgba(255,255,255,.25);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .rh-inner > * {
+      animation: fadeUp .65s ease both;
+    }
+    .rh-inner > *:nth-child(1) { animation-delay: .05s; }
+    .rh-inner > *:nth-child(2) { animation-delay: .12s; }
+    .rh-inner > *:nth-child(3) { animation-delay: .20s; }
+    .rh-inner > *:nth-child(4) { animation-delay: .28s; }
+    .rh-inner > *:nth-child(5) { animation-delay: .36s; }
+    .rh-inner > *:nth-child(6) { animation-delay: .44s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nums-grid { grid-template-columns: repeat(3, 1fr); }
+      .signals-grid { grid-template-columns: 1fr; }
+      .nai-horizons { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .article { padding: 36px 20px 0; }
+      .rh { padding: 52px 20px 44px; }
+      .nums-grid { grid-template-columns: repeat(2, 1fr); }
+      .exec-brief { padding: 24px 22px; }
+      .pw-gate { padding: 32px 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://walensnews.com" class="nav-logo">Wa<em>Lens</em></a>
+    <ul class="nav-links">
+      <li><a href="https://walensnews.com/daily-brief">Daily Brief</a></li>
+      <li><a href="https://walensnews.com/insights">Insights</a></li>
+      <li><a href="https://walensnews.com/industries">Industries</a></li>
+      <li><a href="https://walensnews.com/about">About</a></li>
+    </ul>
+    <a href="https://walensnews.com/subscribe" class="nav-cta">Subscribe to Premium ↗</a>
+  </div>
+</nav>
+
+<!-- ═══ REPORT HEADER ═══ -->
+<header class="rh">
+  <div class="rh-inner">
+
+    <div class="breadcrumb">
+      <a href="https://walensnews.com">Home</a><span>›</span>
+      <a href="https://walensnews.com/insights">Insights</a><span>›</span>
+      Economic Policy
+    </div>
+
+    <div class="tags">
+      <span class="tag tag-premium">⬥ Premium Intelligence</span>
+      <span class="tag tag-cat">Economic Policy</span>
+      <span class="tag tag-cat">Consumer Markets</span>
+      <span class="tag tag-cat">China Competition</span>
+    </div>
+
+    <p class="rh-jp">
+      タイ「ไทยช่วยไทยพลัส（คนละครึ่งพลัส）」政策の全解剖<br>
+      ── 中国企業の次の一手と、日系エグゼクティブが今知るべき戦略的含意
+    </p>
+
+    <h1 class="rh-en">
+      Thailand's <em>"Thais Help Thais Plus"</em> Stimulus:<br>
+      Strategic Implications for Japanese Executives
+    </h1>
+
+    <p class="rh-sub">
+      The government co-payment program launches June 1, 2026. With 43 million consumers and ฿175 billion in play across four months, this is the most consequential demand signal of the year — and Chinese competitors are already reading it.
+    </p>
+
+    <div class="urgency">
+      <div class="pulse-dot"></div>
+      <p>
+        <strong>支出窓口は6月1日に開きました。</strong> The consumption window is now open.
+        Companies that understand the channel dynamics and competitive moves early will be
+        better positioned before Q3 closes. This briefing gives you that read.
+      </p>
+    </div>
+
+    <div class="rh-meta">
+      <span>June 2026</span>
+      <div class="sep"></div>
+      <span>Reading time: approx. 14 min</span>
+      <div class="sep"></div>
+      <span>WaLens Editorial Team</span>
+      <div class="sep"></div>
+      <span>Thailand Economic Policy</span>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<main class="article">
+
+  <!-- ── EXECUTIVE BRIEF (FREE) ── -->
+  <div class="free-badge">
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
+    Free Preview · 無料プレビュー
+  </div>
+
+  <div class="exec-brief">
+    <div class="eb-label">Executive Brief · エグゼクティブブリーフ</div>
+    <div class="eb-title">The Three Things Every Executive Needs to Know First</div>
+    <div class="eb-points">
+
+      <div class="eb-point">
+        <div class="eb-num">1</div>
+        <p>タイ政府は<strong>4,310万人を対象とした、同国史上最大規模の消費刺激策</strong>を発動。政府が支出額の60%を補助する「คนละครึ่งพลัส（コン・ラ・クルン・プラス）」方式を採用し、6月〜9月の4ヵ月間、計1,757億バーツを小規模小売市場に投下する。1人あたりの補助上限は月1,000バーツ（4ヵ月で計4,000バーツ）。The 60/40 co-payment scheme — the government subsidizes 60%, the consumer pays 40% — targets 43.18 million people with ฿175.7 billion over four months, June through September 2026.</p>
+      </div>
+
+      <div class="eb-point">
+        <div class="eb-num">2</div>
+        <p><strong>大手流通・ECプラットフォーム・フランチャイズ各店は意図的に除外されている。</strong> 補助金の対象は零細小売店・地場飲食店・Thong Fah（ธงฟ้า）系列店のみ。7-Eleven・BigC・Lotus's・Makro、およびShopee・Lazada・TikTok Shopといった主要ECは直接の対象外となる。The scheme is deliberately routed away from modern trade. If your key accounts are large-format retail or e-commerce, you are outside the direct demand wave — but not unaffected.</p>
+      </div>
+
+      <div class="eb-point">
+        <div class="eb-num">3</div>
+        <p><strong>中国系企業の動向が、この施策の最大の戦略変数となる。</strong> 制度設計上は中国人経営店舗への補助金流入を防ぐ仕組みだが、小売店頭に並ぶ中国製品を通じて刺激資金の15〜20%が国外へ漏出するという推計がある。さらに中国系自動車メーカーはすでに2026年1月時点でタイ市場の46.8%を占有しており、自動車セクターでの戦略的意思決定は一刻の猶予もない状況にある。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION: WHAT IS THE POLICY ── -->
+  <div class="s-label">Policy Overview · 施策の概要</div>
+  <div class="s-jp">「ไทยช่วยไทยพลัส」とは何か ── 機能の仕組みを読む</div>
+  <h2 class="s-h2">The 60/40 Co-Payment Mechanism, Explained</h2>
+
+  <p class="body-p">
+    On May 19, 2026, the Thai Cabinet approved <em>Thai Chuay Thai Plus</em>
+    (ไทยช่วยไทย พลัส ฝ่าวิกฤตไปด้วยกัน — "Thais Help Thais Plus: Overcoming the Crisis Together"),
+    PM Anutin Charnvirakul's largest domestic economic intervention to date. The program builds on
+    the established Khon La Khrueng ("Half-Half") co-payment model but upgrades the subsidy ratio
+    from the previous 50/50 split to a more aggressive <strong>60/40</strong>, with the government
+    covering the larger share. For every qualifying purchase at a registered small merchant, the
+    government pays 60% and the consumer pays 40% — up to 200 baht of government contribution per
+    day, 1,000 baht per month. A participant who maximizes the monthly subsidy contributes
+    approximately 667 baht of their own money to unlock the full government top-up, implying roughly
+    <strong>6,667 baht in total stimulated consumption per person</strong> if fully utilized across
+    four months.
+  </p>
+
+  <p class="body-p">
+    Registration ran from May 25–29, 2026 via the "Pao Tang" (เป๋าตัง) mobile app, drawing
+    26.5 million applicants in five days — approximately 4 million short of the 30 million general
+    registrant target, but sufficient for an active and meaningful program. State Welfare Card
+    holders (13.18 million people) receive an automatic monthly top-up of 700 baht, requiring no
+    re-registration. The spending window opened June 1, 2026 and runs through September 30.
+  </p>
+
+  <!-- KEY NUMBERS -->
+  <div class="nums-grid">
+    <div class="num-card">
+      <div class="num-val">60/40</div>
+      <div class="num-unit">Subsidy Ratio</div>
+      <div class="num-lbl">Govt pays 60%, consumer pays 40%</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">43.2<small>M</small></div>
+      <div class="num-unit">People Covered</div>
+      <div class="num-lbl">Largest co-payment program in Thai history</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">฿4,000</div>
+      <div class="num-unit">Per Person</div>
+      <div class="num-lbl">Total govt subsidy over 4 months</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">฿175.7<small>B</small></div>
+      <div class="num-unit">Total Budget</div>
+      <div class="num-lbl">Funded via emergency energy-crisis borrowing decree</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">Jun–Sep</div>
+      <div class="num-unit">2026</div>
+      <div class="num-lbl">4-month spending window, face-to-face QR only</div>
+    </div>
+  </div>
+
+  <p class="body-p">
+    Eligible merchants are restricted to registered small businesses — local eateries, general goods
+    stores, community cooperative shops, and government-branded Thong Fah (ธงฟ้า) outlets — with
+    annual revenues under 1.8 million baht. Excluded from participation: major modern-trade chains
+    (Big C, Lotus's, Makro), all franchise convenience stores (7-Eleven, FamilyMart), and e-commerce
+    platforms. Excluded product categories include alcohol, tobacco, lottery, fuel, and prepaid
+    vouchers. All transactions must occur face-to-face via the "Thung Ngern" (ถุงเงิน) merchant QR
+    system — no online or intermediary payments. One notable policy addition from mid-June: the
+    co-payment is extended to food-delivery apps (Grab, LINE MAN, ShopeeFood, Robinhood) for food
+    and beverage cost only — not delivery fees.
+  </p>
+
+  <hr class="divider" />
+
+  <!-- ── SECTION: 3 SIGNALS (FREE) ── -->
+  <div class="s-label">Key Intelligence Signals · 主要インテリジェンスシグナル</div>
+  <div class="s-jp">外資系企業がこの施策から読むべき3つのシグナル</div>
+  <h2 class="s-h2">Three Signals Every Executive Should Track Now</h2>
+
+  <div class="signals-grid">
+
+    <div class="sig-card">
+      <div class="sig-type" style="color: var(--green)">
+        <div class="sig-dot" style="background: var(--green)"></div>
+        Opportunity · 機会
+      </div>
+      <div class="sig-txt">
+        <strong>Grassroots consumer spending is about to accelerate — and the channel is traditional trade.</strong>
+        Wet markets, small independent stores, and local restaurants will see the most direct uplift.
+        Companies whose distribution networks reach these channels are positioned to capture a 4-month
+        demand surge before Q4. The question is whether your inventory and trade-marketing plans
+        are already calibrated for it.
+      </div>
+    </div>
+
+    <div class="sig-card">
+      <div class="sig-type" style="color: var(--amber)">
+        <div class="sig-dot" style="background: #C87D1A"></div>
+        Caution · 注意
+      </div>
+      <div class="sig-txt">
+        <strong>The scheme creates a deliberate channel distortion that modern-trade operators must plan around.</strong>
+        The exclusion of convenience chains and hypermarkets is not an accident — it is a policy
+        choice to route subsidized demand away from large corporates toward small merchants.
+        Companies whose core Thai accounts are large-format retail will see a relative drag while
+        the program runs. Promotional calendars may need rebalancing toward the co-payment period.
+      </div>
+    </div>
+
+    <div class="sig-card">
+      <div class="sig-type" style="color: var(--ruby)">
+        <div class="sig-dot" style="background: var(--ruby)"></div>
+        Strategic Watch · 戦略的注視
+      </div>
+      <div class="sig-txt">
+        <strong>Chinese firms are already positioned to intercept this demand — and the playbook is familiar.</strong>
+        Independent economists estimate 15–20% of co-payment spending flows to Chinese-manufactured
+        goods through legitimate Thai small shops. In automotive, Chinese brands hold 46.8% of the
+        Thai market as of January 2026. The consumption window is an acceleration context for a
+        competition that is already well underway. This is the part of the analysis that most
+        executives are not yet reading closely enough.
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ PAYWALL AREA ═══ -->
+  <div class="paywall-wrap" id="subscribe">
+
+    <!-- Blurred premium content preview -->
+    <div class="pw-preview">
+
+      <!-- Block 1: Macro context stub -->
+      <div class="pw-preview-block">
+        <div class="s-label" style="color:var(--gold)">Macro Intelligence · マクロインテリジェンス</div>
+        <div class="s-jp">財政・政治シグナルの深読み ── この施策が示す2026〜27年タイ経済の方向性</div>
+        <h2 class="s-h2">The Fiscal Signal Behind the Stimulus</h2>
+        <p class="body-p">
+          Thailand's 2026 GDP consensus is clustering at 1.6–2.1%, the lowest trajectory in years.
+          Household debt stands at 86.8% of GDP — the highest in ASEAN — and private consumption
+          growth is forecast at just 2.3–2.5% without intervention. The stimulus is not being
+          launched from a position of strength. It is a defensive measure by PM Anutin's Bhumjaithai
+          government, funded via an emergency borrowing decree of up to 400 billion baht, at a moment
+          when public debt is approaching the 70% ceiling.
+        </p>
+        <p class="body-p">
+          What this tells experienced executives about the government's fiscal posture and the
+          probability of successor programs in FY2027 is detailed in the premium section below.
+          The political incentive structure — with Bhumjaithai's 194-seat coalition and Anutin's
+          framing of the scheme as a personal political promise — is also a factor in assessing
+          program continuity risk...
+        </p>
+      </div>
+
+      <!-- Block 2: China playbook stub -->
+      <div class="pw-preview-block">
+        <div class="s-label" style="color:var(--gold)">China Competitive Intelligence · 中国競合インテリジェンス</div>
+        <div class="s-jp">中国企業の戦略的動向 ── 施策をどう読み、どう動くか</div>
+        <h2 class="s-h2">China's Competitive Playbook: What Japanese Executives Need to Anticipate</h2>
+        <p class="body-p">
+          The 15–20% leakage estimate is a starting point, not the full picture. In automotive,
+          Chinese carmakers commanded 46.8% of the Thai market in January 2026 — up from
+          20.2% a year earlier — with BYD outselling Toyota in bookings at the Bangkok International
+          Motor Show. The EV3.0 subsidy regime has expired, but Chinese manufacturers are
+          operationalizing local production (BYD's Rayong plant) and price-positioning their
+          entry-level ICE portfolio to capture stimulus-supported consumer wallets...
+        </p>
+      </div>
+
+      <!-- Block 3: Sector table stub -->
+      <div class="pw-preview-block">
+        <div class="s-label" style="color:var(--gold)">Sector Decision Guide · セクター別戦略判断</div>
+        <div class="s-jp">6つの主要セクターにおける直接・間接的インパクトと優先度</div>
+        <h2 class="s-h2" style="font-size:22px; margin-bottom:16px">Sector-by-Sector Relevance & Priority Assessment</h2>
+        <table class="sector-table-stub">
+          <thead>
+            <tr>
+              <th>Industry / 業種</th>
+              <th>Direct Relevance</th>
+              <th>China Exposure</th>
+              <th>Urgency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Consumer Goods / FMCG</strong></td>
+              <td>High — traditional trade uplift</td>
+              <td>High (shelf competition)</td>
+              <td><span class="pill pill-h">Act Now</span></td>
+            </tr>
+            <tr>
+              <td><strong>Food &amp; Beverage</strong></td>
+              <td>High — small restaurants benefit directly</td>
+              <td>Low</td>
+              <td><span class="pill pill-h">Act Now</span></td>
+            </tr>
+            <tr>
+              <td><strong>Automotive</strong></td>
+              <td>Indirect — no direct subsidy access</td>
+              <td>Critical (46.8% share)</td>
+              <td><span class="pill pill-h">Strategic Priority</span></td>
+            </tr>
+            <tr>
+              <td><strong>Logistics &amp; Distribution</strong></td>
+              <td>Indirect — volume uplift through FMCG</td>
+              <td>Medium</td>
+              <td><span class="pill pill-m">Monitor</span></td>
+            </tr>
+            <tr>
+              <td><strong>Machinery / Industrial B2B</strong></td>
+              <td>Indirect — lagged transmission</td>
+              <td>Low</td>
+              <td><span class="pill pill-l">Watch</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Block 4: Next Action Insights stub -->
+      <div class="nai-stub">
+        <div class="nai-stub-title">
+          <small>日系エグゼクティブへの次のアクション</small>
+          Next Action Insights for Japanese Executives
+        </div>
+        <div class="nai-horizons">
+          <div class="nai-h">
+            <div class="nai-h-label">Right Now · 今すぐ</div>
+            <div class="nai-h-jp">6月1日〜 即実行</div>
+            <div class="nai-h-text">Traditional trade inventory positioning, Thung Ngern merchant enrollment for eligible formats, and promotional budget reallocation across...</div>
+          </div>
+          <div class="nai-h">
+            <div class="nai-h-label">By End of June · 6月末まで</div>
+            <div class="nai-h-jp">6月末日を目処に</div>
+            <div class="nai-h-text">Food-delivery channel activation (Grab / LINE MAN co-payment launch), partner distributor support package, and Chinese competitor...</div>
+          </div>
+          <div class="nai-h">
+            <div class="nai-h-label">Q4 2026 & Beyond · Q4以降</div>
+            <div class="nai-h-jp">刺激策終了後のポジショニング</div>
+            <div class="nai-h-text">Demand cliff assessment, FY2027 budget lobbying watch, and China share-gain post-mortem to inform long-horizon...</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /pw-preview -->
+
+    <!-- ── PAYWALL GATE ── -->
+    <div class="pw-gate">
+      <div class="pw-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+
+      <h3>
+        <small>この続きはWaLensプレミアム会員限定です</small>
+        Continue Reading with WaLens Premium
+      </h3>
+
+      <p class="pw-desc">
+        The full strategic analysis — macro context, China competitive deep dive, sector decision
+        guide, and Next Action Insights — is available exclusively to WaLens Premium members.
+      </p>
+
+      <div class="pw-value">
+        <div class="pw-item">
+          <span class="pw-check">⬥</span>
+          <span><strong>Full macro &amp; fiscal context</strong> — what this stimulus signals about Thailand's 2026–27 economic and political trajectory</span>
+        </div>
+        <div class="pw-item">
+          <span class="pw-check">⬥</span>
+          <span><strong>China competitive deep dive</strong> — pricing moves, e-commerce positioning, nominee-company crackdown dynamics, and automotive share-gain strategy</span>
+        </div>
+        <div class="pw-item">
+          <span class="pw-check">⬥</span>
+          <span><strong>Sector decision guide</strong> — across FMCG, F&amp;B, Automotive, Logistics, Industrial, and Convenience Retail with China-exposure ratings</span>
+        </div>
+        <div class="pw-item">
+          <span class="pw-check">⬥</span>
+          <span><strong>Next Action Insights for Japanese Executives</strong> — specific, time-sequenced steps for Q2, Q3, and Q4 2026 by industry</span>
+        </div>
+        <div class="pw-item">
+          <span class="pw-check">⬥</span>
+          <span><strong>Strategic watchpoints &amp; benchmarks</strong> — the signals that would change the calculus for a second round or sector rebalancing</span>
+        </div>
+      </div>
+
+      <a href="https://walensnews.com/subscribe" class="btn-unlock">
+        Unlock the Full Report →
+      </a>
+      <p class="pw-note">
+        WaLens Premium · From THB 1,900 / month · <a href="https://walensnews.com/plans">View all plans</a> · Cancel anytime
+      </p>
+    </div>
+
+  </div><!-- /paywall-wrap -->
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Wa<em>Lens</em></div>
+      <p class="footer-desc">
+        Executive intelligence for Japanese companies operating in Thailand.
+        Trusted by senior leaders across manufacturing, automotive, logistics,
+        consumer goods, and energy sectors.<br><br>
+        タイで事業を展開する日系企業のエグゼクティブのための
+        戦略インテリジェンス・プラットフォーム。
+      </p>
+    </div>
+    <div>
+      <div class="footer-h">Intelligence Areas</div>
+      <ul class="footer-links">
+        <li><a href="#">Economic Policy</a></li>
+        <li><a href="#">Manufacturing &amp; Supply Chain</a></li>
+        <li><a href="#">Automotive &amp; EV</a></li>
+        <li><a href="#">Consumer Markets</a></li>
+        <li><a href="#">Energy &amp; Logistics</a></li>
+        <li><a href="#">China in Thailand</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-h">Subscribe</div>
+      <ul class="footer-links">
+        <li><a href="#">WaLens Premium</a></li>
+        <li><a href="#">Corporate Seat Licenses</a></li>
+        <li><a href="#">Daily Brief (Free)</a></li>
+        <li><a href="#">Contact &amp; Inquiries</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WaLens Intelligence · walensnews.com</span>
+    <span>All rights reserved · For Japanese executives in Thailand</span>
+  </div>
+</footer>
+
+</body>
+</html>

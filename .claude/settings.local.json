@@ -15,7 +15,13 @@
       "WebFetch(domain:localhost)",
       "Bash(curl -s http://localhost:5173/)",
       "Bash(git commit *)",
-      "Bash(supabase functions *)"
+      "Bash(supabase functions *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/insights/economic-policy/thai-chuay-thai-plus-2026)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/insights)",
+      "WebSearch",
+      "WebFetch(domain:thestandard.co)",
+      "WebFetch(domain:www.thaipbs.or.th)",
+      "Bash(curl -L -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://thestandard.co/wp-content/uploads/2026/05/anutin-thai-chuay-thai-cover.jpg\" -o \"C:\\\\Users\\\\Tung\\\\Documents\\\\harmony-asia-news\\\\src\\\\assets\\\\thai-chuay-thai-anutin.jpg\" -w \"%{http_code}\")"
     ]
   }
 }
