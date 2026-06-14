@@ -188,6 +188,9 @@ const Header = () => {
             <Link to="/insights?filter=economic-policy" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.economicPolicy')}
             </Link>
+            <Link to="/insights?filter=trade" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
+              {t('insights.dropdown.trade')}
+            </Link>
             <Link to="/insights?filter=energy" className="block py-2 text-muted-foreground hover:text-primary" onClick={closeMenu}>
               {t('insights.dropdown.energy')}
             </Link>
@@ -227,6 +230,9 @@ const Header = () => {
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights?filter=economic-policy">{t('insights.dropdown.economicPolicy')}</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
+              <Link to="/insights?filter=trade">{t('insights.dropdown.trade')}</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="py-3 px-4 focus:bg-muted">
               <Link to="/insights?filter=energy">{t('insights.dropdown.energy')}</Link>

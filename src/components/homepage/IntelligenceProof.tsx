@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import reportImage from '@/assets/executive-reports-dashboard.jpg';
 import thaiChuayImage from '@/assets/thai-chuay-thai-anutin.jpg';
+import rulesOfOriginImage from '@/assets/intelligence-global-trade.jpg';
 
 interface InsightCard {
   signal: string;
@@ -146,7 +147,51 @@ const IntelligenceProof = () => {
           ))}
         </div>
 
-        {/* Featured report teaser */}
+        {/* Featured report teaser — US Rules of Origin */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/trade/us-rules-of-origin-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={rulesOfOriginImage}
+                alt="US Rules of Origin Squeeze — Strategic Analysis for Japanese Manufacturers in Thailand"
+                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Trade</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">US Tariffs</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Rules of Origin</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? '米国「原産地ルール」包囲網 ── 関税率より怖い、タイ生産日系企業への構造的脅威'
+                    : "Washington's Rules-of-Origin Squeeze: Why the Tariff Rate Is the Smaller Threat for Japanese Manufacturers in Thailand"}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? 'タイの対米関税は数週間以内に10%→約22.5%へ跳ね上がる可能性。だが本当の脅威は原産地ルールが「実質的変更」から「地域原産割合（RVC）」へ移行することであり、基準未達品には最大40%の関税。7月24日までに何をすべきかをWaLensが解説する。'
+                    : "Thailand's US tariff could jump from 10% to ~22.5% within weeks — but the real threat is the origin rule shifting from substantial transformation to local-content (RVC), with penalties of up to 40% for goods that fail. WaLens breaks down what to do before July 24."}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        {/* Featured report teaser — Thai Chuay Thai Plus */}
         <div className="max-w-6xl mx-auto mt-8">
           <Link
             to="/insights/economic-policy/thai-chuay-thai-plus-2026"

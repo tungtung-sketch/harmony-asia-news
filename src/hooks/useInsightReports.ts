@@ -162,6 +162,16 @@ export const reportMetadata: Record<string, {
     descriptionJa: '東南アジア自動車アフターマーケットの戦略的変革2026：年平均成長率10％の市場展望、中国OEMの競争激化、EVバッテリー物流、ASEANサプライチェーン再編、日系企業経営層への戦略提言。',
     link: '/insights/manufacturing/sea-automotive-aftermarket-2026'
   },
+  'us-rules-of-origin-2026': {
+    industry: 'Trade',
+    industryJa: '通商',
+    description: "How Washington's shift from 'substantial transformation' to local-content (RVC) origin rules, combined with a June–July tariff deadline ladder, threatens Japanese manufacturers exporting from Thailand — and what to do before July 24.",
+    descriptionJa: '米国の原産地判定が「実質的変更」から地域原産割合（RVC）へ移行——6〜7月の関税決定カレンダーと併せ、タイから対米輸出する日系メーカーへの構造的脅威と、7月24日までに取るべき具体策。',
+    link: '/insights/trade/us-rules-of-origin-2026',
+    titleEn: "Washington's Rules-of-Origin Squeeze: Why the Tariff Rate Is the Smaller Threat for Japanese Manufacturers in Thailand",
+    titleJa: '米国「原産地ルール」包囲網 ── 関税率より怖い、タイ生産日系企業への構造的脅威',
+    lastUpdated: '2026-06-14'
+  },
   'thai-chuay-thai-plus-2026': {
     industry: 'Economic Policy',
     industryJa: '経済政策',

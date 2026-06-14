@@ -32,6 +32,8 @@
   <url><loc>https://walensnews.com/insights/services/big-data-ai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walensnews.com/insights/services/decarbonization</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walensnews.com/insights/services/energy-industry</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/economic-policy/thai-chuay-thai-plus-2026</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walensnews.com/insights/trade/us-rules-of-origin-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-06-14</lastmod></url>
 
   <!-- Business Intelligence -->
   <url><loc>https://walensnews.com/business-intelligence</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
