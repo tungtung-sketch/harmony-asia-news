@@ -25,11 +25,12 @@ import {
   Landmark,
   Zap,
   Cpu,
-  Globe
+  Globe,
+  TrendingUp
 } from 'lucide-react';
 import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
-const VALID_FILTERS = ['all', 'manufacturing', 'services', 'agriculture', 'healthcare', 'real-estate', 'economic-policy', 'trade', 'energy', 'technology'];
+const VALID_FILTERS = ['all', 'manufacturing', 'services', 'agriculture', 'healthcare', 'real-estate', 'economic-policy', 'trade', 'investment', 'energy', 'technology'];
 
 const InsightsLanding = () => {
   const { t, lang } = useI18n();
@@ -62,6 +63,7 @@ const InsightsLanding = () => {
     { id: 'services', label: isJapanese ? 'サービス' : 'Services', labelEn: 'Services', icon: Building2 },
     { id: 'economic-policy', label: isJapanese ? '経済政策' : 'Economic Policy', labelEn: 'Economic Policy', icon: Landmark },
     { id: 'trade', label: isJapanese ? '通商' : 'Trade', labelEn: 'Trade', icon: Globe },
+    { id: 'investment', label: isJapanese ? '投資' : 'Investment', labelEn: 'Investment', icon: TrendingUp },
     { id: 'energy', label: isJapanese ? 'エネルギー' : 'Energy', labelEn: 'Energy', icon: Zap },
     { id: 'technology', label: isJapanese ? 'テクノロジー' : 'Technology', labelEn: 'Technology', icon: Cpu },
     { id: 'agriculture', label: isJapanese ? '農業' : 'Agriculture', labelEn: 'Agriculture', icon: Leaf },

@@ -181,6 +181,16 @@ export const reportMetadata: Record<string, {
     titleEn: "Thailand's 'Thais Help Thais Plus' Stimulus: Strategic Implications for Japanese Executives",
     titleJa: 'タイ「タイ・チュワイ・タイ・プラス（Thai Chuay Thai Plus）」政策の全解剖 ── 中国企業の次の一手と、日系エグゼクティブが今知るべき戦略的含意',
     lastUpdated: '2026-06-01'
+  },
+  'thailand-fdi-h1-2026': {
+    industry: 'Investment',
+    industryJa: '投資',
+    description: "Japan topped Thailand's H1 2026 foreign investment by value while China led by company count — but the two figures come from different datasets. What the BOI, DBD and BOT numbers reveal about the supplier ecosystem around Japanese plants, and the RVC origin risk it creates.",
+    descriptionJa: '2026年上半期、タイへの外国投資は日本が金額1位、中国が社数1位となった。しかしこの2つの数字は異なる統計に由来する。BOI・DBD・中央銀行の各データが示す日系工場周辺のサプライヤー網の変化と、そこから生じるRVC（原産地）リスクを読み解く。',
+    link: '/insights/investment/thailand-fdi-h1-2026',
+    titleEn: "Japan Leads by Value, China by Count: What Thailand's H1 2026 FDI Data Says About the Supplier Base Beneath You",
+    titleJa: '日本が金額1位、中国が社数1位 ── タイFDI 2026年上半期が映すサプライヤー網の静かな交代',
+    lastUpdated: '2026-07-28'
   }
 };
 

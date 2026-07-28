@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import reportImage from '@/assets/executive-reports-dashboard.jpg';
 import thaiChuayImage from '@/assets/thai-chuay-thai-anutin.jpg';
 import rulesOfOriginImage from '@/assets/intelligence-global-trade.jpg';
+import fdiH1Image from '@/assets/executive-analysis.jpg';
 
 interface InsightCard {
   signal: string;
@@ -145,6 +146,50 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser — Thailand FDI H1 2026 */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/investment/thailand-fdi-h1-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={fdiH1Image}
+                alt="Thailand FDI H1 2026 — Japan by Value, China by Count: Strategic Analysis for Japanese Executives"
+                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Investment</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">FDI</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Supply Chain</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? '日本が金額1位、中国が社数1位 ── タイFDI 2026年上半期が映すサプライヤー網の静かな交代'
+                    : "Japan Leads by Value, China by Count: What Thailand's H1 2026 FDI Data Says About the Supplier Base Beneath You"}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? '日本が金額1位（446.62億バーツ）、中国が社数1位（110社）。だが両者は異なる統計に由来する。BOI・DBD・中央銀行のデータが映すのは、日系工場を支えるサプライヤー網の国籍が静かに交代する構図と、そこから生じる約50%のRVC（原産地）リスクである。'
+                    : 'Japan #1 by value (THB 44.7bn), China #1 by company count (110 firms) — but the two figures come from different datasets. What the BOI, DBD and BOT numbers reveal about the changing nationality of the supplier base beneath Japanese plants, and the ~50% RVC origin risk it creates.'}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Featured report teaser — US Rules of Origin */}

@@ -56,6 +56,7 @@ const Footer = () => {
               <li><Link to="/insights?filter=services" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.services')}</Link></li>
               <li><Link to="/insights?filter=economic-policy" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.economicPolicy')}</Link></li>
               <li><Link to="/insights?filter=trade" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.trade')}</Link></li>
+              <li><Link to="/insights?filter=investment" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.investment')}</Link></li>
               <li><Link to="/insights?filter=energy" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.energy')}</Link></li>
               <li><Link to="/insights?filter=technology" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.technology')}</Link></li>
               <li><Link to="/insights?filter=agriculture" className="text-muted-foreground hover:text-primary transition-colors">{t('insights.dropdown.agriculture')}</Link></li>
