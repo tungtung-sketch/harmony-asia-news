@@ -1,4 +1,12 @@
 // src/sheetNews.ts
+//
+// This used to read from the WaLens Google Sheet via the gviz endpoint.
+// The content pipeline has moved to Notion -> Cloudflare Worker -> Supabase,
+// so this now reads directly from Supabase instead. The WalensNews shape is
+// kept identical on purpose so NewsCard.tsx, NewsSectionFromSheet.tsx, and
+// anything else consuming fetchWalensNews() need zero changes.
+
+import { supabase } from "@/integrations/supabase/client";
 
 export type WalensNews = {
   date: string;
@@ -19,131 +27,60 @@ export type WalensNews = {
   schema_version?: string;
 };
 
-// ใส่ Spreadsheet ID และชื่อ Sheet ที่คุณใช้อยู่
-const SPREADSHEET_ID = "1cxgOwBvOse2pSsTb2aGZqDbPbsGdkWP417HrAKudnoc";
-const SHEET_NAME = "Merged_news";
-
-// URL สำหรับ gviz JSON
-const SHEETS_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(
-  SHEET_NAME,
-)}`;
-
-// parse gviz format
-function parseGVizJSON(text: string) {
-  // Remove everything before the first '{' and after the last '}'
-  const startIdx = text.indexOf('{');
-  const endIdx = text.lastIndexOf('}');
-  
-  if (startIdx === -1 || endIdx === -1) {
-    throw new Error('Invalid gviz response format');
-  }
-  
-  const json = text.substring(startIdx, endIdx + 1);
-  return JSON.parse(json).table;
-}
-
-// แปลง cell → string
-function clean(v: any): string {
-  if (!v) return "";
-  return typeof v === "string" ? v.trim() : String(v).trim();
-}
-
-// boolean จาก Google Sheets
-function toBool(v: any): boolean {
-  if (!v) return false;
-  if (typeof v === "boolean") return v;
-  return String(v).toLowerCase() === "true" || v === "✔";
-}
-
-function getCellValue(cell: any, useFormatted: boolean = false) {
-  if (!cell) return "";
-  return useFormatted && cell.f ? cell.f : (cell.v ?? "");
-}
-
-function buildHeaders(table: any): { headers: string[]; dataRows: any[] } {
-  const fallbackHeaders = [
-    "date",
-    "time",
-    "title_raw",
-    "content_raw",
-    "title_en",
-    "content_en",
-    "title_jp",
-    "content_jp",
-    "url",
-    "category",
-    "approved",
-    "published",
-    "image",
-    "slug",
-    "url_published",
-    "schema_version",
-  ];
-
-  const columnHeaders = table.cols.map((c: any) => c.label || c.id || "");
-  const hasNamedHeaders = columnHeaders.some((header: string) => fallbackHeaders.includes(header));
-
-  if (hasNamedHeaders) {
-    return { headers: columnHeaders, dataRows: table.rows };
-  }
-
-  const firstRow = table.rows?.[0]?.c ?? [];
-  const firstRowValues = firstRow.map((cell: any) => clean(getCellValue(cell)));
-  const headerMatches = firstRowValues.filter((value: string) => fallbackHeaders.includes(value)).length;
-
-  if (headerMatches >= 6) {
-    const headers = columnHeaders.map((_, index: number) => firstRowValues[index] || fallbackHeaders[index] || `col_${index}`);
-    return { headers, dataRows: table.rows.slice(1) };
-  }
-
-  const headers = columnHeaders.map((_, index: number) => fallbackHeaders[index] || `col_${index}`);
-  return { headers, dataRows: table.rows };
-}
-
-// โหลดข้อมูลข่าว
+// โหลดข้อมูลข่าว (ตอนนี้ดึงจาก Supabase แทน Google Sheet)
 export async function fetchWalensNews(): Promise<WalensNews[]> {
   try {
-    const res = await fetch(SHEETS_URL);
-    const text = await res.text();
-    const table = parseGVizJSON(text);
+    const { data, error } = await supabase
+      .from("articles")
+      .select(
+        `
+        id,
+        slug,
+        status,
+        is_premium,
+        published_at,
+        source_url,
+        featured_image_url,
+        categories ( name_en ),
+        article_content ( language, title, content )
+      `
+      )
+      .eq("status", "published")
+      .eq("is_premium", false)
+      .order("published_at", { ascending: false });
 
-    const { headers, dataRows } = buildHeaders(table);
+    if (error) throw error;
 
-    const rows = dataRows.map((row: any) => {
-
-      const cells = row.c;
-      const getValueByHeader = (header: string, useFormatted: boolean = false) => {
-        const index = headers.indexOf(header);
-        return index >= 0 ? getCellValue(cells[index], useFormatted) : "";
-      };
+    const rows: WalensNews[] = (data || []).map((a: any) => {
+      const contents = Array.isArray(a.article_content) ? a.article_content : [];
+      const en = contents.find((c: any) => c.language === "en");
+      const ja = contents.find((c: any) => c.language === "ja");
+      const publishedDate = a.published_at ? new Date(a.published_at) : null;
 
       return {
-        date: clean(getValueByHeader("date", true)), // Use formatted date
-        time: clean(getValueByHeader("time", true)), // Use formatted time
-        title_raw: clean(getValueByHeader("title_raw")),
-        content_raw: clean(getValueByHeader("content_raw")),
-        title_en: clean(getValueByHeader("title_en")),
-        content_en: clean(getValueByHeader("content_en")),
-        title_jp: clean(getValueByHeader("title_jp")),
-        content_jp: clean(getValueByHeader("content_jp")),
-        url: clean(getValueByHeader("url")),
-        category: clean(getValueByHeader("category")),
-        approved: toBool(getValueByHeader("approved")),
-        published: toBool(getValueByHeader("published")),
-        image: clean(getValueByHeader("image")),
-        slug: clean(getValueByHeader("slug")),
-        url_published: clean(getValueByHeader("url_published")),
-        schema_version: clean(getValueByHeader("schema_version")),
+        date: publishedDate ? publishedDate.toISOString().slice(0, 10) : "",
+        time: publishedDate ? publishedDate.toISOString().slice(11, 16) : "",
+        title_raw: "",
+        content_raw: "",
+        title_en: en?.title || "",
+        content_en: en?.content || "",
+        title_jp: ja?.title || "",
+        content_jp: ja?.content || "",
+        url: a.source_url || "",
+        category: a.categories?.name_en || "",
+        approved: true,
+        published: a.status === "published",
+        image: a.featured_image_url || "",
+        slug: a.slug || "",
+        url_published: "",
+        schema_version: "",
       } as WalensNews;
-    }).filter((row) => row.slug || row.title_en || row.title_jp || row.title_raw);
+    });
 
-    // Filter ข่าวที่ “approved”
-    const approvedNews = rows.filter((r) => r.approved);
-
-    console.log("[Walens] Loaded approved articles:", approvedNews);
-    return approvedNews;
+    console.log("[Walens] Loaded articles from Supabase:", rows.length);
+    return rows;
   } catch (err) {
-    console.error("[Walens] Failed to fetch sheet:", err);
+    console.error("[Walens] Failed to fetch from Supabase:", err);
     return [];
   }
 }
