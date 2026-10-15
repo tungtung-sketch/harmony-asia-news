@@ -7,6 +7,7 @@ import reportImage from '@/assets/executive-reports-dashboard.jpg';
 import thaiChuayImage from '@/assets/thai-chuay-thai-anutin.jpg';
 import rulesOfOriginImage from '@/assets/intelligence-global-trade.jpg';
 import fdiH1Image from '@/assets/executive-analysis.jpg';
+import flood2026Image from '@/assets/hero-thai-gov-policy.jpg';
 
 interface InsightCard {
   signal: string;
@@ -146,6 +147,50 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser — Thailand Flood 2026 */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/economic-policy/thailand-flood-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={flood2026Image}
+                alt="Bangkok skyline — Thailand 2026 floods strategic analysis for Japanese executives"
+                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Economic Policy</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Supply Chain</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Disaster Risk</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイ2026年洪水：GDP損失は0.2%未満、しかしトヨタは2週間停止 ― 在タイ日系企業への戦略的示唆'
+                    : "Thailand's 2026 Floods Cost Under 0.2% of GDP but Stopped Toyota for Two Weeks: Strategic Implications for Japanese Executives"}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? '損失は120億〜340億バーツ（GDP比約0.03〜0.25%）——だがアマタシティ・チョンブリの堤防1カ所の決壊がトヨタのタイ3工場を停止させた。2027年の雨季までに日系企業経営層が是正すべきことを解説する。'
+                    : "Losses of THB 12–34 billion (≈0.03–0.25% of GDP) — but one breached embankment at Amata City Chonburi stopped Toyota's three Thai plants. What Japanese executives must fix before the 2027 monsoon."}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Featured report teaser — Thailand FDI H1 2026 */}

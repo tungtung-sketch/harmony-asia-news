@@ -191,6 +191,16 @@ export const reportMetadata: Record<string, {
     titleEn: "Japan Leads by Value, China by Count: What Thailand's H1 2026 FDI Data Says About the Supplier Base Beneath You",
     titleJa: '日本が金額1位、中国が社数1位 ── タイFDI 2026年上半期が映すサプライヤー網の静かな交代',
     lastUpdated: '2026-07-28'
+  },
+  'thailand-flood-2026': {
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
+    description: "Losses of THB 12–34 billion (≈0.03–0.25% of GDP) — but one breached embankment at Amata City Chonburi stopped Toyota's three Thai plants. What Japanese executives must fix before the 2027 monsoon.",
+    descriptionJa: '損失は120億〜340億バーツ（GDP比約0.03〜0.25%）——だがアマタシティ・チョンブリの堤防1カ所の決壊がトヨタのタイ3工場を停止させた。2027年の雨季までに日系企業経営層が是正すべきことを解説。',
+    link: '/insights/economic-policy/thailand-flood-2026',
+    titleEn: "Thailand's 2026 Floods: Strategic Implications for Japanese Executives",
+    titleJa: 'タイ2026年洪水：在タイ日系企業への戦略的示唆',
+    lastUpdated: '2026-10-15'
   }
 };
 
