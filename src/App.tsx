@@ -45,6 +45,7 @@ import EnergyCrisisBahtStrategy from "./pages/insights/reports/EnergyCrisisBahtS
 import SEAAutomotiveAftermarket from "./pages/insights/reports/SEAAutomotiveAftermarket";
 import ThaiChuayThaiPlus from "./pages/insights/reports/ThaiChuayThaiPlus";
 import USRulesOfOriginSqueeze from "./pages/insights/reports/USRulesOfOriginSqueeze";
+import ThailandFlood2026 from "./pages/insights/reports/ThailandFlood2026";
 import ThailandFDIFirstHalf2026 from "./pages/insights/reports/ThailandFDIFirstHalf2026";
 import InsightWellnessHealthcare from "./pages/insights/WellnessHealthcare";
 import InsightAgriculture from "./pages/insights/Agriculture";
@@ -133,6 +134,7 @@ const App = () => (
               <Route path="/insights/services/energy-crisis-baht-strategy-2026" element={<EnergyCrisisBahtStrategy />} />
               <Route path="/insights/manufacturing/sea-automotive-aftermarket-2026" element={<SEAAutomotiveAftermarket />} />
               <Route path="/insights/economic-policy/thai-chuay-thai-plus-2026" element={<ThaiChuayThaiPlus />} />
+              <Route path="/insights/economic-policy/thailand-flood-2026" element={<ThailandFlood2026 />} />
               <Route path="/insights/trade/us-rules-of-origin-2026" element={<USRulesOfOriginSqueeze />} />
               <Route path="/insights/investment/thailand-fdi-h1-2026" element={<ThailandFDIFirstHalf2026 />} />
               <Route path="/reset-password" element={<ResetPassword />} />
