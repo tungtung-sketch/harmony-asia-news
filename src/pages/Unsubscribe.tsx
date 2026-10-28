@@ -34,7 +34,7 @@ const Unsubscribe = () => {
       const { error: fnError } = await supabase.functions.invoke("contact-form", {
         body: {
           email: trimmed,
-          message: `UNSUBSCRIBE REQUEST — Daily Executive Briefing\n\nPlease stop sending the Daily Executive Briefing to: ${trimmed}\n\nSubmitted via walensnews.com/unsubscribe (${isJapanese ? 'JA' : 'EN'}).`,
+          message: `UNSUBSCRIBE REQUEST — Thailand Economic Report\n\nPlease stop sending the Thailand Economic Report to: ${trimmed}\n\nSubmitted via walensnews.com/unsubscribe (${isJapanese ? 'JA' : 'EN'}).`,
         },
       });
       if (fnError) throw fnError;
@@ -54,8 +54,8 @@ const Unsubscribe = () => {
       <SEO
         title={isJapanese ? '配信停止 | WaLens' : 'Unsubscribe | WaLens'}
         description={isJapanese
-          ? 'WaLens 日刊エグゼクティブ・ブリーフィングの配信停止手続き'
-          : 'Stop receiving the WaLens Daily Executive Briefing.'}
+          ? 'WaLens「タイ経済レポート」の配信停止手続き'
+          : 'Stop receiving the WaLens Thailand Economic Report.'}
         canonicalPath="/unsubscribe"
         noIndex
       />
@@ -80,11 +80,11 @@ const Unsubscribe = () => {
               <p className="text-muted-foreground leading-relaxed">
                 {done
                   ? (isJapanese
-                    ? '2営業日以内に日刊エグゼクティブ・ブリーフィングの配信を停止いたします。その間にお届けするメールがある場合がございますので、ご了承ください。'
-                    : 'We will stop sending the Daily Executive Briefing within 2 business days. You may receive an email in the meantime.')
+                    ? '2営業日以内に「タイ経済レポート」の配信を停止いたします。その間にお届けするメールがある場合がございますので、ご了承ください。'
+                    : 'We will stop sending the Thailand Economic Report within 2 business days. You may receive an email in the meantime.')
                   : (isJapanese
-                    ? '日刊エグゼクティブ・ブリーフィングの配信を停止します。配信先のメールアドレスを入力してください。'
-                    : 'Stop receiving the Daily Executive Briefing. Enter the email address it is sent to.')}
+                    ? '「タイ経済レポート」の配信を停止します。配信先のメールアドレスを入力してください。'
+                    : 'Stop receiving the Thailand Economic Report. Enter the email address it is sent to.')}
               </p>
             </div>
 

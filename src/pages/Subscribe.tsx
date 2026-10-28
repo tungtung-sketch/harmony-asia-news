@@ -208,9 +208,9 @@ const Subscribe = () => {
                 </div>
                 <ul className="space-y-3 flex-1 mb-6">
                   {[
-                    { icon: '📰', ja: '毎朝の厳選トピック5〜7本', en: '5–7 curated business developments every morning' },
+                    { icon: '📰', ja: '週2回、厳選トピック5〜7本', en: '5–7 curated business developments, twice a week' },
                     { icon: '🌏', ja: 'タイ・アジア市場の最新動向', en: 'Thailand & Asia market updates' },
-                    { icon: '📧', ja: '毎日メールでお届け', en: 'Daily briefing to your inbox' },
+                    { icon: '📧', ja: 'メールでお届け（週2回）', en: 'Delivered to your inbox twice a week' },
                     { icon: '🔍', ja: 'レポートアーカイブ検索', en: 'Searchable report archive' },
                   ].map((item) => (
                     <li key={item.en} className="flex items-start gap-3 text-sm text-foreground">
@@ -286,7 +286,7 @@ const Subscribe = () => {
                 </div>
                 <ul className="space-y-3 flex-1 mb-6">
                   {[
-                    { icon: '📧', ja: '毎朝JP+ENエグゼクティブ・ブリーフィング（全員）', en: 'Daily JP+EN Executive Briefing for all seats' },
+                    { icon: '📧', ja: '週2回JP+ENタイ経済レポート（全員）', en: 'Twice-weekly JP+EN Thailand Economic Report for all seats' },
                     { icon: '📞', ja: '月次ブリーフィングコール（日本語・30分）', en: 'Monthly strategy briefing call (JP, 30 min)' },
                     { icon: '📚', ja: '過去レポート全アーカイブ', en: 'Full report archive access' },
                     { icon: '⚡', ja: 'メール優先サポート', en: 'Priority email support' },
