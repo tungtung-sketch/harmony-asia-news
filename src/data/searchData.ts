@@ -1,4 +1,5 @@
 import { businessTips } from './businessTips';
+import { reportMetadata } from '@/hooks/useInsightReports';
 import { supabase } from '@/integrations/supabase/client';
 
 export interface SearchResult {
@@ -398,11 +399,32 @@ const businessTipResults: SearchResult[] = businessTips.map(tip => ({
   readTime: tip.readTime
 }));
 
-// Static search data (BI + Tips + Premium Reports — excludes category landing pages)
+// Insight reports registered in reportMetadata but missing from the hand-written list above,
+// so every newly published report is searchable without a second manual step.
+const listedReportUrls = new Set(premiumInsightResults.map(r => r.url));
+const autoReportResults: SearchResult[] = Object.entries(reportMetadata)
+  .filter(([, meta]) => meta.titleEn && !listedReportUrls.has(meta.link))
+  .map(([slug, meta]) => ({
+    id: `premium-${slug}`,
+    title: meta.titleEn!,
+    titleJa: meta.titleJa || meta.titleEn!,
+    description: meta.description,
+    descriptionJa: meta.descriptionJa,
+    type: 'premium-report' as const,
+    category: `Premium Report - ${meta.industry}`,
+    categoryJa: `プレミアムレポート - ${meta.industryJa}`,
+    url: meta.link,
+    isPremium: true,
+    lastUpdated: meta.lastUpdated,
+    keywords: slug.split('-').filter(w => !/^\d+$/.test(w)),
+  }));
+
+// Static search data (BI + Premium Reports — excludes category landing pages).
+// Business Tips are left out while their routes are hidden in App.tsx; add businessTipResults back with them.
 const staticSearchData: SearchResult[] = [
   ...businessIntelligenceResults,
   ...premiumInsightResults,
-  ...businessTipResults
+  ...autoReportResults
 ];
 
 // Tokenize search query into individual words for multi-word matching
