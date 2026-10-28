@@ -171,7 +171,7 @@ const CHANGES: { area: string; detail: string; to?: string }[] = [
   { area: 'FAQ', detail: '"What is WaLens?" (General) and the real-time alert question (Content & Data) reworded — click a question to open it and see the yellow answer.', to: '/faq' },
   { area: 'Terms / Privacy', detail: 'Brand "WaLens Asia News" → "WaLens"; service description no longer lists news.', to: '/terms-of-service' },
   { area: 'Sign up', detail: 'Heading "Join WaLens"; signup purpose option reworded.', to: '/signup' },
-  { area: 'Search', detail: 'Placeholder reworded; news articles no longer appear in results.', to: '/search?q=thailand' },
+  { area: 'Search (bug fix)', detail: 'Now finds every report, incl. Flood, FDI, Rules of Origin and Thai Chuay (try "floods" or 洪水). News and hidden Business Tips no longer appear. Placeholder reworded.', to: '/search?q=floods' },
   { area: 'Unsubscribe (new page)', detail: 'Working page for the email footer link. Submitting sends a REAL request email to contact@walensnews.com.', to: '/unsubscribe' },
   { area: 'My Page (login)', detail: 'Saved Articles and Reading History show insight reports only.' },
   { area: 'After payment', detail: 'Bullets reworded; "Back to News" button → "View Insights".' },
