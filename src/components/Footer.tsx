@@ -22,8 +22,8 @@ const Footer = () => {
             <div className="mt-4 pt-4 border-t border-border/50 space-y-2">
               <p className="text-xs font-semibold text-foreground">
                 {lang === 'ja'
-                  ? 'LINE公式アカウントをスキャンして無料の日刊エグゼクティブ・ブリーフィングを購読'
-                  : 'Scan to subscribe to our free Daily Executive Briefing'}
+                  ? 'LINE公式アカウントをスキャンして無料の「タイ経済レポート」を受け取る'
+                  : 'Scan to get the free Thailand Economic Report'}
               </p>
               <p className="text-xs text-muted-foreground">LINE ID: @644qbjjv</p>
               <img

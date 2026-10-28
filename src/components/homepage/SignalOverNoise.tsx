@@ -40,7 +40,7 @@ const SignalOverNoise = () => {
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img
                 src={newsletterImg}
-                alt="Executive briefing accessible on smartphone, tablet and laptop"
+                alt="Thailand Economic Report for Japanese Companies on smartphone, tablet and laptop"
                 className="w-full h-auto object-cover"
                 loading="lazy"
                 width={1200}

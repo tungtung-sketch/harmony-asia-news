@@ -23,8 +23,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="WaLens — タイ駐在日本人エグゼクティブのための戦略インテリジェンス"
-        description="為替・規制・エネルギー・サプライチェーン——タイ現地の動向を、日本語で、毎日お届けします。Japanese executives managing operations in Thailand."
+        title="タイ経済レポート｜在タイ日系企業のための経済・規制・リスク情報 | WaLens"
+        description="週2回、在タイ日系企業の経営判断に効く経済・規制・リスク情報をお届け。為替・規制・エネルギー・サプライチェーンの最新動向。Thailand Economic Report for Japanese Companies."
         canonicalPath="/"
       />
       <Header />

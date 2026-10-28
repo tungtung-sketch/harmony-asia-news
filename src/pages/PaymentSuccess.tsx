@@ -195,7 +195,7 @@ const PaymentSuccess = () => {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span>Full access to the Daily Executive Briefing</span>
+                      <span>Full access to the Thailand Economic Report</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
@@ -207,7 +207,7 @@ const PaymentSuccess = () => {
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span>Daily briefing with curated insights</span>
+                      <span>Twice-weekly report with curated insights</span>
                     </li>
                   </ul>
                 </CardContent>
