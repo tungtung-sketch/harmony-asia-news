@@ -60,6 +60,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
 import Unsubscribe from "./pages/Unsubscribe";
+import ProtoHighlights from "./prototype/ProtoHighlights"; // PROTOTYPE ONLY
 import Corporate from "./pages/Corporate";
 import PremiumAnalyticsPage from "./pages/admin/PremiumAnalyticsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
@@ -77,6 +78,7 @@ const App = () => (
         <AuthProvider>
           <ThemeProvider>
           <BrowserRouter>
+            <ProtoHighlights />
             <PageTracker>
             <Routes>
               <Route path="/" element={<Index />} />

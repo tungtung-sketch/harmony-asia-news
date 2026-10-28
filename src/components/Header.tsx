@@ -12,9 +12,10 @@ import { useAuth } from '@/contexts/AuthContext';
 import { AuthModals } from './AuthModals';
 import { ThemeToggle } from './ThemeToggle';
 import Logo from './Logo';
+import { ProtoRemoved } from '@/prototype/ProtoHighlights'; // PROTOTYPE ONLY
 
 const Header = () => {
-  const { t, setLang } = useI18n();
+  const { t, setLang, lang } = useI18n();
   const { user } = useAuth();
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,6 +53,10 @@ const Header = () => {
       >
         {t('nav.about')}
       </NavLink>
+      {/* PROTOTYPE ONLY: marks where the News menu was removed */}
+      <span className={mobile ? 'block py-3 px-4' : 'inline-flex items-center'}>
+        <ProtoRemoved label={lang === 'ja' ? 'ニュース（削除）' : 'News (removed)'} />
+      </span>
       {mobile ? (
         <div className="py-3 px-4">
           <div className="text-lg font-medium mb-2">{t('nav.businessIntelligence')}</div>
