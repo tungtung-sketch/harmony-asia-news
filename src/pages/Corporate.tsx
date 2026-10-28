@@ -76,8 +76,8 @@ const Corporate = () => {
   const included = [
     {
       icon: '📧',
-      ja: '毎朝JP+ENニュースレター（全員）',
-      en: 'Daily JP+EN newsletter for all seats',
+      ja: '毎朝JP+ENエグゼクティブ・ブリーフィング（全員）',
+      en: 'Daily JP+EN Executive Briefing for all seats',
       descJa: '毎朝7時配信 — 日系子会社のGMに必要な情報だけを厳選してお届けします',
       descEn: 'Every morning at 7am — Thailand\'s key business developments filtered for Japanese subsidiaries',
     },
@@ -92,8 +92,8 @@ const Corporate = () => {
       icon: '📚',
       ja: '過去レポート全アーカイブアクセス',
       en: 'Full archive access',
-      descJa: '過去の全レポート・ニュースブリーフを検索可能 — 新たな規制やリスクが突発した際に即座に参照できます',
-      descEn: 'Search all past reports and news briefs — useful when a new regulation or risk suddenly affects your team',
+      descJa: '過去の全レポート・ブリーフィングを検索可能 — 新たな規制やリスクが突発した際に即座に参照できます',
+      descEn: 'Search all past reports and briefings — useful when a new regulation or risk suddenly affects your team',
     },
     {
       icon: '⚡',
@@ -274,7 +274,7 @@ const Corporate = () => {
 
                   <ul className="space-y-2 mb-6 border-t border-border pt-5">
                     {[
-                      { included: true,  ja: '毎日JP+ENニュースレター',         en: 'Daily JP+EN newsletter' },
+                      { included: true,  ja: '毎日JP+ENエグゼクティブ・ブリーフィング', en: 'Daily JP+EN Executive Briefing' },
                       { included: true,  ja: '過去レポート全アーカイブ',         en: 'Full archive access' },
                       { included: true,  ja: 'メール優先サポート',              en: 'Priority email support' },
                       { included: false, ja: '月次戦略ブリーフィングコール',      en: 'Monthly strategy briefing call' },
@@ -356,7 +356,7 @@ const Corporate = () => {
 
                     <ul className="space-y-2 mb-6 border-t border-border pt-5">
                       {[
-                        { ja: '毎日JP+ENニュースレター',              en: 'Daily JP+EN newsletter' },
+                        { ja: '毎日JP+ENエグゼクティブ・ブリーフィング', en: 'Daily JP+EN Executive Briefing' },
                         { ja: '過去レポート全アーカイブ',              en: 'Full archive access' },
                         { ja: 'メール優先サポート',                   en: 'Priority email support' },
                         { ja: '月次戦略ブリーフィングコール（30分・日本語）', en: 'Monthly strategy briefing call (30 min, JP)' },

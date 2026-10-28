@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Trash2, FileText, Newspaper } from 'lucide-react';
+import { Star, Trash2, FileText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useBookmarks, Bookmark } from '@/hooks/useBookmarks';
 import { useI18n } from '@/i18n/I18nProvider';
-import { fetchWalensNews } from '@/sheetNews';
 
 interface SavedArticlesProps {
   className?: string;
@@ -15,25 +14,11 @@ interface SavedArticlesProps {
 export const SavedArticles: React.FC<SavedArticlesProps> = ({ className }) => {
   const { bookmarks, loading, removeBookmark } = useBookmarks();
   const { lang } = useI18n();
-  const [liveSlugs, setLiveSlugs] = useState<Set<string> | null>(null);
-
-  useEffect(() => {
-    fetchWalensNews().then(articles => {
-      setLiveSlugs(new Set(articles.map(a => a.slug)));
-    });
-  }, []);
-
-  // Only show bookmarks whose articles still exist in the sheet.
-  // Insight report bookmarks (URLs starting with /insights/) are always kept.
-  const filteredBookmarks = useMemo(() => {
-    if (!liveSlugs) return bookmarks; // Still loading sheet data, show all
-    return bookmarks.filter(b => {
-      // Preserve insight report bookmarks
-      if (b.article_url?.startsWith('/insights/')) return true;
-      // Check news articles against live sheet data
-      return liveSlugs.has(b.article_slug);
-    });
-  }, [bookmarks, liveSlugs]);
+  // Only insight report bookmarks are shown; older bookmarks of archived content are hidden.
+  const filteredBookmarks = useMemo(
+    () => bookmarks.filter(b => b.article_url?.startsWith('/insights/')),
+    [bookmarks]
+  );
 
   const formatDateTime = (dateString: string) => {
     return new Date(dateString).toLocaleDateString(lang === 'ja' ? 'ja-JP' : 'en-US', {
@@ -131,8 +116,7 @@ const BookmarkItem: React.FC<BookmarkItemProps> = ({
   formatDateTime,
   lang 
 }) => {
-  const articleUrl = bookmark.article_url || `/news/sheet/${bookmark.article_slug}`;
-  const isInsightReport = bookmark.article_url?.startsWith('/insights/');
+  const articleUrl = bookmark.article_url || '/insights';
 
   return (
     <Link 
@@ -145,18 +129,10 @@ const BookmarkItem: React.FC<BookmarkItemProps> = ({
           {bookmark.article_title}
         </h4>
         <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground flex-wrap">
-          {/* News vs Insight Report label */}
-          {isInsightReport ? (
-            <Badge variant="default" className="text-xs px-1.5 py-0 gap-1">
-              <FileText className="w-3 h-3" />
-              {lang === 'ja' ? 'レポート' : 'Insight Report'}
-            </Badge>
-          ) : (
-            <Badge variant="outline" className="text-xs px-1.5 py-0 gap-1">
-              <Newspaper className="w-3 h-3" />
-              {lang === 'ja' ? 'ニュース' : 'News'}
-            </Badge>
-          )}
+          <Badge variant="default" className="text-xs px-1.5 py-0 gap-1">
+            <FileText className="w-3 h-3" />
+            {lang === 'ja' ? 'レポート' : 'Insight Report'}
+          </Badge>
           {bookmark.category && (
             <Badge variant="outline" className="text-xs px-1.5 py-0">
               {bookmark.category}

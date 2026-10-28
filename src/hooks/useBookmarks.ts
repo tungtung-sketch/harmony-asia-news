@@ -84,7 +84,7 @@ export const useBookmarks = () => {
           article_slug: article.slug,
           article_title: article.title,
           article_language: article.language,
-          article_url: article.url || `/news/sheet/${article.slug}`,
+          article_url: article.url,
           thumbnail_url: article.thumbnail_url,
           category: article.category
         });

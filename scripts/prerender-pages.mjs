@@ -29,15 +29,6 @@ try {
 
 const pages = [
   {
-    route: 'news',
-    title: 'Latest News | WaLens Thailand & Asia Business Intelligence',
-    description:
-      'Curated daily business news from Thailand and Asia for Japanese executives. Policy updates, market shifts, and strategic intelligence.',
-    h1: 'Latest News',
-    intro:
-      'WaLens delivers curated daily business news from Thailand and Asia for Japanese executives navigating global markets. Our editorial team covers policy updates, market shifts, and strategic intelligence every business day.',
-  },
-  {
     route: 'insights',
     title: 'Insights & Reports | WaLens Executive Intelligence',
     description:

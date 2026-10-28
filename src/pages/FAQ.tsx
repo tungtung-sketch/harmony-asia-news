@@ -33,8 +33,8 @@ const faqData: FAQItem[] = [
       ja: 'WaLensとは何ですか？',
     },
     answer: {
-      en: 'WaLens is a business intelligence platform that provides curated news and strategic insights for executives and decision-makers operating globally, with deep expertise in Thailand and emerging markets.',
-      ja: 'WaLensは、タイおよび新興市場に深い専門性を持ち、グローバルに事業を展開する経営者・意思決定者向けに、厳選されたビジネスニュースおよび戦略的インテリジェンスを提供するプラットフォームです。',
+      en: 'WaLens is a business intelligence platform that provides curated business intelligence and strategic insights for executives and decision-makers operating globally, with deep expertise in Thailand and emerging markets.',
+      ja: 'WaLensは、タイおよび新興市場に深い専門性を持ち、グローバルに事業を展開する経営者・意思決定者向けに、厳選されたビジネスインテリジェンスおよび戦略的インサイトを提供するプラットフォームです。',
     },
     tags: ['walens', 'about', 'platform', 'service', 'what is', 'プラットフォーム', 'サービス', 'について'],
     category: 'general',
@@ -83,14 +83,14 @@ const faqData: FAQItem[] = [
   {
     id: 'content-2',
     question: {
-      en: 'Is WaLens a breaking news service?',
-      ja: 'WaLensは速報ニュースですか？',
+      en: 'Is WaLens a real-time alert service?',
+      ja: 'WaLensは速報サービスですか？',
     },
     answer: {
-      en: 'WaLens prioritizes quality and insight over speed. We deliver curated information at the appropriate time to support executive decision-making rather than focusing on breaking news.',
+      en: 'WaLens prioritizes quality and insight over speed. We deliver curated information at the appropriate time to support executive decision-making rather than focusing on real-time alerts.',
       ja: 'WaLensは速報性よりも、経営判断に資する「質」と「洞察」を重視しています。そのため、厳選された情報を適切なタイミングでお届けしています。',
     },
-    tags: ['breaking news', 'speed', 'real-time', 'updates', '速報', 'ニュース', 'リアルタイム'],
+    tags: ['speed', 'real-time', 'alerts', 'updates', '速報', 'リアルタイム'],
     category: 'content',
   },
   // Account & Technical

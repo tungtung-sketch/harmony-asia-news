@@ -208,10 +208,10 @@ const Subscribe = () => {
                 </div>
                 <ul className="space-y-3 flex-1 mb-6">
                   {[
-                    { icon: '📰', ja: '毎朝の厳選ニュース5〜7本', en: '5–7 curated news stories every morning' },
+                    { icon: '📰', ja: '毎朝の厳選トピック5〜7本', en: '5–7 curated business developments every morning' },
                     { icon: '🌏', ja: 'タイ・アジア市場の最新動向', en: 'Thailand & Asia market updates' },
-                    { icon: '📧', ja: '毎日メールでお届け', en: 'Daily newsletter to your inbox' },
-                    { icon: '🔍', ja: 'ニュースアーカイブ検索', en: 'Searchable news archive' },
+                    { icon: '📧', ja: '毎日メールでお届け', en: 'Daily briefing to your inbox' },
+                    { icon: '🔍', ja: 'レポートアーカイブ検索', en: 'Searchable report archive' },
                   ].map((item) => (
                     <li key={item.en} className="flex items-start gap-3 text-sm text-foreground">
                       <span className="text-base leading-5 flex-shrink-0">{item.icon}</span>
@@ -286,7 +286,7 @@ const Subscribe = () => {
                 </div>
                 <ul className="space-y-3 flex-1 mb-6">
                   {[
-                    { icon: '📧', ja: '毎朝JP+ENニュースレター（全員）', en: 'Daily JP+EN newsletter for all seats' },
+                    { icon: '📧', ja: '毎朝JP+ENエグゼクティブ・ブリーフィング（全員）', en: 'Daily JP+EN Executive Briefing for all seats' },
                     { icon: '📞', ja: '月次ブリーフィングコール（日本語・30分）', en: 'Monthly strategy briefing call (JP, 30 min)' },
                     { icon: '📚', ja: '過去レポート全アーカイブ', en: 'Full report archive access' },
                     { icon: '⚡', ja: 'メール優先サポート', en: 'Priority email support' },

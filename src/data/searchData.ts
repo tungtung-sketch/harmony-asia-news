@@ -1,5 +1,4 @@
 import { businessTips } from './businessTips';
-import { fetchWalensNews, WalensNews } from '@/sheetNews';
 import { supabase } from '@/integrations/supabase/client';
 
 export interface SearchResult {
@@ -406,39 +405,6 @@ const staticSearchData: SearchResult[] = [
   ...businessTipResults
 ];
 
-// Cache for news articles
-let newsCache: SearchResult[] | null = null;
-let newsCacheTime: number = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-
-// Convert news articles to search results format
-function convertNewsToSearchResults(news: WalensNews[]): SearchResult[] {
-  return news.map(article => ({
-    id: article.slug || `news-${article.date}-${article.title_en.slice(0, 20)}`,
-    title: article.title_en || article.title_raw,
-    titleJa: article.title_jp || article.title_raw,
-    description: (article.content_en || article.content_raw).slice(0, 200) + '...',
-    descriptionJa: (article.content_jp || article.content_raw).slice(0, 200) + '...',
-    type: 'article' as const,
-    category: article.category || 'News',
-    categoryJa: getCategoryJa(article.category),
-    url: `/news/sheet/${article.slug}`,
-    image: article.image,
-  }));
-}
-
-function getCategoryJa(category: string): string {
-  const categoryMap: Record<string, string> = {
-    'Politics': '政治',
-    'Economic': '経済',
-    'Business': 'ビジネス',
-    'Technology': 'テクノロジー',
-    'Society': '社会',
-    'News': 'ニュース',
-  };
-  return categoryMap[category] || category;
-}
-
 // Tokenize search query into individual words for multi-word matching
 function tokenizeQuery(query: string): string[] {
   return query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
@@ -485,7 +451,7 @@ function scoreResult(item: SearchResult, tokens: string[]): number {
   return score;
 }
 
-// Async search function that fetches news
+// Async search function
 export async function searchContentAsync(query: string): Promise<SearchResult[]> {
   if (!query || query.trim().length === 0) {
     return [];
@@ -494,21 +460,8 @@ export async function searchContentAsync(query: string): Promise<SearchResult[]>
   const tokens = tokenizeQuery(query);
   if (tokens.length === 0) return [];
 
-  // Fetch news if cache is expired
-  const now = Date.now();
-  if (!newsCache || (now - newsCacheTime) > CACHE_DURATION) {
-    try {
-      const news = await fetchWalensNews();
-      newsCache = convertNewsToSearchResults(news);
-      newsCacheTime = now;
-    } catch (error) {
-      console.error('Failed to fetch news for search:', error);
-      newsCache = [];
-    }
-  }
-
   // Combine all searchable data
-  const allSearchData = [...staticSearchData, ...(newsCache || [])];
+  const allSearchData = staticSearchData;
 
   // Match: item must match ALL tokens (AND logic for multi-word queries)
   // But also include items matching ANY token with lower score
@@ -540,7 +493,7 @@ export const searchContent = (query: string): SearchResult[] => {
   const tokens = tokenizeQuery(query);
   if (tokens.length === 0) return [];
 
-  const allSearchData = [...staticSearchData, ...(newsCache || [])];
+  const allSearchData = staticSearchData;
 
   const results: { item: SearchResult; score: number }[] = [];
 

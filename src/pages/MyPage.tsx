@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useI18n } from '@/i18n/I18nProvider';
 import { useNavigate, Link } from 'react-router-dom';
-import { fetchWalensNews } from '@/sheetNews';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
@@ -178,23 +177,8 @@ const MyPage = () => {
       const currentLangCode = lang === 'ja' ? 'JP' : 'EN';
       const langFiltered = (data || []).filter(item => item.language === currentLangCode);
       
-      // Fetch live articles to filter out removed ones
-      try {
-        const liveArticles = await fetchWalensNews();
-        const liveSlugs = new Set(liveArticles.map(a => a.slug));
-        
-        // Keep entries that are either live news OR insight reports (not in sheet)
-        const filtered = langFiltered.filter(item => {
-          // Insight reports have URLs starting with /insights/ - always keep them
-          if (item.article_url?.startsWith('/insights/')) return true;
-          // News articles must exist in the live sheet
-          return liveSlugs.has(item.article_slug);
-        });
-        setReadingHistory(filtered);
-      } catch {
-        // If sheet fetch fails, show all entries
-        setReadingHistory(langFiltered);
-      }
+      // Only insight reports are shown; history of archived content is hidden.
+      setReadingHistory(langFiltered.filter(item => item.article_url?.startsWith('/insights/')));
     } catch (error) {
       console.error('Error fetching reading history:', error);
     } finally {
@@ -768,7 +752,7 @@ const MyPage = () => {
                     {readingHistory.map((item) => (
                       <Link 
                         key={item.id} 
-                        to={item.article_url?.startsWith('/insights/') ? item.article_url : `/news/sheet/${item.article_slug}`}
+                        to={item.article_url}
                         className="flex gap-4 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
                       >
                         {/* Content */}

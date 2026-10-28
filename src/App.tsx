@@ -10,9 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
-import News from "./pages/News";
 
-import NewsDetailFromSheet from "./pages/NewsDetailFromSheet";
 import BusinessTips from "./pages/BusinessTips";
 import BusinessTipDetail from "./pages/BusinessTipDetail";
 import SearchResults from "./pages/SearchResults";
@@ -61,6 +59,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ResetPassword from "./pages/ResetPassword";
 import FAQ from "./pages/FAQ";
+import Unsubscribe from "./pages/Unsubscribe";
 import Corporate from "./pages/Corporate";
 import PremiumAnalyticsPage from "./pages/admin/PremiumAnalyticsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
@@ -83,14 +82,12 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/news" element={<News />} />
-              
-              <Route path="/news/sheet/:slug" element={<NewsDetailFromSheet />} />
               {/* Business Tips - Hidden for now, will be added later
               <Route path="/business-tips" element={<BusinessTips />} />
               <Route path="/business-tips/:id" element={<BusinessTipDetail />} />
               */}
               <Route path="/search" element={<SearchResults />} />
+              <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="/subscribe" element={<Subscribe />} />
               <Route path="/corporate" element={<Corporate />} />
               <Route path="/signup" element={<SignUp />} />

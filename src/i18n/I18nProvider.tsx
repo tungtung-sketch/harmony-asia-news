@@ -19,7 +19,7 @@ const translations: Record<Lang, Translations> = {
     "brand.name": "WaLens",
     "brand.tagline": "Your Japanese lens into global business",
     "cta.membership": "Membership",
-    "search.placeholder": "Search news, tips, insights...",
+    "search.placeholder": "Search insights, reports...",
     "search.submit": "Search",
     "search.results": "Search Results",
     "search.queryLabel": "Showing results for",
@@ -34,7 +34,6 @@ const translations: Record<Lang, Translations> = {
     // Header nav
     "nav.home": "Home",
     "nav.about": "About us",
-    "nav.news": "News",
     "nav.insights": "Insights",
     "nav.tips": "Business Tips",
     "nav.subscribe": "Individual Plan",
@@ -49,10 +48,6 @@ const translations: Record<Lang, Translations> = {
     "header.myPage": "My Page",
 
     // Legacy nav (kept for compatibility in components)
-    "nav.news.latest": "Latest",
-    "nav.news.thaiPolicyWatch": "Thai Policy Watch",
-    "nav.news.globalExecsInTH": "Global Execs in TH",
-    "nav.news.industryTrends": "Industry Trends",
 
     "nav.reports": "Reports",
     "nav.reports.strategicAnalysis": "Strategic Analysis",
@@ -68,23 +63,11 @@ const translations: Record<Lang, Translations> = {
     "tips.description": "Business tips and insights for global business professionals",
     "tips.backToTips": "Back to Business Tips",
 
-    // News
-    "news.title": "Latest News | WaLens Thailand & Asia Business Intelligence",
-    "news.description": "Curated daily business news from Thailand and Asia for Japanese executives. Policy updates, market shifts, and strategic intelligence.",
-    "news.heroTitle": "Latest News & Updates",
-    "news.heroSubtitle": "Stay informed with breaking news, market analysis, and expert insights from across Asia's dynamic business landscape.",
-    "news.backToNews": "Back to News",
-    "news.dropdown.all": "All News",
-    "news.dropdown.politics": "Politics",
-    "news.dropdown.economic": "Economic",
-    "news.dropdown.business": "Business",
-    "news.dropdown.technology": "Technology",
-    "news.dropdown.society": "Society",
 
     // Pages
     "insights.title": "Insights - WaLens",
     "tips.title": "Business Tips - WaLens", 
-    "subscribe.title": "Subscribe - WaLens Asia News",
+    "subscribe.title": "Subscribe - WaLens",
 
     // Home hero
     "home.hero.title": "Global Executive Business & Market Insights",
@@ -110,19 +93,13 @@ const translations: Record<Lang, Translations> = {
     "tags.opinion": "Opinion",
 
     // Home sections
-    "home.featured": "Featured News",
     "home.latest": "Latest Articles",
     "home.insightHighlight.title": "Insight Highlight",
     "home.insightHighlight.exampleTitle": "5 Global Trends Japanese Businesses Should Know (2025)",
 
-    // Newsletter
-    "home.newsletter.title": "Get daily insights in your inbox — free for your first month",
-    "home.newsletter.cta": "Subscribe",
-    "home.newsletter.placeholder": "Your email",
 
     // About stealth
     "home.about.title": "About Us",
-    "home.about.text": "WaLens Asia News is operated by WaLens Editorial Team — bridging Japanese & Thai business culture through trusted, clear, and actionable information.",
 
     // Hero fallback keys used elsewhere
     "hero.featuredImageLabel": "Featured Image",
@@ -197,31 +174,11 @@ const translations: Record<Lang, Translations> = {
     "bi.dataSources.depa": "Digital economy and technology development metrics",
     "bi.dataSources.aot": "Airport operations and transportation infrastructure",
 
-    // News Section
-    "newsSection.featuredStories": "Featured Stories",
-    "newsSection.latestNews": "Latest News",
     
-    // News Filter
-    "newsFilter.category": "Category",
-    "newsFilter.year": "Year",
-    "newsFilter.selectCategory": "Select Category",
-    "newsFilter.selectYear": "Select Year",
-    "newsFilter.allCategories": "All Categories",
-    "newsFilter.allYears": "All Years",
-    "newsFilter.activeFilters": "Active Filters",
-    "newsFilter.clearAll": "Clear All",
-    "newsFilter.showingResults": "Showing {{count}} of {{total}} articles",
-    "newsFilter.noResults": "No Articles Found",
-    "newsFilter.noResultsDesc": "Try adjusting your filters to see more results.",
-    "newsFilter.clearFilters": "Clear Filters",
 
-    // NewsCard
-    "newsCard.featured": "Featured",
-    "newsCard.newsImageLabel": "News Image",
 
     // Footer
-    "footer.tagline":
-      "Your trusted source for Asia-Pacific news and insights, connecting communities across the region.",
+    "footer.tagline": "Strategic intelligence and insights for executives operating across Asia-Pacific.",
     "footer.categories": "Categories",
     "footer.categories.politics": "Politics",
     "footer.categories.business": "Business",
@@ -249,12 +206,12 @@ const translations: Record<Lang, Translations> = {
 
     // Privacy Policy
     "privacy.locale": "en-US",
-    "privacy.title": "Privacy Policy - WaLens Asia News",
-    "privacy.description": "Learn how WaLens Asia News protects your privacy and personal information.",
+    "privacy.title": "Privacy Policy - WaLens",
+    "privacy.description": "Learn how WaLens protects your privacy and personal information.",
     "privacy.effectiveDate": "Effective Date",
     "privacy.lastUpdated": "Last Updated",
     "privacy.introduction.title": "Introduction",
-    "privacy.introduction.content": "At WaLens Asia News, we are committed to protecting the privacy and personal information of our subscribers and visitors. This Privacy Policy explains how we collect, use, store, and protect your information.",
+    "privacy.introduction.content": "At WaLens, we are committed to protecting the privacy and personal information of our subscribers and visitors. This Privacy Policy explains how we collect, use, store, and protect your information.",
     "privacy.informationCollected.title": "Information We Collect",
     "privacy.informationCollected.personal.title": "Personal Details:",
     "privacy.informationCollected.personal.content": "Name, email, position, industry, subscription plan, and stated purpose.",
@@ -263,8 +220,8 @@ const translations: Record<Lang, Translations> = {
     "privacy.informationCollected.usage.title": "Usage Data:",
     "privacy.informationCollected.usage.content": "Articles read, preferences, and interaction history on our website.",
     "privacy.howWeUse.title": "How We Use Your Information",
-    "privacy.howWeUse.provide": "To provide news, insights, and reports according to your subscription.",
-    "privacy.howWeUse.personalize": "To personalize content and newsletters for your business needs.",
+    "privacy.howWeUse.provide": "To provide insights, reports, and briefings according to your subscription.",
+    "privacy.howWeUse.personalize": "To personalize content and briefings for your business needs.",
     "privacy.howWeUse.payments": "To process payments securely via our payment partners.",
     "privacy.howWeUse.improve": "To improve our services and enhance user experience.",
     "privacy.dataSharing.title": "Data Sharing & Third Parties",
@@ -308,15 +265,15 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.freeTrial.title": "Free Trial",
     "subscribe.plans.freeTrial.duration": "30 Days",
     "subscribe.plans.freeTrial.price": "Free",
-    "subscribe.plans.freeTrial.description": "Access to selected daily news and some analysis",
+    "subscribe.plans.freeTrial.description": "Access to selected briefings and some analysis",
     "subscribe.plans.freeTrial.cta": "Start Free Trial",
     
     "subscribe.plans.basic.title": "Basic Plan (First 30 days free)",
     "subscribe.plans.basic.price": "฿599/month",
     "subscribe.plans.basic.billingInfo": "฿599/month (First 30 days free trial)",
-    "subscribe.plans.basic.description": "Full access to all daily news and website + newsletter",
+    "subscribe.plans.basic.description": "Full access to the website + Daily Executive Briefing",
     "subscribe.plans.basic.cta": "Subscribe to Basic Plan",
-    "subscribe.plans.basic.detailedDescription": "Includes daily news delivery, basic market analysis, and newsletter subscription.",
+    "subscribe.plans.basic.detailedDescription": "Includes the Daily Executive Briefing, basic market analysis, and website access.",
     
     "subscribe.plans.premium.title": "Premium Plan",
     "subscribe.plans.premium.price": "฿1,299/month",
@@ -334,9 +291,9 @@ const translations: Record<Lang, Translations> = {
     // Features
     "subscribe.features.title": "Compare Plans",
     "subscribe.features.featureLabel": "Features",
-    "subscribe.features.dailyNews": "Daily News Access",
-    "subscribe.features.dailyNews.basicDesc": "Access to curated daily global business news and market updates.",
-    "subscribe.features.dailyNews.premiumDesc": "Full access to daily news with deeper context and executive summary.",
+    "subscribe.features.dailyNews": "Daily Executive Briefing",
+    "subscribe.features.dailyNews.basicDesc": "Curated daily briefing on local business developments and market updates.",
+    "subscribe.features.dailyNews.premiumDesc": "Daily briefing with deeper context and an executive summary.",
     "subscribe.features.premiumInsights": "Premium Insights",
     "subscribe.features.premiumInsights.basicDesc": "Not included.",
     "subscribe.features.premiumInsights.premiumDesc": "In-depth analysis with implications for Japanese companies operating globally. Includes strategic interpretation and industry impact.",
@@ -358,9 +315,9 @@ const translations: Record<Lang, Translations> = {
     // Expanded subscription plan descriptions - see above in plans section
 
     // Sign-up page
-    "signup.title": "Sign Up - WaLens Asia News",
-    "signup.metaDescription": "Create your account and start your subscription to WaLens Asia News",
-    "signup.hero.title": "Join WaLens Asia News",
+    "signup.title": "Sign Up - WaLens",
+    "signup.metaDescription": "Create your account and start your subscription to WaLens",
+    "signup.hero.title": "Join WaLens",
     "signup.hero.subtitle": "Create your account and choose your subscription plan",
     "signup.form.name": "Name",
     "signup.form.namePlaceholder": "Your full name",
@@ -404,7 +361,7 @@ const translations: Record<Lang, Translations> = {
     "signup.industries.other": "Other",
 
     // Purpose options
-    "signup.purposes.business_news": "To stay updated with global business news",
+    "signup.purposes.business_news": "To stay on top of local business developments",
     "signup.purposes.market_research": "For market/industry research",
     "signup.purposes.strategic_decisions": "For strategic decision-making",
     "signup.purposes.team_insights": "To share insights with my team",
@@ -467,8 +424,8 @@ const translations: Record<Lang, Translations> = {
     "auth.success": "Success",
 
     // My Page / Dashboard
-    "dashboard.title": "My Dashboard - WaLens Asia News",
-    "dashboard.metaDescription": "Manage your subscription, profile, and access to WaLens Asia News",
+    "dashboard.title": "My Dashboard - WaLens",
+    "dashboard.metaDescription": "Manage your subscription, profile, and access to WaLens",
     "dashboard.welcomeBack": "Welcome back",
     "dashboard.profile.title": "Profile Information",
     "dashboard.profile.edit": "Edit Profile",
@@ -480,7 +437,7 @@ const translations: Record<Lang, Translations> = {
     "dashboard.subscription.active": "Active",
 
     // My Page
-    "mypage.title": "My Page - WaLens Asia News",
+    "mypage.title": "My Page - WaLens",
     "mypage.description": "Manage your account and subscription",
     "mypage.welcome": "My Page",
     "mypage.signOut": "Sign Out",
@@ -511,7 +468,7 @@ const translations: Record<Lang, Translations> = {
     "cancellation.processing": "Cancelling Subscription...",
     "cancellation.processingMessage": "Please wait while we process your cancellation.",
     "cancellation.success.title": "Subscription Cancelled",
-    "cancellation.success.description": "Your subscription has been successfully cancelled. Thank you for using WaLens Asia News.",
+    "cancellation.success.description": "Your subscription has been successfully cancelled. Thank you for using WaLens.",
     "mypage.notProvided": "Not provided",
     "mypage.noSubscription": "No subscription",
     "mypage.activeSubscription": "Active",
@@ -520,7 +477,7 @@ const translations: Record<Lang, Translations> = {
     "mypage.basicPlan": "Basic Plan",
     "mypage.editProfile": "Edit",
     "mypage.saveProfile": "Save",
-    "mypage.profileRemark": "The more information you provide, the more accurate news we can provide to you.",
+    "mypage.profileRemark": "The more information you provide, the more relevant the insights we can provide to you.",
     "mypage.freeTrialUntil": "Free trial until",
     "mypage.noReadingHistory": "No reading history yet",
     "mypage.readAt": "Read at",
@@ -548,17 +505,17 @@ const translations: Record<Lang, Translations> = {
     "dashboard.history.viewAll": "View All Articles",
 
     // Translations for Payment Success
-    "paymentSuccess.title": "Payment Successful - WaLens Asia News",
+    "paymentSuccess.title": "Payment Successful - WaLens",
     "paymentSuccess.loading": "Loading...",
     "paymentSuccess.details.customerInfo": "Customer Information",
     "paymentSuccess.metaDescription": "Your payment has been processed successfully",
-    "paymentSuccess.hero.title": "Payment Successful – Welcome to WaLens Asia News!",
+    "paymentSuccess.hero.title": "Payment Successful – Welcome to WaLens!",
     "paymentSuccess.details.title": "Subscription Summary",
     "paymentSuccess.details.plan": "Plan",
     "paymentSuccess.details.startDate": "Start Date",
     "paymentSuccess.details.renewalDate": "Renewal Date",
     "paymentSuccess.actions.dashboard": "Go to My Page",
-    "paymentSuccess.actions.news": "Back to News",
+    "paymentSuccess.actions.insights": "View Insights",
 
     // Not Found
     "notfound.title": "Page Not Found",
@@ -566,16 +523,16 @@ const translations: Record<Lang, Translations> = {
     "notfound.backHome": "Back to Home",
 
     // Terms of Service
-    "terms.title": "Terms of Service - WaLens Asia News",
-    "terms.metaDescription": "Terms of Service for WaLens Asia News subscription and website usage",
+    "terms.title": "Terms of Service - WaLens",
+    "terms.metaDescription": "Terms of Service for WaLens subscription and website usage",
     "terms.hero.title": "Terms of Service",
     "terms.hero.subtitle": "Please read these terms carefully before using our services",
     
     "terms.section1.title": "1. Introduction",
-    "terms.section1.content": "Welcome to WaLens Asia News. By accessing or using our website and subscription services, you agree to these Terms of Service. Please read them carefully before subscribing.",
+    "terms.section1.content": "Welcome to WaLens. By accessing or using our website and subscription services, you agree to these Terms of Service. Please read them carefully before subscribing.",
     
     "terms.section2.title": "2. Services",
-    "terms.section2.content": "WaLens provides business news, market insights, analysis reports, and resources to support international executives and companies operating globally. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
+    "terms.section2.content": "WaLens provides market insights, analysis reports, and resources to support international executives and companies operating globally. Service offerings vary by subscription plan (Basic, Premium, Corporate).",
     
     "terms.section3.title": "3. Subscription & Payment",
     "terms.section3.trial": "Users may start with a 30-day free trial under the Basic Plan. No charges will apply during the trial period.",
@@ -591,7 +548,7 @@ const translations: Record<Lang, Translations> = {
     "terms.section5.refunds": "Refunds are not generally provided for partial periods unless required by law.",
     
     "terms.section6.title": "6. Content & Intellectual Property",
-    "terms.section6.ownership": "All articles, insights, reports, and visuals are the property of WaLens Asia News.",
+    "terms.section6.ownership": "All articles, insights, reports, and visuals are the property of WaLens.",
     "terms.section6.purpose": "Content is provided for informational purposes only and should not be considered legal, financial, or investment advice.",
     
     "terms.section7.title": "7. Privacy & Data",
@@ -674,26 +631,26 @@ const translations: Record<Lang, Translations> = {
 
     // NEW Homepage Hero
     "hero.badge": "For Japanese Executives",
-    "hero.headline": "Daily Local Business News & Reports\nfor Global Decision-Makers.",
-    "hero.subheadline": "A curated daily newsletter and executive reports — delivering the local intelligence you need to make confident cross-border decisions.",
+    "hero.headline": "Daily Local Business Intelligence & Reports\nfor Global Decision-Makers.",
+    "hero.subheadline": "A curated daily executive briefing and reports — delivering the local intelligence you need to make confident cross-border decisions.",
     "hero.cta.primary": "Start Free Trial →",
     "hero.cta.secondary": "See Sample Reports",
     "hero.trust": "Try free for 30 days. No credit card required.",
-    "hero.deliver1": "Daily curated local business newsletter — not AI-generated, expert-selected",
+    "hero.deliver1": "Daily curated local business briefing — not AI-generated, expert-selected",
     "hero.deliver2": "Executive industry reports with actionable recommendations",
     "hero.deliver3": "Cross-border regulatory & supply chain risk alerts",
 
-    // What Your Newsletter Delivers
+    // What Your Daily Executive Briefing Delivers
     "signal.label": "What You Get",
-    "signal.title": "Your Daily Executive Newsletter",
+    "signal.title": "Your Daily Executive Briefing",
     "signal.subtitle": "Every morning, WaLens delivers a curated briefing designed for Japanese executives operating across borders. Here's exactly what you receive:",
     "signal.listTitle": "What's Inside Every Issue",
-    "signal.d1.title": "Daily Local Business News Digest",
+    "signal.d1.title": "Daily Local Business Intelligence Digest",
     "signal.d1.desc": "Key developments from Thailand, ASEAN, and global markets — filtered for executive relevance, not volume.",
     "signal.d2.title": "Cross-Border Policy & Regulatory Impact",
     "signal.d2.desc": "How new regulations, tax changes, and trade policies affect your operations — decoded, not just reported.",
     "signal.d3.title": "Supply Chain & Geopolitical Risk Alerts",
-    "signal.d3.desc": "Early-warning signals on disruptions that could impact your business — before they hit the news cycle.",
+    "signal.d3.desc": "Early-warning signals on disruptions that could impact your business — before they become widely known.",
     "signal.d4.title": "Executive Action Recommendations",
     "signal.d4.desc": "Actionable next-steps you can bring to your board meeting — not data dumps.",
     "signal.d5.title": "Premium Industry Reports (for subscribers)",
@@ -709,11 +666,11 @@ const translations: Record<Lang, Translations> = {
     "proof.impact": "Executive Summary",
     "proof.readMore": "Read Full Report",
 
-    // Lead Magnet (Newsletter)
-    "leadMagnet.badge": "Daily Newsletter",
-    "leadMagnet.title": "The Executive Intelligence Newsletter",
+    // Lead Magnet (Daily Executive Briefing)
+    "leadMagnet.badge": "Daily Briefing",
+    "leadMagnet.title": "The Daily Executive Briefing",
     "leadMagnet.description": "A curated daily briefing delivered to your inbox — policy shifts, risk alerts, and strategic recommendations that matter for cross-border operations.",
-    "leadMagnet.formTitle": "Subscribe to our free daily newsletter",
+    "leadMagnet.formTitle": "Subscribe to our free Daily Executive Briefing",
     "leadMagnet.emailPlaceholder": "Work email address",
     "leadMagnet.cta": "Subscribe Free",
     "leadMagnet.privacy": "We respect your privacy. Unsubscribe anytime.",
@@ -827,7 +784,7 @@ const translations: Record<Lang, Translations> = {
     // Common
     "brand.name": "WaLens",
     "cta.membership": "メンバーシップ",
-    "search.placeholder": "ニュース、インサイトを検索...",
+    "search.placeholder": "インサイト、レポートを検索...",
     "search.submit": "検索",
     "search.results": "検索結果",
     "search.queryLabel": "検索結果",
@@ -842,7 +799,6 @@ const translations: Record<Lang, Translations> = {
     // Header nav
     "nav.home": "ホーム",
     "nav.about": "WaLensについて",
-    "nav.news": "ニュース",
     "nav.insights": "インサイト",
     "nav.tips": "ビジネスTips",
     "nav.subscribe": "個人プラン",
@@ -857,10 +813,6 @@ const translations: Record<Lang, Translations> = {
     "header.myPage": "マイページ",
 
     // Legacy nav keys (kept for compatibility)
-    "nav.news.latest": "最新",
-    "nav.news.thaiPolicyWatch": "タイ政策ウォッチ",
-    "nav.news.globalExecsInTH": "グローバル幹部 in TH",
-    "nav.news.industryTrends": "業界動向",
     "nav.reports": "レポート",
     "nav.reports.strategicAnalysis": "戦略分析",
     "nav.reports.industryReport": "タイ産業レポート",
@@ -874,8 +826,6 @@ const translations: Record<Lang, Translations> = {
     "brand.tagline": "グローバルビジネスを解き明かす日本の視座",
 
     // Banner
-    "banner.text": "WaLens へようこそ — 洞察に満ちたニュース、レポート、Thailand 101 をお届けします。",
-    "banner.subscribeLink": "全ての機能を利用するには購読",
 
     // Hero (home)
     "home.hero.title": "グローバル・エグゼクティブ向けビジネス＆マーケットインサイト",
@@ -903,45 +853,19 @@ const translations: Record<Lang, Translations> = {
     "tags.opinion": "オピニオン",
 
     // Home sections
-    "home.featured": "注目ニュース",
     "home.latest": "最新記事",
     "home.insightHighlight.title": "インサイト・ハイライト",
     "home.insightHighlight.exampleTitle": "2025年、日本企業がタイで知っておくべき5つのトレンド",
 
-    // Newsletter
-    "home.newsletter.title": "毎日のインサイトをメールで — 初月無料",
-    "home.newsletter.cta": "購読する",
-    "home.newsletter.placeholder": "あなたのメールアドレス",
 
     // About stealth
     "home.about.title": "運営について",
-    "home.about.text": "WaLens Asia News は WaLens 編集チームによって運営され、日本とタイのビジネス文化をつなぐ、信頼できる明快で実践的な情報を提供します。プロフィールの公開は行っていません。",
 
-    // News Section (Japanese)
-    'newsSection.featuredStories': '注目のストーリー',
-    'newsSection.latestNews': '最新ニュース',
     
-    // News Filter (Japanese)
-    'newsFilter.category': 'カテゴリー',
-    'newsFilter.year': '年',
-    'newsFilter.selectCategory': 'カテゴリーを選択',
-    'newsFilter.selectYear': '年を選択',
-    'newsFilter.allCategories': 'すべてのカテゴリー',
-    'newsFilter.allYears': 'すべての年',
-    'newsFilter.activeFilters': 'アクティブフィルター',
-    'newsFilter.clearAll': 'すべてクリア',
-    'newsFilter.showingResults': '{{total}}件中{{count}}件を表示',
-    'newsFilter.noResults': '記事が見つかりません',
-    'newsFilter.noResultsDesc': 'フィルターを調整してより多くの結果を表示してください。',
-    'newsFilter.clearFilters': 'フィルターをクリア',
 
-    // NewsCard
-    "newsCard.featured": "注目",
-    "newsCard.newsImageLabel": "ニュース画像",
 
     // Footer
-    "footer.tagline":
-      "アジア太平洋のニュースとインサイトをお届けし、地域社会をつなぎます。",
+    "footer.tagline": "アジア太平洋で事業を展開する経営者のための戦略インテリジェンスとインサイトをお届けします。",
     "footer.categories": "カテゴリー",
     "footer.categories.politics": "政治",
     "footer.categories.business": "ビジネス",
@@ -969,12 +893,12 @@ const translations: Record<Lang, Translations> = {
 
     // Privacy Policy
     "privacy.locale": "ja-JP",
-    "privacy.title": "プライバシーポリシー - WaLens Asia News",
-    "privacy.description": "WaLens Asia Newsがお客様のプライバシーと個人情報をどのように保護しているかをご説明します。",
+    "privacy.title": "プライバシーポリシー - WaLens",
+    "privacy.description": "WaLensがお客様のプライバシーと個人情報をどのように保護しているかをご説明します。",
     "privacy.effectiveDate": "施行日",
     "privacy.lastUpdated": "最終更新日",
     "privacy.introduction.title": "概要",
-    "privacy.introduction.content": "WaLens Asia News は、利用者および購読者の個人情報を保護することを最優先に考えています。本プライバシーポリシーは、当社が収集・利用・保管する情報およびその保護方法について説明します。",
+    "privacy.introduction.content": "WaLens は、利用者および購読者の個人情報を保護することを最優先に考えています。本プライバシーポリシーは、当社が収集・利用・保管する情報およびその保護方法について説明します。",
     "privacy.informationCollected.title": "収集する情報",
     "privacy.informationCollected.personal.title": "個人情報：",
     "privacy.informationCollected.personal.content": "氏名、メールアドレス、役職、業種、購読プラン、購読目的",
@@ -983,8 +907,8 @@ const translations: Record<Lang, Translations> = {
     "privacy.informationCollected.usage.title": "利用データ：",
     "privacy.informationCollected.usage.content": "閲覧した記事、関心分野、サイト上での利用履歴",
     "privacy.howWeUse.title": "情報の利用目的",
-    "privacy.howWeUse.provide": "ニュース、インサイト、レポートの提供",
-    "privacy.howWeUse.personalize": "ビジネスニーズに合わせたコンテンツやニュースレターのパーソナライズ",
+    "privacy.howWeUse.provide": "インサイト、レポート、ブリーフィングの提供",
+    "privacy.howWeUse.personalize": "ビジネスニーズに合わせたコンテンツやブリーフィングのパーソナライズ",
     "privacy.howWeUse.payments": "決済処理（Stripe 等の信頼できるパートナーを通じて）",
     "privacy.howWeUse.improve": "サービス品質および利用者体験の向上",
     "privacy.dataSharing.title": "情報の共有",
@@ -1017,23 +941,11 @@ const translations: Record<Lang, Translations> = {
     "contact.submit": "送信",
     "contact.success": "ありがとうございます。追ってご連絡いたします。",
 
-    // News
-    "news.title": "タイ・アジアビジネスニュース | WaLens",
-    "news.description": "タイおよびアジア全域からの速報・市場分析・政策動向。グローバル市場を航行する日系経営幹部向けのデイリーインテリジェンス。",
-    "news.heroTitle": "最新ニュース & アップデート",
-    "news.heroSubtitle": "アジアのダイナミックなビジネス環境からの速報、市場分析、専門家の洞察で情報を入手しましょう。",
-    "news.backToNews": "ニュース一覧に戻る",
-    "news.dropdown.all": "すべてのニュース",
-    "news.dropdown.politics": "政治",
-    "news.dropdown.economic": "経済",
-    "news.dropdown.business": "ビジネス",
-    "news.dropdown.technology": "テクノロジー",
-    "news.dropdown.society": "社会",
 
     // Pages
     "insights.title": "インサイト - WaLens",
     "tips.title": "ビジネスチップス - WaLens",
-    "subscribe.title": "購読 - WaLens Asia News",
+    "subscribe.title": "購読 - WaLens",
     "subscribe.nav.individual": "個人プラン",
     "subscribe.nav.corporate": "法人・エンタープライズ",
     "subscribe.metaDescription": "グローバルビジネスインテリジェンスに適したプランを選択してください",
@@ -1045,15 +957,15 @@ const translations: Record<Lang, Translations> = {
     "subscribe.plans.freeTrial.title": "無料トライアル",
     "subscribe.plans.freeTrial.duration": "30日間",
     "subscribe.plans.freeTrial.price": "無料",
-    "subscribe.plans.freeTrial.description": "厳選された日次ニュースと一部の分析へのアクセス",
+    "subscribe.plans.freeTrial.description": "厳選されたブリーフィングと一部の分析へのアクセス",
     "subscribe.plans.freeTrial.cta": "無料トライアルを開始",
     
     "subscribe.plans.basic.title": "ベーシックプラン (最初の30日間無料)",
     "subscribe.plans.basic.price": "฿599/月",
     "subscribe.plans.basic.billingInfo": "月額599バーツ（最初の30日間は無料トライアル）",
-    "subscribe.plans.basic.description": "すべての日次ニュースとウェブサイト+ニュースレターへのフルアクセス",
+    "subscribe.plans.basic.description": "ウェブサイトと日刊エグゼクティブ・ブリーフィングへのフルアクセス",
     "subscribe.plans.basic.cta": "ベーシックプランに登録",
-    "subscribe.plans.basic.detailedDescription": "毎日のニュース配信、基本的な市場分析、ニュースレター購読が含まれます。",
+    "subscribe.plans.basic.detailedDescription": "日刊エグゼクティブ・ブリーフィング、基本的な市場分析、ウェブサイトへのアクセスが含まれます。",
     
     "subscribe.plans.premium.title": "プレミアムプラン",
     "subscribe.plans.premium.price": "฿1,299/月",
@@ -1071,9 +983,9 @@ const translations: Record<Lang, Translations> = {
     // Features
     "subscribe.features.title": "プラン比較",
     "subscribe.features.featureLabel": "機能",
-    "subscribe.features.dailyNews": "日次ニュースアクセス",
-    "subscribe.features.dailyNews.basicDesc": "厳選されたグローバルビジネスニュースを毎日配信。",
-    "subscribe.features.dailyNews.premiumDesc": "日次ニュースに加え、背景分析とエグゼクティブサマリーを提供。",
+    "subscribe.features.dailyNews": "日刊エグゼクティブ・ブリーフィング",
+    "subscribe.features.dailyNews.basicDesc": "現地ビジネスの動向と市場の最新情報を厳選し、毎日お届け。",
+    "subscribe.features.dailyNews.premiumDesc": "日刊ブリーフィングに加え、背景分析とエグゼクティブサマリーを提供。",
     "subscribe.features.premiumInsights": "プレミアムインサイト",
     "subscribe.features.premiumInsights.basicDesc": "含まれません。",
     "subscribe.features.premiumInsights.premiumDesc": "グローバルに事業展開する日系企業への影響分析。戦略的解釈と業界インパクトを含む。",
@@ -1095,9 +1007,9 @@ const translations: Record<Lang, Translations> = {
     // Expanded subscription plan descriptions - see above in plans section
 
     // Sign-up page (Japanese)
-    "signup.title": "サインアップ - WaLens Asia News",
-    "signup.metaDescription": "アカウントを作成してWaLens Asia Newsの購読を開始",
-    "signup.hero.title": "WaLens Asia Newsに参加",
+    "signup.title": "サインアップ - WaLens",
+    "signup.metaDescription": "アカウントを作成してWaLensの購読を開始",
+    "signup.hero.title": "WaLensに参加",
     "signup.hero.subtitle": "アカウントを作成して購読プランを選択してください",
     "signup.form.name": "名前",
     "signup.form.namePlaceholder": "フルネーム",
@@ -1141,7 +1053,7 @@ const translations: Record<Lang, Translations> = {
     "signup.industries.other": "その他",
 
     // Purpose options (Japanese)
-    "signup.purposes.business_news": "タイのビジネスニュースを常に把握するため",
+    "signup.purposes.business_news": "タイのビジネス動向を常に把握するため",
     "signup.purposes.market_research": "市場・業界調査のため",
     "signup.purposes.strategic_decisions": "戦略的な意思決定のため",
     "signup.purposes.team_insights": "チームとインサイトを共有するため",
@@ -1159,8 +1071,8 @@ const translations: Record<Lang, Translations> = {
     "signup.errors.general": "エラーが発生しました。もう一度お試しください。",
 
     // My Page / Dashboard (Japanese)
-    "dashboard.title": "マイページ - WaLens Asia News",
-    "dashboard.metaDescription": "購読、プロフィール、WaLens Asia Newsへのアクセスを管理",
+    "dashboard.title": "マイページ - WaLens",
+    "dashboard.metaDescription": "購読、プロフィール、WaLensへのアクセスを管理",
     "dashboard.welcomeBack": "お帰りなさい",
     "dashboard.profile.title": "プロフィール情報",
     "dashboard.profile.edit": "プロフィール編集",
@@ -1179,17 +1091,17 @@ const translations: Record<Lang, Translations> = {
     "dashboard.history.viewAll": "すべての記事を表示",
 
     // Payment Success (Japanese)
-    "paymentSuccess.title": "決済完了 - WaLens Asia News",
+    "paymentSuccess.title": "決済完了 - WaLens",
     "paymentSuccess.loading": "読み込み中...",
     "paymentSuccess.details.customerInfo": "顧客情報",
     "paymentSuccess.metaDescription": "決済が正常に処理されました",
-    "paymentSuccess.hero.title": "決済が完了しました。WaLens Asia Newsへようこそ！",
+    "paymentSuccess.hero.title": "決済が完了しました。WaLensへようこそ！",
     "paymentSuccess.details.title": "購読サマリー",
     "paymentSuccess.details.plan": "プラン",
     "paymentSuccess.details.startDate": "開始日",
     "paymentSuccess.details.renewalDate": "更新日",
     "paymentSuccess.actions.dashboard": "マイページへ",
-    "paymentSuccess.actions.news": "ニュース一覧へ",
+    "paymentSuccess.actions.insights": "インサイト一覧へ",
 
     // Not Found
     "notfound.title": "ページが見つかりません",
@@ -1261,26 +1173,26 @@ const translations: Record<Lang, Translations> = {
 
     // NEW Homepage Hero (Japanese)
     "hero.badge": "日本人経営者のための現地ビジネス情報",
-    "hero.headline": "現地ビジネスニュース＆レポートを毎日お届け。",
-    "hero.subheadline": "キュレーションされた日刊ニュースレターとエグゼクティブレポートで、クロスボーダー経営に必要な現地インテリジェンスをお届けします。",
+    "hero.headline": "現地ビジネスインテリジェンス＆レポートを毎日お届け。",
+    "hero.subheadline": "キュレーションされた日刊エグゼクティブ・ブリーフィングとエグゼクティブレポートで、クロスボーダー経営に必要な現地インテリジェンスをお届けします。",
     "hero.cta.primary": "無料トライアルを開始 →",
     "hero.cta.secondary": "サンプルレポートを見る",
     "hero.trust": "30日間無料でお試しください。クレジットカード不要。",
-    "hero.deliver1": "日刊キュレーション・ビジネスニュースレター — AI生成ではなく、専門家が厳選",
+    "hero.deliver1": "日刊キュレーション・ビジネスブリーフィング — AI生成ではなく、専門家が厳選",
     "hero.deliver2": "実行可能な提言付きエグゼクティブ業界レポート",
     "hero.deliver3": "クロスボーダー規制・サプライチェーンリスクアラート",
 
-    // 日刊エグゼクティブ・ニュースレター (Japanese)
+    // 日刊エグゼクティブ・ブリーフィング (Japanese)
     "signal.label": "WaLensの提供内容",
-    "signal.title": "日刊エグゼクティブ・ニュースレター",
+    "signal.title": "日刊エグゼクティブ・ブリーフィング",
     "signal.subtitle": "毎朝、WaLensはクロスボーダー経営に特化したキュレーション・ブリーフィングをお届けします。毎号の内容はこちら：",
     "signal.listTitle": "毎号に含まれる内容",
-    "signal.d1.title": "日刊ローカルビジネスニュースダイジェスト",
+    "signal.d1.title": "日刊ローカルビジネス・インテリジェンスダイジェスト",
     "signal.d1.desc": "タイ、ASEAN、グローバル市場の主要動向 — 量ではなく、経営判断への関連性で厳選。",
     "signal.d2.title": "クロスボーダー政策・規制インパクト",
     "signal.d2.desc": "新たな規制、税制変更、通商政策が事業運営に与える影響 — 報道ではなく解説。",
     "signal.d3.title": "サプライチェーン・地政学リスクアラート",
-    "signal.d3.desc": "ビジネスに影響し得る混乱の早期警告 — ニュースサイクルに先行して。",
+    "signal.d3.desc": "ビジネスに影響し得る混乱の早期警告 — 広く知られる前に。",
     "signal.d4.title": "エグゼクティブ・アクション提言",
     "signal.d4.desc": "取締役会に持ち込める実行可能な次のステップ — データの羅列ではなく。",
     "signal.d5.title": "プレミアム業界レポート（購読者向け）",
@@ -1296,11 +1208,11 @@ const translations: Record<Lang, Translations> = {
     "proof.impact": "エグゼクティブサマリー",
     "proof.readMore": "レポート全文を読む",
 
-    // Lead Magnet — Newsletter (Japanese)
-    "leadMagnet.badge": "日刊ニュースレター",
-    "leadMagnet.title": "エグゼクティブ・インテリジェンス・ニュースレター",
+    // Lead Magnet — Daily Executive Briefing (Japanese)
+    "leadMagnet.badge": "日刊ブリーフィング",
+    "leadMagnet.title": "日刊エグゼクティブ・ブリーフィング",
     "leadMagnet.description": "毎日お届けするキュレーション・ブリーフィング — クロスボーダー事業運営に重要な政策変動、リスクアラート、戦略的提言を厳選。",
-    "leadMagnet.formTitle": "無料日刊ニュースレターに登録",
+    "leadMagnet.formTitle": "無料の日刊エグゼクティブ・ブリーフィングに登録",
     "leadMagnet.emailPlaceholder": "業務用メールアドレス",
     "leadMagnet.cta": "無料で登録する",
     "leadMagnet.privacy": "プライバシーを尊重します。いつでも配信停止可能です。",
@@ -1385,16 +1297,16 @@ const translations: Record<Lang, Translations> = {
     "about.cta.button": "無料トライアルを開始",
 
     // Terms of Service (Japanese)
-    "terms.title": "利用規約 - WaLens Asia News",
-    "terms.metaDescription": "WaLens Asia News購読およびウェブサイト利用の利用規約",
+    "terms.title": "利用規約 - WaLens",
+    "terms.metaDescription": "WaLens購読およびウェブサイト利用の利用規約",
     "terms.hero.title": "利用規約",
     "terms.hero.subtitle": "サービスご利用前に利用規約をよくお読みください",
     
     "terms.section1.title": "1. はじめに",
-    "terms.section1.content": "本ウェブサイト WaLens Asia News をご利用いただくにあたり、本利用規約に同意いただく必要があります。ご利用前に必ずご確認ください。",
+    "terms.section1.content": "本ウェブサイト WaLens をご利用いただくにあたり、本利用規約に同意いただく必要があります。ご利用前に必ずご確認ください。",
     
     "terms.section2.title": "2. サービス内容",
-    "terms.section2.content": "WaLens Asia News は、タイおよび東南アジアで事業を展開する国際的なビジネスリーダーに向けて、ビジネスニュース、マーケットインサイト、分析レポート、ローカル知見を提供します。内容は契約プランにより異なります。",
+    "terms.section2.content": "WaLens は、タイおよび東南アジアで事業を展開する国際的なビジネスリーダーに向けて、マーケットインサイト、分析レポート、ローカル知見を提供します。内容は契約プランにより異なります。",
     
     "terms.section3.title": "3. サブスクリプションと料金",
     "terms.section3.trial": "ベーシックプランでは最初の30日間を無料でご利用いただけます（無料トライアル）。",
@@ -1410,7 +1322,7 @@ const translations: Record<Lang, Translations> = {
     "terms.section5.refunds": "返金は原則として行われません（法律で義務付けられている場合を除きます）。",
     
     "terms.section6.title": "6. コンテンツと知的財産権",
-    "terms.section6.ownership": "記事、インサイト、レポート、ビジュアル等のコンテンツはすべて WaLens Asia News に帰属します。",
+    "terms.section6.ownership": "記事、インサイト、レポート、ビジュアル等のコンテンツはすべて WaLens に帰属します。",
     "terms.section6.purpose": "提供する情報は一般的な情報提供を目的としたものであり、法的・財務的・投資上の助言を構成するものではありません。",
     
     "terms.section7.title": "7. プライバシーとデータ",
@@ -1525,7 +1437,7 @@ const translations: Record<Lang, Translations> = {
     "auth.success": "成功",
 
     // My Page (Japanese)
-    "mypage.title": "マイページ - WaLens Asia News",
+    "mypage.title": "マイページ - WaLens",
     "mypage.description": "アカウントとサブスクリプションの管理",
     "mypage.welcome": "マイページ",
     "mypage.signOut": "ログアウト",
@@ -1556,7 +1468,7 @@ const translations: Record<Lang, Translations> = {
     "cancellation.processing": "サブスクリプションを解約中...",
     "cancellation.processingMessage": "解約処理中です。少々お待ちください。",
     "cancellation.success.title": "サブスクリプション解約完了",
-    "cancellation.success.description": "サブスクリプションは正常に解約されました。WaLens Asia Newsをご利用いただきありがとうございました。",
+    "cancellation.success.description": "サブスクリプションは正常に解約されました。WaLensをご利用いただきありがとうございました。",
     "mypage.notProvided": "未設定",
     "mypage.noSubscription": "サブスクリプションなし",
     "mypage.activeSubscription": "有効",
@@ -1565,7 +1477,7 @@ const translations: Record<Lang, Translations> = {
     "mypage.basicPlan": "ベーシックプラン",
     "mypage.editProfile": "編集",
     "mypage.saveProfile": "保存",
-    "mypage.profileRemark": "より多くの情報を入力いただくと、より正確なニュースをお届けできます。",
+    "mypage.profileRemark": "より多くの情報を入力いただくと、より的確なインサイトをお届けできます。",
     "mypage.freeTrialUntil": "無料トライアル期限",
     "mypage.noReadingHistory": "閲覧履歴はまだありません",
     "mypage.readAt": "閲覧日時",
@@ -1644,7 +1556,6 @@ const translations: Record<Lang, Translations> = {
 
     // Header nav
     "nav.home": "หน้าแรก",
-    "nav.news": "ข่าว",
     "nav.insights": "อินไซต์",
     "nav.tips": "เคล็ดลับธุรกิจ",
     "nav.subscribe": "สมัครสมาชิก",
@@ -1661,27 +1572,15 @@ const translations: Record<Lang, Translations> = {
     "home.hero.cta": "เริ่มทดลองใช้ฟรี 1 เดือน",
 
     // Home sections
-    "home.featured": "ข่าวเด่น",
     "home.latest": "บทความล่าสุด",
     "home.insightHighlight.title": "สรุปอินไซต์แบบอินโฟกราฟิก",
     "home.insightHighlight.exampleTitle": "5 เทรนด์ที่ธุรกิจญี่ปุ่นควรรู้ในไทย (2025)",
 
-    // Newsletter
-    "home.newsletter.title": "รับอินไซต์รายสัปดาห์ในอีเมล — เดือนแรกฟรี",
-    "home.newsletter.cta": "สมัครรับข่าว",
-    "home.newsletter.placeholder": "อีเมลของคุณ",
 
     // About stealth
     "home.about.title": "เกี่ยวกับเรา (Stealth Mode)",
-    "home.about.text": "WaLens Asia News ดำเนินการโดยทีมบรรณาธิการ WaLens — เชื่อมวัฒนธรรมธุรกิจญี่ปุ่นและไทยด้วยข้อมูลที่เชื่อถือได้ ชัดเจน และนำไปใช้ได้จริง ไม่มีการแสดงโปรไฟล์ส่วนบุคคล",
 
-    // News Section
-    "newsSection.featuredStories": "เรื่องเด่น",
-    "newsSection.latestNews": "ข่าวล่าสุด",
 
-    // NewsCard
-    "newsCard.featured": "เด่น",
-    "newsCard.newsImageLabel": "ภาพข่าว",
 
     // Footer
     "footer.tagline": "แหล่งข่าวและอินไซต์เอเชียแปซิฟิกที่เชื่อถือได้ เชื่อมต่อชุมชนทั่วภูมิภาค",
@@ -1724,7 +1623,6 @@ const translations: Record<Lang, Translations> = {
     "contact.success": "ขอบคุณ! เราจะติดต่อกลับโดยเร็ว",
 
     // Pages
-    "news.title": "ข่าว - WaLens",
     "insights.title": "อินไซต์ - WaLens",
     "tips.title": "เคล็ดลับธุรกิจ - WaLens",
     "subscribe.title": "สมัครสมาชิก - WaLens",

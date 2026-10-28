@@ -47,7 +47,7 @@ const SearchResults = () => {
   const getTypeLabel = (type: SearchResult['type']) => {
     switch (type) {
       case 'article':
-        return lang === 'ja' ? 'ニュース記事' : 'News Article';
+        return lang === 'ja' ? '記事' : 'Article';
       case 'tip':
         return lang === 'ja' ? 'ビジネスチップ' : 'Business Tip';
       case 'insight':
@@ -77,8 +77,8 @@ const SearchResults = () => {
   return (
     <>
       <SEO
-        title={`${t('search.results')} "${query}" - HARMONY`}
-        description={`Search results for "${query}" on Harmony Asia News`}
+        title={`${t('search.results')} "${query}" - WaLens`}
+        description={`Search results for "${query}" on WaLens`}
         canonicalPath={`/search?q=${encodeURIComponent(query)}`}
       />
       <div className="min-h-screen bg-background">
