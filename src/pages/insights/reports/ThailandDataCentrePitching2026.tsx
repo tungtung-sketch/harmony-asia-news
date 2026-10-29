@@ -22,7 +22,7 @@ import { BookmarkButton } from '@/components/BookmarkButton';
 import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
-import heroImage from '@/assets/hero-thai-gov-policy.jpg';
+import heroImage from '@/assets/hero-data-centre-cooling.jpg';
 
 // JP translation drafted by Claude — Mon to review before marketing push
 
@@ -844,8 +844,9 @@ const ThailandDataCentrePitching2026 = () => {
 
         {/* Hero */}
         <section className="relative w-full h-[340px] md:h-[420px] flex items-end overflow-hidden">
-          <img src={heroImage} alt="Thai government policy — data centre competitive pitching analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
+          <img src={heroImage} alt="Data centre cooling fans and pipework — Thailand data centre competitive pitching analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10" />
+          <p className="absolute bottom-1.5 right-3 z-20 text-[10px] text-gray-400">Photo: Winston Chen / Unsplash</p>
           <div className="relative z-20 container mx-auto px-4 pb-10">
             <Badge variant="outline" className="mb-3 bg-blue-500/20 text-blue-200 border-blue-500/30">
               <Sparkles className="h-3 w-3 mr-1" />

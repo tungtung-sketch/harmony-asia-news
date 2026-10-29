@@ -8,7 +8,7 @@ import thaiChuayImage from '@/assets/thai-chuay-thai-anutin.jpg';
 import rulesOfOriginImage from '@/assets/intelligence-global-trade.jpg';
 import fdiH1Image from '@/assets/executive-analysis.jpg';
 import flood2026Image from '@/assets/hero-thai-gov-policy.jpg';
-import dataCentrePitchingImage from '@/assets/hero-energy-crisis-baht-strategy.jpg';
+import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
 
 interface InsightCard {
   signal: string;
@@ -159,10 +159,13 @@ const IntelligenceProof = () => {
             <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
               <img
                 src={dataCentrePitchingImage}
-                alt="Industrial skyline at dusk — Thailand data centre competitive pitching analysis for Japanese executives"
+                alt="Data centre cooling fans and pipework — Thailand data centre competitive pitching analysis for Japanese executives"
                 className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 loading="lazy"
               />
+              <p className="px-2 py-1.5 text-[10px] text-gray-400 leading-snug">
+                Photo: Winston Chen / Unsplash
+              </p>
             </div>
             <div className="flex-1 p-6 flex flex-col justify-between">
               <div>
