@@ -201,6 +201,16 @@ export const reportMetadata: Record<string, {
     titleEn: "Thailand's 2026 Floods: Strategic Implications for Japanese Executives",
     titleJa: 'タイ2026年洪水：在タイ日系企業への戦略的示唆',
     lastUpdated: '2026-10-15'
+  },
+  'thailand-data-centre-pitching-2026': {
+    industry: 'Investment',
+    industryJa: '投資',
+    description: 'Thailand moves new data centres to competitive pitching. 83 existing facilities grandfathered. Strategic implications for Japanese operators, suppliers and manufacturers.',
+    descriptionJa: 'タイが新規データセンターを競争選抜（ピッチング）制へ移行。既存83施設は保護。日系オペレーター・サプライヤー・メーカーへの戦略的示唆。',
+    link: '/insights/investment/thailand-data-centre-pitching-2026',
+    titleEn: 'Thailand Moves New Data Centres to Competitive Pitching',
+    titleJa: 'タイ、新規データセンターを「競争選抜（ピッチング）」へ',
+    lastUpdated: '2026-10-29'
   }
 };
 
