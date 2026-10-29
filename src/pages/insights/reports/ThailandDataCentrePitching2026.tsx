@@ -845,8 +845,11 @@ const ThailandDataCentrePitching2026 = () => {
         {/* Hero */}
         <section className="relative w-full h-[340px] md:h-[420px] flex items-end overflow-hidden">
           <img src={heroImage} alt="Data centre cooling fans and pipework — Thailand data centre competitive pitching analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10" />
-          <p className="absolute bottom-1.5 right-3 z-20 text-[10px] text-gray-400">Photo: Winston Chen / Unsplash</p>
+          {/* Photo is brighter than other heroes — extra left-side shading keeps the headline readable */}
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/20 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
+          <p className="absolute top-1.5 right-3 z-20 text-[10px] text-gray-400">Photo: Winston Chen / Unsplash</p>
           <div className="relative z-20 container mx-auto px-4 pb-10">
             <Badge variant="outline" className="mb-3 bg-blue-500/20 text-blue-200 border-blue-500/30">
               <Sparkles className="h-3 w-3 mr-1" />
