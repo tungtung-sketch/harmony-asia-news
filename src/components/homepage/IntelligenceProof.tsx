@@ -8,6 +8,7 @@ import thaiChuayImage from '@/assets/thai-chuay-thai-anutin.jpg';
 import rulesOfOriginImage from '@/assets/intelligence-global-trade.jpg';
 import fdiH1Image from '@/assets/executive-analysis.jpg';
 import flood2026Image from '@/assets/hero-thai-gov-policy.jpg';
+import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
 
 interface InsightCard {
   signal: string;
@@ -147,6 +148,53 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser — Thailand Data Centre Pitching 2026 */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/investment/thailand-data-centre-pitching-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={dataCentrePitchingImage}
+                alt="Data centre cooling fans and pipework — Thailand data centre competitive pitching analysis for Japanese executives"
+                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+              <p className="px-2 py-1.5 text-[10px] text-gray-400 leading-snug">
+                Photo: Winston Chen / Unsplash
+              </p>
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Policy &amp; Regulation</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Digital Infrastructure</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Energy</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイ、新規データセンターを「競争選抜（ピッチング）」へ：先着順の終わりと日系企業への戦略的含意'
+                    : 'Thailand Moves New Data Centres to Competitive Pitching: The End of First-Come-First-Served and Strategic Implications for Japanese Executives'}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? '100件超・約3,000MWの新規案件が、タイ人雇用・国内サプライチェーン・グリーン電力で競う時代へ。既存83施設は保護されるが、EECでは送電網と水の争奪が始まった。PEAが受け入れられる初期段階のDC案件はわずか16件——11月3日の閣議を前に、日系オペレーター・サプライヤー・製造業が今すぐ動くべき理由を解説する。'
+                    : 'More than 100 proposals (~3,000 MW) must now compete on Thai jobs, local supply chains and green power. The 83 existing sites are grandfathered, but the fight for EEC grid and water has begun — PEA can take only 16 early-phase projects. What Japanese operators, suppliers and manufacturers must do before the 3 November Cabinet review.'}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Featured report teaser — Thailand Flood 2026 */}
