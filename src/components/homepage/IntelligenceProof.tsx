@@ -9,6 +9,7 @@ import rulesOfOriginImage from '@/assets/intelligence-global-trade.jpg';
 import fdiH1Image from '@/assets/executive-analysis.jpg';
 import flood2026Image from '@/assets/hero-thai-gov-policy.jpg';
 import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
+import preparedness72hImage from '@/assets/hero-72-hour-preparedness.jpg';
 
 interface InsightCard {
   signal: string;
@@ -148,6 +149,53 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser — Thailand 72-Hour Preparedness 2026 */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/economic-policy/thailand-72-hour-preparedness-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={preparedness72hImage}
+                alt="Store aisle stocked with canned food and packaged goods — Thailand 72-hour preparedness analysis for Japanese executives"
+                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+              <p className="px-2 py-1.5 text-[10px] text-gray-400 leading-snug">
+                Photo: Valeriano Escobar / Unsplash
+              </p>
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Economic Policy</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Consumer Markets</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Cyber &amp; BCP</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイの「72時間パニック」：サイバー攻撃ではなく「備え」の騒動 ― 在タイ日系企業への示唆'
+                    : 'Thailand\'s "72-Hour Panic": A Preparedness Scare, Not a Cyberattack — What It Means for Japanese Business in Thailand'}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? 'NSCは備蓄指示を否定し、大手小売の販売は平常——それでも店頭には655〜1,086バーツの非常用バスケットが並ぶ。パニックではなく新しい売り場カテゴリーの誕生であり、同時に「決済・電力・通信が72時間止まる」事態への備えを日系企業に突きつけている。今月中に実施すべきBCP演習を解説する。'
+                    : 'The NSC denied any stockpiling order and major retailers report normal sales — yet 655–1,086-baht emergency baskets now line Thai shelves. This is a new retail category, not panic, and a warning for every Japanese site: plan for a 72-hour loss of payments, power and connectivity. The BCP drill to run this month.'}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Featured report teaser — Thailand Data Centre Pitching 2026 */}
