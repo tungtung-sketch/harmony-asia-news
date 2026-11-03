@@ -23,6 +23,7 @@ import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistor
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
 import heroImage from '@/assets/hero-72-hour-preparedness.jpg';
+import storeBasketsImage from '@/assets/report-72-hour-baskets-store.jpg';
 
 // JP translation drafted by Claude — Mon to review before marketing push
 
@@ -155,6 +156,16 @@ const Thailand72HourPreparedness2026 = () => {
           { title: '需要の証拠は逸話にとどまるが、比較可能な海外データは存在する。', content: '英国では「Be Ready」再開後、BBC NewsnightとThe Guardianが、Icelandで缶詰の売上が40%増、Maplinで懐中電灯の売上が284%増と報じた。タイには同等の販売データはまだない。' },
           { title: '日本もこの物語の一部である。', content: 'タイの日本語メディア（Newsclip、11月3日）は、日本の防災庁発足と細野豪志大臣による緊急の備蓄要請がきっかけになった可能性を指摘している。「日本が11月2日の地震を予言した」という噂もタイのSNSで拡散した。タイ人の知人が在留日本人に、日本は何を「知っている」のかと尋ねる場面も見られる。' },
         ]
+      },
+      storePhoto: {
+        alt: {
+          en: 'Pre-packed emergency baskets priced 1,086, 1,075, 755 and 736 baht at a Thai supermarket, next to a DDPM 72-hour emergency bag sign',
+          ja: 'タイのスーパーで販売される1,086、1,075、755、736バーツの非常用バスケットと、DDPMの72時間非常持出袋の掲示'
+        },
+        caption: {
+          en: 'Emergency baskets on sale at a Thai supermarket — 1,086, 1,075, 755 and 736 baht — with MAMA noodles, canned luncheon meat, water, snacks, wet wipes, a flashlight and batteries, next to DDPM\'s 72-hour "emergency bag" sign. Photo: WaLens (store staff blurred for privacy).',
+          ja: 'タイのスーパーで販売される非常用バスケット（1,086、1,075、755、736バーツ）。MAMAの麺、ランチョンミートの缶詰、水、菓子、ウェットティッシュ、懐中電灯・電池が入り、横にDDPMの72時間「非常持出袋」の掲示がある。写真：WaLens（店員はプライバシー保護のためぼかし処理）。'
+        }
       },
       advice: {
         title: { en: 'What the government actually advised (DDPM, 2 November)', ja: '政府が実際に推奨した内容（DDPM、11月2日）' },
@@ -922,6 +933,18 @@ const Thailand72HourPreparedness2026 = () => {
                 </ol>
               </CardContent>
             </Card>
+
+            <figure className="mb-6 max-w-xl mx-auto">
+              <img
+                src={storeBasketsImage}
+                alt={content.overview.storePhoto.alt[L]}
+                className="w-full h-auto rounded-xl border border-border/60"
+                loading="lazy"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2 leading-relaxed" style={cellStyle}>
+                {content.overview.storePhoto.caption[L]}
+              </figcaption>
+            </figure>
 
             <Card className="mb-6 border-l-4 border-l-blue-500/50">
               <CardHeader className="pb-2">
