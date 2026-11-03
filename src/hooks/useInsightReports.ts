@@ -211,6 +211,16 @@ export const reportMetadata: Record<string, {
     titleEn: 'Thailand Moves New Data Centres to Competitive Pitching',
     titleJa: 'タイ、新規データセンターを「競争選抜（ピッチング）」へ',
     lastUpdated: '2026-10-29'
+  },
+  'thailand-72-hour-preparedness-2026': {
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
+    description: "No cyberattack hit Thailand's grid, banks or PromptPay — the 72-hour stockpiling wave is a misinformation-amplified preparedness scare that created a new retail category. What Japanese FMCG, retail and every Thai site's BCP should do now.",
+    descriptionJa: 'タイの電力網・銀行・PromptPayへのサイバー攻撃は起きていない。「72時間備蓄」騒動は誤情報が増幅した備えの波であり、新たな売り場カテゴリーを生んだ。日系の食品・小売企業と全拠点のBCPが今すべきこと。',
+    link: '/insights/economic-policy/thailand-72-hour-preparedness-2026',
+    titleEn: "Thailand's 72-Hour Preparedness Scare: Implications for Japanese Business",
+    titleJa: 'タイ「72時間備蓄」騒動：在タイ日系企業への示唆',
+    lastUpdated: '2026-11-03'
   }
 };
 
