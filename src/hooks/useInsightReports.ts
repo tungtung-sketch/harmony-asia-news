@@ -221,6 +221,16 @@ export const reportMetadata: Record<string, {
     titleEn: "Thailand's 72-Hour Preparedness Scare: Implications for Japanese Business",
     titleJa: 'タイ「72時間備蓄」騒動：在タイ日系企業への示唆',
     lastUpdated: '2026-11-03'
+  },
+  'thailand-auto-hub-japan-mission-2026': {
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
+    description: 'Thailand raises excise on imported EVs to 35% from 2027 and drafts a Made-in-Thailand parts test. Japanese brands lost 30+ points of share since 2021 — what OEMs and suppliers must lock in at the 18–20 Nov Tokyo mission.',
+    descriptionJa: 'タイは2027年から輸入EVの物品税を35%に引き上げ、「メイド・イン・タイランド」部品基準を策定中。2021年以降シェアを30ポイント超失った日系勢が、11月18〜20日の訪日ミッションで確保すべきこと。',
+    link: '/insights/economic-policy/thailand-auto-hub-japan-mission-2026',
+    titleEn: "Thailand's Auto Hub at a Crossroads: What Japanese Executives Should Know Before the Tokyo Mission",
+    titleJa: 'タイ自動車ハブの分岐点：日本ミッション前に日系企業が押さえるべき論点',
+    lastUpdated: '2026-11-14'
   }
 };
 
