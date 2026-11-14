@@ -10,6 +10,7 @@ import fdiH1Image from '@/assets/executive-analysis.jpg';
 import flood2026Image from '@/assets/hero-thai-gov-policy.jpg';
 import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
 import preparedness72hImage from '@/assets/hero-72-hour-preparedness.jpg';
+import autoHubImage from '@/assets/hero-sea-automotive-aftermarket.jpg';
 
 interface InsightCard {
   signal: string;
@@ -149,6 +150,50 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser — Thailand Auto Hub / Japan Mission 2026 */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/economic-policy/thailand-auto-hub-japan-mission-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={autoHubImage}
+                alt="Rows of finished cars on a factory line with a map of Southeast Asia — Thailand auto hub analysis for Japanese executives"
+                className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Economic Policy</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Automotive</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">EV Tax</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイ自動車ハブの分岐点：日本ミッション前に日系企業が押さえるべき論点'
+                    : "Thailand's Auto Hub at a Crossroads: What Japanese Executives Should Know Before the Tokyo Mission"}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? '2027年1月1日から完成車輸入EVの物品税は10%から35%へ。日系ブランドのシェアは2021年の86.6%から55.8%に低下した。次の税率区分を決めるのは国籍ではなく、策定中の「メイド・イン・タイランド」部品基準である。11月18〜20日の訪日ミッションで日系自動車メーカーとサプライヤーが確保すべき論点を解説する。'
+                    : "Thailand's excise on fully imported EVs jumps from 10% to 35% on 1 January 2027, and Japanese brands' share has fallen from 86.6% to 55.8% since 2021. The next tax tier will be decided not by nationality but by a Made-in-Thailand parts test still being written. What OEMs and suppliers must lock in at the 18–20 November Tokyo mission."}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Featured report teaser — Thailand 72-Hour Preparedness 2026 */}
