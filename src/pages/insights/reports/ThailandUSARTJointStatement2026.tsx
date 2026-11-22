@@ -21,7 +21,7 @@ import { BookmarkButton } from '@/components/BookmarkButton';
 import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
-import heroImage from '@/assets/intelligence-global-trade.jpg';
+import heroImage from '@/assets/hero-bkk-tokyo.webp';
 
 // JP translation drafted by Claude — to be reviewed before marketing push
 
@@ -717,7 +717,7 @@ const ThailandUSARTJointStatement2026 = () => {
 
         {/* Hero */}
         <section className="relative w-full min-h-[380px] md:min-h-[460px] flex items-end overflow-hidden">
-          <img src={heroImage} alt="Container port and cargo ship at dusk with trade data overlays — Thailand–US trade analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
+          <img src={heroImage} alt="City skyline at dusk — Thailand–US trade analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
           <div className="absolute inset-0 bg-black/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10" />

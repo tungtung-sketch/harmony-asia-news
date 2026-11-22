@@ -11,6 +11,7 @@ import flood2026Image from '@/assets/hero-thai-gov-policy.jpg';
 import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
 import preparedness72hImage from '@/assets/hero-72-hour-preparedness.jpg';
 import autoHubImage from '@/assets/hero-sea-automotive-aftermarket.jpg';
+import usArtImage from '@/assets/hero-bkk-tokyo.webp';
 
 interface InsightCard {
   signal: string;
@@ -160,9 +161,9 @@ const IntelligenceProof = () => {
           >
             <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
               <img
-                src={rulesOfOriginImage}
-                alt="Container port and cargo ship at dusk with trade data overlays — Thailand–US trade analysis for Japanese executives"
-                className="w-full h-full max-h-80 object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                src={usArtImage}
+                alt="City skyline at dusk — Thailand–US trade analysis for Japanese executives"
+                className="w-full h-56 md:h-full md:flex-1 object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 loading="lazy"
               />
             </div>
