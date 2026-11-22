@@ -152,6 +152,50 @@ const IntelligenceProof = () => {
           ))}
         </div>
 
+        {/* Featured report teaser — Thailand–US ART Joint Statement 2026 */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/trade/thailand-us-art-joint-statement-2026"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={rulesOfOriginImage}
+                alt="Container port and cargo ship at dusk with trade data overlays — Thailand–US trade analysis for Japanese executives"
+                className="w-full h-full max-h-80 object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Trade</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">US Tariffs</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Rules of Origin</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイ・米国ART共同声明：関税引き下げではなく「シグナル」——最終条文が出る前に日系メーカーが打つべき手'
+                    : 'Thailand–US ART Joint Statement: A Signal, Not a Tariff Cut — What Japanese Manufacturers Should Do Before the Final Text Lands'}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? '11月17日の共同声明は交渉の実質的な妥結を確認したにすぎず、タイ製品への追加関税は12.5%のままで、マレーシア・インドネシアの10%より2.5ポイント高い。原産地規則は未確認で、タイと日本を対象とする過剰生産能力の決定は2027年3月11日が期限である。最終条文が出る前に在タイ日系メーカーが固めるべき点を解説する。'
+                    : 'The 17 November joint statement confirms the talks are concluded in substance, but Thai goods still pay 12.5%, 2.5 points above Malaysia and Indonesia. Origin rules are unconfirmed, and an excess-capacity ruling covering Thailand and Japan is due by 11 March 2027. What Japanese manufacturers should lock in before the final text lands.'}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        </div>
+
         {/* Featured report teaser — Thailand Auto Hub / Japan Mission 2026 */}
         <div className="max-w-6xl mx-auto mt-8">
           <Link
