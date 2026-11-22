@@ -231,6 +231,16 @@ export const reportMetadata: Record<string, {
     titleEn: "Thailand's Auto Hub at a Crossroads: What Japanese Executives Should Know Before the Tokyo Mission",
     titleJa: 'タイ自動車ハブの分岐点：日本ミッション前に日系企業が押さえるべき論点',
     lastUpdated: '2026-11-14'
+  },
+  'thailand-us-art-joint-statement-2026': {
+    industry: 'Trade',
+    industryJa: '貿易',
+    description: 'Thailand and the US signed an ART joint statement on 17 November 2026, but Thai goods still pay 12.5% and origin rules are unconfirmed. What Japanese manufacturers in Thailand should lock in before the final text and the 11 March 2027 excess-capacity ruling.',
+    descriptionJa: 'タイと米国は2026年11月17日にART共同声明に署名したが、タイ製品への追加関税は12.5%のままで原産地規則も未確認。最終条文と2027年3月11日の過剰生産能力決定の前に、在タイ日系メーカーが固めるべき点を解説。',
+    link: '/insights/trade/thailand-us-art-joint-statement-2026',
+    titleEn: 'Thailand–US ART Joint Statement: A Signal, Not a Tariff Cut — What Japanese Manufacturers Should Do Before the Final Text Lands',
+    titleJa: 'タイ・米国ART共同声明：関税引き下げではなく「シグナル」——最終条文が出る前に日系メーカーが打つべき手',
+    lastUpdated: '2026-11-20'
   }
 };
 
