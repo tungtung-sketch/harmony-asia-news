@@ -12,6 +12,7 @@ import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
 import preparedness72hImage from '@/assets/hero-72-hour-preparedness.jpg';
 import autoHubImage from '@/assets/hero-sea-automotive-aftermarket.jpg';
 import usArtImage from '@/assets/hero-bkk-tokyo.webp';
+import pdp2026Image from '@/assets/hero-energy-crisis-baht-strategy.jpg';
 
 interface InsightCard {
   signal: string;
@@ -151,6 +152,50 @@ const IntelligenceProof = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Featured report teaser — Thailand PDP2026 Power Plan */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <Link
+            to="/insights/economic-policy/thailand-pdp2026-power-plan"
+            className="group flex flex-col md:flex-row bg-card border border-border/60 rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
+              <img
+                src={pdp2026Image}
+                alt="Silhouetted executives overlooking an industrial city at dusk — Thailand PDP2026 power plan analysis for Japanese executives"
+                className="w-full h-56 md:h-full md:flex-1 object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Economic Policy</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Energy</Badge>
+                  <Badge variant="secondary" className="text-xs font-medium bg-primary/5 text-primary border-0">Power Tariffs</Badge>
+                  <Badge className="text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-0">
+                    <Crown className="h-3 w-3 mr-1" />
+                    Premium
+                  </Badge>
+                </div>
+                <h3 className={`font-bold text-foreground leading-snug mb-3 ${lang === 'ja' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+                  {lang === 'ja'
+                    ? 'タイPDP2026（電力開発計画2026–2050）正式承認目前：何が決まり、誰が主導するのか'
+                    : "Thailand's PDP2026 Before Formal Approval: What Will Be in It, and Who the Key Players Are"}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {lang === 'ja'
+                    ? 'PDP2026はまだ草案だが、2037年までの新設約50,900MW（太陽光24,300MW、BESS 14,500MW、ガス火力9,100MW）は全シナリオ共通である。日系製造業にとって目先の痛みは、2027年1–4月の事業用電気料金4.73バーツ案（一律なら5.02バーツ案）。キープレーヤー、ガス火力論争、Direct PPAへの備えを解説する。'
+                    : 'PDP2026 is still a draft, but the ~50,900 MW to be built by 2037 (24,300 MW solar, 14,500 MW BESS, 9,100 MW gas) is the same in every scenario. For Japanese manufacturers, the nearer pain is the proposed 4.73-baht business tariff for January–April 2027 (5.02 baht if flat). The key players, the gas debate and how to prepare for Direct PPA.'}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                {lang === 'ja' ? 'フルレポートを読む' : 'Read Full Report'}
+                <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Featured report teaser — Thailand–US ART Joint Statement 2026 */}
