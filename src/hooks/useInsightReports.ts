@@ -241,6 +241,16 @@ export const reportMetadata: Record<string, {
     titleEn: 'Thailand–US ART Joint Statement: A Signal, Not a Tariff Cut — What Japanese Manufacturers Should Do Before the Final Text Lands',
     titleJa: 'タイ・米国ART共同声明：関税引き下げではなく「シグナル」——最終条文が出る前に日系メーカーが打つべき手',
     lastUpdated: '2026-11-20'
+  },
+  'thailand-pdp2026-power-plan': {
+    industry: 'Economic Policy',
+    industryJa: '経済政策',
+    description: "Thailand's PDP2026 awaits NEPC approval, but the ~50,900 MW first phase is fixed across all options. Who decides, who builds, the 9,100 MW gas debate, Direct PPA and the 2027 two-tier tariff — what Japanese power, fuel and manufacturing firms should do now.",
+    descriptionJa: 'タイPDP2026はNEPC承認待ちだが、第1期約50,900MWは全選択肢共通。決定権者と事業者、9,100MWガス火力論争、Direct PPA、2027年の二層料金——日系の電力・燃料・製造業が今すべきこと。',
+    link: '/insights/economic-policy/thailand-pdp2026-power-plan',
+    titleEn: "Thailand's PDP2026 Before Formal Approval: What Will Be in It, and Who the Key Players Are",
+    titleJa: 'タイPDP2026（電力開発計画2026–2050）正式承認目前：何が決まり、誰が主導するのか',
+    lastUpdated: '2026-11-24'
   }
 };
 
