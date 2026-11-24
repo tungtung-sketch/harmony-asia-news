@@ -21,7 +21,7 @@ import { BookmarkButton } from '@/components/BookmarkButton';
 import { useInsightReadingHistoryTracker } from '@/hooks/useInsightReadingHistoryTracker';
 import { FloatingNavButton } from '@/components/insights/FloatingNavButton';
 import { FurtherInquiryNotice } from '@/components/insights/FurtherInquiryNotice';
-import heroImage from '@/assets/hero-energy-crisis-baht-strategy.jpg';
+import heroImage from '@/assets/hero-oil-crisis-thai.jpg';
 
 // JP text is the report's original; EN translation drafted by Claude — to be reviewed before marketing push
 
@@ -907,10 +907,10 @@ const ThailandPDP2026PowerPlan = () => {
 
         {/* Hero */}
         <section className="relative w-full min-h-[380px] md:min-h-[460px] flex items-end overflow-hidden">
-          <img src={heroImage} alt="Silhouetted executives overlooking an industrial city at dusk — Thailand PDP2026 power plan analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10" />
+          <img src={heroImage} alt="Power-plant chimneys, LNG tankers and solar panels at sunset — Thailand PDP2026 power plan analysis for Japanese executives" className="absolute inset-0 w-full h-full object-cover z-0" />
+          {/* Lighter shading than other reports so the power-plant photo stays visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/10 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
           <div className="relative z-20 container mx-auto px-4 pt-16 pb-10">
             <Badge variant="outline" className="mb-3 bg-blue-500/20 text-blue-200 border-blue-500/30">
               <Sparkles className="h-3 w-3 mr-1" />

@@ -12,7 +12,7 @@ import dataCentrePitchingImage from '@/assets/hero-data-centre-cooling.jpg';
 import preparedness72hImage from '@/assets/hero-72-hour-preparedness.jpg';
 import autoHubImage from '@/assets/hero-sea-automotive-aftermarket.jpg';
 import usArtImage from '@/assets/hero-bkk-tokyo.webp';
-import pdp2026Image from '@/assets/hero-energy-crisis-baht-strategy.jpg';
+import pdp2026Image from '@/assets/hero-oil-crisis-thai.jpg';
 
 interface InsightCard {
   signal: string;
@@ -163,7 +163,7 @@ const IntelligenceProof = () => {
             <div className="md:w-2/5 flex-shrink-0 flex flex-col bg-black/90">
               <img
                 src={pdp2026Image}
-                alt="Silhouetted executives overlooking an industrial city at dusk — Thailand PDP2026 power plan analysis for Japanese executives"
+                alt="Power-plant chimneys, LNG tankers and solar panels at sunset — Thailand PDP2026 power plan analysis for Japanese executives"
                 className="w-full h-56 md:h-full md:flex-1 object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 loading="lazy"
               />
