@@ -212,6 +212,16 @@ export const reportMetadata: Record<string, {
     titleJa: 'タイ、新規データセンターを「競争選抜（ピッチング）」へ',
     lastUpdated: '2026-10-29'
   },
+  'thailand-nvidia-server-halt-2026': {
+    industry: 'Investment',
+    industryJa: '投資',
+    description: 'A US licensing rule took effect 19 Nov 2026 and Nvidia reportedly paused server shipments to Thailand. What is confirmed, what is not, and what Japanese investors, lenders and suppliers should do now.',
+    descriptionJa: '米国のライセンス規則が2026年11月19日に発効し、エヌビディアがタイ向けサーバー出荷を停止したと報じられた。確認された事実と未確認の事項、日系の投資家・金融機関・サプライヤーが今すべき対応を整理する。',
+    link: '/insights/investment/thailand-nvidia-server-halt-2026',
+    titleEn: "Nvidia's Thailand Server Shipment Halt: What It Means for Thailand's Data-Centre Investment",
+    titleJa: 'エヌビディアのタイ向けサーバー出荷停止：データセンター投資は「中止」ではなく「選別と遅延」へ',
+    lastUpdated: '2026-11-27'
+  },
   'thailand-72-hour-preparedness-2026': {
     industry: 'Economic Policy',
     industryJa: '経済政策',
